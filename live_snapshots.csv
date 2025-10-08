@@ -1,0 +1,878 @@
+timestamp,fixture_id,elapsed,home_team,away_team,home_goals,away_goals,league,B365H,B365D,B365A,home_yellow_cards,away_yellow_cards,home_red_cards,away_red_cards,last_event_type,last_event_team,last_event_minute
+2025-05-20 15:42:40,1374558,38,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0,0,0,0,0,,,
+2025-05-20 15:45:40,1374558,41,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 15:55:40,1374558,45,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 16:05:41,1275550,4,Rutsiro,Marines,0,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 16:05:41,1341383,4,Sioni,Rustavi,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:05:42,1375142,3,Reyady Abaseya,Bourj,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 16:05:42,1374558,45,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 16:15:43,1275550,14,Rutsiro,Marines,0,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 16:15:43,1341379,10,Spaeri,Merani Martvili,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:15:43,1341380,10,Gonio,Saburtalo II,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:15:43,1341383,14,Sioni,Rustavi,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:15:43,1374568,7,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,2.05,3.2,3.4
+2025-05-20 16:15:44,1375142,13,Reyady Abaseya,Bourj,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 16:15:44,1374558,51,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 16:25:45,1275550,24,Rutsiro,Marines,0,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 16:25:45,1341379,20,Spaeri,Merani Martvili,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:25:45,1341380,20,Gonio,Saburtalo II,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:25:46,1341383,24,Sioni,Rustavi,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:25:46,1366811,35,Jazeera,Dekedaha,0,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 16:25:46,1374568,18,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,2.05,3.2,3.4
+2025-05-20 16:25:46,1375142,23,Reyady Abaseya,Bourj,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 16:25:47,1374558,61,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 16:35:47,1275550,34,Rutsiro,Marines,0,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 16:35:48,1341379,30,Spaeri,Merani Martvili,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:35:48,1341380,30,Gonio,Saburtalo II,0,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:35:48,1341383,34,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:35:48,1366811,45,Jazeera,Dekedaha,0,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 16:35:49,1374568,28,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,2.05,3.2,3.4
+2025-05-20 16:35:49,1375142,34,Reyady Abaseya,Bourj,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 16:35:49,1374558,71,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 16:45:50,1275550,44,Rutsiro,Marines,1,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 16:45:50,1341379,40,Spaeri,Merani Martvili,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:45:50,1341380,40,Gonio,Saburtalo II,0,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:45:51,1341383,44,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:45:51,1374568,38,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,2.05,3.2,3.4
+2025-05-20 16:45:51,1375142,44,Reyady Abaseya,Bourj,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 16:45:51,1374558,81,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 16:45:51,1366811,45,Jazeera,Dekedaha,0,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 16:55:52,1374568,45,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,2.05,3.2,3.4
+2025-05-20 16:55:52,1374558,90,Pyunik II,Banants II,0,0,First League,3.0,3.0,3.0
+2025-05-20 16:55:53,1275550,45,Rutsiro,Marines,2,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 16:55:53,1341379,45,Spaeri,Merani Martvili,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:55:53,1341380,45,Gonio,Saburtalo II,0,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:55:53,1341383,45,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 16:55:54,1366811,45,Jazeera,Dekedaha,0,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 16:55:54,1375142,45,Reyady Abaseya,Bourj,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 17:05:55,1374568,1,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,2.05,3.2,3.4
+2025-05-20 17:05:55,1375835,5,Torreense U23,Gil Vicente U23,0,0,Taça Revelação U23,1.95,3.4,3.3
+2025-05-20 17:05:55,1341383,47,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:05:55,1366811,55,Jazeera,Dekedaha,1,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 17:05:56,1275550,45,Rutsiro,Marines,2,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 17:05:56,1341379,45,Spaeri,Merani Martvili,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:05:56,1341380,45,Gonio,Saburtalo II,0,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:05:56,1375142,45,Reyady Abaseya,Bourj,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 17:15:57,1374568,11,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 17:15:57,1374808,6,Al-Wasl FC,Baniyas SC,0,0,Pro League,1.25,5.75,7.5
+2025-05-20 17:15:58,1375835,15,Torreense U23,Gil Vicente U23,0,0,Taça Revelação U23,1.95,3.4,3.3
+2025-05-20 17:15:58,1341379,50,Spaeri,Merani Martvili,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:15:59,1341380,52,Gonio,Saburtalo II,0,2,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:15:59,1341383,57,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:15:59,1366811,65,Jazeera,Dekedaha,1,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 17:15:59,1375142,54,Reyady Abaseya,Bourj,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 17:16:00,1275550,45,Rutsiro,Marines,2,0,National Soccer League,3.0,3.0,3.0
+2025-05-20 17:26:00,1374568,21,Parma U19,Frosinone U19,0,0,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 17:26:00,1374808,16,Al-Wasl FC,Baniyas SC,1,0,Pro League,1.25,5.75,7.5
+2025-05-20 17:26:01,1375835,25,Torreense U23,Gil Vicente U23,0,0,Taça Revelação U23,1.95,3.4,3.3
+2025-05-20 17:26:01,1275550,66,Rutsiro,Marines,2,1,National Soccer League,3.0,3.0,3.0
+2025-05-20 17:26:01,1341379,60,Spaeri,Merani Martvili,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:26:01,1341380,62,Gonio,Saburtalo II,0,2,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:26:02,1341383,67,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:26:02,1366811,75,Jazeera,Dekedaha,1,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 17:26:02,1375142,65,Reyady Abaseya,Bourj,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 17:36:03,1374568,31,Parma U19,Frosinone U19,0,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 17:36:03,1374808,26,Al-Wasl FC,Baniyas SC,1,0,Pro League,1.25,5.75,7.5
+2025-05-20 17:36:03,1375835,35,Torreense U23,Gil Vicente U23,0,0,Taça Revelação U23,1.95,3.4,3.3
+2025-05-20 17:36:04,1275550,76,Rutsiro,Marines,2,1,National Soccer League,3.0,3.0,3.0
+2025-05-20 17:36:04,1341379,70,Spaeri,Merani Martvili,2,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:36:04,1341380,72,Gonio,Saburtalo II,0,2,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:36:04,1341383,77,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:36:05,1366811,85,Jazeera,Dekedaha,2,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 17:36:05,1375142,75,Reyady Abaseya,Bourj,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 17:46:06,1374568,41,Parma U19,Frosinone U19,0,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 17:46:06,1374808,36,Al-Wasl FC,Baniyas SC,1,0,Pro League,1.25,5.75,7.5
+2025-05-20 17:46:06,1375835,45,Torreense U23,Gil Vicente U23,0,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 17:46:07,1275550,85,Rutsiro,Marines,3,3,National Soccer League,3.0,3.0,3.0
+2025-05-20 17:46:07,1341379,80,Spaeri,Merani Martvili,2,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:46:07,1341380,82,Gonio,Saburtalo II,0,3,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:46:07,1341383,87,Sioni,Rustavi,1,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:46:08,1366811,90,Jazeera,Dekedaha,2,3,Somali Premier League,3.0,3.0,3.0
+2025-05-20 17:46:08,1375142,84,Reyady Abaseya,Bourj,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 17:56:09,1372640,9,Hebar 1918,Botev Vratsa,0,0,First League,7.5,4.75,1.38
+2025-05-20 17:56:09,1374808,45,Al-Wasl FC,Baniyas SC,1,0,Pro League,1.25,5.75,7.5
+2025-05-20 17:56:09,1275550,90,Rutsiro,Marines,3,3,National Soccer League,3.0,3.0,3.0
+2025-05-20 17:56:10,1341379,90,Spaeri,Merani Martvili,2,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:56:10,1341380,90,Gonio,Saburtalo II,0,4,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 17:56:10,1375142,90,Reyady Abaseya,Bourj,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 17:56:10,1374568,45,Parma U19,Frosinone U19,0,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 17:56:10,1375835,45,Torreense U23,Gil Vicente U23,0,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 18:06:11,1207929,4,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 18:06:12,1307381,2,JS Saoura U21,MC Alger U21,0,0,U21 League 1,3.0,3.0,3.0
+2025-05-20 18:06:12,1341215,3,Dila,Samgurali,0,0,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 18:06:12,1341381,1,Lokomotivi Tbilisi,Samtredia,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:06:12,1341382,1,Dinamo Tbilisi II,Meshakhte,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:06:13,1342751,6,HJK helsinki,SJK,0,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 18:06:13,1350388,6,Auda,BFC Daugavpils,0,0,Virsliga,1.25,5.25,7.5
+2025-05-20 18:06:13,1356880,5,Naftan,Neman,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 18:06:14,1372640,19,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 18:06:14,1375305,7,Al Hudod,Al Zawra'a,0,0,Iraqi League,3.0,3.0,3.0
+2025-05-20 18:06:14,1375835,47,Torreense U23,Gil Vicente U23,0,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 18:06:14,1374568,45,Parma U19,Frosinone U19,0,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 18:06:15,1374808,45,Al-Wasl FC,Baniyas SC,1,0,Pro League,1.25,5.75,7.5
+2025-05-20 18:16:16,1207929,14,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 18:16:16,1307381,13,JS Saoura U21,MC Alger U21,1,1,U21 League 1,3.0,3.0,3.0
+2025-05-20 18:16:16,1341215,14,Dila,Samgurali,0,1,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 18:16:16,1341381,11,Lokomotivi Tbilisi,Samtredia,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:16:16,1341382,11,Dinamo Tbilisi II,Meshakhte,0,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:16:17,1342751,16,HJK helsinki,SJK,2,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 18:16:17,1350388,16,Auda,BFC Daugavpils,0,0,Virsliga,1.25,5.25,7.5
+2025-05-20 18:16:17,1356880,15,Naftan,Neman,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 18:16:18,1372640,29,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 18:16:18,1375003,7,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:16:18,1375004,8,Khaleej Sart,Al-Ansar,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:16:18,1375304,16,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 18:16:19,1375305,17,Al Hudod,Al Zawra'a,0,0,Iraqi League,3.0,3.0,3.0
+2025-05-20 18:16:19,1374568,54,Parma U19,Frosinone U19,0,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 18:16:19,1375835,57,Torreense U23,Gil Vicente U23,0,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 18:16:19,1374808,45,Al-Wasl FC,Baniyas SC,1,0,Pro League,1.25,5.75,7.5
+2025-05-20 18:26:20,1207929,24,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 18:26:21,1307381,23,JS Saoura U21,MC Alger U21,1,1,U21 League 1,3.0,3.0,3.0
+2025-05-20 18:26:21,1341215,24,Dila,Samgurali,0,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 18:26:21,1341381,21,Lokomotivi Tbilisi,Samtredia,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:26:22,1341382,21,Dinamo Tbilisi II,Meshakhte,0,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:26:22,1342751,26,HJK helsinki,SJK,2,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 18:26:22,1350388,26,Auda,BFC Daugavpils,0,0,Virsliga,1.25,5.25,7.5
+2025-05-20 18:26:22,1356880,25,Naftan,Neman,0,2,Premier League,3.0,3.0,3.0
+2025-05-20 18:26:23,1372640,39,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 18:26:23,1375003,17,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:26:23,1375004,18,Khaleej Sart,Al-Ansar,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:26:23,1375304,26,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 18:26:24,1375305,27,Al Hudod,Al Zawra'a,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 18:26:24,1374568,64,Parma U19,Frosinone U19,0,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 18:26:24,1374808,52,Al-Wasl FC,Baniyas SC,2,0,Pro League,1.25,5.75,7.5
+2025-05-20 18:26:24,1375835,68,Torreense U23,Gil Vicente U23,1,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 18:36:25,1207929,34,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 18:36:25,1307381,33,JS Saoura U21,MC Alger U21,1,2,U21 League 1,3.0,3.0,3.0
+2025-05-20 18:36:25,1341215,34,Dila,Samgurali,0,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 18:36:26,1341381,32,Lokomotivi Tbilisi,Samtredia,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:36:26,1341382,32,Dinamo Tbilisi II,Meshakhte,0,3,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:36:26,1342751,36,HJK helsinki,SJK,3,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 18:36:27,1350388,36,Auda,BFC Daugavpils,0,0,Virsliga,1.25,5.25,7.5
+2025-05-20 18:36:27,1356880,35,Naftan,Neman,0,3,Premier League,3.0,3.0,3.0
+2025-05-20 18:36:27,1375003,27,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:36:27,1375004,28,Khaleej Sart,Al-Ansar,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:36:28,1375304,36,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 18:36:28,1375305,38,Al Hudod,Al Zawra'a,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 18:36:28,1374568,75,Parma U19,Frosinone U19,1,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 18:36:28,1374808,62,Al-Wasl FC,Baniyas SC,2,1,Pro League,1.25,5.75,7.5
+2025-05-20 18:36:29,1375835,78,Torreense U23,Gil Vicente U23,1,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 18:36:29,1372640,45,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 18:46:30,1207929,44,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 18:46:30,1307381,43,JS Saoura U21,MC Alger U21,2,2,U21 League 1,3.0,3.0,3.0
+2025-05-20 18:46:30,1341215,44,Dila,Samgurali,1,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 18:46:31,1341381,41,Lokomotivi Tbilisi,Samtredia,0,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:46:31,1341382,41,Dinamo Tbilisi II,Meshakhte,0,3,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:46:31,1342751,45,HJK helsinki,SJK,3,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 18:46:31,1350388,45,Auda,BFC Daugavpils,1,0,Virsliga,1.25,5.25,7.5
+2025-05-20 18:46:32,1356880,45,Naftan,Neman,1,3,Premier League,3.0,3.0,3.0
+2025-05-20 18:46:32,1375003,37,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:46:32,1375004,38,Khaleej Sart,Al-Ansar,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:46:32,1375304,45,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 18:46:33,1375305,45,Al Hudod,Al Zawra'a,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 18:46:33,1374568,84,Parma U19,Frosinone U19,2,1,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 18:46:33,1374808,72,Al-Wasl FC,Baniyas SC,2,1,Pro League,1.25,5.75,7.5
+2025-05-20 18:46:33,1375835,88,Torreense U23,Gil Vicente U23,1,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 18:46:34,1372640,45,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 18:56:34,1375003,45,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 18:56:35,1375004,45,Khaleej Sart,Al-Ansar,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 18:56:35,1372640,53,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 18:56:35,1374568,90,Parma U19,Frosinone U19,2,2,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 18:56:36,1374808,82,Al-Wasl FC,Baniyas SC,2,1,Pro League,1.25,5.75,7.5
+2025-05-20 18:56:36,1375835,90,Torreense U23,Gil Vicente U23,1,1,Taça Revelação U23,2.25,3.3,2.75
+2025-05-20 18:56:36,1207929,45,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 18:56:36,1307381,45,JS Saoura U21,MC Alger U21,2,2,U21 League 1,3.0,3.0,3.0
+2025-05-20 18:56:37,1341215,45,Dila,Samgurali,2,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 18:56:37,1341381,45,Lokomotivi Tbilisi,Samtredia,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:56:37,1341382,45,Dinamo Tbilisi II,Meshakhte,0,3,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 18:56:37,1342751,45,HJK helsinki,SJK,3,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 18:56:38,1350388,45,Auda,BFC Daugavpils,1,0,Virsliga,1.25,5.25,7.5
+2025-05-20 18:56:38,1356880,45,Naftan,Neman,1,3,Premier League,3.0,3.0,3.0
+2025-05-20 18:56:38,1375304,45,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 18:56:38,1375305,45,Al Hudod,Al Zawra'a,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 19:06:39,1252715,6.0,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 19:06:39,1310396,4.0,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 19:06:40,1341216,5.0,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 19:06:40,1355336,6.0,Panevėžys II,FA Šiauliai II,0,0,1 Lyga,1.8,3.75,3.4
+2025-05-20 19:06:41,1367490,6.0,England U17,Belgium U17,0,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 19:06:41,1374891,7.0,Egersund,Sarpsborg 08 FF,1,0,NM Cupen,3.6,3.5,1.95
+2025-05-20 19:06:41,1374892,6.0,Asane,Viking,0,0,NM Cupen,5.5,4.5,1.5
+2025-05-20 19:06:41,1374896,6.0,Stabaek,Mjondalen,0,0,NM Cupen,1.33,5.25,8.5
+2025-05-20 19:06:42,1375049,5.0,Bryne,KFUM Oslo,0,0,NM Cupen,2.62,2.8,2.9
+2025-05-20 19:06:42,1375322,6.0,FK Zalgiris Vilnius,Kauno Žalgiris,0,0,Cup,2.3,3.2,3.0
+2025-05-20 19:06:42,1375325,8.0,Aalesund,Ham-Kam,0,0,NM Cupen,2.15,3.1,3.5
+2025-05-20 19:06:42,1375797,6.0,Al Najma,Sitra,0,0,Premier League,2.1,3.3,2.9
+2025-05-20 19:06:43,1375798,5.0,Bahrain SC,Manama,2,0,Premier League,1.85,4.1,3.0
+2025-05-20 19:06:43,1207929,47.0,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 19:06:43,1338985,55.0,Union La Calera,San Luis,0,0,Copa Chile,1.85,3.4,3.9
+2025-05-20 19:06:44,1342751,47.0,HJK helsinki,SJK,3,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 19:06:44,1350388,49.0,Auda,BFC Daugavpils,1,0,Virsliga,1.25,5.25,7.5
+2025-05-20 19:06:44,1356880,48.0,Naftan,Neman,1,3,Premier League,3.0,3.0,3.0
+2025-05-20 19:06:44,1372640,63.0,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 19:06:45,1374808,90.0,Al-Wasl FC,Baniyas SC,3,1,Pro League,1.25,5.75,7.5
+2025-05-20 19:06:45,1375304,46.0,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 19:06:45,1375305,47.0,Al Hudod,Al Zawra'a,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 19:06:45,1374568,,Parma U19,Frosinone U19,2,2,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 19:06:46,1307381,45.0,JS Saoura U21,MC Alger U21,2,2,U21 League 1,3.0,3.0,3.0
+2025-05-20 19:06:46,1341215,45.0,Dila,Samgurali,2,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 19:06:46,1341381,45.0,Lokomotivi Tbilisi,Samtredia,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:06:46,1341382,45.0,Dinamo Tbilisi II,Meshakhte,0,3,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:06:47,1375003,45.0,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 19:06:47,1375004,45.0,Khaleej Sart,Al-Ansar,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 19:16:48,1252715,16.0,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 19:16:48,1310396,14.0,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 19:16:48,1341216,15.0,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 19:16:48,1355336,16.0,Panevėžys II,FA Šiauliai II,0,0,1 Lyga,1.8,3.75,3.4
+2025-05-20 19:16:49,1367490,16.0,England U17,Belgium U17,1,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 19:16:49,1374891,17.0,Egersund,Sarpsborg 08 FF,1,0,NM Cupen,3.6,3.5,1.95
+2025-05-20 19:16:49,1374892,17.0,Asane,Viking,0,1,NM Cupen,5.5,4.5,1.5
+2025-05-20 19:16:49,1374896,16.0,Stabaek,Mjondalen,1,0,NM Cupen,1.33,5.25,8.5
+2025-05-20 19:16:50,1375049,15.0,Bryne,KFUM Oslo,0,0,NM Cupen,2.62,2.8,2.9
+2025-05-20 19:16:50,1375322,16.0,FK Zalgiris Vilnius,Kauno Žalgiris,0,0,Cup,2.3,3.2,3.0
+2025-05-20 19:16:50,1375325,18.0,Aalesund,Ham-Kam,0,0,NM Cupen,2.15,3.1,3.5
+2025-05-20 19:16:51,1375797,16.0,Al Najma,Sitra,0,0,Premier League,2.1,3.3,2.9
+2025-05-20 19:16:51,1375798,15.0,Bahrain SC,Manama,2,0,Premier League,1.85,4.1,3.0
+2025-05-20 19:16:51,1207929,57.0,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 19:16:51,1307381,50.0,JS Saoura U21,MC Alger U21,2,2,U21 League 1,3.0,3.0,3.0
+2025-05-20 19:16:52,1338985,65.0,Union La Calera,San Luis,0,0,Copa Chile,1.85,3.4,3.9
+2025-05-20 19:16:52,1341215,54.0,Dila,Samgurali,2,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 19:16:52,1341381,49.0,Lokomotivi Tbilisi,Samtredia,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:16:52,1341382,52.0,Dinamo Tbilisi II,Meshakhte,0,3,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:16:53,1342751,57.0,HJK helsinki,SJK,4,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 19:16:53,1350388,59.0,Auda,BFC Daugavpils,1,0,Virsliga,1.25,5.25,7.5
+2025-05-20 19:16:53,1356880,58.0,Naftan,Neman,1,3,Premier League,3.0,3.0,3.0
+2025-05-20 19:16:54,1372640,73.0,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 19:16:54,1375004,47.0,Khaleej Sart,Al-Ansar,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 19:16:54,1375304,56.0,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 19:16:54,1375305,57.0,Al Hudod,Al Zawra'a,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 19:16:55,1374568,,Parma U19,Frosinone U19,2,2,Campionato Primavera - 2,1.85,3.3,3.8
+2025-05-20 19:16:55,1375003,45.0,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 19:26:56,1252710,7,Al Taawon,Al Riyadh,0,0,Pro League,1.85,3.7,3.6
+2025-05-20 19:26:56,1252715,26,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 19:26:56,1310396,24,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 19:26:56,1341216,25,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 19:26:57,1355336,26,Panevėžys II,FA Šiauliai II,0,1,1 Lyga,1.8,3.75,3.4
+2025-05-20 19:26:57,1367490,26,England U17,Belgium U17,1,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 19:26:57,1374891,27,Egersund,Sarpsborg 08 FF,1,0,NM Cupen,3.6,3.5,1.95
+2025-05-20 19:26:58,1374892,27,Asane,Viking,0,2,NM Cupen,5.5,4.5,1.5
+2025-05-20 19:26:58,1374896,26,Stabaek,Mjondalen,1,1,NM Cupen,1.33,5.25,8.5
+2025-05-20 19:26:58,1375049,25,Bryne,KFUM Oslo,0,0,NM Cupen,2.62,2.8,2.9
+2025-05-20 19:26:58,1375322,26,FK Zalgiris Vilnius,Kauno Žalgiris,0,0,Cup,2.3,3.2,3.0
+2025-05-20 19:26:59,1375325,28,Aalesund,Ham-Kam,0,0,NM Cupen,2.15,3.1,3.5
+2025-05-20 19:26:59,1375797,26,Al Najma,Sitra,0,0,Premier League,2.1,3.3,2.9
+2025-05-20 19:26:59,1375798,25,Bahrain SC,Manama,2,2,Premier League,1.85,4.1,3.0
+2025-05-20 19:26:59,1207929,67,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 19:27:00,1307381,60,JS Saoura U21,MC Alger U21,2,2,U21 League 1,3.0,3.0,3.0
+2025-05-20 19:27:00,1338985,75,Union La Calera,San Luis,0,0,Copa Chile,1.85,3.4,3.9
+2025-05-20 19:27:00,1341215,64,Dila,Samgurali,2,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 19:27:00,1341381,59,Lokomotivi Tbilisi,Samtredia,1,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:27:01,1341382,62,Dinamo Tbilisi II,Meshakhte,0,4,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:27:01,1342751,67,HJK helsinki,SJK,4,0,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 19:27:01,1350388,69,Auda,BFC Daugavpils,1,0,Virsliga,1.25,5.25,7.5
+2025-05-20 19:27:01,1356880,68,Naftan,Neman,1,3,Premier League,3.0,3.0,3.0
+2025-05-20 19:27:02,1372640,83,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 19:27:02,1375003,55,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 19:27:02,1375004,57,Khaleej Sart,Al-Ansar,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 19:27:02,1375304,66,Erbil,Al Talaba,0,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 19:27:03,1375305,67,Al Hudod,Al Zawra'a,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 19:37:03,1252710,17,Al Taawon,Al Riyadh,0,0,Pro League,1.85,3.7,3.6
+2025-05-20 19:37:04,1252715,37,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 19:37:04,1310396,35,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 19:37:04,1341216,36,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 19:37:04,1355336,37,Panevėžys II,FA Šiauliai II,0,1,1 Lyga,1.8,3.75,3.4
+2025-05-20 19:37:05,1367490,37,England U17,Belgium U17,1,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 19:37:05,1374891,37,Egersund,Sarpsborg 08 FF,1,0,NM Cupen,3.6,3.5,1.95
+2025-05-20 19:37:05,1374892,37,Asane,Viking,0,3,NM Cupen,5.5,4.5,1.5
+2025-05-20 19:37:05,1374896,37,Stabaek,Mjondalen,1,1,NM Cupen,1.33,5.25,8.5
+2025-05-20 19:37:06,1375049,35,Bryne,KFUM Oslo,0,0,NM Cupen,2.62,2.8,2.9
+2025-05-20 19:37:06,1375322,36,FK Zalgiris Vilnius,Kauno Žalgiris,0,0,Cup,2.3,3.2,3.0
+2025-05-20 19:37:06,1375325,38,Aalesund,Ham-Kam,1,0,NM Cupen,2.15,3.1,3.5
+2025-05-20 19:37:07,1375797,37,Al Najma,Sitra,0,0,Premier League,2.1,3.3,2.9
+2025-05-20 19:37:07,1375798,36,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 19:37:07,1207929,77,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 19:37:07,1307381,71,JS Saoura U21,MC Alger U21,2,2,U21 League 1,3.0,3.0,3.0
+2025-05-20 19:37:08,1338985,86,Union La Calera,San Luis,0,0,Copa Chile,1.85,3.4,3.9
+2025-05-20 19:37:08,1341215,74,Dila,Samgurali,2,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 19:37:08,1341381,70,Lokomotivi Tbilisi,Samtredia,2,0,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:37:08,1341382,72,Dinamo Tbilisi II,Meshakhte,0,4,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:37:09,1342751,78,HJK helsinki,SJK,4,1,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 19:37:09,1350388,79,Auda,BFC Daugavpils,1,1,Virsliga,1.25,5.25,7.5
+2025-05-20 19:37:09,1356880,78,Naftan,Neman,1,3,Premier League,3.0,3.0,3.0
+2025-05-20 19:37:09,1372640,90,Hebar 1918,Botev Vratsa,1,0,First League,7.5,4.75,1.38
+2025-05-20 19:37:10,1375003,65,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 19:37:10,1375004,68,Khaleej Sart,Al-Ansar,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 19:37:10,1375304,76,Erbil,Al Talaba,1,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 19:37:10,1375305,78,Al Hudod,Al Zawra'a,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 19:47:11,1252710,27,Al Taawon,Al Riyadh,0,0,Pro League,1.85,3.7,3.6
+2025-05-20 19:47:12,1252715,45,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 19:47:12,1310396,45,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 19:47:12,1341216,45,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 19:47:12,1374891,45,Egersund,Sarpsborg 08 FF,1,2,NM Cupen,3.6,3.5,1.95
+2025-05-20 19:47:13,1374896,45,Stabaek,Mjondalen,2,1,NM Cupen,1.33,5.25,8.5
+2025-05-20 19:47:13,1375049,45,Bryne,KFUM Oslo,0,1,NM Cupen,2.62,2.8,2.9
+2025-05-20 19:47:13,1375322,45,FK Zalgiris Vilnius,Kauno Žalgiris,0,0,Cup,2.3,3.2,3.0
+2025-05-20 19:47:13,1375797,45,Al Najma,Sitra,0,0,Premier League,2.15,3.3,2.8
+2025-05-20 19:47:14,1375798,45,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 19:47:14,1207929,87,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 19:47:14,1307381,81,JS Saoura U21,MC Alger U21,2,3,U21 League 1,3.0,3.0,3.0
+2025-05-20 19:47:14,1341215,85,Dila,Samgurali,3,2,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 19:47:15,1341381,80,Lokomotivi Tbilisi,Samtredia,2,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:47:15,1341382,83,Dinamo Tbilisi II,Meshakhte,0,4,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:47:15,1342751,88,HJK helsinki,SJK,4,1,Veikkausliiga,1.42,5.0,6.0
+2025-05-20 19:47:15,1350388,90,Auda,BFC Daugavpils,1,1,Virsliga,1.25,5.25,7.5
+2025-05-20 19:47:16,1356880,88,Naftan,Neman,1,3,Premier League,3.0,3.0,3.0
+2025-05-20 19:47:16,1375003,76,Al Morooj,Al Branes,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 19:47:16,1375004,78,Khaleej Sart,Al-Ansar,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 19:47:16,1375304,87,Erbil,Al Talaba,1,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 19:47:17,1375305,88,Al Hudod,Al Zawra'a,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 19:47:17,1355336,45,Panevėžys II,FA Šiauliai II,0,2,1 Lyga,1.8,3.75,3.4
+2025-05-20 19:47:17,1367490,45,England U17,Belgium U17,1,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 19:47:17,1374892,45,Asane,Viking,0,3,NM Cupen,5.5,4.5,1.5
+2025-05-20 19:47:18,1375325,45,Aalesund,Ham-Kam,1,1,NM Cupen,2.15,3.1,3.5
+2025-05-20 19:57:18,1252710,38,Al Taawon,Al Riyadh,0,1,Pro League,1.85,3.7,3.6
+2025-05-20 19:57:19,1207929,90,CSKA 1948 Sofia II,CSKA Sofia II,0,0,Second League,3.0,3.0,3.0
+2025-05-20 19:57:19,1307381,90,JS Saoura U21,MC Alger U21,2,3,U21 League 1,3.0,3.0,3.0
+2025-05-20 19:57:19,1341215,90,Dila,Samgurali,4,3,Erovnuli Liga,1.53,3.7,5.75
+2025-05-20 19:57:19,1341381,90,Lokomotivi Tbilisi,Samtredia,2,1,Erovnuli Liga 2,3.0,3.0,3.0
+2025-05-20 19:57:20,1375003,86,Al Morooj,Al Branes,1,0,Premier League,3.0,3.0,3.0
+2025-05-20 19:57:20,1375004,88,Khaleej Sart,Al-Ansar,0,1,Premier League,3.0,3.0,3.0
+2025-05-20 19:57:20,1375304,90,Erbil,Al Talaba,1,0,Iraqi League,4.75,3.5,1.6
+2025-05-20 19:57:21,1252715,45,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 19:57:21,1310396,45,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 19:57:21,1341216,45,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 19:57:21,1355336,45,Panevėžys II,FA Šiauliai II,0,2,1 Lyga,1.8,3.75,3.4
+2025-05-20 19:57:22,1367490,45,England U17,Belgium U17,1,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 19:57:22,1374891,45,Egersund,Sarpsborg 08 FF,1,2,NM Cupen,3.6,3.5,1.95
+2025-05-20 19:57:22,1374892,45,Asane,Viking,0,3,NM Cupen,5.5,4.5,1.5
+2025-05-20 19:57:23,1374896,45,Stabaek,Mjondalen,2,1,NM Cupen,1.33,5.25,8.5
+2025-05-20 19:57:23,1375049,45,Bryne,KFUM Oslo,0,1,NM Cupen,2.62,2.8,2.9
+2025-05-20 19:57:23,1375322,45,FK Zalgiris Vilnius,Kauno Žalgiris,0,0,Cup,2.3,3.2,3.0
+2025-05-20 19:57:23,1375325,45,Aalesund,Ham-Kam,1,1,NM Cupen,2.15,3.1,3.5
+2025-05-20 19:57:24,1375797,45,Al Najma,Sitra,0,0,Premier League,2.15,3.3,2.8
+2025-05-20 19:57:24,1375798,45,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 20:07:25,1252710,45,Al Taawon,Al Riyadh,0,2,Pro League,1.85,3.7,3.6
+2025-05-20 20:07:25,1313453,6,Wisła Płock II,Stomil Olsztyn,0,0,III Liga - Group 1,3.0,3.0,3.0
+2025-05-20 20:07:25,1341218,8,Torpedo Kutaisi,Kolkheti Poti,0,0,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 20:07:25,1341554,7,Djurgården,AIK,0,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 20:07:26,1350389,7,Rīgas FS,Metta / LU,1,0,Virsliga,1.17,6.5,13.0
+2025-05-20 20:07:26,1356881,8,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 20:07:26,1372040,6,National Bank of Egypt,Future FC,0,0,League Cup,2.35,2.8,3.0
+2025-05-20 20:07:26,1372105,4,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 20:07:27,1372954,5,Balzers,FC Vaduz,0,0,Cup,3.0,3.0,3.0
+2025-05-20 20:07:27,1374809,8,Al Urooba,Al Bataeh,0,0,Pro League,3.7,3.5,1.8
+2025-05-20 20:07:27,1374810,7,Shabab Al Ahli Dubai,Dibba Al Hisn,1,0,Pro League,1.17,6.25,12.0
+2025-05-20 20:07:28,1375320,6,Alternatyvus FK,Babrungas,0,0,Cup,3.0,3.0,3.0
+2025-05-20 20:07:28,1375634,4,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 20:07:28,1375636,6,La Linguère,HLM,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:07:28,1252715,47,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 20:07:29,1307381,90,JS Saoura U21,MC Alger U21,2,3,U21 League 1,3.0,3.0,3.0
+2025-05-20 20:07:29,1310396,47,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:07:29,1341216,47,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 20:07:29,1355336,52,Panevėžys II,FA Šiauliai II,0,2,1 Lyga,1.8,3.75,3.4
+2025-05-20 20:07:29,1367490,51,England U17,Belgium U17,1,1,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 20:07:30,1374891,51,Egersund,Sarpsborg 08 FF,1,2,NM Cupen,3.6,3.5,1.95
+2025-05-20 20:07:30,1374892,50,Asane,Viking,0,4,NM Cupen,5.5,4.5,1.5
+2025-05-20 20:07:30,1374896,47,Stabaek,Mjondalen,2,1,NM Cupen,1.33,5.25,8.5
+2025-05-20 20:07:31,1375003,90,Al Morooj,Al Branes,1,0,Premier League,3.0,3.0,3.0
+2025-05-20 20:07:31,1375004,90,Khaleej Sart,Al-Ansar,1,1,Premier League,3.0,3.0,3.0
+2025-05-20 20:07:31,1375049,48,Bryne,KFUM Oslo,0,1,NM Cupen,2.62,2.8,2.9
+2025-05-20 20:07:32,1375322,50,FK Zalgiris Vilnius,Kauno Žalgiris,0,0,Cup,2.3,3.2,3.0
+2025-05-20 20:07:32,1375325,51,Aalesund,Ham-Kam,1,1,NM Cupen,2.15,3.1,3.5
+2025-05-20 20:07:32,1375797,49,Al Najma,Sitra,0,0,Premier League,2.15,3.3,2.8
+2025-05-20 20:07:32,1375798,45,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 20:17:33,1313453,16,Wisła Płock II,Stomil Olsztyn,0,0,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 20:17:33,1341218,18,Torpedo Kutaisi,Kolkheti Poti,0,0,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 20:17:34,1341554,17,Djurgården,AIK,0,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 20:17:34,1350389,17,Rīgas FS,Metta / LU,1,0,Virsliga,1.17,6.5,13.0
+2025-05-20 20:17:34,1356881,18,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 20:17:34,1372040,16,National Bank of Egypt,Future FC,0,0,League Cup,2.35,2.8,3.0
+2025-05-20 20:17:35,1372105,14,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 20:17:35,1372954,17,Balzers,FC Vaduz,1,0,Cup,3.0,3.0,3.0
+2025-05-20 20:17:35,1374809,18,Al Urooba,Al Bataeh,0,0,Pro League,3.7,3.5,1.8
+2025-05-20 20:17:35,1374810,17,Shabab Al Ahli Dubai,Dibba Al Hisn,1,0,Pro League,1.17,6.25,12.0
+2025-05-20 20:17:36,1375320,16,Alternatyvus FK,Babrungas,0,0,Cup,3.0,3.0,3.0
+2025-05-20 20:17:36,1375634,14,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 20:17:36,1375636,16,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:17:37,1252715,57,Al-Qadisiyah FC,Al Orubah,0,0,Pro League,1.25,6.0,8.5
+2025-05-20 20:17:37,1310396,57,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:17:37,1341216,57,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 20:17:37,1355336,62,Panevėžys II,FA Šiauliai II,0,2,1 Lyga,1.8,3.75,3.4
+2025-05-20 20:17:37,1367490,61,England U17,Belgium U17,1,1,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 20:17:38,1374891,61,Egersund,Sarpsborg 08 FF,1,2,NM Cupen,3.6,3.5,1.95
+2025-05-20 20:17:38,1374892,60,Asane,Viking,0,4,NM Cupen,5.5,4.5,1.5
+2025-05-20 20:17:38,1374896,57,Stabaek,Mjondalen,3,1,NM Cupen,1.33,5.25,8.5
+2025-05-20 20:17:39,1375049,58,Bryne,KFUM Oslo,0,1,NM Cupen,2.62,2.8,2.9
+2025-05-20 20:17:39,1375322,60,FK Zalgiris Vilnius,Kauno Žalgiris,1,0,Cup,2.3,3.2,3.0
+2025-05-20 20:17:39,1375325,61,Aalesund,Ham-Kam,1,1,NM Cupen,2.15,3.1,3.5
+2025-05-20 20:17:40,1375797,59,Al Najma,Sitra,0,0,Premier League,2.15,3.3,2.8
+2025-05-20 20:17:40,1375798,50,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 20:17:40,1252710,45,Al Taawon,Al Riyadh,1,2,Pro League,1.91,3.7,3.5
+2025-05-20 20:27:41,1313453,26,Wisła Płock II,Stomil Olsztyn,0,0,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 20:27:41,1341218,28,Torpedo Kutaisi,Kolkheti Poti,0,0,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 20:27:42,1341554,27,Djurgården,AIK,1,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 20:27:42,1350389,27,Rīgas FS,Metta / LU,1,0,Virsliga,1.17,6.5,13.0
+2025-05-20 20:27:42,1356881,28,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 20:27:42,1372040,27,National Bank of Egypt,Future FC,1,0,League Cup,2.35,2.8,3.0
+2025-05-20 20:27:43,1372105,24,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 20:27:43,1372643,10,Septemvri Sofia,Lokomotiv Sofia,0,0,First League,9.0,1.8,2.4
+2025-05-20 20:27:43,1372954,27,Balzers,FC Vaduz,1,0,Cup,3.0,3.0,3.0
+2025-05-20 20:27:43,1374809,28,Al Urooba,Al Bataeh,1,0,Pro League,3.7,3.5,1.8
+2025-05-20 20:27:44,1374810,27,Shabab Al Ahli Dubai,Dibba Al Hisn,1,0,Pro League,1.17,6.25,12.0
+2025-05-20 20:27:44,1375320,26,Alternatyvus FK,Babrungas,0,1,Cup,3.0,3.0,3.0
+2025-05-20 20:27:44,1375634,24,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 20:27:44,1375636,26,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:27:45,1252715,67,Al-Qadisiyah FC,Al Orubah,1,0,Pro League,1.25,6.0,8.5
+2025-05-20 20:27:45,1310396,67,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:27:45,1341216,67,Saburtalo,Dinamo Tbilisi,0,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 20:27:46,1355336,72,Panevėžys II,FA Šiauliai II,0,3,1 Lyga,1.8,3.75,3.4
+2025-05-20 20:27:46,1367490,71,England U17,Belgium U17,1,1,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 20:27:46,1374891,71,Egersund,Sarpsborg 08 FF,1,2,NM Cupen,3.6,3.5,1.95
+2025-05-20 20:27:47,1374892,71,Asane,Viking,0,6,NM Cupen,5.5,4.5,1.5
+2025-05-20 20:27:47,1374896,68,Stabaek,Mjondalen,3,2,NM Cupen,1.33,5.25,8.5
+2025-05-20 20:27:47,1375049,69,Bryne,KFUM Oslo,0,1,NM Cupen,2.62,2.8,2.9
+2025-05-20 20:27:48,1375322,71,FK Zalgiris Vilnius,Kauno Žalgiris,1,2,Cup,2.3,3.2,3.0
+2025-05-20 20:27:48,1375325,72,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 20:27:48,1375797,69,Al Najma,Sitra,0,0,Premier League,2.15,3.3,2.8
+2025-05-20 20:27:48,1375798,61,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 20:27:49,1252710,45,Al Taawon,Al Riyadh,1,2,Pro League,1.91,3.7,3.5
+2025-05-20 20:37:50,1302487,7,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 20:37:50,1313453,36,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 20:37:50,1341218,38,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 20:37:51,1341554,37,Djurgården,AIK,2,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 20:37:51,1350389,37,Rīgas FS,Metta / LU,1,0,Virsliga,1.17,6.5,13.0
+2025-05-20 20:37:51,1356881,38,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 20:37:51,1372040,37,National Bank of Egypt,Future FC,1,0,League Cup,2.35,2.8,3.0
+2025-05-20 20:37:52,1372105,34,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 20:37:52,1372643,20,Septemvri Sofia,Lokomotiv Sofia,0,1,First League,9.0,1.8,2.4
+2025-05-20 20:37:52,1372750,8,KI Klaksvik,AB,0,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 20:37:52,1372954,37,Balzers,FC Vaduz,1,0,Cup,3.0,3.0,3.0
+2025-05-20 20:37:53,1374809,38,Al Urooba,Al Bataeh,1,0,Pro League,3.7,3.5,1.8
+2025-05-20 20:37:53,1374810,37,Shabab Al Ahli Dubai,Dibba Al Hisn,1,1,Pro League,1.17,6.25,12.0
+2025-05-20 20:37:53,1375306,7,Al-Qasim,Zakho,0,0,Iraqi League,3.0,3.0,3.0
+2025-05-20 20:37:53,1375320,36,Alternatyvus FK,Babrungas,0,1,Cup,3.0,3.0,3.0
+2025-05-20 20:37:54,1375634,34,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 20:37:54,1375636,36,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:37:54,1252710,55,Al Taawon,Al Riyadh,1,2,Pro League,1.91,3.7,3.5
+2025-05-20 20:37:55,1252715,77,Al-Qadisiyah FC,Al Orubah,1,0,Pro League,1.25,6.0,8.5
+2025-05-20 20:37:55,1310396,77,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:37:55,1341216,77,Saburtalo,Dinamo Tbilisi,1,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 20:37:55,1355336,82,Panevėžys II,FA Šiauliai II,0,4,1 Lyga,1.8,3.75,3.4
+2025-05-20 20:37:56,1367490,81,England U17,Belgium U17,1,1,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 20:37:56,1374891,81,Egersund,Sarpsborg 08 FF,1,3,NM Cupen,3.6,3.5,1.95
+2025-05-20 20:37:56,1374892,81,Asane,Viking,0,6,NM Cupen,5.5,4.5,1.5
+2025-05-20 20:37:57,1374896,78,Stabaek,Mjondalen,4,3,NM Cupen,1.33,5.25,8.5
+2025-05-20 20:37:57,1375049,79,Bryne,KFUM Oslo,0,2,NM Cupen,2.62,2.8,2.9
+2025-05-20 20:37:57,1375322,81,FK Zalgiris Vilnius,Kauno Žalgiris,2,2,Cup,2.3,3.2,3.0
+2025-05-20 20:37:58,1375325,82,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 20:37:58,1375797,79,Al Najma,Sitra,0,0,Premier League,2.15,3.3,2.8
+2025-05-20 20:37:58,1375798,71,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 20:47:59,1302487,17,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 20:48:00,1313453,45,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 20:48:00,1341218,45,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 20:48:00,1341554,45,Djurgården,AIK,2,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 20:48:01,1350389,45,Rīgas FS,Metta / LU,1,0,Virsliga,1.17,6.5,13.0
+2025-05-20 20:48:01,1372040,45,National Bank of Egypt,Future FC,1,0,League Cup,2.35,2.8,3.0
+2025-05-20 20:48:02,1372105,44,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 20:48:02,1372643,30,Septemvri Sofia,Lokomotiv Sofia,0,1,First League,9.0,1.8,2.4
+2025-05-20 20:48:03,1372750,18,KI Klaksvik,AB,0,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 20:48:03,1372954,45,Balzers,FC Vaduz,1,0,Cup,3.0,3.0,3.0
+2025-05-20 20:48:03,1374809,45,Al Urooba,Al Bataeh,1,0,Pro League,3.7,3.5,1.8
+2025-05-20 20:48:04,1374810,45,Shabab Al Ahli Dubai,Dibba Al Hisn,1,1,Pro League,1.2,5.75,11.0
+2025-05-20 20:48:04,1375306,17,Al-Qasim,Zakho,0,0,Iraqi League,3.0,3.0,3.0
+2025-05-20 20:48:04,1375634,44,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 20:48:05,1375636,45,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:48:05,1252710,65,Al Taawon,Al Riyadh,1,2,Pro League,1.91,3.7,3.5
+2025-05-20 20:48:06,1252715,87,Al-Qadisiyah FC,Al Orubah,2,0,Pro League,1.25,6.0,8.5
+2025-05-20 20:48:06,1310396,87,Rahimo,RC Bobo-Dioulasso,0,0,Ligue 1,3.0,3.0,3.0
+2025-05-20 20:48:06,1341216,87,Saburtalo,Dinamo Tbilisi,1,0,Erovnuli Liga,2.15,3.4,3.0
+2025-05-20 20:48:07,1355336,90,Panevėžys II,FA Šiauliai II,0,4,1 Lyga,1.8,3.75,3.4
+2025-05-20 20:48:07,1367490,90,England U17,Belgium U17,1,1,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 20:48:07,1374891,90,Egersund,Sarpsborg 08 FF,1,3,NM Cupen,3.6,3.5,1.95
+2025-05-20 20:48:08,1374892,90,Asane,Viking,0,7,NM Cupen,5.5,4.5,1.5
+2025-05-20 20:48:08,1374896,88,Stabaek,Mjondalen,4,3,NM Cupen,1.33,5.25,8.5
+2025-05-20 20:48:09,1375049,89,Bryne,KFUM Oslo,0,2,NM Cupen,2.62,2.8,2.9
+2025-05-20 20:48:09,1375322,90,FK Zalgiris Vilnius,Kauno Žalgiris,2,2,Cup,2.3,3.2,3.0
+2025-05-20 20:48:10,1375325,90,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 20:48:10,1375797,89,Al Najma,Sitra,1,0,Premier League,2.15,3.3,2.8
+2025-05-20 20:48:10,1375798,81,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 20:48:11,1356881,45,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 20:48:11,1375320,45,Alternatyvus FK,Babrungas,0,3,Cup,3.0,3.0,3.0
+2025-05-20 20:58:12,1302487,28,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 20:58:12,1372643,40,Septemvri Sofia,Lokomotiv Sofia,0,1,First League,9.0,1.8,2.4
+2025-05-20 20:58:12,1372750,28,KI Klaksvik,AB,2,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 20:58:13,1375306,27,Al-Qasim,Zakho,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 20:58:13,1252710,75,Al Taawon,Al Riyadh,1,2,Pro League,1.91,3.7,3.5
+2025-05-20 20:58:13,1375797,90,Al Najma,Sitra,1,1,Premier League,2.15,3.3,2.8
+2025-05-20 20:58:13,1375798,90,Bahrain SC,Manama,3,1,Premier League,1.85,4.1,3.0
+2025-05-20 20:58:14,1375322,96,FK Zalgiris Vilnius,Kauno Žalgiris,2,3,Cup,2.3,3.2,3.0
+2025-05-20 20:58:14,1375325,96,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 20:58:14,1313453,45,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 20:58:15,1341218,45,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 20:58:15,1341554,45,Djurgården,AIK,2,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 20:58:15,1350389,45,Rīgas FS,Metta / LU,1,0,Virsliga,1.17,6.5,13.0
+2025-05-20 20:58:15,1356881,45,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 20:58:16,1372040,45,National Bank of Egypt,Future FC,1,0,League Cup,2.35,2.8,3.0
+2025-05-20 20:58:16,1372105,45,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 20:58:16,1372954,45,Balzers,FC Vaduz,1,0,Cup,3.0,3.0,3.0
+2025-05-20 20:58:16,1374809,45,Al Urooba,Al Bataeh,1,0,Pro League,3.7,3.5,1.8
+2025-05-20 20:58:17,1374810,45,Shabab Al Ahli Dubai,Dibba Al Hisn,1,1,Pro League,1.2,5.75,11.0
+2025-05-20 20:58:17,1375320,45,Alternatyvus FK,Babrungas,0,3,Cup,3.0,3.0,3.0
+2025-05-20 20:58:17,1375634,45,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 20:58:17,1375636,45,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 21:08:18,1252711,8,Al Shabab,Al-Ittihad FC,0,1,Pro League,1.91,4.0,3.1
+2025-05-20 21:08:18,1302487,38,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 21:08:19,1354068,8,Newell's Old Boys Res.,Huracán Res.,0,0,Reserve League,1.95,3.1,3.8
+2025-05-20 21:08:19,1354069,8,Defensa y Justicia Res.,Racing Club Res.,0,0,Reserve League,2.05,3.4,3.2
+2025-05-20 21:08:19,1354072,8,Vélez Sársfield Res.,Gimnasia La Plata Res.,0,0,Reserve League,1.33,4.75,6.25
+2025-05-20 21:08:19,1354075,6,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 21:08:20,1359098,9,Cruzeiro U20,Corinthians U20,0,0,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 21:08:20,1367952,8,São José PA U20,Ivoti U20,1,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 21:08:20,1368208,8,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 21:08:20,1372750,38,KI Klaksvik,AB,2,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 21:08:21,1373725,7,Athletico PR U17,Santos U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:08:21,1373726,8,Atletico GO U17,Bahia U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:08:21,1373727,8,Fortaleza U17,Botafogo U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:08:21,1373728,8,Sao Paulo U17,Atlético Mineiro U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:08:22,1374894,9,Kongsvinger,Rosenborg,0,0,NM Cupen,4.5,4.2,1.62
+2025-05-20 21:08:22,1375306,37,Al-Qasim,Zakho,0,0,Iraqi League,3.0,3.0,3.0
+2025-05-20 21:08:22,1375705,7,FK Košice,Podbrezová,0,0,Super Liga,2.05,3.4,3.5
+2025-05-20 21:08:23,1375804,6,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 21:08:23,1375805,8,Dunajska Streda,Zemplín Michalovce,0,0,Super Liga,1.45,4.33,6.5
+2025-05-20 21:08:23,1252710,85,Al Taawon,Al Riyadh,1,2,Pro League,1.91,3.7,3.5
+2025-05-20 21:08:23,1313453,49,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 21:08:24,1341218,49,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 21:08:24,1341554,50,Djurgården,AIK,2,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 21:08:24,1350389,49,Rīgas FS,Metta / LU,2,0,Virsliga,1.17,6.5,13.0
+2025-05-20 21:08:25,1356881,53,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 21:08:25,1372040,48,National Bank of Egypt,Future FC,1,0,League Cup,2.05,2.88,3.5
+2025-05-20 21:08:25,1372954,50,Balzers,FC Vaduz,1,0,Cup,3.0,3.0,3.0
+2025-05-20 21:08:25,1374809,48,Al Urooba,Al Bataeh,1,0,Pro League,3.75,3.6,1.75
+2025-05-20 21:08:26,1375320,53,Alternatyvus FK,Babrungas,0,3,Cup,3.0,3.0,3.0
+2025-05-20 21:08:26,1375322,102,FK Zalgiris Vilnius,Kauno Žalgiris,2,3,Cup,2.3,3.2,3.0
+2025-05-20 21:08:26,1375325,102,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 21:08:27,1372105,45,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 21:08:27,1372643,45,Septemvri Sofia,Lokomotiv Sofia,0,2,First League,9.0,1.8,2.4
+2025-05-20 21:08:27,1374810,45,Shabab Al Ahli Dubai,Dibba Al Hisn,1,1,Pro League,1.2,5.75,11.0
+2025-05-20 21:08:27,1375634,45,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 21:08:28,1375636,45,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 21:18:29,1252711,18,Al Shabab,Al-Ittihad FC,0,1,Pro League,1.91,4.0,3.1
+2025-05-20 21:18:29,1354068,18,Newell's Old Boys Res.,Huracán Res.,0,1,Reserve League,1.95,3.1,3.8
+2025-05-20 21:18:29,1354069,18,Defensa y Justicia Res.,Racing Club Res.,1,1,Reserve League,2.05,3.4,3.2
+2025-05-20 21:18:29,1354072,18,Vélez Sársfield Res.,Gimnasia La Plata Res.,0,0,Reserve League,1.33,4.75,6.25
+2025-05-20 21:18:30,1354075,16,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 21:18:30,1359098,19,Cruzeiro U20,Corinthians U20,0,0,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 21:18:30,1367952,19,São José PA U20,Ivoti U20,3,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 21:18:30,1368208,18,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 21:18:31,1373725,18,Athletico PR U17,Santos U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:18:31,1373726,18,Atletico GO U17,Bahia U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:18:31,1373727,18,Fortaleza U17,Botafogo U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:18:31,1373728,18,Sao Paulo U17,Atlético Mineiro U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:18:32,1374894,19,Kongsvinger,Rosenborg,0,0,NM Cupen,4.5,4.2,1.62
+2025-05-20 21:18:32,1375306,45,Al-Qasim,Zakho,0,1,Iraqi League,3.0,3.0,3.0
+2025-05-20 21:18:32,1375705,18,FK Košice,Podbrezová,2,0,Super Liga,2.05,3.4,3.5
+2025-05-20 21:18:32,1375804,17,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 21:18:33,1375805,18,Dunajska Streda,Zemplín Michalovce,0,1,Super Liga,1.45,4.33,6.5
+2025-05-20 21:18:33,1252710,90,Al Taawon,Al Riyadh,3,2,Pro League,1.91,3.7,3.5
+2025-05-20 21:18:33,1313453,61,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 21:18:34,1341218,59,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 21:18:34,1341554,60,Djurgården,AIK,3,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 21:18:34,1350389,59,Rīgas FS,Metta / LU,2,0,Virsliga,1.17,6.5,13.0
+2025-05-20 21:18:35,1356881,64,Slavia Mozyr,Torpedo Zhodino,0,0,Premier League,3.0,3.0,3.0
+2025-05-20 21:18:35,1372040,59,National Bank of Egypt,Future FC,1,0,League Cup,2.05,2.88,3.5
+2025-05-20 21:18:35,1372105,51,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 21:18:35,1372954,60,Balzers,FC Vaduz,2,0,Cup,3.0,3.0,3.0
+2025-05-20 21:18:36,1374809,58,Al Urooba,Al Bataeh,1,1,Pro League,3.75,3.6,1.75
+2025-05-20 21:18:36,1374810,56,Shabab Al Ahli Dubai,Dibba Al Hisn,2,1,Pro League,1.2,5.75,11.0
+2025-05-20 21:18:36,1375320,63,Alternatyvus FK,Babrungas,0,4,Cup,3.0,3.0,3.0
+2025-05-20 21:18:36,1375634,55,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 21:18:37,1375636,52,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 21:18:37,1375322,107,FK Zalgiris Vilnius,Kauno Žalgiris,2,3,Cup,2.3,3.2,3.0
+2025-05-20 21:18:37,1375325,110,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 21:18:37,1302487,45,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 21:18:38,1372643,45,Septemvri Sofia,Lokomotiv Sofia,0,2,First League,9.0,1.73,2.4
+2025-05-20 21:18:38,1372750,45,KI Klaksvik,AB,2,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 21:28:39,1252711,28,Al Shabab,Al-Ittihad FC,0,1,Pro League,1.91,4.0,3.1
+2025-05-20 21:28:39,1354068,28,Newell's Old Boys Res.,Huracán Res.,0,1,Reserve League,1.95,3.1,3.8
+2025-05-20 21:28:40,1354069,28,Defensa y Justicia Res.,Racing Club Res.,1,1,Reserve League,2.05,3.4,3.2
+2025-05-20 21:28:40,1354072,28,Vélez Sársfield Res.,Gimnasia La Plata Res.,0,0,Reserve League,1.33,4.75,6.25
+2025-05-20 21:28:40,1354075,26,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 21:28:40,1359098,29,Cruzeiro U20,Corinthians U20,0,0,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 21:28:41,1367952,29,São José PA U20,Ivoti U20,3,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 21:28:41,1368208,28,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 21:28:41,1373725,28,Athletico PR U17,Santos U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:28:41,1373726,28,Atletico GO U17,Bahia U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:28:42,1373727,28,Fortaleza U17,Botafogo U17,1,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:28:42,1373728,28,Sao Paulo U17,Atlético Mineiro U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:28:42,1374894,29,Kongsvinger,Rosenborg,0,0,NM Cupen,4.5,4.2,1.62
+2025-05-20 21:28:43,1375705,28,FK Košice,Podbrezová,2,0,Super Liga,2.05,3.4,3.5
+2025-05-20 21:28:43,1375804,27,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 21:28:43,1375805,28,Dunajska Streda,Zemplín Michalovce,0,1,Super Liga,1.45,4.33,6.5
+2025-05-20 21:28:44,1313453,71,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 21:28:44,1341218,69,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 21:28:44,1341554,70,Djurgården,AIK,3,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 21:28:44,1350389,69,Rīgas FS,Metta / LU,2,0,Virsliga,1.17,6.5,13.0
+2025-05-20 21:28:45,1356881,74,Slavia Mozyr,Torpedo Zhodino,1,0,Premier League,3.0,3.0,3.0
+2025-05-20 21:28:45,1372040,69,National Bank of Egypt,Future FC,1,0,League Cup,2.05,2.88,3.5
+2025-05-20 21:28:45,1372105,61,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 21:28:45,1372643,54,Septemvri Sofia,Lokomotiv Sofia,0,2,First League,9.0,1.73,2.4
+2025-05-20 21:28:46,1372954,70,Balzers,FC Vaduz,2,1,Cup,3.0,3.0,3.0
+2025-05-20 21:28:46,1374809,68,Al Urooba,Al Bataeh,1,1,Pro League,3.75,3.6,1.75
+2025-05-20 21:28:46,1374810,66,Shabab Al Ahli Dubai,Dibba Al Hisn,2,2,Pro League,1.2,5.75,11.0
+2025-05-20 21:28:46,1375320,74,Alternatyvus FK,Babrungas,0,4,Cup,3.0,3.0,3.0
+2025-05-20 21:28:47,1375634,65,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 21:28:47,1375636,62,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 21:28:47,1375322,117,FK Zalgiris Vilnius,Kauno Žalgiris,2,4,Cup,2.3,3.2,3.0
+2025-05-20 21:28:47,1375325,120,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 21:28:48,1302487,45,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 21:28:48,1372750,45,KI Klaksvik,AB,2,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 21:28:48,1375306,45,Al-Qasim,Zakho,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 21:38:49,1252711,39.0,Al Shabab,Al-Ittihad FC,0,2,Pro League,1.91,4.0,3.1
+2025-05-20 21:38:49,1333665,4.0,Flandria,Argentino Quilmes,0,0,Primera B Metropolitana,2.8,2.75,2.6
+2025-05-20 21:38:50,1333667,7.0,Deportivo Laferrere,Brown DE Adrogue,0,0,Primera B Metropolitana,2.7,3.1,2.45
+2025-05-20 21:38:50,1333671,6.0,San Martín Burzaco,Sportivo Italiano,0,0,Primera B Metropolitana,2.75,2.7,2.7
+2025-05-20 21:38:50,1333674,7.0,Dock Sud,Villa San Carlos,0,0,Primera B Metropolitana,2.25,2.9,3.2
+2025-05-20 21:38:50,1334781,6.0,JJ Urquiza,Ituzaingó,0,0,Primera C,3.25,2.9,2.3
+2025-05-20 21:38:51,1334782,6.0,El Porvenir,Berazategui,0,0,Primera C,3.1,3.2,2.15
+2025-05-20 21:38:51,1334783,4.0,Defensores de Cambaceres,Lugano,0,0,Primera C,2.2,3.1,3.25
+2025-05-20 21:38:51,1334787,2.0,General Lamadrid,Sportivo Barracas,0,0,Primera C,1.73,3.5,4.5
+2025-05-20 21:38:51,1334788,5.0,Centro Español,Central Ballester,0,0,Primera C,2.38,3.0,2.75
+2025-05-20 21:38:52,1334789,7.0,Juventud Unida,Victoriano Arenas,0,0,Primera C,2.0,2.88,4.0
+2025-05-20 21:38:52,1334790,9.0,Yupanqui,Canuelas,0,0,Primera C,3.3,2.7,2.3
+2025-05-20 21:38:52,1334791,7.0,Deportivo Camioneros,Atletico Atlas,1,0,Primera C,1.38,4.75,7.0
+2025-05-20 21:38:52,1334792,3.0,Argentino Rosario,Lujan,0,0,Primera C,3.5,2.8,2.1
+2025-05-20 21:38:53,1354068,39.0,Newell's Old Boys Res.,Huracán Res.,1,1,Reserve League,1.95,3.1,3.8
+2025-05-20 21:38:53,1354069,39.0,Defensa y Justicia Res.,Racing Club Res.,1,1,Reserve League,2.05,3.4,3.2
+2025-05-20 21:38:53,1354072,39.0,Vélez Sársfield Res.,Gimnasia La Plata Res.,0,0,Reserve League,1.33,4.75,6.25
+2025-05-20 21:38:54,1354075,37.0,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 21:38:54,1359098,39.0,Cruzeiro U20,Corinthians U20,0,1,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 21:38:54,1367489,8.0,Italy U17,Czech Republic U17,0,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 21:38:54,1367952,39.0,São José PA U20,Ivoti U20,3,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 21:38:54,1368208,39.0,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 21:38:55,1373725,38.0,Athletico PR U17,Santos U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:38:55,1373726,38.0,Atletico GO U17,Bahia U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:38:55,1373727,38.0,Fortaleza U17,Botafogo U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:38:55,1373728,38.0,Sao Paulo U17,Atlético Mineiro U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:38:56,1374894,39.0,Kongsvinger,Rosenborg,1,0,NM Cupen,4.5,4.2,1.62
+2025-05-20 21:38:56,1375705,38.0,FK Košice,Podbrezová,2,1,Super Liga,2.05,3.4,3.5
+2025-05-20 21:38:56,1375804,37.0,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 21:38:57,1375805,38.0,Dunajska Streda,Zemplín Michalovce,0,1,Super Liga,1.45,4.33,6.5
+2025-05-20 21:38:57,1302487,52.0,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 21:38:57,1313453,81.0,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 21:38:57,1341218,80.0,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 21:38:58,1341554,80.0,Djurgården,AIK,4,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 21:38:58,1350389,79.0,Rīgas FS,Metta / LU,2,0,Virsliga,1.17,6.5,13.0
+2025-05-20 21:38:58,1356881,84.0,Slavia Mozyr,Torpedo Zhodino,1,0,Premier League,3.0,3.0,3.0
+2025-05-20 21:38:59,1372040,79.0,National Bank of Egypt,Future FC,1,0,League Cup,2.05,2.88,3.5
+2025-05-20 21:38:59,1372105,72.0,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 21:38:59,1372643,65.0,Septemvri Sofia,Lokomotiv Sofia,0,2,First League,9.0,1.73,2.4
+2025-05-20 21:38:59,1372750,53.0,KI Klaksvik,AB,3,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 21:39:00,1372954,80.0,Balzers,FC Vaduz,2,3,Cup,3.0,3.0,3.0
+2025-05-20 21:39:00,1374809,79.0,Al Urooba,Al Bataeh,1,2,Pro League,3.75,3.6,1.75
+2025-05-20 21:39:00,1374810,76.0,Shabab Al Ahli Dubai,Dibba Al Hisn,3,2,Pro League,1.2,5.75,11.0
+2025-05-20 21:39:00,1375320,83.0,Alternatyvus FK,Babrungas,0,5,Cup,3.0,3.0,3.0
+2025-05-20 21:39:01,1375634,75.0,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 21:39:01,1375636,72.0,La Linguère,HLM,0,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 21:39:01,1375322,128.0,FK Zalgiris Vilnius,Kauno Žalgiris,2,4,Cup,2.3,3.2,3.0
+2025-05-20 21:39:01,1375306,45.0,Al-Qasim,Zakho,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 21:39:02,1375325,,Aalesund,Ham-Kam,2,2,NM Cupen,2.15,3.1,3.5
+2025-05-20 21:49:02,1252711,45,Al Shabab,Al-Ittihad FC,1,2,Pro League,1.91,4.0,3.1
+2025-05-20 21:49:03,1333665,14,Flandria,Argentino Quilmes,0,0,Primera B Metropolitana,2.8,2.75,2.6
+2025-05-20 21:49:03,1333667,17,Deportivo Laferrere,Brown DE Adrogue,0,0,Primera B Metropolitana,2.7,3.1,2.45
+2025-05-20 21:49:03,1333671,16,San Martín Burzaco,Sportivo Italiano,0,0,Primera B Metropolitana,2.75,2.7,2.7
+2025-05-20 21:49:04,1333674,18,Dock Sud,Villa San Carlos,0,0,Primera B Metropolitana,2.25,2.9,3.2
+2025-05-20 21:49:04,1334781,16,JJ Urquiza,Ituzaingó,0,0,Primera C,3.25,2.9,2.3
+2025-05-20 21:49:04,1334782,16,El Porvenir,Berazategui,0,0,Primera C,3.1,3.2,2.15
+2025-05-20 21:49:04,1334783,15,Defensores de Cambaceres,Lugano,0,0,Primera C,2.2,3.1,3.25
+2025-05-20 21:49:05,1334787,12,General Lamadrid,Sportivo Barracas,0,0,Primera C,1.73,3.5,4.5
+2025-05-20 21:49:05,1334788,15,Centro Español,Central Ballester,0,0,Primera C,2.38,3.0,2.75
+2025-05-20 21:49:05,1334789,17,Juventud Unida,Victoriano Arenas,0,0,Primera C,2.0,2.88,4.0
+2025-05-20 21:49:05,1334790,19,Yupanqui,Canuelas,0,0,Primera C,3.3,2.7,2.3
+2025-05-20 21:49:06,1334791,17,Deportivo Camioneros,Atletico Atlas,1,0,Primera C,1.38,4.75,7.0
+2025-05-20 21:49:06,1334792,13,Argentino Rosario,Lujan,0,0,Primera C,3.5,2.8,2.1
+2025-05-20 21:49:06,1354075,45,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 21:49:06,1367489,18,Italy U17,Czech Republic U17,0,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 21:49:07,1368208,45,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 21:49:07,1373725,45,Athletico PR U17,Santos U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:49:07,1373727,45,Fortaleza U17,Botafogo U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:49:07,1374894,45,Kongsvinger,Rosenborg,1,1,NM Cupen,4.5,4.2,1.62
+2025-05-20 21:49:08,1375653,3,York,Oldham,0,0,National League,2.1,3.25,3.5
+2025-05-20 21:49:08,1375705,45,FK Košice,Podbrezová,2,1,Super Liga,2.05,3.4,3.5
+2025-05-20 21:49:08,1375856,4,Boulogne,Clermont Foot,0,0,Ligue 2,2.4,3.0,3.2
+2025-05-20 21:49:08,1302487,62,Supersport United,Orlando Pirates,0,0,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 21:49:09,1313453,90,Wisła Płock II,Stomil Olsztyn,0,1,III Liga - Group 1,1.83,3.7,3.4
+2025-05-20 21:49:09,1341218,90,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 21:49:09,1341554,90,Djurgården,AIK,4,0,Damallsvenskan,1.9,3.3,3.75
+2025-05-20 21:49:10,1350389,90,Rīgas FS,Metta / LU,2,0,Virsliga,1.17,6.5,13.0
+2025-05-20 21:49:10,1356881,90,Slavia Mozyr,Torpedo Zhodino,1,0,Premier League,3.0,3.0,3.0
+2025-05-20 21:49:10,1372040,89,National Bank of Egypt,Future FC,1,0,League Cup,2.05,2.88,3.5
+2025-05-20 21:49:10,1372105,82,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 21:49:11,1372643,75,Septemvri Sofia,Lokomotiv Sofia,0,2,First League,9.0,1.73,2.4
+2025-05-20 21:49:11,1372750,63,KI Klaksvik,AB,3,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 21:49:11,1372954,90,Balzers,FC Vaduz,2,3,Cup,3.0,3.0,3.0
+2025-05-20 21:49:11,1374809,89,Al Urooba,Al Bataeh,1,3,Pro League,3.75,3.6,1.75
+2025-05-20 21:49:12,1374810,86,Shabab Al Ahli Dubai,Dibba Al Hisn,3,2,Pro League,1.2,5.75,11.0
+2025-05-20 21:49:12,1375306,55,Al-Qasim,Zakho,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 21:49:12,1375634,85,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 21:49:12,1375636,82,La Linguère,HLM,1,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 21:49:13,1354068,45,Newell's Old Boys Res.,Huracán Res.,1,2,Reserve League,1.95,3.1,3.8
+2025-05-20 21:49:13,1354069,45,Defensa y Justicia Res.,Racing Club Res.,2,1,Reserve League,2.05,3.4,3.2
+2025-05-20 21:49:13,1354072,45,Vélez Sársfield Res.,Gimnasia La Plata Res.,0,1,Reserve League,1.33,4.75,6.25
+2025-05-20 21:49:13,1359098,45,Cruzeiro U20,Corinthians U20,0,1,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 21:49:14,1367952,45,São José PA U20,Ivoti U20,3,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 21:49:14,1373726,45,Atletico GO U17,Bahia U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:49:15,1373728,45,Sao Paulo U17,Atlético Mineiro U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:49:15,1375804,45,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 21:49:15,1375805,45,Dunajska Streda,Zemplín Michalovce,1,1,Super Liga,1.45,4.33,6.5
+2025-05-20 21:59:16,1333665,24,Flandria,Argentino Quilmes,0,0,Primera B Metropolitana,2.8,2.75,2.6
+2025-05-20 21:59:16,1333667,27,Deportivo Laferrere,Brown DE Adrogue,0,0,Primera B Metropolitana,2.7,3.1,2.45
+2025-05-20 21:59:17,1333671,26,San Martín Burzaco,Sportivo Italiano,0,0,Primera B Metropolitana,2.75,2.7,2.7
+2025-05-20 21:59:17,1333674,28,Dock Sud,Villa San Carlos,0,0,Primera B Metropolitana,2.25,2.9,3.2
+2025-05-20 21:59:17,1334781,26,JJ Urquiza,Ituzaingó,0,0,Primera C,3.25,2.9,2.3
+2025-05-20 21:59:17,1334782,26,El Porvenir,Berazategui,0,0,Primera C,3.1,3.2,2.15
+2025-05-20 21:59:18,1334783,25,Defensores de Cambaceres,Lugano,0,0,Primera C,2.2,3.1,3.25
+2025-05-20 21:59:18,1334787,22,General Lamadrid,Sportivo Barracas,1,1,Primera C,1.73,3.5,4.5
+2025-05-20 21:59:18,1334788,25,Centro Español,Central Ballester,0,0,Primera C,2.38,3.0,2.75
+2025-05-20 21:59:19,1334789,27,Juventud Unida,Victoriano Arenas,0,0,Primera C,2.0,2.88,4.0
+2025-05-20 21:59:19,1334790,29,Yupanqui,Canuelas,0,0,Primera C,3.3,2.7,2.3
+2025-05-20 21:59:19,1334791,27,Deportivo Camioneros,Atletico Atlas,2,0,Primera C,1.38,4.75,7.0
+2025-05-20 21:59:19,1334792,23,Argentino Rosario,Lujan,0,0,Primera C,3.5,2.8,2.1
+2025-05-20 21:59:20,1367489,28,Italy U17,Czech Republic U17,0,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 21:59:20,1375653,13,York,Oldham,0,0,National League,2.1,3.25,3.5
+2025-05-20 21:59:20,1375856,14,Boulogne,Clermont Foot,0,0,Ligue 2,2.4,3.0,3.2
+2025-05-20 21:59:21,1302487,72,Supersport United,Orlando Pirates,0,1,Premier Soccer League,3.0,3.0,3.0
+2025-05-20 21:59:21,1341218,90,Torpedo Kutaisi,Kolkheti Poti,1,1,Erovnuli Liga,1.5,3.9,5.5
+2025-05-20 21:59:21,1372105,90,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 21:59:21,1372643,85,Septemvri Sofia,Lokomotiv Sofia,0,2,First League,9.0,1.73,2.4
+2025-05-20 21:59:22,1372750,73,KI Klaksvik,AB,4,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 21:59:22,1374810,90,Shabab Al Ahli Dubai,Dibba Al Hisn,3,2,Pro League,1.2,5.75,11.0
+2025-05-20 21:59:22,1375306,65,Al-Qasim,Zakho,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 21:59:22,1375634,90,AJEL,Sonacos,0,0,Ligue 1,2.2,2.7,3.5
+2025-05-20 21:59:23,1375636,90,La Linguère,HLM,1,1,Ligue 1,3.0,3.0,3.0
+2025-05-20 21:59:23,1252711,45,Al Shabab,Al-Ittihad FC,1,2,Pro League,1.95,4.0,3.0
+2025-05-20 21:59:23,1354068,45,Newell's Old Boys Res.,Huracán Res.,1,2,Reserve League,1.95,3.1,3.8
+2025-05-20 21:59:23,1354069,45,Defensa y Justicia Res.,Racing Club Res.,2,1,Reserve League,2.05,3.4,3.2
+2025-05-20 21:59:24,1354072,45,Vélez Sársfield Res.,Gimnasia La Plata Res.,0,1,Reserve League,1.33,4.75,6.25
+2025-05-20 21:59:24,1354075,45,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 21:59:24,1359098,45,Cruzeiro U20,Corinthians U20,0,1,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 21:59:24,1367952,45,São José PA U20,Ivoti U20,3,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 21:59:25,1368208,45,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 21:59:25,1373725,45,Athletico PR U17,Santos U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:59:25,1373726,45,Atletico GO U17,Bahia U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:59:25,1373727,45,Fortaleza U17,Botafogo U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:59:26,1373728,45,Sao Paulo U17,Atlético Mineiro U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 21:59:26,1374894,45,Kongsvinger,Rosenborg,1,1,NM Cupen,4.5,4.2,1.62
+2025-05-20 21:59:26,1375705,45,FK Košice,Podbrezová,2,1,Super Liga,2.05,3.4,3.5
+2025-05-20 21:59:27,1375804,45,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 21:59:27,1375805,45,Dunajska Streda,Zemplín Michalovce,1,1,Super Liga,1.45,4.33,6.5
+2025-05-20 22:09:28,1208388,8.0,Crystal Palace,Wolves,0,0,Premier League,2.55,3.4,2.7
+2025-05-20 22:09:28,1208391,9.0,Manchester City,Bournemouth,0,0,Premier League,1.33,5.25,8.5
+2025-05-20 22:09:28,1333665,34.0,Flandria,Argentino Quilmes,0,0,Primera B Metropolitana,2.8,2.75,2.6
+2025-05-20 22:09:29,1333667,37.0,Deportivo Laferrere,Brown DE Adrogue,0,0,Primera B Metropolitana,2.7,3.1,2.45
+2025-05-20 22:09:29,1333671,37.0,San Martín Burzaco,Sportivo Italiano,0,0,Primera B Metropolitana,2.75,2.7,2.7
+2025-05-20 22:09:29,1333674,38.0,Dock Sud,Villa San Carlos,0,1,Primera B Metropolitana,2.25,2.9,3.2
+2025-05-20 22:09:29,1334781,36.0,JJ Urquiza,Ituzaingó,0,1,Primera C,3.25,2.9,2.3
+2025-05-20 22:09:30,1334782,37.0,El Porvenir,Berazategui,0,0,Primera C,3.1,3.2,2.15
+2025-05-20 22:09:30,1334783,35.0,Defensores de Cambaceres,Lugano,0,0,Primera C,2.2,3.1,3.25
+2025-05-20 22:09:30,1334787,32.0,General Lamadrid,Sportivo Barracas,1,1,Primera C,1.73,3.5,4.5
+2025-05-20 22:09:31,1334788,35.0,Centro Español,Central Ballester,1,1,Primera C,2.38,3.0,2.75
+2025-05-20 22:09:31,1334789,37.0,Juventud Unida,Victoriano Arenas,0,0,Primera C,2.0,2.88,4.0
+2025-05-20 22:09:31,1334790,39.0,Yupanqui,Canuelas,0,1,Primera C,3.3,2.7,2.3
+2025-05-20 22:09:31,1334791,37.0,Deportivo Camioneros,Atletico Atlas,3,0,Primera C,1.38,4.75,7.0
+2025-05-20 22:09:32,1334792,34.0,Argentino Rosario,Lujan,0,0,Primera C,3.5,2.8,2.1
+2025-05-20 22:09:38,1367489,39.0,Italy U17,Czech Republic U17,0,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 22:09:38,1373729,10.0,Palmeiras U17,Juventude U17,1,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:09:38,1375653,23.0,York,Oldham,0,1,National League,2.1,3.25,3.5
+2025-05-20 22:09:39,1375856,24.0,Boulogne,Clermont Foot,1,0,Ligue 2,2.4,3.0,3.2
+2025-05-20 22:09:39,1252711,48.0,Al Shabab,Al-Ittihad FC,1,2,Pro League,1.95,4.0,3.0
+2025-05-20 22:09:39,1302487,82.0,Supersport United,Orlando Pirates,0,1,Premier Soccer League,3.3,3.0,2.1
+2025-05-20 22:09:40,1354068,51.0,Newell's Old Boys Res.,Huracán Res.,1,2,Reserve League,1.95,3.1,3.8
+2025-05-20 22:09:40,1354069,49.0,Defensa y Justicia Res.,Racing Club Res.,2,1,Reserve League,2.05,3.4,3.2
+2025-05-20 22:09:40,1354072,50.0,Vélez Sársfield Res.,Gimnasia La Plata Res.,0,1,Reserve League,1.33,4.75,6.25
+2025-05-20 22:09:40,1354075,49.0,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 22:09:40,1359098,49.0,Cruzeiro U20,Corinthians U20,0,1,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 22:09:41,1367952,52.0,São José PA U20,Ivoti U20,4,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 22:09:41,1372750,83.0,KI Klaksvik,AB,4,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 22:09:41,1373725,47.0,Athletico PR U17,Santos U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:09:41,1373726,48.0,Atletico GO U17,Bahia U17,0,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:09:42,1373727,46.0,Fortaleza U17,Botafogo U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:09:42,1373728,48.0,Sao Paulo U17,Atlético Mineiro U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:09:42,1374894,50.0,Kongsvinger,Rosenborg,1,1,NM Cupen,4.5,4.2,1.62
+2025-05-20 22:09:43,1375306,75.0,Al-Qasim,Zakho,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 22:09:43,1375705,48.0,FK Košice,Podbrezová,2,1,Super Liga,2.05,3.4,3.5
+2025-05-20 22:09:43,1375804,52.0,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 22:09:44,1375805,52.0,Dunajska Streda,Zemplín Michalovce,1,1,Super Liga,1.45,4.33,6.5
+2025-05-20 22:09:44,1372105,,El Geish,Ismaily SC,0,0,League Cup,1.9,2.7,4.75
+2025-05-20 22:09:44,1368208,45.0,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 22:19:45,1208388,19,Crystal Palace,Wolves,0,0,Premier League,2.55,3.4,2.7
+2025-05-20 22:19:45,1208391,20,Manchester City,Bournemouth,1,0,Premier League,1.33,5.25,8.5
+2025-05-20 22:19:46,1333665,45,Flandria,Argentino Quilmes,0,0,Primera B Metropolitana,2.8,2.75,2.6
+2025-05-20 22:19:46,1334783,45,Defensores de Cambaceres,Lugano,0,0,Primera C,2.2,3.1,3.25
+2025-05-20 22:19:46,1334787,43,General Lamadrid,Sportivo Barracas,1,1,Primera C,1.73,3.5,4.5
+2025-05-20 22:19:46,1334788,45,Centro Español,Central Ballester,1,1,Primera C,2.38,3.0,2.75
+2025-05-20 22:19:47,1334792,44,Argentino Rosario,Lujan,0,0,Primera C,3.5,2.8,2.1
+2025-05-20 22:19:47,1373729,20,Palmeiras U17,Juventude U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:19:47,1375653,34,York,Oldham,0,1,National League,2.1,3.25,3.5
+2025-05-20 22:19:47,1375856,35,Boulogne,Clermont Foot,1,1,Ligue 2,2.4,3.0,3.2
+2025-05-20 22:19:48,1252711,59,Al Shabab,Al-Ittihad FC,1,3,Pro League,1.95,4.0,3.0
+2025-05-20 22:19:48,1302487,90,Supersport United,Orlando Pirates,0,1,Premier Soccer League,3.3,3.0,2.1
+2025-05-20 22:19:48,1354068,61,Newell's Old Boys Res.,Huracán Res.,1,2,Reserve League,1.95,3.1,3.8
+2025-05-20 22:19:49,1354069,60,Defensa y Justicia Res.,Racing Club Res.,2,1,Reserve League,2.05,3.4,3.2
+2025-05-20 22:19:49,1354072,61,Vélez Sársfield Res.,Gimnasia La Plata Res.,2,1,Reserve League,1.33,4.75,6.25
+2025-05-20 22:19:49,1354075,59,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 22:19:50,1359098,60,Cruzeiro U20,Corinthians U20,0,1,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 22:19:50,1367952,63,São José PA U20,Ivoti U20,4,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 22:19:50,1368208,56,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 22:19:50,1372750,90,KI Klaksvik,AB,4,0,Løgmanssteypid,1.06,12.0,26.0
+2025-05-20 22:19:51,1373725,58,Athletico PR U17,Santos U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:19:51,1373726,58,Atletico GO U17,Bahia U17,1,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:19:51,1373727,56,Fortaleza U17,Botafogo U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:19:51,1373728,59,Sao Paulo U17,Atlético Mineiro U17,2,2,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:19:52,1374894,61,Kongsvinger,Rosenborg,1,1,NM Cupen,4.5,4.2,1.62
+2025-05-20 22:19:52,1375306,86,Al-Qasim,Zakho,0,2,Iraqi League,3.0,3.0,3.0
+2025-05-20 22:19:52,1375705,59,FK Košice,Podbrezová,2,2,Super Liga,2.05,3.4,3.5
+2025-05-20 22:19:52,1375804,63,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 22:19:53,1375805,63,Dunajska Streda,Zemplín Michalovce,2,1,Super Liga,1.45,4.33,6.5
+2025-05-20 22:19:53,1333667,45,Deportivo Laferrere,Brown DE Adrogue,0,0,Primera B Metropolitana,2.7,3.1,2.45
+2025-05-20 22:19:53,1333671,45,San Martín Burzaco,Sportivo Italiano,0,0,Primera B Metropolitana,2.75,2.7,2.7
+2025-05-20 22:19:53,1333674,45,Dock Sud,Villa San Carlos,1,1,Primera B Metropolitana,2.25,2.9,3.2
+2025-05-20 22:19:54,1334781,45,JJ Urquiza,Ituzaingó,0,1,Primera C,3.25,2.9,2.3
+2025-05-20 22:19:54,1334782,45,El Porvenir,Berazategui,0,0,Primera C,3.1,3.2,2.15
+2025-05-20 22:19:54,1334789,45,Juventud Unida,Victoriano Arenas,0,0,Primera C,2.0,2.88,4.0
+2025-05-20 22:19:54,1334790,45,Yupanqui,Canuelas,0,1,Primera C,3.3,2.7,2.3
+2025-05-20 22:19:55,1334791,45,Deportivo Camioneros,Atletico Atlas,3,0,Primera C,1.38,4.75,7.0
+2025-05-20 22:19:55,1367489,45,Italy U17,Czech Republic U17,2,0,UEFA U17 Championship,3.0,3.0,3.0
+2025-05-20 22:29:56,1208388,29,Crystal Palace,Wolves,1,1,Premier League,2.55,3.4,2.7
+2025-05-20 22:29:56,1208391,30,Manchester City,Bournemouth,1,0,Premier League,1.33,5.25,8.5
+2025-05-20 22:29:57,1373729,30,Palmeiras U17,Juventude U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:29:57,1375653,44,York,Oldham,0,1,National League,2.1,3.4,3.4
+2025-05-20 22:29:57,1375856,45,Boulogne,Clermont Foot,1,1,Ligue 2,2.4,3.0,3.2
+2025-05-20 22:29:58,1252711,69,Al Shabab,Al-Ittihad FC,2,3,Pro League,1.95,4.0,3.0
+2025-05-20 22:29:58,1354068,71,Newell's Old Boys Res.,Huracán Res.,1,2,Reserve League,1.95,3.1,3.8
+2025-05-20 22:29:58,1354069,70,Defensa y Justicia Res.,Racing Club Res.,2,2,Reserve League,2.05,3.4,3.2
+2025-05-20 22:29:58,1354072,71,Vélez Sársfield Res.,Gimnasia La Plata Res.,2,1,Reserve League,1.33,4.75,6.25
+2025-05-20 22:29:59,1354075,69,San Lorenzo Res.,Rosario Central Res.,0,0,Reserve League,2.2,3.3,3.0
+2025-05-20 22:29:59,1359098,70,Cruzeiro U20,Corinthians U20,0,1,Brasileiro U20 A,1.73,3.8,3.8
+2025-05-20 22:29:59,1367952,73,São José PA U20,Ivoti U20,4,0,Estadual Junior U20,1.18,5.25,15.0
+2025-05-20 22:29:59,1368208,66,Pérolas Negras,América RJ,0,0,Carioca A2,3.0,3.0,3.0
+2025-05-20 22:29:59,1373725,68,Athletico PR U17,Santos U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:30:00,1373726,68,Atletico GO U17,Bahia U17,1,1,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:30:00,1373727,66,Fortaleza U17,Botafogo U17,2,0,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:30:00,1373728,69,Sao Paulo U17,Atlético Mineiro U17,2,2,Brasileiro U17,3.0,3.0,3.0
+2025-05-20 22:30:01,1374894,71,Kongsvinger,Rosenborg,2,1,NM Cupen,4.5,4.2,1.62
+2025-05-20 22:30:01,1375705,69,FK Košice,Podbrezová,2,2,Super Liga,2.05,3.4,3.5
+2025-05-20 22:30:01,1375804,72,Den Bosch,Telstar,0,0,Eredivisie,3.0,3.4,2.3
+2025-05-20 22:30:01,1375805,73,Dunajska Streda,Zemplín Michalovce,2,1,Super Liga,1.45,4.33,6.5
+2025-05-20 22:30:02,1333665,45,Flandria,Argentino Quilmes,0,0,Primera B Metropolitana,2.8,2.75,2.6
+2025-05-20 22:30:02,1333667,45,Deportivo Laferrere,Brown DE Adrogue,0,0,Primera B Metropolitana,2.7,3.1,2.45
+2025-05-20 22:30:02,1333671,45,San Martín Burzaco,Sportivo Italiano,0,0,Primera B Metropolitana,2.75,2.7,2.7
+2025-05-20 22:30:02,1333674,45,Dock Sud,Villa San Carlos,1,1,Primera B Metropolitana,2.25,2.9,3.2
+2025-05-20 22:30:03,1334781,45,JJ Urquiza,Ituzaingó,0,1,Primera C,3.25,2.9,2.3
+2025-05-20 22:30:03,1334782,45,El Porvenir,Berazategui,0,0,Primera C,3.1,3.2,2.15
+2025-05-20 22:30:03,1334783,45,Defensores de Cambaceres,Lugano,0,0,Primera C,2.2,3.1,3.25
+2025-05-20 22:30:03,1334787,45,General Lamadrid,Sportivo Barracas,1,1,Primera C,1.73,3.5,4.5
+2025-05-20 22:30:04,1334788,45,Centro Español,Central Ballester,1,1,Primera C,2.38,3.0,2.75
+2025-05-20 22:30:04,1334789,45,Juventud Unida,Victoriano Arenas,0,0,Primera C,2.0,2.88,4.0
+2025-05-20 22:30:04,1334790,45,Yupanqui,Canuelas,0,1,Primera C,3.3,2.7,2.3
+2025-05-20 22:30:04,1334791,45,Deportivo Camioneros,Atletico Atlas,3,0,Primera C,1.38,4.75,7.0
+2025-05-20 22:30:05,1334792,45,Argentino Rosario,Lujan,0,0,Primera C,3.5,2.8,2.1
+2025-05-20 22:30:05,1367489,45,Italy U17,Czech Republic U17,2,0,UEFA U17 Championship,3.0,3.0,3.0

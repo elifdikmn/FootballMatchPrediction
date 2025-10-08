@@ -1,0 +1,57 @@
+[events]
+    *id {label:"INTEGER"}
+    FixtureID {label:"INTEGER"}
+    assist {label:"VARCHAR"}
+    detail {label:"VARCHAR"}
+    minute {label:"INTEGER"}
+    player {label:"VARCHAR"}
+    team {label:"VARCHAR"}
+    type {label:"VARCHAR"}
+[fixtures]
+    *FixtureID {label:"INTEGER"}
+    AwayGoals {label:"FLOAT"}
+    AwayTeam {label:"VARCHAR"}
+    AwayWinPct {label:"FLOAT"}
+    B365A {label:"FLOAT"}
+    B365D {label:"FLOAT"}
+    B365H {label:"FLOAT"}
+    Date {label:"VARCHAR"}
+    DrawPct {label:"FLOAT"}
+    HomeGoals {label:"FLOAT"}
+    HomeTeam {label:"VARCHAR"}
+    HomeWinPct {label:"FLOAT"}
+    LastUpdated {label:"VARCHAR"}
+    League {label:"VARCHAR"}
+    Predicted_Label {label:"VARCHAR"}
+    Status {label:"VARCHAR"}
+[prediction_info]
+    *FixtureID {label:"INTEGER"}
+    advice {label:"VARCHAR"}
+    away_pct {label:"VARCHAR"}
+    comment {label:"VARCHAR"}
+    draw_pct {label:"VARCHAR"}
+    form_away {label:"VARCHAR"}
+    form_home {label:"VARCHAR"}
+    goals_away {label:"VARCHAR"}
+    goals_home {label:"VARCHAR"}
+    h2h_away {label:"VARCHAR"}
+    h2h_home {label:"VARCHAR"}
+    home_pct {label:"VARCHAR"}
+    last_5_away {label:"JSON"}
+    last_5_home {label:"JSON"}
+    poisson_away {label:"VARCHAR"}
+    poisson_home {label:"VARCHAR"}
+    under_over {label:"VARCHAR"}
+    winner {label:"VARCHAR"}
+[standings]
+    *id {label:"INTEGER"}
+    draw {label:"INTEGER"}
+    goals_diff {label:"INTEGER"}
+    last_updated {label:"VARCHAR"}
+    league {label:"VARCHAR"}
+    lose {label:"INTEGER"}
+    played {label:"INTEGER"}
+    points {label:"INTEGER"}
+    rank {label:"INTEGER"}
+    team_name {label:"VARCHAR"}
+    win {label:"INTEGER"}

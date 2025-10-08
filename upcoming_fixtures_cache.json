@@ -1,0 +1,6421 @@
+{
+  "1323263": {
+    "FixtureID": 1323263,
+    "Date": "2025-06-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Wales",
+    "AwayTeam": "Liechtenstein"
+  },
+  "1323264": {
+    "FixtureID": 1323264,
+    "Date": "2025-06-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Czech Republic",
+    "AwayTeam": "Montenegro"
+  },
+  "1366273": {
+    "FixtureID": 1366273,
+    "Date": "2025-06-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Norway",
+    "AwayTeam": "Italy"
+  },
+  "1366274": {
+    "FixtureID": 1366274,
+    "Date": "2025-06-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Gibraltar",
+    "AwayTeam": "Croatia"
+  },
+  "1323261": {
+    "FixtureID": 1323261,
+    "Date": "2025-06-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Estonia",
+    "AwayTeam": "Israel"
+  },
+  "1323262": {
+    "FixtureID": 1323262,
+    "Date": "2025-06-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "FYR Macedonia",
+    "AwayTeam": "Belgium"
+  },
+  "1323265": {
+    "FixtureID": 1323265,
+    "Date": "2025-06-07T13:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Bosnia & Herzegovina",
+    "AwayTeam": "San Marino"
+  },
+  "1323267": {
+    "FixtureID": 1323267,
+    "Date": "2025-06-07T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Andorra",
+    "AwayTeam": "England"
+  },
+  "1323266": {
+    "FixtureID": 1323266,
+    "Date": "2025-06-07T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Malta",
+    "AwayTeam": "Lithuania"
+  },
+  "1323268": {
+    "FixtureID": 1323268,
+    "Date": "2025-06-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Austria",
+    "AwayTeam": "Romania"
+  },
+  "1323269": {
+    "FixtureID": 1323269,
+    "Date": "2025-06-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Albania",
+    "AwayTeam": "Serbia"
+  },
+  "1366275": {
+    "FixtureID": 1366275,
+    "Date": "2025-06-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Finland",
+    "AwayTeam": "Netherlands"
+  },
+  "1323270": {
+    "FixtureID": 1323270,
+    "Date": "2025-06-09T14:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Kazakhstan",
+    "AwayTeam": "FYR Macedonia"
+  },
+  "1323272": {
+    "FixtureID": 1323272,
+    "Date": "2025-06-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Belgium",
+    "AwayTeam": "Wales"
+  },
+  "1366277": {
+    "FixtureID": 1366277,
+    "Date": "2025-06-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Croatia",
+    "AwayTeam": "Czech Republic"
+  },
+  "1366276": {
+    "FixtureID": 1366276,
+    "Date": "2025-06-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Italy",
+    "AwayTeam": "Moldova"
+  },
+  "1323273": {
+    "FixtureID": 1323273,
+    "Date": "2025-06-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Faroe Islands",
+    "AwayTeam": "Gibraltar"
+  },
+  "1323271": {
+    "FixtureID": 1323271,
+    "Date": "2025-06-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Estonia",
+    "AwayTeam": "Norway"
+  },
+  "1323278": {
+    "FixtureID": 1323278,
+    "Date": "2025-06-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Serbia",
+    "AwayTeam": "Andorra"
+  },
+  "1323275": {
+    "FixtureID": 1323275,
+    "Date": "2025-06-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Romania",
+    "AwayTeam": "Cyprus"
+  },
+  "1323277": {
+    "FixtureID": 1323277,
+    "Date": "2025-06-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Latvia",
+    "AwayTeam": "Albania"
+  },
+  "1323274": {
+    "FixtureID": 1323274,
+    "Date": "2025-06-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Finland",
+    "AwayTeam": "Poland"
+  },
+  "1323276": {
+    "FixtureID": 1323276,
+    "Date": "2025-06-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "San Marino",
+    "AwayTeam": "Austria"
+  },
+  "1366278": {
+    "FixtureID": 1366278,
+    "Date": "2025-06-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Netherlands",
+    "AwayTeam": "Malta"
+  },
+  "1323279": {
+    "FixtureID": 1323279,
+    "Date": "2025-09-04T14:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Kazakhstan",
+    "AwayTeam": "Wales"
+  },
+  "1323282": {
+    "FixtureID": 1323282,
+    "Date": "2025-09-04T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Lithuania",
+    "AwayTeam": "Malta"
+  },
+  "1323280": {
+    "FixtureID": 1323280,
+    "Date": "2025-09-04T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Georgia",
+    "AwayTeam": "T\u00fcrkiye"
+  },
+  "1366279": {
+    "FixtureID": 1366279,
+    "Date": "2025-09-04T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Slovakia",
+    "AwayTeam": "Germany"
+  },
+  "1323281": {
+    "FixtureID": 1323281,
+    "Date": "2025-09-04T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Luxembourg",
+    "AwayTeam": "Northern Ireland"
+  },
+  "1366280": {
+    "FixtureID": 1366280,
+    "Date": "2025-09-04T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Bulgaria",
+    "AwayTeam": "Spain"
+  },
+  "1323283": {
+    "FixtureID": 1323283,
+    "Date": "2025-09-04T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Liechtenstein",
+    "AwayTeam": "Belgium"
+  },
+  "1366281": {
+    "FixtureID": 1366281,
+    "Date": "2025-09-04T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Netherlands",
+    "AwayTeam": "Poland"
+  },
+  "1323285": {
+    "FixtureID": 1323285,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Switzerland",
+    "AwayTeam": "Kosovo"
+  },
+  "1323287": {
+    "FixtureID": 1323287,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Iceland",
+    "AwayTeam": "Azerbaijan"
+  },
+  "1366282": {
+    "FixtureID": 1366282,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Denmark",
+    "AwayTeam": "Scotland"
+  },
+  "1366284": {
+    "FixtureID": 1366284,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Italy",
+    "AwayTeam": "Estonia"
+  },
+  "1366283": {
+    "FixtureID": 1366283,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Ukraine",
+    "AwayTeam": "France"
+  },
+  "1323284": {
+    "FixtureID": 1323284,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Slovenia",
+    "AwayTeam": "Sweden"
+  },
+  "1366285": {
+    "FixtureID": 1366285,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Faroe Islands",
+    "AwayTeam": "Croatia"
+  },
+  "1323289": {
+    "FixtureID": 1323289,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Montenegro",
+    "AwayTeam": "Czech Republic"
+  },
+  "1323288": {
+    "FixtureID": 1323288,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Moldova",
+    "AwayTeam": "Israel"
+  },
+  "1323286": {
+    "FixtureID": 1323286,
+    "Date": "2025-09-05T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Greece",
+    "AwayTeam": "Belarus"
+  },
+  "1323290": {
+    "FixtureID": 1323290,
+    "Date": "2025-09-06T13:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Latvia",
+    "AwayTeam": "Serbia"
+  },
+  "1323291": {
+    "FixtureID": 1323291,
+    "Date": "2025-09-06T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "England",
+    "AwayTeam": "Andorra"
+  },
+  "1366286": {
+    "FixtureID": 1366286,
+    "Date": "2025-09-06T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Armenia",
+    "AwayTeam": "Portugal"
+  },
+  "1323293": {
+    "FixtureID": 1323293,
+    "Date": "2025-09-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Austria",
+    "AwayTeam": "Cyprus"
+  },
+  "1323292": {
+    "FixtureID": 1323292,
+    "Date": "2025-09-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Rep. Of Ireland",
+    "AwayTeam": "Hungary"
+  },
+  "1323294": {
+    "FixtureID": 1323294,
+    "Date": "2025-09-06T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "San Marino",
+    "AwayTeam": "Bosnia & Herzegovina"
+  },
+  "1323295": {
+    "FixtureID": 1323295,
+    "Date": "2025-09-07T13:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Georgia",
+    "AwayTeam": "Bulgaria"
+  },
+  "1366287": {
+    "FixtureID": 1366287,
+    "Date": "2025-09-07T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Lithuania",
+    "AwayTeam": "Netherlands"
+  },
+  "1323296": {
+    "FixtureID": 1323296,
+    "Date": "2025-09-07T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "FYR Macedonia",
+    "AwayTeam": "Liechtenstein"
+  },
+  "1323299": {
+    "FixtureID": 1323299,
+    "Date": "2025-09-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Belgium",
+    "AwayTeam": "Kazakhstan"
+  },
+  "1323298": {
+    "FixtureID": 1323298,
+    "Date": "2025-09-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Poland",
+    "AwayTeam": "Finland"
+  },
+  "1366288": {
+    "FixtureID": 1366288,
+    "Date": "2025-09-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Germany",
+    "AwayTeam": "Northern Ireland"
+  },
+  "1366289": {
+    "FixtureID": 1366289,
+    "Date": "2025-09-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "T\u00fcrkiye",
+    "AwayTeam": "Spain"
+  },
+  "1323297": {
+    "FixtureID": 1323297,
+    "Date": "2025-09-07T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Luxembourg",
+    "AwayTeam": "Slovakia"
+  },
+  "1366292": {
+    "FixtureID": 1366292,
+    "Date": "2025-09-08T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Croatia",
+    "AwayTeam": "Montenegro"
+  },
+  "1323301": {
+    "FixtureID": 1323301,
+    "Date": "2025-09-08T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Switzerland",
+    "AwayTeam": "Slovenia"
+  },
+  "1323304": {
+    "FixtureID": 1323304,
+    "Date": "2025-09-08T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Gibraltar",
+    "AwayTeam": "Faroe Islands"
+  },
+  "1323302": {
+    "FixtureID": 1323302,
+    "Date": "2025-09-08T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Belarus",
+    "AwayTeam": "Scotland"
+  },
+  "1323300": {
+    "FixtureID": 1323300,
+    "Date": "2025-09-08T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Kosovo",
+    "AwayTeam": "Sweden"
+  },
+  "1366291": {
+    "FixtureID": 1366291,
+    "Date": "2025-09-08T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Israel",
+    "AwayTeam": "Italy"
+  },
+  "1366290": {
+    "FixtureID": 1366290,
+    "Date": "2025-09-08T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Greece",
+    "AwayTeam": "Denmark"
+  },
+  "1323306": {
+    "FixtureID": 1323306,
+    "Date": "2025-09-09T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Armenia",
+    "AwayTeam": "Rep. Of Ireland"
+  },
+  "1323305": {
+    "FixtureID": 1323305,
+    "Date": "2025-09-09T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Azerbaijan",
+    "AwayTeam": "Ukraine"
+  },
+  "1366293": {
+    "FixtureID": 1366293,
+    "Date": "2025-09-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "France",
+    "AwayTeam": "Iceland"
+  },
+  "1323310": {
+    "FixtureID": 1323310,
+    "Date": "2025-09-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Serbia",
+    "AwayTeam": "England"
+  },
+  "1366294": {
+    "FixtureID": 1366294,
+    "Date": "2025-09-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Hungary",
+    "AwayTeam": "Portugal"
+  },
+  "1323309": {
+    "FixtureID": 1323309,
+    "Date": "2025-09-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Albania",
+    "AwayTeam": "Latvia"
+  },
+  "1323303": {
+    "FixtureID": 1323303,
+    "Date": "2025-09-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Norway",
+    "AwayTeam": "Moldova"
+  },
+  "1323308": {
+    "FixtureID": 1323308,
+    "Date": "2025-09-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Cyprus",
+    "AwayTeam": "Romania"
+  },
+  "1323307": {
+    "FixtureID": 1323307,
+    "Date": "2025-09-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Bosnia & Herzegovina",
+    "AwayTeam": "Austria"
+  },
+  "1323312": {
+    "FixtureID": 1323312,
+    "Date": "2025-10-09T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Finland",
+    "AwayTeam": "Lithuania"
+  },
+  "1366297": {
+    "FixtureID": 1366297,
+    "Date": "2025-10-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Czech Republic",
+    "AwayTeam": "Croatia"
+  },
+  "1323313": {
+    "FixtureID": 1323313,
+    "Date": "2025-10-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Austria",
+    "AwayTeam": "San Marino"
+  },
+  "1323315": {
+    "FixtureID": 1323315,
+    "Date": "2025-10-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Faroe Islands",
+    "AwayTeam": "Montenegro"
+  },
+  "1366295": {
+    "FixtureID": 1366295,
+    "Date": "2025-10-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Belarus",
+    "AwayTeam": "Denmark"
+  },
+  "1323314": {
+    "FixtureID": 1323314,
+    "Date": "2025-10-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Cyprus",
+    "AwayTeam": "Bosnia & Herzegovina"
+  },
+  "1323311": {
+    "FixtureID": 1323311,
+    "Date": "2025-10-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Scotland",
+    "AwayTeam": "Greece"
+  },
+  "1366296": {
+    "FixtureID": 1366296,
+    "Date": "2025-10-09T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Malta",
+    "AwayTeam": "Netherlands"
+  },
+  "1323316": {
+    "FixtureID": 1323316,
+    "Date": "2025-10-10T14:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Kazakhstan",
+    "AwayTeam": "Liechtenstein"
+  },
+  "1323321": {
+    "FixtureID": 1323321,
+    "Date": "2025-10-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Belgium",
+    "AwayTeam": "FYR Macedonia"
+  },
+  "1366299": {
+    "FixtureID": 1366299,
+    "Date": "2025-10-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "France",
+    "AwayTeam": "Azerbaijan"
+  },
+  "1323319": {
+    "FixtureID": 1323319,
+    "Date": "2025-10-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Sweden",
+    "AwayTeam": "Switzerland"
+  },
+  "1323320": {
+    "FixtureID": 1323320,
+    "Date": "2025-10-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Iceland",
+    "AwayTeam": "Ukraine"
+  },
+  "1366298": {
+    "FixtureID": 1366298,
+    "Date": "2025-10-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Germany",
+    "AwayTeam": "Luxembourg"
+  },
+  "1323317": {
+    "FixtureID": 1323317,
+    "Date": "2025-10-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Northern Ireland",
+    "AwayTeam": "Slovakia"
+  },
+  "1323318": {
+    "FixtureID": 1323318,
+    "Date": "2025-10-10T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Kosovo",
+    "AwayTeam": "Slovenia"
+  },
+  "1323322": {
+    "FixtureID": 1323322,
+    "Date": "2025-10-11T13:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Latvia",
+    "AwayTeam": "Andorra"
+  },
+  "1323323": {
+    "FixtureID": 1323323,
+    "Date": "2025-10-11T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Hungary",
+    "AwayTeam": "Armenia"
+  },
+  "1323324": {
+    "FixtureID": 1323324,
+    "Date": "2025-10-11T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Norway",
+    "AwayTeam": "Israel"
+  },
+  "1366300": {
+    "FixtureID": 1366300,
+    "Date": "2025-10-11T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Spain",
+    "AwayTeam": "Georgia"
+  },
+  "1323326": {
+    "FixtureID": 1323326,
+    "Date": "2025-10-11T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Serbia",
+    "AwayTeam": "Albania"
+  },
+  "1366301": {
+    "FixtureID": 1366301,
+    "Date": "2025-10-11T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Portugal",
+    "AwayTeam": "Rep. Of Ireland"
+  },
+  "1366302": {
+    "FixtureID": 1366302,
+    "Date": "2025-10-11T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Estonia",
+    "AwayTeam": "Italy"
+  },
+  "1323325": {
+    "FixtureID": 1323325,
+    "Date": "2025-10-11T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Bulgaria",
+    "AwayTeam": "T\u00fcrkiye"
+  },
+  "1323327": {
+    "FixtureID": 1323327,
+    "Date": "2025-10-12T13:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "San Marino",
+    "AwayTeam": "Cyprus"
+  },
+  "1323329": {
+    "FixtureID": 1323329,
+    "Date": "2025-10-12T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Faroe Islands",
+    "AwayTeam": "Czech Republic"
+  },
+  "1323328": {
+    "FixtureID": 1323328,
+    "Date": "2025-10-12T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Scotland",
+    "AwayTeam": "Belarus"
+  },
+  "1366303": {
+    "FixtureID": 1366303,
+    "Date": "2025-10-12T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Netherlands",
+    "AwayTeam": "Finland"
+  },
+  "1366305": {
+    "FixtureID": 1366305,
+    "Date": "2025-10-12T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Croatia",
+    "AwayTeam": "Gibraltar"
+  },
+  "1366304": {
+    "FixtureID": 1366304,
+    "Date": "2025-10-12T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Denmark",
+    "AwayTeam": "Greece"
+  },
+  "1323331": {
+    "FixtureID": 1323331,
+    "Date": "2025-10-12T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Romania",
+    "AwayTeam": "Austria"
+  },
+  "1323330": {
+    "FixtureID": 1323330,
+    "Date": "2025-10-12T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Lithuania",
+    "AwayTeam": "Poland"
+  },
+  "1323334": {
+    "FixtureID": 1323334,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Sweden",
+    "AwayTeam": "Kosovo"
+  },
+  "1366307": {
+    "FixtureID": 1366307,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Iceland",
+    "AwayTeam": "France"
+  },
+  "1323337": {
+    "FixtureID": 1323337,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Wales",
+    "AwayTeam": "Belgium"
+  },
+  "1366306": {
+    "FixtureID": 1366306,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Northern Ireland",
+    "AwayTeam": "Germany"
+  },
+  "1323335": {
+    "FixtureID": 1323335,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Ukraine",
+    "AwayTeam": "Azerbaijan"
+  },
+  "1323332": {
+    "FixtureID": 1323332,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Slovakia",
+    "AwayTeam": "Luxembourg"
+  },
+  "1323333": {
+    "FixtureID": 1323333,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Slovenia",
+    "AwayTeam": "Switzerland"
+  },
+  "1323336": {
+    "FixtureID": 1323336,
+    "Date": "2025-10-13T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "FYR Macedonia",
+    "AwayTeam": "Kazakhstan"
+  },
+  "1323340": {
+    "FixtureID": 1323340,
+    "Date": "2025-10-14T16:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Estonia",
+    "AwayTeam": "Moldova"
+  },
+  "1366308": {
+    "FixtureID": 1366308,
+    "Date": "2025-10-14T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Spain",
+    "AwayTeam": "Bulgaria"
+  },
+  "1366309": {
+    "FixtureID": 1366309,
+    "Date": "2025-10-14T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Portugal",
+    "AwayTeam": "Hungary"
+  },
+  "1366310": {
+    "FixtureID": 1366310,
+    "Date": "2025-10-14T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Italy",
+    "AwayTeam": "Israel"
+  },
+  "1323339": {
+    "FixtureID": 1323339,
+    "Date": "2025-10-14T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Rep. Of Ireland",
+    "AwayTeam": "Armenia"
+  },
+  "1323338": {
+    "FixtureID": 1323338,
+    "Date": "2025-10-14T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "T\u00fcrkiye",
+    "AwayTeam": "Georgia"
+  },
+  "1323342": {
+    "FixtureID": 1323342,
+    "Date": "2025-10-14T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Latvia",
+    "AwayTeam": "England"
+  },
+  "1323341": {
+    "FixtureID": 1323341,
+    "Date": "2025-10-14T18:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Andorra",
+    "AwayTeam": "Serbia"
+  },
+  "1323345": {
+    "FixtureID": 1323345,
+    "Date": "2025-11-13T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Norway",
+    "AwayTeam": "Estonia"
+  },
+  "1323344": {
+    "FixtureID": 1323344,
+    "Date": "2025-11-13T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Armenia",
+    "AwayTeam": "Hungary"
+  },
+  "1323343": {
+    "FixtureID": 1323343,
+    "Date": "2025-11-13T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Azerbaijan",
+    "AwayTeam": "Iceland"
+  },
+  "1366311": {
+    "FixtureID": 1366311,
+    "Date": "2025-11-13T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "France",
+    "AwayTeam": "Ukraine"
+  },
+  "1323347": {
+    "FixtureID": 1323347,
+    "Date": "2025-11-13T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "England",
+    "AwayTeam": "Serbia"
+  },
+  "1366312": {
+    "FixtureID": 1366312,
+    "Date": "2025-11-13T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Rep. Of Ireland",
+    "AwayTeam": "Portugal"
+  },
+  "1323346": {
+    "FixtureID": 1323346,
+    "Date": "2025-11-13T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Andorra",
+    "AwayTeam": "Albania"
+  },
+  "1366313": {
+    "FixtureID": 1366313,
+    "Date": "2025-11-13T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Moldova",
+    "AwayTeam": "Italy"
+  },
+  "1323348": {
+    "FixtureID": 1323348,
+    "Date": "2025-11-14T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Finland",
+    "AwayTeam": "Malta"
+  },
+  "1366316": {
+    "FixtureID": 1366316,
+    "Date": "2025-11-14T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Croatia",
+    "AwayTeam": "Faroe Islands"
+  },
+  "1366315": {
+    "FixtureID": 1366315,
+    "Date": "2025-11-14T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Poland",
+    "AwayTeam": "Netherlands"
+  },
+  "1323349": {
+    "FixtureID": 1323349,
+    "Date": "2025-11-14T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Slovakia",
+    "AwayTeam": "Northern Ireland"
+  },
+  "1323350": {
+    "FixtureID": 1323350,
+    "Date": "2025-11-14T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Gibraltar",
+    "AwayTeam": "Montenegro"
+  },
+  "1366314": {
+    "FixtureID": 1366314,
+    "Date": "2025-11-14T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Luxembourg",
+    "AwayTeam": "Germany"
+  },
+  "1323351": {
+    "FixtureID": 1323351,
+    "Date": "2025-11-15T14:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Kazakhstan",
+    "AwayTeam": "Belgium"
+  },
+  "1323352": {
+    "FixtureID": 1323352,
+    "Date": "2025-11-15T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "T\u00fcrkiye",
+    "AwayTeam": "Bulgaria"
+  },
+  "1366317": {
+    "FixtureID": 1366317,
+    "Date": "2025-11-15T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Georgia",
+    "AwayTeam": "Spain"
+  },
+  "1323353": {
+    "FixtureID": 1323353,
+    "Date": "2025-11-15T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Cyprus",
+    "AwayTeam": "Austria"
+  },
+  "1323354": {
+    "FixtureID": 1323354,
+    "Date": "2025-11-15T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Liechtenstein",
+    "AwayTeam": "Wales"
+  },
+  "1323356": {
+    "FixtureID": 1323356,
+    "Date": "2025-11-15T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Switzerland",
+    "AwayTeam": "Sweden"
+  },
+  "1366318": {
+    "FixtureID": 1366318,
+    "Date": "2025-11-15T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Denmark",
+    "AwayTeam": "Belarus"
+  },
+  "1323355": {
+    "FixtureID": 1323355,
+    "Date": "2025-11-15T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Slovenia",
+    "AwayTeam": "Kosovo"
+  },
+  "1323358": {
+    "FixtureID": 1323358,
+    "Date": "2025-11-15T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Bosnia & Herzegovina",
+    "AwayTeam": "Romania"
+  },
+  "1323357": {
+    "FixtureID": 1323357,
+    "Date": "2025-11-15T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Greece",
+    "AwayTeam": "Scotland"
+  },
+  "1366319": {
+    "FixtureID": 1366319,
+    "Date": "2025-11-16T14:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Portugal",
+    "AwayTeam": "Armenia"
+  },
+  "1323359": {
+    "FixtureID": 1323359,
+    "Date": "2025-11-16T14:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Hungary",
+    "AwayTeam": "Rep. Of Ireland"
+  },
+  "1323362": {
+    "FixtureID": 1323362,
+    "Date": "2025-11-16T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Serbia",
+    "AwayTeam": "Latvia"
+  },
+  "1323360": {
+    "FixtureID": 1323360,
+    "Date": "2025-11-16T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Ukraine",
+    "AwayTeam": "Iceland"
+  },
+  "1323361": {
+    "FixtureID": 1323361,
+    "Date": "2025-11-16T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Albania",
+    "AwayTeam": "England"
+  },
+  "1366320": {
+    "FixtureID": 1366320,
+    "Date": "2025-11-16T17:00:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Azerbaijan",
+    "AwayTeam": "France"
+  },
+  "1366321": {
+    "FixtureID": 1366321,
+    "Date": "2025-11-16T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Italy",
+    "AwayTeam": "Norway"
+  },
+  "1323363": {
+    "FixtureID": 1323363,
+    "Date": "2025-11-16T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Israel",
+    "AwayTeam": "Moldova"
+  },
+  "1366322": {
+    "FixtureID": 1366322,
+    "Date": "2025-11-17T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Germany",
+    "AwayTeam": "Slovakia"
+  },
+  "1323366": {
+    "FixtureID": 1323366,
+    "Date": "2025-11-17T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Czech Republic",
+    "AwayTeam": "Gibraltar"
+  },
+  "1323364": {
+    "FixtureID": 1323364,
+    "Date": "2025-11-17T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Northern Ireland",
+    "AwayTeam": "Luxembourg"
+  },
+  "1366324": {
+    "FixtureID": 1366324,
+    "Date": "2025-11-17T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Montenegro",
+    "AwayTeam": "Croatia"
+  },
+  "1323365": {
+    "FixtureID": 1323365,
+    "Date": "2025-11-17T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Malta",
+    "AwayTeam": "Poland"
+  },
+  "1366323": {
+    "FixtureID": 1366323,
+    "Date": "2025-11-17T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Netherlands",
+    "AwayTeam": "Lithuania"
+  },
+  "1323373": {
+    "FixtureID": 1323373,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Belgium",
+    "AwayTeam": "Liechtenstein"
+  },
+  "1323368": {
+    "FixtureID": 1323368,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Sweden",
+    "AwayTeam": "Slovenia"
+  },
+  "1366326": {
+    "FixtureID": 1366326,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Spain",
+    "AwayTeam": "T\u00fcrkiye"
+  },
+  "1323374": {
+    "FixtureID": 1323374,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Wales",
+    "AwayTeam": "FYR Macedonia"
+  },
+  "1323372": {
+    "FixtureID": 1323372,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Romania",
+    "AwayTeam": "San Marino"
+  },
+  "1323371": {
+    "FixtureID": 1323371,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Austria",
+    "AwayTeam": "Bosnia & Herzegovina"
+  },
+  "1323369": {
+    "FixtureID": 1323369,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Belarus",
+    "AwayTeam": "Greece"
+  },
+  "1323370": {
+    "FixtureID": 1323370,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Bulgaria",
+    "AwayTeam": "Georgia"
+  },
+  "1366325": {
+    "FixtureID": 1366325,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Scotland",
+    "AwayTeam": "Denmark"
+  },
+  "1323367": {
+    "FixtureID": 1323367,
+    "Date": "2025-11-18T19:45:00+00:00",
+    "League": "World Cup - Qualification Europe",
+    "HomeTeam": "Kosovo",
+    "AwayTeam": "Switzerland"
+  },
+  "1366136": {
+    "FixtureID": 1366136,
+    "Date": "2025-06-04T19:00:00+00:00",
+    "League": "UEFA Nations League",
+    "HomeTeam": "Germany",
+    "AwayTeam": "Portugal"
+  },
+  "1366137": {
+    "FixtureID": 1366137,
+    "Date": "2025-06-05T19:00:00+00:00",
+    "League": "UEFA Nations League",
+    "HomeTeam": "Spain",
+    "AwayTeam": "France"
+  },
+  "1316569": {
+    "FixtureID": 1316569,
+    "Date": "2026-03-26T17:00:00+00:00",
+    "League": "UEFA Nations League",
+    "HomeTeam": "Gibraltar",
+    "AwayTeam": "Latvia"
+  },
+  "1316571": {
+    "FixtureID": 1316571,
+    "Date": "2026-03-26T17:00:00+00:00",
+    "League": "UEFA Nations League",
+    "HomeTeam": "Malta",
+    "AwayTeam": "Luxembourg"
+  },
+  "1316570": {
+    "FixtureID": 1316570,
+    "Date": "2026-03-31T16:00:00+00:00",
+    "League": "UEFA Nations League",
+    "HomeTeam": "Latvia",
+    "AwayTeam": "Gibraltar"
+  },
+  "1316572": {
+    "FixtureID": 1316572,
+    "Date": "2026-03-31T16:00:00+00:00",
+    "League": "UEFA Nations League",
+    "HomeTeam": "Luxembourg",
+    "AwayTeam": "Malta"
+  },
+  "1321680": {
+    "FixtureID": 1321680,
+    "Date": "2025-06-15T00:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Al Ahly",
+    "AwayTeam": "Inter Miami"
+  },
+  "1321681": {
+    "FixtureID": 1321681,
+    "Date": "2025-06-15T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Auckland City"
+  },
+  "1321682": {
+    "FixtureID": 1321682,
+    "Date": "2025-06-15T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Paris Saint Germain",
+    "AwayTeam": "Atletico Madrid"
+  },
+  "1321683": {
+    "FixtureID": 1321683,
+    "Date": "2025-06-15T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Palmeiras",
+    "AwayTeam": "FC Porto"
+  },
+  "1321684": {
+    "FixtureID": 1321684,
+    "Date": "2025-06-16T02:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Botafogo",
+    "AwayTeam": "Seattle Sounders"
+  },
+  "1321685": {
+    "FixtureID": 1321685,
+    "Date": "2025-06-16T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Leon"
+  },
+  "1321686": {
+    "FixtureID": 1321686,
+    "Date": "2025-06-16T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Boca Juniors",
+    "AwayTeam": "Benfica"
+  },
+  "1321687": {
+    "FixtureID": 1321687,
+    "Date": "2025-06-17T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Flamengo",
+    "AwayTeam": "ES Tunis"
+  },
+  "1321688": {
+    "FixtureID": 1321688,
+    "Date": "2025-06-17T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Fluminense",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1321689": {
+    "FixtureID": 1321689,
+    "Date": "2025-06-17T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "River Plate",
+    "AwayTeam": "Urawa"
+  },
+  "1321690": {
+    "FixtureID": 1321690,
+    "Date": "2025-06-17T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Ulsan Hyundai FC",
+    "AwayTeam": "Mamelodi Sundowns"
+  },
+  "1321691": {
+    "FixtureID": 1321691,
+    "Date": "2025-06-18T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Monterrey",
+    "AwayTeam": "Inter"
+  },
+  "1321692": {
+    "FixtureID": 1321692,
+    "Date": "2025-06-18T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Wydad AC"
+  },
+  "1321693": {
+    "FixtureID": 1321693,
+    "Date": "2025-06-18T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Real Madrid",
+    "AwayTeam": "Al-Hilal Saudi FC"
+  },
+  "1321694": {
+    "FixtureID": 1321694,
+    "Date": "2025-06-18T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Pachuca",
+    "AwayTeam": "Red Bull Salzburg"
+  },
+  "1321695": {
+    "FixtureID": 1321695,
+    "Date": "2025-06-19T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Al Ain",
+    "AwayTeam": "Juventus"
+  },
+  "1321696": {
+    "FixtureID": 1321696,
+    "Date": "2025-06-19T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Palmeiras",
+    "AwayTeam": "Al Ahly"
+  },
+  "1321697": {
+    "FixtureID": 1321697,
+    "Date": "2025-06-19T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Inter Miami",
+    "AwayTeam": "FC Porto"
+  },
+  "1321698": {
+    "FixtureID": 1321698,
+    "Date": "2025-06-19T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Seattle Sounders",
+    "AwayTeam": "Atletico Madrid"
+  },
+  "1321699": {
+    "FixtureID": 1321699,
+    "Date": "2025-06-20T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Paris Saint Germain",
+    "AwayTeam": "Botafogo"
+  },
+  "1321700": {
+    "FixtureID": 1321700,
+    "Date": "2025-06-20T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Benfica",
+    "AwayTeam": "Auckland City"
+  },
+  "1321701": {
+    "FixtureID": 1321701,
+    "Date": "2025-06-20T18:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Flamengo",
+    "AwayTeam": "Chelsea"
+  },
+  "1321702": {
+    "FixtureID": 1321702,
+    "Date": "2025-06-20T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Leon",
+    "AwayTeam": "ES Tunis"
+  },
+  "1321703": {
+    "FixtureID": 1321703,
+    "Date": "2025-06-21T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Boca Juniors"
+  },
+  "1321704": {
+    "FixtureID": 1321704,
+    "Date": "2025-06-21T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Mamelodi Sundowns",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1321705": {
+    "FixtureID": 1321705,
+    "Date": "2025-06-21T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Inter",
+    "AwayTeam": "Urawa"
+  },
+  "1321706": {
+    "FixtureID": 1321706,
+    "Date": "2025-06-21T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Fluminense",
+    "AwayTeam": "Ulsan Hyundai FC"
+  },
+  "1321707": {
+    "FixtureID": 1321707,
+    "Date": "2025-06-22T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "River Plate",
+    "AwayTeam": "Monterrey"
+  },
+  "1321708": {
+    "FixtureID": 1321708,
+    "Date": "2025-06-22T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Juventus",
+    "AwayTeam": "Wydad AC"
+  },
+  "1321709": {
+    "FixtureID": 1321709,
+    "Date": "2025-06-22T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Real Madrid",
+    "AwayTeam": "Pachuca"
+  },
+  "1321710": {
+    "FixtureID": 1321710,
+    "Date": "2025-06-22T22:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Red Bull Salzburg",
+    "AwayTeam": "Al-Hilal Saudi FC"
+  },
+  "1321711": {
+    "FixtureID": 1321711,
+    "Date": "2025-06-23T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Al Ain"
+  },
+  "1321712": {
+    "FixtureID": 1321712,
+    "Date": "2025-06-23T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Atletico Madrid",
+    "AwayTeam": "Botafogo"
+  },
+  "1321713": {
+    "FixtureID": 1321713,
+    "Date": "2025-06-23T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Seattle Sounders",
+    "AwayTeam": "Paris Saint Germain"
+  },
+  "1321715": {
+    "FixtureID": 1321715,
+    "Date": "2025-06-24T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "FC Porto",
+    "AwayTeam": "Al Ahly"
+  },
+  "1321714": {
+    "FixtureID": 1321714,
+    "Date": "2025-06-24T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Inter Miami",
+    "AwayTeam": "Palmeiras"
+  },
+  "1321716": {
+    "FixtureID": 1321716,
+    "Date": "2025-06-24T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Benfica",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1321717": {
+    "FixtureID": 1321717,
+    "Date": "2025-06-24T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Auckland City",
+    "AwayTeam": "Boca Juniors"
+  },
+  "1321719": {
+    "FixtureID": 1321719,
+    "Date": "2025-06-25T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "ES Tunis",
+    "AwayTeam": "Chelsea"
+  },
+  "1321718": {
+    "FixtureID": 1321718,
+    "Date": "2025-06-25T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Leon",
+    "AwayTeam": "Flamengo"
+  },
+  "1321720": {
+    "FixtureID": 1321720,
+    "Date": "2025-06-25T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Ulsan Hyundai FC"
+  },
+  "1321721": {
+    "FixtureID": 1321721,
+    "Date": "2025-06-25T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Mamelodi Sundowns",
+    "AwayTeam": "Fluminense"
+  },
+  "1321722": {
+    "FixtureID": 1321722,
+    "Date": "2025-06-26T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Urawa",
+    "AwayTeam": "Monterrey"
+  },
+  "1321723": {
+    "FixtureID": 1321723,
+    "Date": "2025-06-26T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Inter",
+    "AwayTeam": "River Plate"
+  },
+  "1321724": {
+    "FixtureID": 1321724,
+    "Date": "2025-06-26T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Juventus",
+    "AwayTeam": "Manchester City"
+  },
+  "1321725": {
+    "FixtureID": 1321725,
+    "Date": "2025-06-26T19:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Wydad AC",
+    "AwayTeam": "Al Ain"
+  },
+  "1321727": {
+    "FixtureID": 1321727,
+    "Date": "2025-06-27T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Red Bull Salzburg",
+    "AwayTeam": "Real Madrid"
+  },
+  "1321726": {
+    "FixtureID": 1321726,
+    "Date": "2025-06-27T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Al-Hilal Saudi FC",
+    "AwayTeam": "Pachuca"
+  },
+  "1238185": {
+    "FixtureID": 1238185,
+    "Date": "2025-05-31T13:00:00+00:00",
+    "League": "S\u00fcper Lig",
+    "HomeTeam": "Fenerbahce",
+    "AwayTeam": "Konyaspor"
+  },
+  "1238184": {
+    "FixtureID": 1238184,
+    "Date": "2025-05-31T13:00:00+00:00",
+    "League": "S\u00fcper Lig",
+    "HomeTeam": "Rizespor",
+    "AwayTeam": "Hatayspor"
+  },
+  "1238190": {
+    "FixtureID": 1238190,
+    "Date": "2025-05-31T16:00:00+00:00",
+    "League": "S\u00fcper Lig",
+    "HomeTeam": "Alanyaspor",
+    "AwayTeam": "Sivasspor"
+  },
+  "1238187": {
+    "FixtureID": 1238187,
+    "Date": "2025-05-31T16:00:00+00:00",
+    "League": "S\u00fcper Lig",
+    "HomeTeam": "Adana Demirspor",
+    "AwayTeam": "Gazi\u015fehir Gaziantep"
+  },
+  "1238182": {
+    "FixtureID": 1238182,
+    "Date": "2025-06-01T16:00:00+00:00",
+    "League": "S\u00fcper Lig",
+    "HomeTeam": "BB Bodrumspor",
+    "AwayTeam": "Besiktas"
+  },
+  "1238186": {
+    "FixtureID": 1238186,
+    "Date": "2025-06-01T16:00:00+00:00",
+    "League": "S\u00fcper Lig",
+    "HomeTeam": "Samsunspor",
+    "AwayTeam": "Kayserispor"
+  },
+  "1374812": {
+    "FixtureID": 1374812,
+    "Date": "2025-05-31T19:00:00+00:00",
+    "League": "UEFA Champions League",
+    "HomeTeam": "Paris Saint Germain",
+    "AwayTeam": "Inter"
+  },
+  "1378969": {
+    "FixtureID": 1378969,
+    "Date": "2025-08-15T19:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Bournemouth"
+  },
+  "1378970": {
+    "FixtureID": 1378970,
+    "Date": "2025-08-16T11:30:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Newcastle"
+  },
+  "1378971": {
+    "FixtureID": 1378971,
+    "Date": "2025-08-16T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Fulham"
+  },
+  "1378972": {
+    "FixtureID": 1378972,
+    "Date": "2025-08-16T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Brentford"
+  },
+  "1378973": {
+    "FixtureID": 1378973,
+    "Date": "2025-08-16T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "West Ham"
+  },
+  "1378974": {
+    "FixtureID": 1378974,
+    "Date": "2025-08-16T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Burnley"
+  },
+  "1378975": {
+    "FixtureID": 1378975,
+    "Date": "2025-08-16T16:30:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Manchester City"
+  },
+  "1378976": {
+    "FixtureID": 1378976,
+    "Date": "2025-08-17T13:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1378977": {
+    "FixtureID": 1378977,
+    "Date": "2025-08-17T15:30:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Arsenal"
+  },
+  "1378978": {
+    "FixtureID": 1378978,
+    "Date": "2025-08-18T19:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Everton"
+  },
+  "1378979": {
+    "FixtureID": 1378979,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Leeds"
+  },
+  "1378980": {
+    "FixtureID": 1378980,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Wolves"
+  },
+  "1378981": {
+    "FixtureID": 1378981,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Aston Villa"
+  },
+  "1378982": {
+    "FixtureID": 1378982,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Sunderland"
+  },
+  "1378983": {
+    "FixtureID": 1378983,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1378984": {
+    "FixtureID": 1378984,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Brighton"
+  },
+  "1378985": {
+    "FixtureID": 1378985,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Manchester United"
+  },
+  "1378986": {
+    "FixtureID": 1378986,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Tottenham"
+  },
+  "1378987": {
+    "FixtureID": 1378987,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Liverpool"
+  },
+  "1378988": {
+    "FixtureID": 1378988,
+    "Date": "2025-08-23T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Chelsea"
+  },
+  "1378989": {
+    "FixtureID": 1378989,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1378990": {
+    "FixtureID": 1378990,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Manchester City"
+  },
+  "1378991": {
+    "FixtureID": 1378991,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Fulham"
+  },
+  "1378992": {
+    "FixtureID": 1378992,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Newcastle"
+  },
+  "1378993": {
+    "FixtureID": 1378993,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Arsenal"
+  },
+  "1378994": {
+    "FixtureID": 1378994,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Burnley"
+  },
+  "1378995": {
+    "FixtureID": 1378995,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "West Ham"
+  },
+  "1378996": {
+    "FixtureID": 1378996,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Brentford"
+  },
+  "1378997": {
+    "FixtureID": 1378997,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Bournemouth"
+  },
+  "1378998": {
+    "FixtureID": 1378998,
+    "Date": "2025-08-30T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Everton"
+  },
+  "1378999": {
+    "FixtureID": 1378999,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379000": {
+    "FixtureID": 1379000,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Brighton"
+  },
+  "1379001": {
+    "FixtureID": 1379001,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Chelsea"
+  },
+  "1379002": {
+    "FixtureID": 1379002,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Liverpool"
+  },
+  "1379003": {
+    "FixtureID": 1379003,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Sunderland"
+  },
+  "1379004": {
+    "FixtureID": 1379004,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379005": {
+    "FixtureID": 1379005,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Leeds"
+  },
+  "1379006": {
+    "FixtureID": 1379006,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Manchester United"
+  },
+  "1379007": {
+    "FixtureID": 1379007,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Wolves"
+  },
+  "1379008": {
+    "FixtureID": 1379008,
+    "Date": "2025-09-13T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Tottenham"
+  },
+  "1379009": {
+    "FixtureID": 1379009,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Manchester City"
+  },
+  "1379010": {
+    "FixtureID": 1379010,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Newcastle"
+  },
+  "1379011": {
+    "FixtureID": 1379011,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Tottenham"
+  },
+  "1379012": {
+    "FixtureID": 1379012,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379013": {
+    "FixtureID": 1379013,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Brentford"
+  },
+  "1379014": {
+    "FixtureID": 1379014,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Everton"
+  },
+  "1379015": {
+    "FixtureID": 1379015,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Chelsea"
+  },
+  "1379016": {
+    "FixtureID": 1379016,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379017": {
+    "FixtureID": 1379017,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379018": {
+    "FixtureID": 1379018,
+    "Date": "2025-09-20T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Leeds"
+  },
+  "1379019": {
+    "FixtureID": 1379019,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Fulham"
+  },
+  "1379020": {
+    "FixtureID": 1379020,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Manchester United"
+  },
+  "1379021": {
+    "FixtureID": 1379021,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Brighton"
+  },
+  "1379022": {
+    "FixtureID": 1379022,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Liverpool"
+  },
+  "1379023": {
+    "FixtureID": 1379023,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "West Ham"
+  },
+  "1379024": {
+    "FixtureID": 1379024,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379025": {
+    "FixtureID": 1379025,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Burnley"
+  },
+  "1379026": {
+    "FixtureID": 1379026,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Arsenal"
+  },
+  "1379027": {
+    "FixtureID": 1379027,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Sunderland"
+  },
+  "1379028": {
+    "FixtureID": 1379028,
+    "Date": "2025-09-27T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Wolves"
+  },
+  "1379029": {
+    "FixtureID": 1379029,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "West Ham"
+  },
+  "1379030": {
+    "FixtureID": 1379030,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Burnley"
+  },
+  "1379031": {
+    "FixtureID": 1379031,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Fulham"
+  },
+  "1379032": {
+    "FixtureID": 1379032,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Manchester City"
+  },
+  "1379033": {
+    "FixtureID": 1379033,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Liverpool"
+  },
+  "1379034": {
+    "FixtureID": 1379034,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379035": {
+    "FixtureID": 1379035,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Tottenham"
+  },
+  "1379036": {
+    "FixtureID": 1379036,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Sunderland"
+  },
+  "1379037": {
+    "FixtureID": 1379037,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379038": {
+    "FixtureID": 1379038,
+    "Date": "2025-10-04T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Brighton"
+  },
+  "1379039": {
+    "FixtureID": 1379039,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Newcastle"
+  },
+  "1379040": {
+    "FixtureID": 1379040,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Leeds"
+  },
+  "1379041": {
+    "FixtureID": 1379041,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379042": {
+    "FixtureID": 1379042,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Arsenal"
+  },
+  "1379043": {
+    "FixtureID": 1379043,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Manchester United"
+  },
+  "1379044": {
+    "FixtureID": 1379044,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Everton"
+  },
+  "1379045": {
+    "FixtureID": 1379045,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Chelsea"
+  },
+  "1379046": {
+    "FixtureID": 1379046,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Wolves"
+  },
+  "1379047": {
+    "FixtureID": 1379047,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379048": {
+    "FixtureID": 1379048,
+    "Date": "2025-10-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Brentford"
+  },
+  "1379049": {
+    "FixtureID": 1379049,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379050": {
+    "FixtureID": 1379050,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Manchester City"
+  },
+  "1379051": {
+    "FixtureID": 1379051,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379052": {
+    "FixtureID": 1379052,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Liverpool"
+  },
+  "1379053": {
+    "FixtureID": 1379053,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Sunderland"
+  },
+  "1379054": {
+    "FixtureID": 1379054,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Tottenham"
+  },
+  "1379055": {
+    "FixtureID": 1379055,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "West Ham"
+  },
+  "1379056": {
+    "FixtureID": 1379056,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Brighton"
+  },
+  "1379057": {
+    "FixtureID": 1379057,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Fulham"
+  },
+  "1379058": {
+    "FixtureID": 1379058,
+    "Date": "2025-10-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Burnley"
+  },
+  "1379059": {
+    "FixtureID": 1379059,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Leeds"
+  },
+  "1379060": {
+    "FixtureID": 1379060,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Arsenal"
+  },
+  "1379061": {
+    "FixtureID": 1379061,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Brentford"
+  },
+  "1379062": {
+    "FixtureID": 1379062,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Wolves"
+  },
+  "1379063": {
+    "FixtureID": 1379063,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379064": {
+    "FixtureID": 1379064,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379065": {
+    "FixtureID": 1379065,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Manchester United"
+  },
+  "1379066": {
+    "FixtureID": 1379066,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Everton"
+  },
+  "1379067": {
+    "FixtureID": 1379067,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Chelsea"
+  },
+  "1379068": {
+    "FixtureID": 1379068,
+    "Date": "2025-11-01T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Newcastle"
+  },
+  "1379069": {
+    "FixtureID": 1379069,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379070": {
+    "FixtureID": 1379070,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Newcastle"
+  },
+  "1379071": {
+    "FixtureID": 1379071,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Wolves"
+  },
+  "1379072": {
+    "FixtureID": 1379072,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Brighton"
+  },
+  "1379073": {
+    "FixtureID": 1379073,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Fulham"
+  },
+  "1379074": {
+    "FixtureID": 1379074,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Liverpool"
+  },
+  "1379075": {
+    "FixtureID": 1379075,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Leeds"
+  },
+  "1379076": {
+    "FixtureID": 1379076,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Arsenal"
+  },
+  "1379077": {
+    "FixtureID": 1379077,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Manchester United"
+  },
+  "1379078": {
+    "FixtureID": 1379078,
+    "Date": "2025-11-08T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Burnley"
+  },
+  "1379079": {
+    "FixtureID": 1379079,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Tottenham"
+  },
+  "1379080": {
+    "FixtureID": 1379080,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "West Ham"
+  },
+  "1379081": {
+    "FixtureID": 1379081,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Brentford"
+  },
+  "1379082": {
+    "FixtureID": 1379082,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Chelsea"
+  },
+  "1379083": {
+    "FixtureID": 1379083,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Sunderland"
+  },
+  "1379084": {
+    "FixtureID": 1379084,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379085": {
+    "FixtureID": 1379085,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379086": {
+    "FixtureID": 1379086,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Everton"
+  },
+  "1379087": {
+    "FixtureID": 1379087,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Manchester City"
+  },
+  "1379088": {
+    "FixtureID": 1379088,
+    "Date": "2025-11-22T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379089": {
+    "FixtureID": 1379089,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Wolves"
+  },
+  "1379090": {
+    "FixtureID": 1379090,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Burnley"
+  },
+  "1379091": {
+    "FixtureID": 1379091,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Arsenal"
+  },
+  "1379092": {
+    "FixtureID": 1379092,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Manchester United"
+  },
+  "1379093": {
+    "FixtureID": 1379093,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Newcastle"
+  },
+  "1379094": {
+    "FixtureID": 1379094,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Leeds"
+  },
+  "1379095": {
+    "FixtureID": 1379095,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Brighton"
+  },
+  "1379096": {
+    "FixtureID": 1379096,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379097": {
+    "FixtureID": 1379097,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Fulham"
+  },
+  "1379098": {
+    "FixtureID": 1379098,
+    "Date": "2025-11-29T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Liverpool"
+  },
+  "1379099": {
+    "FixtureID": 1379099,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Brentford"
+  },
+  "1379100": {
+    "FixtureID": 1379100,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Everton"
+  },
+  "1379101": {
+    "FixtureID": 1379101,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379102": {
+    "FixtureID": 1379102,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379103": {
+    "FixtureID": 1379103,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Manchester City"
+  },
+  "1379104": {
+    "FixtureID": 1379104,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Chelsea"
+  },
+  "1379105": {
+    "FixtureID": 1379105,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Sunderland"
+  },
+  "1379106": {
+    "FixtureID": 1379106,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "West Ham"
+  },
+  "1379107": {
+    "FixtureID": 1379107,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Tottenham"
+  },
+  "1379108": {
+    "FixtureID": 1379108,
+    "Date": "2025-12-03T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379109": {
+    "FixtureID": 1379109,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Arsenal"
+  },
+  "1379110": {
+    "FixtureID": 1379110,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Chelsea"
+  },
+  "1379111": {
+    "FixtureID": 1379111,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "West Ham"
+  },
+  "1379112": {
+    "FixtureID": 1379112,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379113": {
+    "FixtureID": 1379113,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379114": {
+    "FixtureID": 1379114,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Liverpool"
+  },
+  "1379115": {
+    "FixtureID": 1379115,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Sunderland"
+  },
+  "1379116": {
+    "FixtureID": 1379116,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Burnley"
+  },
+  "1379117": {
+    "FixtureID": 1379117,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Brentford"
+  },
+  "1379118": {
+    "FixtureID": 1379118,
+    "Date": "2025-12-06T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Manchester United"
+  },
+  "1379119": {
+    "FixtureID": 1379119,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Wolves"
+  },
+  "1379120": {
+    "FixtureID": 1379120,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Leeds"
+  },
+  "1379121": {
+    "FixtureID": 1379121,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Fulham"
+  },
+  "1379122": {
+    "FixtureID": 1379122,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Everton"
+  },
+  "1379123": {
+    "FixtureID": 1379123,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Manchester City"
+  },
+  "1379124": {
+    "FixtureID": 1379124,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Brighton"
+  },
+  "1379125": {
+    "FixtureID": 1379125,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379126": {
+    "FixtureID": 1379126,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Tottenham"
+  },
+  "1379127": {
+    "FixtureID": 1379127,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Newcastle"
+  },
+  "1379128": {
+    "FixtureID": 1379128,
+    "Date": "2025-12-13T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379129": {
+    "FixtureID": 1379129,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Manchester United"
+  },
+  "1379130": {
+    "FixtureID": 1379130,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Burnley"
+  },
+  "1379131": {
+    "FixtureID": 1379131,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Sunderland"
+  },
+  "1379132": {
+    "FixtureID": 1379132,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Arsenal"
+  },
+  "1379133": {
+    "FixtureID": 1379133,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379134": {
+    "FixtureID": 1379134,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379135": {
+    "FixtureID": 1379135,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "West Ham"
+  },
+  "1379136": {
+    "FixtureID": 1379136,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Chelsea"
+  },
+  "1379137": {
+    "FixtureID": 1379137,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Liverpool"
+  },
+  "1379138": {
+    "FixtureID": 1379138,
+    "Date": "2025-12-20T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Brentford"
+  },
+  "1379139": {
+    "FixtureID": 1379139,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Brighton"
+  },
+  "1379140": {
+    "FixtureID": 1379140,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379141": {
+    "FixtureID": 1379141,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Everton"
+  },
+  "1379142": {
+    "FixtureID": 1379142,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379143": {
+    "FixtureID": 1379143,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Tottenham"
+  },
+  "1379144": {
+    "FixtureID": 1379144,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Wolves"
+  },
+  "1379145": {
+    "FixtureID": 1379145,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Newcastle"
+  },
+  "1379146": {
+    "FixtureID": 1379146,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Manchester City"
+  },
+  "1379147": {
+    "FixtureID": 1379147,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Leeds"
+  },
+  "1379148": {
+    "FixtureID": 1379148,
+    "Date": "2025-12-27T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Fulham"
+  },
+  "1379149": {
+    "FixtureID": 1379149,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379150": {
+    "FixtureID": 1379150,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Tottenham"
+  },
+  "1379151": {
+    "FixtureID": 1379151,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Newcastle"
+  },
+  "1379152": {
+    "FixtureID": 1379152,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379153": {
+    "FixtureID": 1379153,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Fulham"
+  },
+  "1379154": {
+    "FixtureID": 1379154,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Leeds"
+  },
+  "1379155": {
+    "FixtureID": 1379155,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Wolves"
+  },
+  "1379156": {
+    "FixtureID": 1379156,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Everton"
+  },
+  "1379157": {
+    "FixtureID": 1379157,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Manchester City"
+  },
+  "1379158": {
+    "FixtureID": 1379158,
+    "Date": "2025-12-30T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Brighton"
+  },
+  "1379159": {
+    "FixtureID": 1379159,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379160": {
+    "FixtureID": 1379160,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Arsenal"
+  },
+  "1379161": {
+    "FixtureID": 1379161,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Burnley"
+  },
+  "1379162": {
+    "FixtureID": 1379162,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Brentford"
+  },
+  "1379163": {
+    "FixtureID": 1379163,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Liverpool"
+  },
+  "1379164": {
+    "FixtureID": 1379164,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Manchester United"
+  },
+  "1379165": {
+    "FixtureID": 1379165,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Chelsea"
+  },
+  "1379166": {
+    "FixtureID": 1379166,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379167": {
+    "FixtureID": 1379167,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Sunderland"
+  },
+  "1379168": {
+    "FixtureID": 1379168,
+    "Date": "2026-01-03T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "West Ham"
+  },
+  "1379169": {
+    "FixtureID": 1379169,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Liverpool"
+  },
+  "1379170": {
+    "FixtureID": 1379170,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Tottenham"
+  },
+  "1379171": {
+    "FixtureID": 1379171,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Sunderland"
+  },
+  "1379172": {
+    "FixtureID": 1379172,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Manchester United"
+  },
+  "1379173": {
+    "FixtureID": 1379173,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379174": {
+    "FixtureID": 1379174,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Wolves"
+  },
+  "1379175": {
+    "FixtureID": 1379175,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Chelsea"
+  },
+  "1379176": {
+    "FixtureID": 1379176,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Brighton"
+  },
+  "1379177": {
+    "FixtureID": 1379177,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Leeds"
+  },
+  "1379178": {
+    "FixtureID": 1379178,
+    "Date": "2026-01-07T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379179": {
+    "FixtureID": 1379179,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Everton"
+  },
+  "1379180": {
+    "FixtureID": 1379180,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379181": {
+    "FixtureID": 1379181,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Brentford"
+  },
+  "1379182": {
+    "FixtureID": 1379182,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Fulham"
+  },
+  "1379183": {
+    "FixtureID": 1379183,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Burnley"
+  },
+  "1379184": {
+    "FixtureID": 1379184,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Manchester City"
+  },
+  "1379185": {
+    "FixtureID": 1379185,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Arsenal"
+  },
+  "1379186": {
+    "FixtureID": 1379186,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379187": {
+    "FixtureID": 1379187,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "West Ham"
+  },
+  "1379188": {
+    "FixtureID": 1379188,
+    "Date": "2026-01-17T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Newcastle"
+  },
+  "1379189": {
+    "FixtureID": 1379189,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Manchester United"
+  },
+  "1379190": {
+    "FixtureID": 1379190,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Liverpool"
+  },
+  "1379191": {
+    "FixtureID": 1379191,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379192": {
+    "FixtureID": 1379192,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Tottenham"
+  },
+  "1379193": {
+    "FixtureID": 1379193,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Chelsea"
+  },
+  "1379194": {
+    "FixtureID": 1379194,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Leeds"
+  },
+  "1379195": {
+    "FixtureID": 1379195,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Brighton"
+  },
+  "1379196": {
+    "FixtureID": 1379196,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Wolves"
+  },
+  "1379197": {
+    "FixtureID": 1379197,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379198": {
+    "FixtureID": 1379198,
+    "Date": "2026-01-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Sunderland"
+  },
+  "1379199": {
+    "FixtureID": 1379199,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Brentford"
+  },
+  "1379200": {
+    "FixtureID": 1379200,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Everton"
+  },
+  "1379201": {
+    "FixtureID": 1379201,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "West Ham"
+  },
+  "1379202": {
+    "FixtureID": 1379202,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Arsenal"
+  },
+  "1379203": {
+    "FixtureID": 1379203,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Newcastle"
+  },
+  "1379204": {
+    "FixtureID": 1379204,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Fulham"
+  },
+  "1379205": {
+    "FixtureID": 1379205,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379206": {
+    "FixtureID": 1379206,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Burnley"
+  },
+  "1379207": {
+    "FixtureID": 1379207,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Manchester City"
+  },
+  "1379208": {
+    "FixtureID": 1379208,
+    "Date": "2026-01-31T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379209": {
+    "FixtureID": 1379209,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Sunderland"
+  },
+  "1379210": {
+    "FixtureID": 1379210,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379211": {
+    "FixtureID": 1379211,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379212": {
+    "FixtureID": 1379212,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "West Ham"
+  },
+  "1379213": {
+    "FixtureID": 1379213,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Everton"
+  },
+  "1379214": {
+    "FixtureID": 1379214,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379215": {
+    "FixtureID": 1379215,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Manchester City"
+  },
+  "1379216": {
+    "FixtureID": 1379216,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Tottenham"
+  },
+  "1379217": {
+    "FixtureID": 1379217,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Brentford"
+  },
+  "1379218": {
+    "FixtureID": 1379218,
+    "Date": "2026-02-07T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Chelsea"
+  },
+  "1379219": {
+    "FixtureID": 1379219,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Brighton"
+  },
+  "1379220": {
+    "FixtureID": 1379220,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Arsenal"
+  },
+  "1379221": {
+    "FixtureID": 1379221,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Leeds"
+  },
+  "1379222": {
+    "FixtureID": 1379222,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Burnley"
+  },
+  "1379223": {
+    "FixtureID": 1379223,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379224": {
+    "FixtureID": 1379224,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Fulham"
+  },
+  "1379225": {
+    "FixtureID": 1379225,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Wolves"
+  },
+  "1379226": {
+    "FixtureID": 1379226,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Liverpool"
+  },
+  "1379227": {
+    "FixtureID": 1379227,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Newcastle"
+  },
+  "1379228": {
+    "FixtureID": 1379228,
+    "Date": "2026-02-11T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Manchester United"
+  },
+  "1379229": {
+    "FixtureID": 1379229,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Leeds"
+  },
+  "1379230": {
+    "FixtureID": 1379230,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Brighton"
+  },
+  "1379231": {
+    "FixtureID": 1379231,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Burnley"
+  },
+  "1379232": {
+    "FixtureID": 1379232,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Wolves"
+  },
+  "1379233": {
+    "FixtureID": 1379233,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Manchester United"
+  },
+  "1379234": {
+    "FixtureID": 1379234,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Newcastle"
+  },
+  "1379235": {
+    "FixtureID": 1379235,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Liverpool"
+  },
+  "1379236": {
+    "FixtureID": 1379236,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Fulham"
+  },
+  "1379237": {
+    "FixtureID": 1379237,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Arsenal"
+  },
+  "1379238": {
+    "FixtureID": 1379238,
+    "Date": "2026-02-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379239": {
+    "FixtureID": 1379239,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Chelsea"
+  },
+  "1379240": {
+    "FixtureID": 1379240,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Sunderland"
+  },
+  "1379241": {
+    "FixtureID": 1379241,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379242": {
+    "FixtureID": 1379242,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Brentford"
+  },
+  "1379243": {
+    "FixtureID": 1379243,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Tottenham"
+  },
+  "1379244": {
+    "FixtureID": 1379244,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Manchester City"
+  },
+  "1379245": {
+    "FixtureID": 1379245,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "West Ham"
+  },
+  "1379246": {
+    "FixtureID": 1379246,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379247": {
+    "FixtureID": 1379247,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Everton"
+  },
+  "1379248": {
+    "FixtureID": 1379248,
+    "Date": "2026-02-28T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379249": {
+    "FixtureID": 1379249,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Chelsea"
+  },
+  "1379250": {
+    "FixtureID": 1379250,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Brentford"
+  },
+  "1379251": {
+    "FixtureID": 1379251,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Arsenal"
+  },
+  "1379252": {
+    "FixtureID": 1379252,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Burnley"
+  },
+  "1379253": {
+    "FixtureID": 1379253,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "West Ham"
+  },
+  "1379254": {
+    "FixtureID": 1379254,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Sunderland"
+  },
+  "1379255": {
+    "FixtureID": 1379255,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379256": {
+    "FixtureID": 1379256,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Manchester United"
+  },
+  "1379257": {
+    "FixtureID": 1379257,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379258": {
+    "FixtureID": 1379258,
+    "Date": "2026-03-04T20:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Liverpool"
+  },
+  "1379259": {
+    "FixtureID": 1379259,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Everton"
+  },
+  "1379260": {
+    "FixtureID": 1379260,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Wolves"
+  },
+  "1379261": {
+    "FixtureID": 1379261,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379262": {
+    "FixtureID": 1379262,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Newcastle"
+  },
+  "1379263": {
+    "FixtureID": 1379263,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Leeds"
+  },
+  "1379264": {
+    "FixtureID": 1379264,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Tottenham"
+  },
+  "1379265": {
+    "FixtureID": 1379265,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379266": {
+    "FixtureID": 1379266,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Fulham"
+  },
+  "1379267": {
+    "FixtureID": 1379267,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Brighton"
+  },
+  "1379268": {
+    "FixtureID": 1379268,
+    "Date": "2026-03-14T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Manchester City"
+  },
+  "1379269": {
+    "FixtureID": 1379269,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "West Ham"
+  },
+  "1379270": {
+    "FixtureID": 1379270,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Manchester United"
+  },
+  "1379271": {
+    "FixtureID": 1379271,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Liverpool"
+  },
+  "1379272": {
+    "FixtureID": 1379272,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Chelsea"
+  },
+  "1379273": {
+    "FixtureID": 1379273,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Burnley"
+  },
+  "1379274": {
+    "FixtureID": 1379274,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Brentford"
+  },
+  "1379275": {
+    "FixtureID": 1379275,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379276": {
+    "FixtureID": 1379276,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Sunderland"
+  },
+  "1379277": {
+    "FixtureID": 1379277,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379278": {
+    "FixtureID": 1379278,
+    "Date": "2026-03-21T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Arsenal"
+  },
+  "1379279": {
+    "FixtureID": 1379279,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379280": {
+    "FixtureID": 1379280,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Everton"
+  },
+  "1379281": {
+    "FixtureID": 1379281,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Brighton"
+  },
+  "1379282": {
+    "FixtureID": 1379282,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Manchester City"
+  },
+  "1379283": {
+    "FixtureID": 1379283,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Newcastle"
+  },
+  "1379284": {
+    "FixtureID": 1379284,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Fulham"
+  },
+  "1379285": {
+    "FixtureID": 1379285,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Leeds"
+  },
+  "1379286": {
+    "FixtureID": 1379286,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379287": {
+    "FixtureID": 1379287,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Tottenham"
+  },
+  "1379288": {
+    "FixtureID": 1379288,
+    "Date": "2026-04-11T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Wolves"
+  },
+  "1379289": {
+    "FixtureID": 1379289,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Sunderland"
+  },
+  "1379290": {
+    "FixtureID": 1379290,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Fulham"
+  },
+  "1379291": {
+    "FixtureID": 1379291,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Manchester United"
+  },
+  "1379292": {
+    "FixtureID": 1379292,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "West Ham"
+  },
+  "1379293": {
+    "FixtureID": 1379293,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Liverpool"
+  },
+  "1379294": {
+    "FixtureID": 1379294,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Wolves"
+  },
+  "1379295": {
+    "FixtureID": 1379295,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Arsenal"
+  },
+  "1379296": {
+    "FixtureID": 1379296,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379297": {
+    "FixtureID": 1379297,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Burnley"
+  },
+  "1379298": {
+    "FixtureID": 1379298,
+    "Date": "2026-04-18T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Brighton"
+  },
+  "1379299": {
+    "FixtureID": 1379299,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Newcastle"
+  },
+  "1379300": {
+    "FixtureID": 1379300,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Leeds"
+  },
+  "1379301": {
+    "FixtureID": 1379301,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Chelsea"
+  },
+  "1379302": {
+    "FixtureID": 1379302,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Manchester City"
+  },
+  "1379303": {
+    "FixtureID": 1379303,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379304": {
+    "FixtureID": 1379304,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379305": {
+    "FixtureID": 1379305,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Brentford"
+  },
+  "1379306": {
+    "FixtureID": 1379306,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379307": {
+    "FixtureID": 1379307,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Everton"
+  },
+  "1379308": {
+    "FixtureID": 1379308,
+    "Date": "2026-04-25T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Tottenham"
+  },
+  "1379309": {
+    "FixtureID": 1379309,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Fulham"
+  },
+  "1379310": {
+    "FixtureID": 1379310,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Tottenham"
+  },
+  "1379311": {
+    "FixtureID": 1379311,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379312": {
+    "FixtureID": 1379312,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "West Ham"
+  },
+  "1379313": {
+    "FixtureID": 1379313,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379314": {
+    "FixtureID": 1379314,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Manchester City"
+  },
+  "1379315": {
+    "FixtureID": 1379315,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Burnley"
+  },
+  "1379316": {
+    "FixtureID": 1379316,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Liverpool"
+  },
+  "1379317": {
+    "FixtureID": 1379317,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "Brighton"
+  },
+  "1379318": {
+    "FixtureID": 1379318,
+    "Date": "2026-05-02T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Sunderland"
+  },
+  "1379319": {
+    "FixtureID": 1379319,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Wolves"
+  },
+  "1379320": {
+    "FixtureID": 1379320,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379321": {
+    "FixtureID": 1379321,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Everton"
+  },
+  "1379322": {
+    "FixtureID": 1379322,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379323": {
+    "FixtureID": 1379323,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Chelsea"
+  },
+  "1379324": {
+    "FixtureID": 1379324,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Brentford"
+  },
+  "1379325": {
+    "FixtureID": 1379325,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Newcastle"
+  },
+  "1379326": {
+    "FixtureID": 1379326,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Manchester United"
+  },
+  "1379327": {
+    "FixtureID": 1379327,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Leeds"
+  },
+  "1379328": {
+    "FixtureID": 1379328,
+    "Date": "2026-05-09T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Arsenal"
+  },
+  "1379329": {
+    "FixtureID": 1379329,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Arsenal",
+    "AwayTeam": "Burnley"
+  },
+  "1379330": {
+    "FixtureID": 1379330,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Aston Villa",
+    "AwayTeam": "Liverpool"
+  },
+  "1379331": {
+    "FixtureID": 1379331,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Bournemouth",
+    "AwayTeam": "Manchester City"
+  },
+  "1379332": {
+    "FixtureID": 1379332,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brentford",
+    "AwayTeam": "Crystal Palace"
+  },
+  "1379333": {
+    "FixtureID": 1379333,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Chelsea",
+    "AwayTeam": "Tottenham"
+  },
+  "1379334": {
+    "FixtureID": 1379334,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Everton",
+    "AwayTeam": "Sunderland"
+  },
+  "1379335": {
+    "FixtureID": 1379335,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Leeds",
+    "AwayTeam": "Brighton"
+  },
+  "1379336": {
+    "FixtureID": 1379336,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester United",
+    "AwayTeam": "Nottingham Forest"
+  },
+  "1379337": {
+    "FixtureID": 1379337,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Newcastle",
+    "AwayTeam": "West Ham"
+  },
+  "1379338": {
+    "FixtureID": 1379338,
+    "Date": "2026-05-17T14:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Wolves",
+    "AwayTeam": "Fulham"
+  },
+  "1379339": {
+    "FixtureID": 1379339,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Brighton",
+    "AwayTeam": "Manchester United"
+  },
+  "1379340": {
+    "FixtureID": 1379340,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Burnley",
+    "AwayTeam": "Wolves"
+  },
+  "1379341": {
+    "FixtureID": 1379341,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Crystal Palace",
+    "AwayTeam": "Arsenal"
+  },
+  "1379342": {
+    "FixtureID": 1379342,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Fulham",
+    "AwayTeam": "Newcastle"
+  },
+  "1379343": {
+    "FixtureID": 1379343,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Liverpool",
+    "AwayTeam": "Brentford"
+  },
+  "1379344": {
+    "FixtureID": 1379344,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Manchester City",
+    "AwayTeam": "Aston Villa"
+  },
+  "1379345": {
+    "FixtureID": 1379345,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Nottingham Forest",
+    "AwayTeam": "Bournemouth"
+  },
+  "1379346": {
+    "FixtureID": 1379346,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Sunderland",
+    "AwayTeam": "Chelsea"
+  },
+  "1379347": {
+    "FixtureID": 1379347,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "Tottenham",
+    "AwayTeam": "Everton"
+  },
+  "1379348": {
+    "FixtureID": 1379348,
+    "Date": "2026-05-24T15:00:00+00:00",
+    "League": "Premier League",
+    "HomeTeam": "West Ham",
+    "AwayTeam": "Leeds"
+  },
+  "1390026": {
+    "FixtureID": 1390026,
+    "Date": "2025-07-05T01:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Palmeiras",
+    "AwayTeam": "Chelsea"
+  },
+  "1390797": {
+    "FixtureID": 1390797,
+    "Date": "2025-07-05T16:00:00+00:00",
+    "League": "FIFA Club World Cup",
+    "HomeTeam": "Paris Saint Germain",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388308": {
+    "FixtureID": 1388308,
+    "Date": "2025-08-22T18:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388312": {
+    "FixtureID": 1388312,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388310": {
+    "FixtureID": 1388310,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388314": {
+    "FixtureID": 1388314,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388309": {
+    "FixtureID": 1388309,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388311": {
+    "FixtureID": 1388311,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388313": {
+    "FixtureID": 1388313,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388316": {
+    "FixtureID": 1388316,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388315": {
+    "FixtureID": 1388315,
+    "Date": "2025-08-23T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388325": {
+    "FixtureID": 1388325,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388324": {
+    "FixtureID": 1388324,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388318": {
+    "FixtureID": 1388318,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388321": {
+    "FixtureID": 1388321,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388317": {
+    "FixtureID": 1388317,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388323": {
+    "FixtureID": 1388323,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388322": {
+    "FixtureID": 1388322,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388320": {
+    "FixtureID": 1388320,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388319": {
+    "FixtureID": 1388319,
+    "Date": "2025-08-30T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388327": {
+    "FixtureID": 1388327,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388329": {
+    "FixtureID": 1388329,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388334": {
+    "FixtureID": 1388334,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388328": {
+    "FixtureID": 1388328,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388331": {
+    "FixtureID": 1388331,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388326": {
+    "FixtureID": 1388326,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388330": {
+    "FixtureID": 1388330,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388333": {
+    "FixtureID": 1388333,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388332": {
+    "FixtureID": 1388332,
+    "Date": "2025-09-13T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388343": {
+    "FixtureID": 1388343,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388337": {
+    "FixtureID": 1388337,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388340": {
+    "FixtureID": 1388340,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388336": {
+    "FixtureID": 1388336,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388338": {
+    "FixtureID": 1388338,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388335": {
+    "FixtureID": 1388335,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388342": {
+    "FixtureID": 1388342,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388341": {
+    "FixtureID": 1388341,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388339": {
+    "FixtureID": 1388339,
+    "Date": "2025-09-20T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388344": {
+    "FixtureID": 1388344,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388347": {
+    "FixtureID": 1388347,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388352": {
+    "FixtureID": 1388352,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388345": {
+    "FixtureID": 1388345,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388349": {
+    "FixtureID": 1388349,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388348": {
+    "FixtureID": 1388348,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388351": {
+    "FixtureID": 1388351,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388350": {
+    "FixtureID": 1388350,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388346": {
+    "FixtureID": 1388346,
+    "Date": "2025-09-27T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388361": {
+    "FixtureID": 1388361,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388355": {
+    "FixtureID": 1388355,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388356": {
+    "FixtureID": 1388356,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388359": {
+    "FixtureID": 1388359,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388354": {
+    "FixtureID": 1388354,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388357": {
+    "FixtureID": 1388357,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388353": {
+    "FixtureID": 1388353,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388360": {
+    "FixtureID": 1388360,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388358": {
+    "FixtureID": 1388358,
+    "Date": "2025-10-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388362": {
+    "FixtureID": 1388362,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388364": {
+    "FixtureID": 1388364,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388370": {
+    "FixtureID": 1388370,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388366": {
+    "FixtureID": 1388366,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388367": {
+    "FixtureID": 1388367,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388365": {
+    "FixtureID": 1388365,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388369": {
+    "FixtureID": 1388369,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388368": {
+    "FixtureID": 1388368,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388363": {
+    "FixtureID": 1388363,
+    "Date": "2025-10-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388379": {
+    "FixtureID": 1388379,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388373": {
+    "FixtureID": 1388373,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388374": {
+    "FixtureID": 1388374,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388377": {
+    "FixtureID": 1388377,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388372": {
+    "FixtureID": 1388372,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388375": {
+    "FixtureID": 1388375,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388371": {
+    "FixtureID": 1388371,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388378": {
+    "FixtureID": 1388378,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388376": {
+    "FixtureID": 1388376,
+    "Date": "2025-10-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388381": {
+    "FixtureID": 1388381,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388388": {
+    "FixtureID": 1388388,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388384": {
+    "FixtureID": 1388384,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388380": {
+    "FixtureID": 1388380,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388385": {
+    "FixtureID": 1388385,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388383": {
+    "FixtureID": 1388383,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388387": {
+    "FixtureID": 1388387,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388386": {
+    "FixtureID": 1388386,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388382": {
+    "FixtureID": 1388382,
+    "Date": "2025-11-01T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388392": {
+    "FixtureID": 1388392,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388397": {
+    "FixtureID": 1388397,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388390": {
+    "FixtureID": 1388390,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388394": {
+    "FixtureID": 1388394,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388389": {
+    "FixtureID": 1388389,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388391": {
+    "FixtureID": 1388391,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388395": {
+    "FixtureID": 1388395,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388393": {
+    "FixtureID": 1388393,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388396": {
+    "FixtureID": 1388396,
+    "Date": "2025-11-08T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388399": {
+    "FixtureID": 1388399,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388406": {
+    "FixtureID": 1388406,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388403": {
+    "FixtureID": 1388403,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388400": {
+    "FixtureID": 1388400,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388398": {
+    "FixtureID": 1388398,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388404": {
+    "FixtureID": 1388404,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388402": {
+    "FixtureID": 1388402,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388405": {
+    "FixtureID": 1388405,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388401": {
+    "FixtureID": 1388401,
+    "Date": "2025-11-22T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388408": {
+    "FixtureID": 1388408,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388411": {
+    "FixtureID": 1388411,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388415": {
+    "FixtureID": 1388415,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388409": {
+    "FixtureID": 1388409,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388413": {
+    "FixtureID": 1388413,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388407": {
+    "FixtureID": 1388407,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388410": {
+    "FixtureID": 1388410,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388412": {
+    "FixtureID": 1388412,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388414": {
+    "FixtureID": 1388414,
+    "Date": "2025-11-29T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388424": {
+    "FixtureID": 1388424,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388421": {
+    "FixtureID": 1388421,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388417": {
+    "FixtureID": 1388417,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388416": {
+    "FixtureID": 1388416,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388423": {
+    "FixtureID": 1388423,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388422": {
+    "FixtureID": 1388422,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388419": {
+    "FixtureID": 1388419,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388420": {
+    "FixtureID": 1388420,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388418": {
+    "FixtureID": 1388418,
+    "Date": "2025-12-06T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388426": {
+    "FixtureID": 1388426,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388429": {
+    "FixtureID": 1388429,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388433": {
+    "FixtureID": 1388433,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388427": {
+    "FixtureID": 1388427,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388430": {
+    "FixtureID": 1388430,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388425": {
+    "FixtureID": 1388425,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388428": {
+    "FixtureID": 1388428,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388432": {
+    "FixtureID": 1388432,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388431": {
+    "FixtureID": 1388431,
+    "Date": "2025-12-13T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388442": {
+    "FixtureID": 1388442,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388439": {
+    "FixtureID": 1388439,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388435": {
+    "FixtureID": 1388435,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388434": {
+    "FixtureID": 1388434,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388441": {
+    "FixtureID": 1388441,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388440": {
+    "FixtureID": 1388440,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388437": {
+    "FixtureID": 1388437,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388438": {
+    "FixtureID": 1388438,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388436": {
+    "FixtureID": 1388436,
+    "Date": "2025-12-20T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388444": {
+    "FixtureID": 1388444,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388447": {
+    "FixtureID": 1388447,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388451": {
+    "FixtureID": 1388451,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388445": {
+    "FixtureID": 1388445,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388443": {
+    "FixtureID": 1388443,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388446": {
+    "FixtureID": 1388446,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388448": {
+    "FixtureID": 1388448,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388450": {
+    "FixtureID": 1388450,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388449": {
+    "FixtureID": 1388449,
+    "Date": "2026-01-10T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388460": {
+    "FixtureID": 1388460,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388457": {
+    "FixtureID": 1388457,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388453": {
+    "FixtureID": 1388453,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388456": {
+    "FixtureID": 1388456,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388452": {
+    "FixtureID": 1388452,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388459": {
+    "FixtureID": 1388459,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388458": {
+    "FixtureID": 1388458,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388455": {
+    "FixtureID": 1388455,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388454": {
+    "FixtureID": 1388454,
+    "Date": "2026-01-14T19:00:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388469": {
+    "FixtureID": 1388469,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388468": {
+    "FixtureID": 1388468,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388462": {
+    "FixtureID": 1388462,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388465": {
+    "FixtureID": 1388465,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388461": {
+    "FixtureID": 1388461,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388467": {
+    "FixtureID": 1388467,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388466": {
+    "FixtureID": 1388466,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388464": {
+    "FixtureID": 1388464,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388463": {
+    "FixtureID": 1388463,
+    "Date": "2026-01-17T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388471": {
+    "FixtureID": 1388471,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388474": {
+    "FixtureID": 1388474,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388472": {
+    "FixtureID": 1388472,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388476": {
+    "FixtureID": 1388476,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388470": {
+    "FixtureID": 1388470,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388473": {
+    "FixtureID": 1388473,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388475": {
+    "FixtureID": 1388475,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388478": {
+    "FixtureID": 1388478,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388477": {
+    "FixtureID": 1388477,
+    "Date": "2026-01-24T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388487": {
+    "FixtureID": 1388487,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388480": {
+    "FixtureID": 1388480,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388484": {
+    "FixtureID": 1388484,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388481": {
+    "FixtureID": 1388481,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388479": {
+    "FixtureID": 1388479,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388486": {
+    "FixtureID": 1388486,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388485": {
+    "FixtureID": 1388485,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388483": {
+    "FixtureID": 1388483,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388482": {
+    "FixtureID": 1388482,
+    "Date": "2026-01-31T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388488": {
+    "FixtureID": 1388488,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388491": {
+    "FixtureID": 1388491,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388496": {
+    "FixtureID": 1388496,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388489": {
+    "FixtureID": 1388489,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388493": {
+    "FixtureID": 1388493,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388492": {
+    "FixtureID": 1388492,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388495": {
+    "FixtureID": 1388495,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388494": {
+    "FixtureID": 1388494,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388490": {
+    "FixtureID": 1388490,
+    "Date": "2026-02-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388505": {
+    "FixtureID": 1388505,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388499": {
+    "FixtureID": 1388499,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388502": {
+    "FixtureID": 1388502,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388498": {
+    "FixtureID": 1388498,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388500": {
+    "FixtureID": 1388500,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388497": {
+    "FixtureID": 1388497,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388504": {
+    "FixtureID": 1388504,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388503": {
+    "FixtureID": 1388503,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388501": {
+    "FixtureID": 1388501,
+    "Date": "2026-02-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388506": {
+    "FixtureID": 1388506,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388508": {
+    "FixtureID": 1388508,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388514": {
+    "FixtureID": 1388514,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388510": {
+    "FixtureID": 1388510,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388511": {
+    "FixtureID": 1388511,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388509": {
+    "FixtureID": 1388509,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388513": {
+    "FixtureID": 1388513,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388512": {
+    "FixtureID": 1388512,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388507": {
+    "FixtureID": 1388507,
+    "Date": "2026-02-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388523": {
+    "FixtureID": 1388523,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388517": {
+    "FixtureID": 1388517,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388518": {
+    "FixtureID": 1388518,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388521": {
+    "FixtureID": 1388521,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388516": {
+    "FixtureID": 1388516,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388519": {
+    "FixtureID": 1388519,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388515": {
+    "FixtureID": 1388515,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388522": {
+    "FixtureID": 1388522,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388520": {
+    "FixtureID": 1388520,
+    "Date": "2026-02-28T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388524": {
+    "FixtureID": 1388524,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388526": {
+    "FixtureID": 1388526,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388532": {
+    "FixtureID": 1388532,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388528": {
+    "FixtureID": 1388528,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388529": {
+    "FixtureID": 1388529,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388527": {
+    "FixtureID": 1388527,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388531": {
+    "FixtureID": 1388531,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388530": {
+    "FixtureID": 1388530,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388525": {
+    "FixtureID": 1388525,
+    "Date": "2026-03-07T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388537": {
+    "FixtureID": 1388537,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388541": {
+    "FixtureID": 1388541,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388534": {
+    "FixtureID": 1388534,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388535": {
+    "FixtureID": 1388535,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388539": {
+    "FixtureID": 1388539,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388533": {
+    "FixtureID": 1388533,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388536": {
+    "FixtureID": 1388536,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388540": {
+    "FixtureID": 1388540,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388538": {
+    "FixtureID": 1388538,
+    "Date": "2026-03-14T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388543": {
+    "FixtureID": 1388543,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388550": {
+    "FixtureID": 1388550,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388547": {
+    "FixtureID": 1388547,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388544": {
+    "FixtureID": 1388544,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388542": {
+    "FixtureID": 1388542,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388548": {
+    "FixtureID": 1388548,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388546": {
+    "FixtureID": 1388546,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388549": {
+    "FixtureID": 1388549,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388545": {
+    "FixtureID": 1388545,
+    "Date": "2026-03-21T14:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388554": {
+    "FixtureID": 1388554,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388559": {
+    "FixtureID": 1388559,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388552": {
+    "FixtureID": 1388552,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388556": {
+    "FixtureID": 1388556,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388551": {
+    "FixtureID": 1388551,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388553": {
+    "FixtureID": 1388553,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388557": {
+    "FixtureID": 1388557,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388555": {
+    "FixtureID": 1388555,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388558": {
+    "FixtureID": 1388558,
+    "Date": "2026-04-04T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388568": {
+    "FixtureID": 1388568,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388564": {
+    "FixtureID": 1388564,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388561": {
+    "FixtureID": 1388561,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388560": {
+    "FixtureID": 1388560,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388567": {
+    "FixtureID": 1388567,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388565": {
+    "FixtureID": 1388565,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388563": {
+    "FixtureID": 1388563,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388566": {
+    "FixtureID": 1388566,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388562": {
+    "FixtureID": 1388562,
+    "Date": "2026-04-11T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388570": {
+    "FixtureID": 1388570,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388573": {
+    "FixtureID": 1388573,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388577": {
+    "FixtureID": 1388577,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388571": {
+    "FixtureID": 1388571,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388574": {
+    "FixtureID": 1388574,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388569": {
+    "FixtureID": 1388569,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388572": {
+    "FixtureID": 1388572,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388576": {
+    "FixtureID": 1388576,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388575": {
+    "FixtureID": 1388575,
+    "Date": "2026-04-18T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388586": {
+    "FixtureID": 1388586,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388583": {
+    "FixtureID": 1388583,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388579": {
+    "FixtureID": 1388579,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388578": {
+    "FixtureID": 1388578,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388585": {
+    "FixtureID": 1388585,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388584": {
+    "FixtureID": 1388584,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388581": {
+    "FixtureID": 1388581,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388582": {
+    "FixtureID": 1388582,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388580": {
+    "FixtureID": 1388580,
+    "Date": "2026-04-25T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388588": {
+    "FixtureID": 1388588,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388591": {
+    "FixtureID": 1388591,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "VfL Wolfsburg"
+  },
+  "1388595": {
+    "FixtureID": 1388595,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388589": {
+    "FixtureID": 1388589,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388592": {
+    "FixtureID": 1388592,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388587": {
+    "FixtureID": 1388587,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388590": {
+    "FixtureID": 1388590,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388594": {
+    "FixtureID": 1388594,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388593": {
+    "FixtureID": 1388593,
+    "Date": "2026-05-02T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388604": {
+    "FixtureID": 1388604,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfL Wolfsburg",
+    "AwayTeam": "Bayern M\u00fcnchen"
+  },
+  "1388601": {
+    "FixtureID": 1388601,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FSV Mainz 05",
+    "AwayTeam": "Union Berlin"
+  },
+  "1388597": {
+    "FixtureID": 1388597,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia Dortmund",
+    "AwayTeam": "Eintracht Frankfurt"
+  },
+  "1388600": {
+    "FixtureID": 1388600,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1899 Hoffenheim",
+    "AwayTeam": "Werder Bremen"
+  },
+  "1388596": {
+    "FixtureID": 1388596,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC Augsburg",
+    "AwayTeam": "Borussia M\u00f6nchengladbach"
+  },
+  "1388603": {
+    "FixtureID": 1388603,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "VfB Stuttgart",
+    "AwayTeam": "Bayer Leverkusen"
+  },
+  "1388602": {
+    "FixtureID": 1388602,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "RB Leipzig",
+    "AwayTeam": "FC St. Pauli"
+  },
+  "1388599": {
+    "FixtureID": 1388599,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Hamburger SV",
+    "AwayTeam": "SC Freiburg"
+  },
+  "1388598": {
+    "FixtureID": 1388598,
+    "Date": "2026-05-09T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1.FC K\u00f6ln",
+    "AwayTeam": "1. FC Heidenheim"
+  },
+  "1388606": {
+    "FixtureID": 1388606,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayern M\u00fcnchen",
+    "AwayTeam": "1.FC K\u00f6ln"
+  },
+  "1388609": {
+    "FixtureID": 1388609,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "SC Freiburg",
+    "AwayTeam": "RB Leipzig"
+  },
+  "1388613": {
+    "FixtureID": 1388613,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Werder Bremen",
+    "AwayTeam": "Borussia Dortmund"
+  },
+  "1388607": {
+    "FixtureID": 1388607,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Borussia M\u00f6nchengladbach",
+    "AwayTeam": "1899 Hoffenheim"
+  },
+  "1388605": {
+    "FixtureID": 1388605,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Bayer Leverkusen",
+    "AwayTeam": "Hamburger SV"
+  },
+  "1388608": {
+    "FixtureID": 1388608,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Eintracht Frankfurt",
+    "AwayTeam": "VfB Stuttgart"
+  },
+  "1388610": {
+    "FixtureID": 1388610,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "1. FC Heidenheim",
+    "AwayTeam": "FSV Mainz 05"
+  },
+  "1388612": {
+    "FixtureID": 1388612,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "Union Berlin",
+    "AwayTeam": "FC Augsburg"
+  },
+  "1388611": {
+    "FixtureID": 1388611,
+    "Date": "2026-05-16T13:30:00+00:00",
+    "League": "Bundesliga",
+    "HomeTeam": "FC St. Pauli",
+    "AwayTeam": "VfL Wolfsburg"
+  }
+}
