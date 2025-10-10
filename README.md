@@ -1,6 +1,6 @@
 # ⚽️ FOOTBALL MATCH PREDICTION USING MACHINE LEARNING
 
-The study explores the use of machine learning for predicting both future and live football match outcomes using data from major European leagues and international tournaments. Three models—XGBoost, Random Forest, and Logistic Regression—were evaluated using pre-2023 data for training and 2023+ matches for testing. Based on metrics like accuracy, precision, recall, and F1-score, Random Forest achieved the best overall performance, while Logistic Regression performed slightly better in two leagues for future match predictions.
+The study explores the use of machine learning for predicting both future and live football match outcomes using data from major European leagues and international tournaments. Three models, **XGBoost, Random Forest, and Logistic Regression** were evaluated using pre-2023 data for training and 2023+ matches for testing. Based on metrics like accuracy, precision, recall, and F1-score, Random Forest achieved the best overall performance, while Logistic Regression performed slightly better in two leagues for future match predictions.
 
 For more detailed information, you can read the full thesis in the [📄 **Football Match Prediction PDF**](FOOTBALLMATCHPREDICTION.pdf).
 
