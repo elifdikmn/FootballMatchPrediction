@@ -1,119 +1,174 @@
-# Football Match Prediction — ML (Pre-Match + Live) with iOS Client
+# ⚽️ FOOTBALL MATCH PREDICTION USING MACHINE LEARNING
 
-Predict the **Full-Time Result** (Home / Draw / Away) for football matches using Machine Learning.
-This project combines a robust Python modeling pipeline with a native **Swift (iOS/macOS)** client to visualize **pre-match** and **live (half-time)** probabilities.
+The study explores the use of machine learning for predicting both future and live football match outcomes using data from major European leagues and international tournaments. Three models—XGBoost, Random Forest, and Logistic Regression—were evaluated using pre-2023 data for training and 2023+ matches for testing. Based on metrics like accuracy, precision, recall, and F1-score, Random Forest achieved the best overall performance, while Logistic Regression performed slightly better in two leagues for future match predictions.
 
-<p align="center"><img alt="Figure 1" src="assets/figures/figure01_pdf_img_000_p26.png" width="90%"></p>
 
----
-
-## ✨ Highlights
-- **Leagues**: EPL, La Liga, Serie A, Bundesliga, Ligue 1, **Turkish Süper Lig**, FIFA Club World Cup, and UEFA/World Cup Qualifiers.
-- **Two modes**:
-  1) **Pre-Match** — trained on multi-season historical data + engineered features + market odds.
-  2) **Live** — updates at **half-time** (and optionally per event window) using score, cards, and **live odds**.
-- **Explainability**: Feature importances and (optionally) SHAP examples for case-by-case interpretation.
-- **Client App**: Native SwiftUI with standings, fixtures, match detail, and live probabilities.
 
 ---
 
-## 🧠 Approach (Hybrid Overview)
+## ⚙️ Overview
 
-### Data Sources
-- Historical CSVs (multi-season): fixtures, scores, cards, **odds**, optional **xG**.
-- Live API (BYO key): fixtures, **live odds**, HT/FT score, cards, events.
-- Labels are 3-class outcomes: `HomeWin`, `Draw`, `AwayWin`.
+The project involves developing a web-based sports match prediction application for macOS and iOS, integrating machine learning models trained on historical sports data. Models were developed in **Python (Jupyter Notebook)** using **TensorFlow, Scikit-Learn, Pandas, and NumPy**, then deployed via a **backend service accessible through API requests**. The mobile app—built with Xcode and Swift—retrieves predictions and live updates from this backend, ensuring real-time accuracy without local computation. An active internet connection is required since predictions are processed server-side and refreshed every minute during live matches. This architecture enables up-to-date analytics and minimizes device resource usage while maintaining high performance and responsiveness.
 
-Data folder convention:
-```
-data/
-  raw/                     # original CSVs by league/season
-  processed/
-    matches_clean.parquet
-    features_pre_match.parquet
-    features_live.parquet
-```
+The model leverages historical and live match data from:
+- Premier League, La Liga, Serie A, Bundesliga, Ligue 1
+- Turkish Super League
+- FIFA Club World Cup & World Cup Qualifiers
 
-### Feature Engineering
-- **Recent form (last-5)**: `WinRate`, `DrawRate`, `LossRate`, `GoalsFor/Against` (rolling means).
-- **Comparative deltas**: `WinRateDiff`, `DrawRateDiff`, `xG_diff`, `EloDiff`.
-- **Elo momentum**: `EloChange30`, `EloChange60`.
-- **Market prior**: Odds → probability (`HomeProb`, `DrawProb`, `AwayProb`) with margin adjustment.
-- **Live features**: `HTHG`, `HTAG`, encoded `HTR`, yellow/red cards (`HY/AY/HR/AR`), **live odds**.
-
-<p align="center"><img alt="Figure 2" src="assets/figures/figure02_pdf_img_003_p34.png" width="70%"></p>
-
-### Models
-- **Primary**: `RandomForestClassifier`, `LogisticRegression`
-- **Benchmark**: `XGBoost` (multi-class softprob)
-- **Training**: stratified by season (avoid leakage), standardization for linear models, optional class weighting.
-
-### Evaluation
-- **Classification**: Accuracy, macro/micro **F1**, **LogLoss**.
-- **Calibration**: Reliability curves (ECE).
-- **Live uplift**: compare pre-match vs half-time predictions on the same fixtures.
-
-Example (replace with your exact results):
-```
-Pre-Match (LogReg): Acc 0.54 | Macro-F1 0.48 | LogLoss 1.07
-Pre-Match (RF)    : Acc 0.56 | Macro-F1 0.50 | LogLoss 1.03
-Live (RF @HT)     : Acc 0.61 | Macro-F1 0.57 | LogLoss 0.94
-```
-
-<p align="center"><img alt="Figure 3" src="assets/figures/figure03_pdf_img_005_p36.png" width="70%"></p>
+The system predicts outcomes as Home Win, Draw, or Away Win, using:
+- **Random Forest**
+- **XGBoost**
+- **Logistic Regression**
 
 ---
 
-## 🏗️ Architecture
-```
-[Data Ingest] -> [Clean & Normalize] -> [Feature Engineering]
-       |                                   |        |
-       v                                   v        v
-  data/processed/*.parquet        notebooks/*.ipynb  scripts/*.py
-                   \                   |                  |
-                    \-> [Model Train & Eval] -> [Artifacts: models/, reports/]
-                                               \
-                                                -> [JSON API / iOS App]
-```
+## 🏗️ System Architecture
 
-- **Python**: ETL + modeling + export predictions to CSV/JSON for the app.
-- **Swift iOS**: loads JSON (local or via lightweight backend) and renders UI.
+<p align="center"><img alt="Figure 3" src="assets/extracted/pdf_img_002_p32.png" width="70%"></p>
+The system uses a modular pipeline architecture with sequential stages: data collection, preprocessing, feature engineering, training, and prediction. Data is gathered via web scraping, APIs, and open datasets, then standardized and cleaned. Engineered features like ELO ratings, form ratios, and probabilistic odds enhance prediction quality. Machine learning models (e.g., Random Forest, Logistic Regression) are trained and optimized through cross-validation. The final model provides both pre-match and live predictions, ensuring a scalable, maintainable, and extensible system design.
+
 
 <p align="center"><img alt="Figure 4" src="assets/figures/figure04_pdf_img_006_p37.png" width="70%"></p>
 
 ---
+## 🟥 Diagrams
+ 
+- **Sequence Diagram**
+  
+The two sequence diagrams illustrate the system’s core behaviors. The **left diagram** shows how pre-match predictions are loaded at app startup—using cached results from the database when available or generating new ones via the ML model when not. The **right diagram** depicts the “Detail” feature flow, where the app retrieves team standings and live match events either from the database or, if missing, through real-time API calls—ensuring efficient, up-to-date insights with minimal resource use.
 
-## 📦 Project Structure
-```
-.
-├─ assets/
-│  ├─ figures/                  # extracted figures from the report
-│  └─ screens/                  # app-like screenshots (if any in report)
-├─ data/
-│  ├─ raw/
-│  └─ processed/
-├─ models/
-│  ├─ rf_pre_match.joblib
-│  ├─ logreg_pre_match.joblib
-│  └─ rf_live.joblib
-├─ notebooks/
-│  ├─ 01_exploration.ipynb
-│  ├─ 02_feature_engineering.ipynb
-│  ├─ 03_train_pre_match.ipynb
-│  └─ 04_train_live.ipynb
-├─ scripts/
-│  ├─ make_features.py
-│  ├─ train_pre_match.py
-│  ├─ train_live.py
-│  ├─ predict_pre_match.py
-│  └─ predict_live.py
-├─ ios/
-│  └─ FootballPred/             # Swift project (SwiftUI)
-├─ reports/
-│  └─ predictions.json / *.csv
-├─ requirements.txt
-└─ README.md
-```
+<p align="center">
+  <img src="assets/extracted/pdf_img_004_p35.png"  width="45%">
+  &nbsp;&nbsp;
+  <img src="assets/extracted/pdf_img_005_p36.png" width="45%">
+</p>
+
+- **Use Case Diagram**
+
+The use case diagram illustrates how the User interacts with the football match prediction system through key functions. Users can view upcoming and live matches, access pre-match and live predictions, and explore detailed insights like match statistics, events, and team standings. Additional options such as selecting date or league help filter results, highlighting the system’s ability to handle both static (pre-match) and real-time (live) prediction features efficiently.
+
+<p align="center"><img alt="Figure 4" src="assets/extracted/pdf_img_003_p34.png" width="70%"></p>
+
+- **Database E-R Diagram**
+
+The relational database model of the system, built to manage match data, predictions, and standings. It includes four main tables: fixtures (core match data and results), events (match incidents linked by FixtureID), prediction_info (aggregated stats for prediction), and standings (league rankings for display). The structured schema ensures efficient querying, clear data separation, and easy scalability for future expansions.
+
+<p align="center"><img  src="assets/extracted/pdf_img_006_p37.png" width="70%"></p>
+
+
+ 
+
+
+
+## 🧠 Implementation
+
+### 1. Data Collection
+- Historical data (2014–2025) from Kaggle and football APIs
+- Web-scraped features: **Expected Goals (xG)**, team form, betting odds
+- Live API: fixtures, **live odds**, HT/FT score, cards, events.
+
+
+
+### 2. Data Preprocessing
+- **Missing value imputation and Data Cleaning**
+- **Label encoding & normalization**
+- **Feature engineering**: 
+   - **Recent form (last-5)**: `WinRate`, `DrawRate`, `LossRate`, `GoalsFor/Against`.
+   - **Comparative deltas**: `WinRateDiff`, `DrawRateDiff`, `xG_diff`, `EloDiff`.
+   - **Elo momentum**: `EloChange30`, `EloChange60`.
+   - **Market prior**: Odds → probability (`HomeProb`, `DrawProb`, `AwayProb`) with margin adjustment.
+   - **Live features**: `HTHG`, `HTAG`, encoded `HTR`, yellow/red cards (`HY/AY/HR/AR`), **live odds**.
+   - **Feature Selection**
+      - The feature importance analysis gave a full picture of how each feature contributed to the predictions of the model. Some features were high in importance, indicating that they were major contributors to the decision-making of the model. The rest of the features had very low importance scores, they contributed very little to the predictions. Features with normalized importance scores below 0.01 were not included in the final model. This threshold was se- lected to eliminate variables that had little predictive contribution but retain possible useful small effects.
+     
+  <p align="center"><img alt="Figure 3" src="assets/figures/figure01_pdf_img_000_p26.png" width="70%"></p>
+  
+- **Live Match Model and Real-Time Feature Integration**
+- **Standarization and Merging of League Datasets**
+- **Final Dataset Structure**
+
+
+
+### 3.Machine Learning Algorithms
+ -**Random Forest**:Builds multiple decision trees and aggregates their results to improve accuracy and prevent overfitting. It handled complex, league-specific data well and achieved strong generalization, especially in leagues with rich historical data.
+ -**Extreme Gradient Boosting**:A fast, regularized ensemble model using gradient boosting, optimized with hyperparameter tuning. It managed multiclass classification effectively and showed consistent, high performance across leagues due to its scalability and flexibility.
+ -**Logistic Regression**:A simpler, interpretable baseline model using normalized features and cross-validation. Though less powerful than ensemble methods, it provided stable and explainable results, helping understand feature influence on match outcomes.
+
+
+
+### 4.Model Selection
+
+Three machine learning models—Random Forest, XGBoost, and Logistic Regression—were tested across eight football leagues to find the most effective predictor. Random Forest achieved the best overall performance, selected for six leagues due to its ability to handle complex, non-linear data and high F1-scores. Logistic Regression was chosen for two leagues (E0 and T1) for its simplicity and balanced performance. XGBoost underperformed, particularly on the “draw” class, and was not used in final deployment. All models were optimized using GridSearchCV with stratified cross-validation, confirming Random Forest as the most reliable and robust model overall.
+
+
+### 5.Live Prediction
+
+This section describes a separate live match prediction model that updates dynamically using real-time data such as goals, cards, half-time scores, and betting odds. By continuously adjusting probabilities during the match, it enables mid-game predictions, making it valuable for in-play betting and live coaching analysis.
+
+
+<p align="center"><img alt="Figure 3" src="assets/extracted/pdf_img_001_p28.png" width="70%"></p>
+
+---
+
+
+## 📱User Interface 
+
+The homepage offers a simple and user-friendly interface showing the calendar and daily match list. Live and upcoming matches are displayed in separate sections. Users can switch between them using the Live Match button, view prediction summaries, check detailed match info like standings and events via the Details button, and use filters to display matches for specific teams.
+
+<p align="center">
+  <img src="assets/extracted/pdf_img_009_p45.png"  width="25%">
+  &nbsp;&nbsp;
+  <img src="assets/extracted/pdf_img_010_p45.png" width="25%">
+  &nbsp;&nbsp;
+  <img src="assets/extracted/pdf_img_011_p46.png"  width="25%">
+  &nbsp;&nbsp;
+</p>
+
+
+<p align="center">
+  <img src="assets/extracted/pdf_img_012_p46.png" width="25%">
+  &nbsp;&nbsp;
+  <img src="assets/extracted/pdf_img_013_p47.png" width="25%">
+  &nbsp;&nbsp;
+  <img src="assets/extracted/pdf_img_014_p47.png" width="25%">
+  &nbsp;&nbsp;
+</p>
+
+
+---
+
+## ✅ TEST AND RESULTS
+
+This chapter evaluates the performance and real-world applicability of machine learning models for predicting football match outcomes (Home Win, Draw, Away Win). Models were trained on historical data and tested both on past and future matches to assess generalization. Random Forest and Logistic Regression were used across different leagues, achieving an overall accuracy of 57.5% and macro F1-score of 54.3%. While “Draw” outcomes remained hardest to predict, the models maintained strong performance on unseen data—proving that patterns learned from historical matches can effectively forecast real games, validating the practicality of the system for real-world use.
+
+<p align="center">
+  <img alt="Figure Confusion Matrix for all leagues" src="assets/extracted/pdf_img_015_p50.png" width="70%">
+</p>
+<p align="center"><b>Figure:</b> Confusion Matrix for all leagues</p>
+
+### Table —  Classification performance metrics of the model
+
+| **Class**     | **Precision** | **Recall** | **F1-Score** | **Support** |
+|----------------|---------------|-------------|---------------|--------------|
+| **Home Win**   | 0.64          | 0.59        | 0.64          | 68           |
+| **Draw**       | 0.34          | 0.40        | 0.37          | 30           |
+| **Away Win**   | 0.62          | 0.57        | 0.61          | 63           |
+| **Micro Avg**  | 0.56          | 0.54        | 0.55          | 161          |
+| **Macro Avg**  | 0.53          | 0.52        | 0.54          | 161          |
+| **Weighted Avg** | 0.57        | 0.54        | 0.57          | 161          |
+
+**Accuracy:** 57.5%
+
+<p ><i>Table 5.1 — Classification performance metrics of the model.</i></p>
+
+
+---
+
+## 💭 Conclusion
+
+This project developed a machine learning-based football match prediction system covering eight leagues. Using historical data, ELO ratings, and betting odds, three models—Logistic Regression, Random Forest, and XGBoost—were trained and evaluated via cross-validation and macro F1-score. Logistic Regression was chosen for the English Premier League and Turkish Super League, while Random Forest was used for the remaining leagues. The models were deployed through a Flask REST API integrated with a Swift-based mobile app for real-time predictions. Although overall accuracy was strong, draw outcomes were harder to predict. Limitations include missing player-level data, weather, and referee effects, and the system predicts only match results, not exact scores.
+
+
 
 ---
 
@@ -187,39 +242,6 @@ python scripts/predict_live.py \
 **Outputs**
 - CSV with `home_prob`, `draw_prob`, `away_prob` per match.
 - Optional JSON for iOS app: `reports/predictions.json`.
-
----
-
-## 📱 iOS App (SwiftUI)
-- **Stack**: SwiftUI, async networking, simple caching.
-- **Data Flow**: Fetch `predictions.json` (local file or a tiny backend endpoint).
-- **Views**: Home (leagues & date), Match List, Match Detail (events, odds, probabilities).
-- **Build**: open `ios/FootballPred/*.xcodeproj` and run on iOS 16+.
-
-<p align="center"><img alt="App Screen 1" src="assets/screens/screen01_pdf_img_001_p28.png" width="30%"></p><p align="center"><img alt="App Screen 2" src="assets/screens/screen02_pdf_img_002_p32.png" width="30%"></p><p align="center"><img alt="App Screen 3" src="assets/screens/screen03_pdf_img_004_p35.png" width="30%"></p><p align="center"><img alt="App Screen 4" src="assets/screens/screen04_pdf_img_009_p45.png" width="30%"></p><p align="center"><img alt="App Screen 5" src="assets/screens/screen05_pdf_img_010_p45.png" width="30%"></p><p align="center"><img alt="App Screen 6" src="assets/screens/screen06_pdf_img_011_p46.png" width="30%"></p><p align="center"><img alt="App Screen 7" src="assets/screens/screen07_pdf_img_012_p46.png" width="30%"></p><p align="center"><img alt="App Screen 8" src="assets/screens/screen08_pdf_img_013_p47.png" width="30%"></p>
-
----
-
-## 📊 Visualizations
-After training, you can generate and add plots such as:
-- Feature Importance
-- Calibration Curve
-- Confusion Matrix
-- Live vs Pre-Match probability comparison
-
-<p align="center"><img alt="Figure 1" src="assets/figures/figure01_pdf_img_000_p26.png" width="90%"></p><p align="center"><img alt="Figure 2" src="assets/figures/figure02_pdf_img_003_p34.png" width="70%"></p><p align="center"><img alt="Figure 3" src="assets/figures/figure03_pdf_img_005_p36.png" width="70%"></p><p align="center"><img alt="Figure 4" src="assets/figures/figure04_pdf_img_006_p37.png" width="70%"></p><p align="center"><img alt="Figure 5" src="assets/figures/figure05_pdf_img_007_p39.png" width="70%"></p><p align="center"><img alt="Figure 6" src="assets/figures/figure06_pdf_img_008_p42.png" width="70%"></p><p align="center"><img alt="Figure 7" src="assets/figures/figure07_pdf_img_015_p50.png" width="70%"></p><p align="center"><img alt="Figure 8" src="assets/figures/figure08_pdf_img_016_p53.png" width="70%"></p>
-
-> All images above are extracted from the original project report.
-> If you add new plots, place them under `assets/figures/` and reference in this README.
-
----
-
-## 🗺️ Roadmap
-- SHAP summary & per-match force plots in the app
-- Minute-level live updates (not just HT)
-- Player-level features (injuries, suspensions)
-- Bayesian calibration for probabilities
-- Lightweight **FastAPI** service for predictions
 
 ---
 
