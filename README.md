@@ -29,9 +29,6 @@ The system predicts outcomes as Home Win, Draw, or Away Win, using:
 <p align="center"><img alt="Figure 3" src="assets/extracted/pdf_img_002_p32.png" width="70%"></p>
 The system uses a modular pipeline architecture with sequential stages: data collection, preprocessing, feature engineering, training, and prediction. Data is gathered via web scraping, APIs, and open datasets, then standardized and cleaned. Engineered features like ELO ratings, form ratios, and probabilistic odds enhance prediction quality. Machine learning models (e.g., Random Forest, Logistic Regression) are trained and optimized through cross-validation. The final model provides both pre-match and live predictions, ensuring a scalable, maintainable, and extensible system design.
 
-
-<p align="center"><img alt="Figure 4" src="assets/figures/figure04_pdf_img_006_p37.png" width="70%"></p>
-
 ---
 ## 🟥 Diagrams
  
