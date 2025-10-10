@@ -161,9 +161,6 @@ This chapter evaluates the performance and real-world applicability of machine l
 
 **Accuracy:** 57.5%
 
-<p ><i>Table 5.1 — Classification performance metrics of the model.</i></p>
-
-
 ---
 
 ## 💭 Conclusion
