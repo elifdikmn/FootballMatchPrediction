@@ -179,7 +179,7 @@ source .venv/bin/activate   # on Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Minimal `requirements.txt` (edit to your needs):
+Minimal `requirements.txt`:
 ```
 pandas
 numpy
