@@ -177,6 +177,7 @@ This project developed a machine learning-based football match prediction system
 python -m venv .venv
 source .venv/bin/activate   # on Windows: .venv\Scripts\activate
 pip install -r requirements.txt
+python3 app.py
 ```
 
 Minimal `requirements.txt`:
@@ -194,50 +195,6 @@ pyyaml
 ```
 
 ---
-
-## ▶️ Usage
-
-### 1) Prepare Features
-```bash
-python scripts/make_features.py \
-  --raw_dir data/raw \
-  --out_dir data/processed \
-  --with_xg \
-  --with_odds
-```
-
-### 2) Train
-```bash
-# Pre-match
-python scripts/train_pre_match.py \
-  --features data/processed/features_pre_match.parquet \
-  --model_out models/rf_pre_match.joblib \
-  --algo rf \
-  --seed 42
-
-# Live (half-time)
-python scripts/train_live.py \
-  --features data/processed/features_live.parquet \
-  --model_out models/rf_live.joblib \
-  --algo rf \
-  --seed 42
-```
-
-### 3) Predict
-```bash
-# Pre-match predictions for upcoming fixtures
-python scripts/predict_pre_match.py \
-  --model models/rf_pre_match.joblib \
-  --fixtures data/processed/upcoming_fixtures.parquet \
-  --out reports/prematch_predictions.csv
-
-# Live predictions at half-time for ongoing matches
-python scripts/predict_live.py \
-  --model models/rf_live.joblib \
-  --live_feed data/processed/live_snapshot.parquet \
-  --out reports/live_ht_predictions.csv
-```
-
 **Outputs**
 - CSV with `home_prob`, `draw_prob`, `away_prob` per match.
 - Optional JSON for iOS app: `reports/predictions.json`.
