@@ -38,6 +38,7 @@ API_FOOTBALL_KEY=...   # required for live-data routes; offline routes below don
 THE_ODDS_API_KEY=...   # same
 FLASK_DEBUG=false       # optional, default false
 SQL_ECHO=false          # optional, default false
+PORT=5000               # optional, default 5000
 ```
 
 `config.py` loads these via `python-dotenv`. The app will still boot
@@ -140,3 +141,8 @@ nothing). The smoke script above is the only verification available.
   other live-data routes**: expected in a network-restricted
   container. Not a code bug — those routes need real access to
   `v3.football.api-sports.io`.
+- **`Address already in use` / port 5000 taken on macOS**: macOS's
+  AirPlay Receiver listens on port 5000 by default. Either turn it off
+  (System Settings → General → AirDrop & Handoff → AirPlay Receiver),
+  or set `PORT=5001` (or any free port) in `.env` and use that port
+  in requests instead — `app.py` reads `PORT` from the environment.
