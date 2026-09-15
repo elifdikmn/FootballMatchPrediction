@@ -65,8 +65,11 @@ def predictions():
 @app.route("/standings/<league_code>", methods=["GET"])
 def get_standings(league_code):
     session = SessionLocal()
-    db_league_id = str(league_ids.get(league_code, league_code))
-    standings = session.query(Standing).filter_by(league=db_league_id).order_by(Standing.rank.asc()).all()
+    try:
+        db_league_id = str(league_ids.get(league_code, league_code))
+        standings = session.query(Standing).filter_by(league=db_league_id).order_by(Standing.rank.asc()).all()
+    finally:
+        session.close()
     return jsonify([
         {
             "position": s.rank,
