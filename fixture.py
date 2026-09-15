@@ -440,7 +440,27 @@ team_name_map = {
     "Sivasspor": "Sivasspor",
     "Trabzonspor": "Trabzonspor",
     "Ümraniyespor": "Umraniyespor",
-    "Yeni Malatyaspor": "Yeni Malatyaspor"
+    "Yeni Malatyaspor": "Yeni Malatyaspor",
+
+    # The Odds API name variants (different source, different naming
+    # convention than api-sports.io - discovered by comparing live Odds
+    # API output against the historical CSVs' team names)
+    "Hull City": "Hull",
+    "Leeds United": "Leeds",
+    "Deportivo La Coruña": "La Coruna",
+    "Elche CF": "Elche",
+    "Málaga": "Malaga",
+    "1 FC Köln": "FC Koln",
+    "FC Schalke 04": "Schalke 04",
+    "Hamburger SV": "Hamburg",
+    "SC Paderborn": "Paderborn",
+    "Basaksehir": "Buyuksehyr",
+    "Besiktas JK": "Besiktas",
+    "Gazişehir Gaziantep": "Gaziantep",
+    "Genclerbirligi SK": "Genclerbirligi",
+    "Goztepe": "Goztep",
+    "Kasimpasa SK": "Kasimpasa",
+    "Torku Konyaspor": "Konyaspor",
 }
 
     
