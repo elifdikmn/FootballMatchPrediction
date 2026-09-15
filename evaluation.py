@@ -5,7 +5,10 @@ from collections import defaultdict
 
 def evaluate_model_accuracy():
     db: Session = SessionLocal()
-    finished_fixtures = db.query(Fixture).filter_by(Status="FINISHED").all()
+    try:
+        finished_fixtures = db.query(Fixture).filter_by(Status="FINISHED").all()
+    finally:
+        db.close()
 
     total = 0
     correct = 0

@@ -83,80 +83,92 @@ def predict_and_save_scheduled_matches():
 
     # Veritabanına yaz
     session = SessionLocal()
-    for _, row in predictions_df.iterrows():
-        fixture = session.query(Fixture).filter_by(FixtureID=row["FixtureID"]).first()
-        if fixture:
-            fixture.Predicted_Label = row["Predicted_Label"]
-            fixture.HomeWinPct = row["Home Win %"]
-            fixture.DrawPct = row["Draw %"]
-            fixture.AwayWinPct = row["Away Win %"]
-            fixture.LastUpdated = datetime.utcnow().isoformat()
-    session.commit()
-    print("💾 Tahminler veritabanına kaydedildi.")
+    try:
+        for _, row in predictions_df.iterrows():
+            fixture = session.query(Fixture).filter_by(FixtureID=row["FixtureID"]).first()
+            if fixture:
+                fixture.Predicted_Label = row["Predicted_Label"]
+                fixture.HomeWinPct = row["Home Win %"]
+                fixture.DrawPct = row["Draw %"]
+                fixture.AwayWinPct = row["Away Win %"]
+                fixture.LastUpdated = datetime.utcnow().isoformat()
+        session.commit()
+        print("💾 Tahminler veritabanına kaydedildi.")
+    finally:
+        session.close()
 
 
 # ✅ 1. Haftalık fikstürleri getir
 def import_upcoming_week_fixtures():
     session = SessionLocal()
-    today = datetime.utcnow().date()
-    next_week = today + timedelta(days=7)
-    leagues = [15,203, 39, 140, 135, 61, 78]
-    added = 0
+    try:
+        today = datetime.utcnow().date()
+        next_week = today + timedelta(days=7)
+        leagues = [15,203, 39, 140, 135, 61, 78]
+        added = 0
 
-    for league_id in leagues:
-        url = f"{BASE_URL}/fixtures?league={league_id}&season={get_current_season()}&from={today}&to={next_week}"
-        response = requests.get(url, headers=headers)
-        data = response.json().get("response", [])
-        for item in data:
-            fixture_id = item["fixture"]["id"]
-            exists = session.query(Fixture).filter_by(FixtureID=fixture_id).first()
-            if exists:
-                continue
-            fixture = Fixture(
-                FixtureID=fixture_id,
-                Date=item["fixture"]["date"][:10],
-                League=str(league_id),
-                HomeTeam=item["teams"]["home"]["name"],
-                AwayTeam=item["teams"]["away"]["name"],
-                Status="SCHEDULED",
-                LastUpdated=datetime.utcnow().isoformat()
-            )
-            session.add(fixture)
-            added += 1
-    session.commit()
-    print(f"📆 {added} yeni fixture eklendi.")
+        for league_id in leagues:
+            url = f"{BASE_URL}/fixtures?league={league_id}&season={get_current_season()}&from={today}&to={next_week}"
+            response = requests.get(url, headers=headers)
+            data = response.json().get("response", [])
+            for item in data:
+                fixture_id = item["fixture"]["id"]
+                exists = session.query(Fixture).filter_by(FixtureID=fixture_id).first()
+                if exists:
+                    continue
+                fixture = Fixture(
+                    FixtureID=fixture_id,
+                    Date=item["fixture"]["date"][:10],
+                    League=str(league_id),
+                    HomeTeam=item["teams"]["home"]["name"],
+                    AwayTeam=item["teams"]["away"]["name"],
+                    Status="SCHEDULED",
+                    LastUpdated=datetime.utcnow().isoformat()
+                )
+                session.add(fixture)
+                added += 1
+        session.commit()
+        print(f"📆 {added} yeni fixture eklendi.")
+    finally:
+        session.close()
 
 
 # ✅ 2. Odds ve xG geldiyse fixture tablosunu güncelle
 def update_fixtures_with_odds_and_xg():
     session = SessionLocal()
-    fixtures = session.query(Fixture).filter(Fixture.Status == "SCHEDULED").all()
-    df = pd.DataFrame([f.__dict__ for f in fixtures if hasattr(f, '__dict__')])
+    try:
+        fixtures = session.query(Fixture).filter(Fixture.Status == "SCHEDULED").all()
+        df = pd.DataFrame([f.__dict__ for f in fixtures if hasattr(f, '__dict__')])
 
-    if df.empty:
-        print("📭 Güncellenecek fixture yok.")
-        return
+        if df.empty:
+            print("📭 Güncellenecek fixture yok.")
+            return
 
-    df = merge_xg_to_fixtures(df, xg_data)
+        df = merge_xg_to_fixtures(df, xg_data)
 
-    updated = 0
-    for _, row in df.iterrows():
-        fixture = session.query(Fixture).filter_by(FixtureID=row["FixtureID"]).first()
-        if fixture:
-            fixture.HxG = row.get("HxG")
-            fixture.AxG = row.get("AxG")
-            fixture.xG_diff = row.get("xG_diff")
-            fixture.LastUpdated = datetime.utcnow().isoformat()
-            updated += 1
+        updated = 0
+        for _, row in df.iterrows():
+            fixture = session.query(Fixture).filter_by(FixtureID=row["FixtureID"]).first()
+            if fixture:
+                fixture.HxG = row.get("HxG")
+                fixture.AxG = row.get("AxG")
+                fixture.xG_diff = row.get("xG_diff")
+                fixture.LastUpdated = datetime.utcnow().isoformat()
+                updated += 1
 
-    session.commit()
-    print(f"📊 {updated} fixture odds + xG ile güncellendi.")
+        session.commit()
+        print(f"📊 {updated} fixture odds + xG ile güncellendi.")
+    finally:
+        session.close()
 
 
 # ✅ 3. Odds/xG sonrası tahminleri yeniden hesapla
 def recalculate_predictions_if_features_completed():
     session = SessionLocal()
-    fixtures = session.query(Fixture).filter(Fixture.Predicted_Label != None).all()
+    try:
+        fixtures = session.query(Fixture).filter(Fixture.Predicted_Label != None).all()
+    finally:
+        session.close()
     historical_data_by_league = {
         "T1": pd.read_csv("T1_matches.csv", parse_dates=["Date"]),
         "E0": pd.read_csv("E0_matches.csv", parse_dates=["Date"]),
@@ -190,67 +202,73 @@ def recalculate_predictions_if_features_completed():
 # ✅ 4. SCHEDULED maç FINISHED olduysa güncelle + event ekle
 def update_scheduled_fixtures():
     session = SessionLocal()
-    fixtures = session.query(Fixture).filter_by(Status="SCHEDULED").all()
-    updated = 0
-    for fx in fixtures:
-        url = f"{BASE_URL}/fixtures?id={fx.FixtureID}"
-        response = requests.get(url, headers=headers)
-        data = response.json().get("response")
-        
-        if not data:
-            continue
-        status = data[0]["fixture"]["status"]["short"]
-        if status in ("FT", "AET", "PEN"):
-            fx.Status = "FINISHED"
-            fx.HomeGoals = data[0]["goals"]["home"]
-            fx.AwayGoals = data[0]["goals"]["away"]
-            fx.LastUpdated = datetime.utcnow().isoformat()
-            session.query(Event).filter_by(FixtureID=fx.FixtureID).delete()
-            url_events = f"{BASE_URL}/fixtures/events?fixture={fx.FixtureID}"
-            ev_data = requests.get(url_events, headers=headers).json().get("response", [])
-            for ev in ev_data:
-                event = Event(
-                    FixtureID=fx.FixtureID,
-                    minute=ev["time"]["elapsed"],
-                    team=ev["team"]["name"],
-                    player=ev["player"]["name"],
-                    type=ev["type"],
-                    detail=ev["detail"],
-                    assist=ev["assist"]["name"] if ev["assist"] else None
-                )
-                session.add(event)
-            updated += 1
-    session.commit()
-    print(f"✅ {updated} fixture FINISHED olarak güncellendi.")
+    try:
+        fixtures = session.query(Fixture).filter_by(Status="SCHEDULED").all()
+        updated = 0
+        for fx in fixtures:
+            url = f"{BASE_URL}/fixtures?id={fx.FixtureID}"
+            response = requests.get(url, headers=headers)
+            data = response.json().get("response")
+
+            if not data:
+                continue
+            status = data[0]["fixture"]["status"]["short"]
+            if status in ("FT", "AET", "PEN"):
+                fx.Status = "FINISHED"
+                fx.HomeGoals = data[0]["goals"]["home"]
+                fx.AwayGoals = data[0]["goals"]["away"]
+                fx.LastUpdated = datetime.utcnow().isoformat()
+                session.query(Event).filter_by(FixtureID=fx.FixtureID).delete()
+                url_events = f"{BASE_URL}/fixtures/events?fixture={fx.FixtureID}"
+                ev_data = requests.get(url_events, headers=headers).json().get("response", [])
+                for ev in ev_data:
+                    event = Event(
+                        FixtureID=fx.FixtureID,
+                        minute=ev["time"]["elapsed"],
+                        team=ev["team"]["name"],
+                        player=ev["player"]["name"],
+                        type=ev["type"],
+                        detail=ev["detail"],
+                        assist=ev["assist"]["name"] if ev["assist"] else None
+                    )
+                    session.add(event)
+                updated += 1
+        session.commit()
+        print(f"✅ {updated} fixture FINISHED olarak güncellendi.")
+    finally:
+        session.close()
 
 
 # ✅ 5. Puan durumu güncelle
 def update_standings(league_id):
     session = SessionLocal()
-    url = f"{BASE_URL}/standings?league={league_id}&season={get_current_season()}"
-    response = requests.get(url, headers=headers)
-    data = response.json().get("response", [])
-    if not data:
-        print("⚠️ Standings boş")
-        return
-    standings_data = data[0]["league"]["standings"][0]
-    session.query(Standing).filter_by(league=str(league_id)).delete()
-    for team in standings_data:
-        standing = Standing(
-            league=str(league_id),
-            team_name=team["team"]["name"],
-            rank=team["rank"],
-            points=team["points"],
-            goals_diff=team["goalsDiff"],
-            played=team["all"]["played"],
-            win=team["all"]["win"],
-            draw=team["all"]["draw"],
-            lose=team["all"]["lose"],
-            last_updated=datetime.utcnow().isoformat()
-        )
-        session.add(standing)
-    session.commit()
-    print(f"📊 {league_id} standings güncellendi.")
+    try:
+        url = f"{BASE_URL}/standings?league={league_id}&season={get_current_season()}"
+        response = requests.get(url, headers=headers)
+        data = response.json().get("response", [])
+        if not data:
+            print("⚠️ Standings boş")
+            return
+        standings_data = data[0]["league"]["standings"][0]
+        session.query(Standing).filter_by(league=str(league_id)).delete()
+        for team in standings_data:
+            standing = Standing(
+                league=str(league_id),
+                team_name=team["team"]["name"],
+                rank=team["rank"],
+                points=team["points"],
+                goals_diff=team["goalsDiff"],
+                played=team["all"]["played"],
+                win=team["all"]["win"],
+                draw=team["all"]["draw"],
+                lose=team["all"]["lose"],
+                last_updated=datetime.utcnow().isoformat()
+            )
+            session.add(standing)
+        session.commit()
+        print(f"📊 {league_id} standings güncellendi.")
+    finally:
+        session.close()
 
 def update_all_standings():
     leagues = [15,203, 39, 140, 135, 61, 78]
@@ -261,7 +279,10 @@ def update_all_standings():
 # ✅ 6. Yeni maçlara tahmin yap
 def predict_new_fixtures():
     session = SessionLocal()
-    fixtures = session.query(Fixture).filter(Fixture.Predicted_Label == None).all()
+    try:
+        fixtures = session.query(Fixture).filter(Fixture.Predicted_Label == None).all()
+    finally:
+        session.close()
     if not fixtures:
         print("📭 Yeni tahminlik fixture yok.")
         return

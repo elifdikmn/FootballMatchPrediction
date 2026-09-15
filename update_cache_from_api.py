@@ -30,7 +30,10 @@ from models import Event
 
 def sync_events_cache(file_path="events_cache.json"):
     session = SessionLocal()
-    all_events = session.query(Event).all()
+    try:
+        all_events = session.query(Event).all()
+    finally:
+        session.close()
 
     cache = {}
     for ev in all_events:
