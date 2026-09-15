@@ -1,3 +1,10 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
+THE_ODDS_API_KEY = os.environ.get("THE_ODDS_API_KEY", "")
 
 features = [
     "WinRateDiff", "DrawRateDiff",
@@ -9,15 +16,8 @@ features = [
     "EloChange30_Away", "EloChange60_Away","HxG","AxG","xG_diff"
 ]
 
-features_tr = [ 
-   # "HomeTeam_code","AwayTeam_code",
-    #"Home_Wins", "Away_Wins", "Home_Draws", "Away_Draws",
-   # "HomeAvgGoals", "AwayAvgGoals", 
-    #"Home_AvgGoalsConceded", "Away_AvgGoalsConceded",
-  # "HomeAvgShots", "AwayAvgShots", "HomeAvgShotsOnTarget", "AwayAvgShotsOnTarget",
-  #  "HomeAvgShotsConceded", "AwayAvgShotsConceded", 
+features_tr = [
     "WinRateDiff", "DrawRateDiff",
-    #"HomeRecentGoalDiff", "AwayRecentGoalDiff",
     "Last5_WinRate_Home", "Last5_DrawRate_Home", "Last5_LossRate_Home",
     "Last5_WinRate_Away", "Last5_DrawRate_Away", "Last5_LossRate_Away",
     "Last5_Goals_Home", "Last5_Goals_Away",

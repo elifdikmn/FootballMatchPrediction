@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 
 from team_normalizer import team_name_map
 from team_normalizer import map_live_team_name
-API_FOOTBALL_KEY = "df3bc4aec08ec8340a787bf6d2d182e0" 
+from config import API_FOOTBALL_KEY
 HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 app = Flask(__name__)
 
@@ -61,8 +61,6 @@ def get_live_events_summary(fixture_id, home_team, away_team):
 
 def get_live_fixtures():
     url = "https://v3.football.api-sports.io/fixtures?live=all"
-    API_FOOTBALL_KEY = "df3bc4aec08ec8340a787bf6d2d182e0" 
-    HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
     response = requests.get(url, headers=HEADERS)
 
     if response.status_code != 200:
@@ -141,7 +139,7 @@ def get_live_odds_from_api_football(fixture_id):
                             outcome = value["value"].lower()
                             try:
                                 price = float(value["odd"])
-                            except:
+                            except Exception:
                                 continue
                             if outcome == "home":
                                 odds["B365H"] = price

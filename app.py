@@ -26,8 +26,10 @@ from config import(
     features,
     live_features,
     features_tr,
-    features_by_league
+    features_by_league,
+    API_FOOTBALL_KEY
 )
+import os
 
 app = Flask(__name__)
 
@@ -130,7 +132,7 @@ def live_simple():
 @app.route("/prediction/<int:fixture_id>", methods=["GET"])
 def get_prediction(fixture_id):
     url = f"https://v3.football.api-sports.io/predictions?fixture={fixture_id}"
-    headers = {"x-apisports-key": "df3bc4aec08ec8340a787bf6d2d182e0"}
+    headers = {"x-apisports-key": API_FOOTBALL_KEY}
     response = requests.get(url, headers=headers)
     data = response.json().get("response", [])
 
@@ -319,4 +321,5 @@ def get_predictions_for_range():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    debug_mode = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    app.run(host="0.0.0.0", port=5000, debug=debug_mode)
