@@ -127,6 +127,13 @@ theoddsapi_league_keys = {
 }
 
 
+def get_current_season():
+    """api-sports.io's 'season' is the year a European league season started
+    (e.g. the 2024-25 season is season=2024). Seasons roll over around July."""
+    today = datetime.now().date()
+    return today.year if today.month >= 7 else today.year - 1
+
+
 team_name_map = {
         # Premier League (E0)
     "AFC Bournemouth":"Bournemouth",
@@ -369,7 +376,8 @@ def normalize_team_name(name):
             .replace("´", "'")
             .strip()
     )
-def get_standings_by_name(league_name, season=2025):
+def get_standings_by_name(league_name, season=None):
+    season = season or get_current_season()
     url = f"https://v3.football.api-sports.io/leagues?search={league_name}"
     res = requests.get(url, headers=headers_football)
 
@@ -419,7 +427,7 @@ def get_standings_by_league(code):
     if not league_id:
         return []
 
-    url = f"https://v3.football.api-sports.io/standings?league={league_id}&season=2024"
+    url = f"https://v3.football.api-sports.io/standings?league={league_id}&season={get_current_season()}"
     response = requests.get(url, headers=headers_football)
     data = response.json().get("response", [])
     if not data:
@@ -777,7 +785,8 @@ def get_odds_from_api_football(fixture_id):
                             return odds
     return None
 
-def get_grouped_standings(league_id=15, season=2025):
+def get_grouped_standings(league_id=15, season=None):
+    season = season or get_current_season()
     url = f"https://v3.football.api-sports.io/standings?league={league_id}&season={season}"
     res = requests.get(url, headers=headers_football)
 
@@ -821,7 +830,7 @@ def get_combined_fixtures_with_odds():
 
     for code, league_id in league_ids.items():
         # 🎯 1. Bitmiş maçlar
-        url_finished = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season=2024&status=FT"
+        url_finished = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={get_current_season()}&status=FT"
         response_finished = requests.get(url_finished, headers=headers_football)
         data_finished = response_finished.json().get("response", [])
 
@@ -839,7 +848,7 @@ def get_combined_fixtures_with_odds():
         all_fixtures.append(finished_df)
 
         # 🎯 2. Planlanmış maçlar
-        url_scheduled = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season=2024&status=NS"
+        url_scheduled = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={get_current_season()}&status=NS"
         response_sched = requests.get(url_scheduled, headers=headers_football)
         data_sched = response_sched.json().get("response", [])
 
@@ -895,7 +904,7 @@ def get_scheduled_matches_until(cutoff_date):
     scheduled_matches = []
 
     for code, league_id in league_ids.items():
-        url_scheduled = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season=2024&status=NS"
+        url_scheduled = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={get_current_season()}&status=NS"
         response_sched = requests.get(url_scheduled, headers=headers_football)
         data_sched = response_sched.json().get("response", [])
 

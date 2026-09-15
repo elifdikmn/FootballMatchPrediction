@@ -7,7 +7,7 @@ from db_setup import SessionLocal
 from models import Fixture, Event, Standing
 from config import features_by_league
 from models import PredictionInfo
-from fixture import get_combined_fixtures_with_odds
+from fixture import get_combined_fixtures_with_odds, get_current_season
 from feature_engineering import build_features_dataframe
 from prediction_pipeline import predict_from_merged_df, load_best_models
 from fixture import get_odds_from_api_football  # varsa
@@ -104,7 +104,7 @@ def import_upcoming_week_fixtures():
     added = 0
 
     for league_id in leagues:
-        url = f"{BASE_URL}/fixtures?league={league_id}&season=2024&from={today}&to={next_week}"
+        url = f"{BASE_URL}/fixtures?league={league_id}&season={get_current_season()}&from={today}&to={next_week}"
         response = requests.get(url, headers=headers)
         data = response.json().get("response", [])
         for item in data:
@@ -227,7 +227,7 @@ def update_scheduled_fixtures():
 # ✅ 5. Puan durumu güncelle
 def update_standings(league_id):
     session = SessionLocal()
-    url = f"{BASE_URL}/standings?league={league_id}&season=2024"
+    url = f"{BASE_URL}/standings?league={league_id}&season={get_current_season()}"
     response = requests.get(url, headers=headers)
     data = response.json().get("response", [])
     if not data:

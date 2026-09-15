@@ -4,7 +4,7 @@ from datetime import datetime
 import time
 import pandas as pd
 from config import API_FOOTBALL_KEY, features_by_league
-from fixture import get_combined_fixtures_with_odds
+from fixture import get_combined_fixtures_with_odds, get_current_season
 from feature_engineering import (
     add_latest_elo_to_fixtures,
     add_latest_elo_features_to_fixtures,
@@ -76,7 +76,8 @@ def fetch_fixture_info(fixture_id):
 
 import os
 
-def save_fixtures_to_cache(league_id, season=2025, file_path="upcoming_fixtures_cache.json"):
+def save_fixtures_to_cache(league_id, season=None, file_path="upcoming_fixtures_cache.json"):
+    season = season or get_current_season()
     headers = HEADERS
 
     url = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={season}&status=NS"
@@ -268,7 +269,7 @@ def deduplicate_events_cache(file_path="events_cache.json"):
 if __name__ == "__main__":
     league_ids = [15,5,32,39,203,78]  # Premier League, Türkiye, Almanya, vs.
     for league_id in league_ids:
-        save_fixtures_to_cache(league_id,season=2025)
+        save_fixtures_to_cache(league_id)
     update_prediction_and_events()
     update_prediction_cache_from_own_models()
     fix_prediction_cache_dates()

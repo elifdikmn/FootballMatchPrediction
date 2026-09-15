@@ -84,7 +84,7 @@ def get_standings(league_code):
 def grouped_standings_route():
     # URL parametrelerini al
     league_id = request.args.get("league_id", default=15, type=int)
-    season = request.args.get("season", default=2025, type=int)
+    season = request.args.get("season", default=None, type=int)
 
     # fixture.py içindeki fonksiyonu çağır
     standings = get_grouped_standings(league_id=league_id, season=season)
