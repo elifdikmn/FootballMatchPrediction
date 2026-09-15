@@ -2,7 +2,15 @@ import json
 import requests
 from datetime import datetime
 import time
-from config import API_FOOTBALL_KEY
+import pandas as pd
+from config import API_FOOTBALL_KEY, features_by_league
+from fixture import get_combined_fixtures_with_odds
+from feature_engineering import (
+    add_latest_elo_to_fixtures,
+    add_latest_elo_features_to_fixtures,
+    add_all_features_to_merged_df,
+)
+from prediction_pipeline import predict_from_merged_df, load_best_models
 BASE_URL = "https://v3.football.api-sports.io"
 HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 
@@ -167,65 +175,50 @@ def update_prediction_and_events():
 
     print(f"\n🎉 Toplam {updated} maç güncellendi.")
 
-def update_prediction_cache_from_fixture_ids():
-    # 1. Fixture cache oku
-    if not os.path.exists(FIXTURE_CACHE):
-        print("❌ Fixture cache bulunamadı.")
+def update_prediction_cache_from_own_models():
+    """Populate PREDICTION_CACHE with predictions from this project's own
+    trained models (best_models.pkl + engineered features), instead of
+    relaying api-sports.io's own /predictions endpoint."""
+    best_models = load_best_models()
+    historical_data_by_league = {
+        code: pd.read_csv(f"{code}_matches.csv", parse_dates=["Date"])
+        for code in features_by_league
+    }
+
+    prediction_cache = load_json(PREDICTION_CACHE)
+
+    combined_df = get_combined_fixtures_with_odds()
+    scheduled_df = combined_df[combined_df["Status"] == "SCHEDULED"].reset_index(drop=True)
+
+    if scheduled_df.empty:
+        print("🔕 Tahmin edilecek planlanmış maç yok.")
         return
 
-    with open(FIXTURE_CACHE, "r", encoding="utf-8") as f:
-        fixture_data = json.load(f)
+    scheduled_df = add_latest_elo_to_fixtures(scheduled_df, historical_data_by_league)
+    scheduled_df = add_latest_elo_features_to_fixtures(scheduled_df, historical_data_by_league)
+    scheduled_df = add_all_features_to_merged_df(scheduled_df, historical_data_by_league)
 
-    # 2. Prediction cache varsa oku
-    if os.path.exists(PREDICTION_CACHE):
-        with open(PREDICTION_CACHE, "r", encoding="utf-8") as f:
-            prediction_cache = json.load(f)
-    else:
-        prediction_cache = {}
+    predicted_df = predict_from_merged_df(scheduled_df, best_models, features_by_league)
 
     updated = 0
-
-    for fixture_id in fixture_data:
-        if fixture_id in prediction_cache:
-            continue  # zaten varsa geç
-
-        url = f"{BASE_URL}/predictions?fixture={fixture_id}"
-        res = requests.get(url, headers=HEADERS)
-
-        if res.status_code != 200:
-            print(f"❌ Hata ({fixture_id}):", res.status_code)
-            continue
-
-        response = res.json().get("response", [])
-        if not response:
-            continue
-
-        pred = response[0]["predictions"]
-        teams = response[0]["teams"]
-
+    for _, row in predicted_df.iterrows():
+        fixture_id = str(int(row["FixtureID"]))
         prediction_cache[fixture_id] = {
-            "FixtureID": int(fixture_id),
-            "HomeTeam": teams["home"]["name"],
-            "AwayTeam": teams["away"]["name"],
-            "Date": fixture_data[fixture_id]["Date"],
-            "League": fixture_data[fixture_id]["League"],
-            "Predicted_Label": pred.get("winner", {}).get("name"),
-            "Home Win %": float(pred.get("percent", {}).get("home", "0%").replace("%", "")),
-            "Draw %": float(pred.get("percent", {}).get("draw", "0%").replace("%", "")),
-            "Away Win %": float(pred.get("percent", {}).get("away", "0%").replace("%", "")),
-
-            "Status": "SCHEDULED"
+            "FixtureID": int(row["FixtureID"]),
+            "HomeTeam": row["HomeTeam"],
+            "AwayTeam": row["AwayTeam"],
+            "Date": row["Date"],
+            "League": row["League"],
+            "Predicted_Label": row["Predicted_Label"],
+            "Home Win %": row["Home Win %"],
+            "Draw %": row["Draw %"],
+            "Away Win %": row["Away Win %"],
+            "Status": "SCHEDULED",
         }
-
-        print(f"🔮 Tahmin eklendi: {fixture_id}")
         updated += 1
-        time.sleep(1.2)  # API rate limit koruması
 
-    # 3. Kaydet
-    with open(PREDICTION_CACHE, "w", encoding="utf-8") as f:
-        json.dump(prediction_cache, f, indent=2)
-
-    print(f"\n✅ {updated} tahmin prediction_cache'e kaydedildi.")
+    save_json(PREDICTION_CACHE, prediction_cache)
+    print(f"\n✅ {updated} tahmin (kendi modelimizle) prediction_cache'e kaydedildi.")
 
 def fix_prediction_cache_dates(file_path="prediction_cache.json"):
     import json
@@ -277,7 +270,7 @@ if __name__ == "__main__":
     for league_id in league_ids:
         save_fixtures_to_cache(league_id,season=2025)
     update_prediction_and_events()
-    update_prediction_cache_from_fixture_ids()
+    update_prediction_cache_from_own_models()
     fix_prediction_cache_dates()
     deduplicate_events_cache()
     
