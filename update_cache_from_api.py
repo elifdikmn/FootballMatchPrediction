@@ -2,9 +2,9 @@ import json
 import requests
 from datetime import datetime
 import time
-API_KEY = "df3bc4aec08ec8340a787bf6d2d182e0"
+from config import API_FOOTBALL_KEY
 BASE_URL = "https://v3.football.api-sports.io"
-HEADERS = {"x-apisports-key": API_KEY}
+HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 
 # Dosya yolları
 FIXTURE_CACHE = "upcoming_fixtures_cache.json"
@@ -69,7 +69,7 @@ def fetch_fixture_info(fixture_id):
 import os
 
 def save_fixtures_to_cache(league_id, season=2025, file_path="upcoming_fixtures_cache.json"):
-    headers = {"x-apisports-key": "df3bc4aec08ec8340a787bf6d2d182e0"}
+    headers = HEADERS
 
     url = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={season}&status=NS"
     res = requests.get(url, headers=headers)

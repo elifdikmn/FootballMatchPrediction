@@ -16,9 +16,9 @@ session = SessionLocal()
 
 
 # 📌 API bilgileri
-API_KEY = "df3bc4aec08ec8340a787bf6d2d182e0"
+from config import API_FOOTBALL_KEY
 BASE_URL = "https://v3.football.api-sports.io"
-headers = {"x-apisports-key": API_KEY}
+headers = {"x-apisports-key": API_FOOTBALL_KEY}
 
 # 🔁 xG verisini yükle
 xg_data = pd.read_csv("future_xg_matches.csv")

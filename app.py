@@ -15,6 +15,7 @@ from fixture import get_live_matches_with_predictions
 from fixture import get_match_events
 from fixture import predict_from_live_api
 from fixture import get_standings_by_league
+from fixture import league_ids
 from feature_engineering import (
     add_latest_elo_to_fixtures,
     add_latest_elo_features_to_fixtures,
@@ -26,8 +27,10 @@ from config import(
     features,
     live_features,
     features_tr,
-    features_by_league
+    features_by_league,
+    API_FOOTBALL_KEY
 )
+import os
 
 app = Flask(__name__)
 
@@ -62,7 +65,8 @@ def predictions():
 @app.route("/standings/<league_code>", methods=["GET"])
 def get_standings(league_code):
     session = SessionLocal()
-    standings = session.query(Standing).filter_by(league=league_code).order_by(Standing.rank.asc()).all()
+    db_league_id = str(league_ids.get(league_code, league_code))
+    standings = session.query(Standing).filter_by(league=db_league_id).order_by(Standing.rank.asc()).all()
     return jsonify([
         {
             "position": s.rank,
@@ -130,7 +134,7 @@ def live_simple():
 @app.route("/prediction/<int:fixture_id>", methods=["GET"])
 def get_prediction(fixture_id):
     url = f"https://v3.football.api-sports.io/predictions?fixture={fixture_id}"
-    headers = {"x-apisports-key": "df3bc4aec08ec8340a787bf6d2d182e0"}
+    headers = {"x-apisports-key": API_FOOTBALL_KEY}
     response = requests.get(url, headers=headers)
     data = response.json().get("response", [])
 
@@ -319,4 +323,5 @@ def get_predictions_for_range():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    debug_mode = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    app.run(host="0.0.0.0", port=5000, debug=debug_mode)

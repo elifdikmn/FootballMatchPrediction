@@ -195,7 +195,7 @@ def add_all_features_to_merged_df(merged_df, historical_data_by_league):
             draw_prob = 1 / row["B365D"]
             away_prob = 1 / row["B365A"]
             total = home_prob + draw_prob + away_prob
-        except:
+        except Exception:
             home_prob, draw_prob, away_prob = 0.33, 0.33, 0.33
             total = 1
 

@@ -1,4 +1,13 @@
 flask
 pandas
+numpy
 scikit-learn
 joblib
+requests
+sqlalchemy
+apscheduler
+beautifulsoup4
+selenium
+webdriver-manager
+matplotlib
+python-dotenv

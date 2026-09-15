@@ -5,8 +5,7 @@ import pickle
 from pathlib import Path
 import json
 import os
-from live_predictor import get_live_fixtures
-from live_predictor import get_live_fixtures, get_live_events_summary, get_live_odds_from_api_football, get_htr, normalize_odds  # örnek modül isimleri
+from live_predictor import get_live_fixtures, get_live_events_summary, get_live_odds_from_api_football, get_htr, normalize_odds
 
 from prediction_pipeline import predict_from_merged_df
 from feature_engineering import (
@@ -50,9 +49,8 @@ def merge_xg_to_fixtures(fixtures_df, xg_df):
     return merged
 
 
-API_FOOTBALL_KEY = "df3bc4aec08ec8340a787bf6d2d182e0" 
+from config import API_FOOTBALL_KEY, THE_ODDS_API_KEY
 headers_football = {"x-apisports-key": API_FOOTBALL_KEY}
-THE_ODDS_API_KEY = "7dc58d741af708b41dfc4676ccb78a0c"
 
 ODDS_CACHE_FILE = Path("cached_odds.json")
 def save_odds_to_cache(odds_data):
