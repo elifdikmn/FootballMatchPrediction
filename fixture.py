@@ -885,7 +885,16 @@ def get_combined_fixtures_with_odds():
     # 🔄 DataFrame birleştirme
     df_sched = pd.DataFrame(scheduled_with_odds)
     df_combined = pd.concat([df_sched] + all_fixtures, ignore_index=True)
- 
+
+    if df_combined.empty:
+        # Hiç bitmiş ya da oranlı planlanmış maç bulunamadı (örn. sezon henüz
+        # başlamış/bitmiş, ya da hiçbir maç için oran verisi yok).
+        df_combined = pd.DataFrame(columns=[
+            "FixtureID", "Date", "HomeTeam", "AwayTeam", "Matchday",
+            "HomeGoals", "AwayGoals", "Status", "League",
+            "B365H", "B365D", "B365A"
+        ])
+
     df_combined["Date"] = pd.to_datetime(df_combined["Date"], errors="coerce")
     df_combined = df_combined.dropna(subset=["Date"])
     df_combined["Date"] = df_combined["Date"].dt.date
