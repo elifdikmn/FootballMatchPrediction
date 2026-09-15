@@ -15,6 +15,7 @@ from fixture import get_live_matches_with_predictions
 from fixture import get_match_events
 from fixture import predict_from_live_api
 from fixture import get_standings_by_league
+from fixture import league_ids
 from feature_engineering import (
     add_latest_elo_to_fixtures,
     add_latest_elo_features_to_fixtures,
@@ -64,7 +65,8 @@ def predictions():
 @app.route("/standings/<league_code>", methods=["GET"])
 def get_standings(league_code):
     session = SessionLocal()
-    standings = session.query(Standing).filter_by(league=league_code).order_by(Standing.rank.asc()).all()
+    db_league_id = str(league_ids.get(league_code, league_code))
+    standings = session.query(Standing).filter_by(league=db_league_id).order_by(Standing.rank.asc()).all()
     return jsonify([
         {
             "position": s.rank,

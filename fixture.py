@@ -5,8 +5,7 @@ import pickle
 from pathlib import Path
 import json
 import os
-from live_predictor import get_live_fixtures
-from live_predictor import get_live_fixtures, get_live_events_summary, get_live_odds_from_api_football, get_htr, normalize_odds  # örnek modül isimleri
+from live_predictor import get_live_fixtures, get_live_events_summary, get_live_odds_from_api_football, get_htr, normalize_odds
 
 from prediction_pipeline import predict_from_merged_df
 from feature_engineering import (
