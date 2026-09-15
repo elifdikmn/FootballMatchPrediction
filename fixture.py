@@ -5,6 +5,7 @@ import pickle
 from pathlib import Path
 import json
 import os
+import hashlib
 from live_predictor import get_live_fixtures, get_live_events_summary, get_live_odds_from_api_football, get_htr, normalize_odds
 
 from prediction_pipeline import predict_from_merged_df
@@ -123,7 +124,8 @@ theoddsapi_league_keys = {
     "D1": "soccer_germany_bundesliga",
     "SP1": "soccer_spain_la_liga",
     "I1": "soccer_italy_serie_a",
-    "F1": "soccer_france_ligue_one"
+    "F1": "soccer_france_ligue_one",
+    "T1": "soccer_turkey_super_league",
 }
 
 
@@ -132,6 +134,82 @@ def get_current_season():
     (e.g. the 2024-25 season is season=2024). Seasons roll over around July."""
     today = datetime.now().date()
     return today.year if today.month >= 7 else today.year - 1
+
+
+def get_scheduled_fixtures_from_theoddsapi(code):
+    """Fallback source for upcoming fixtures + odds when api-sports.io can't
+    supply the current season (e.g. a Free-plan key). The Odds API returns
+    upcoming events directly - team names and kickoff time - so it doubles
+    as both the fixture list and the odds source, unlike api-sports.io where
+    we need a fixture ID from one call before fetching odds for it."""
+    league_key = theoddsapi_league_keys.get(code)
+    if not league_key:
+        return []
+
+    url = f"https://api.the-odds-api.com/v4/sports/{league_key}/odds"
+    params = {
+        "apiKey": THE_ODDS_API_KEY,
+        "regions": "eu",
+        "markets": "h2h",
+        "oddsFormat": "decimal",
+        "dateFormat": "iso",
+    }
+    response = requests.get(url, params=params)
+    if response.status_code != 200:
+        print(f"❌ The Odds API hatası ({code}):", response.status_code, response.text)
+        return []
+
+    rows = []
+    for event in response.json():
+        home_team = normalize_team_name(event.get("home_team", ""))
+        away_team = normalize_team_name(event.get("away_team", ""))
+        if not home_team or not away_team:
+            continue
+
+        odds = None
+        for bookmaker in event.get("bookmakers", []):
+            for market in bookmaker.get("markets", []):
+                if market.get("key") != "h2h":
+                    continue
+                candidate = {}
+                for outcome in market.get("outcomes", []):
+                    name = normalize_team_name(outcome["name"])
+                    if name == home_team:
+                        candidate["B365H"] = outcome["price"]
+                    elif name == away_team:
+                        candidate["B365A"] = outcome["price"]
+                    elif outcome["name"].lower() in ("draw", "drawn"):
+                        candidate["B365D"] = outcome["price"]
+                if all(k in candidate for k in ("B365H", "B365D", "B365A")):
+                    odds = candidate
+                    break
+            if odds:
+                break
+
+        if not odds:
+            continue
+
+        # The Odds API's event IDs are opaque strings, not the integer IDs
+        # the rest of the pipeline (DB schema, JSON cache keys) expects -
+        # derive a stable synthetic integer FixtureID from it instead.
+        fixture_id = int(hashlib.md5(event["id"].encode()).hexdigest(), 16) % (10 ** 9)
+
+        rows.append({
+            "FixtureID": fixture_id,
+            "Date": pd.to_datetime(event["commence_time"]).date(),
+            "HomeTeam": team_name_map.get(home_team, home_team),
+            "AwayTeam": team_name_map.get(away_team, away_team),
+            "Matchday": None,
+            "HomeGoals": None,
+            "AwayGoals": None,
+            "Status": "SCHEDULED",
+            "League": code,
+            "B365H": odds["B365H"],
+            "B365D": odds["B365D"],
+            "B365A": odds["B365A"],
+        })
+
+    return rows
 
 
 team_name_map = {
@@ -851,6 +929,13 @@ def get_combined_fixtures_with_odds():
         url_scheduled = f"https://v3.football.api-sports.io/fixtures?league={league_id}&season={get_current_season()}&status=NS"
         response_sched = requests.get(url_scheduled, headers=headers_football)
         data_sched = response_sched.json().get("response", [])
+
+        if not data_sched:
+            # api-sports.io returned nothing for this season/league (e.g. a
+            # Free-plan key blocked from the current season) - fall back to
+            # The Odds API, which supplies both the fixture list and odds.
+            scheduled_with_odds.extend(get_scheduled_fixtures_from_theoddsapi(code))
+            continue
 
         for m in data_sched:
             fixture_id = m["fixture"]["id"]
