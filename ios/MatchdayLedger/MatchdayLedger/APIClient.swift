@@ -4,7 +4,7 @@ enum APIConfig {
     /// Simulator can reach the Flask dev server at localhost. A physical device
     /// cannot resolve "localhost" to your Mac — replace this with your Mac's LAN
     /// IP (e.g. "http://192.168.1.23:5000") when running on a real iPhone.
-    static var baseURL = URL(string: "http://localhost:5000")!
+    nonisolated(unsafe) static var baseURL = URL(string: "http://localhost:5000")!
 }
 
 enum APIError: Error, LocalizedError {
@@ -19,7 +19,7 @@ enum APIError: Error, LocalizedError {
     }
 }
 
-final class APIClient {
+final class APIClient: @unchecked Sendable {
     static let shared = APIClient()
 
     private let decoder = JSONDecoder()
