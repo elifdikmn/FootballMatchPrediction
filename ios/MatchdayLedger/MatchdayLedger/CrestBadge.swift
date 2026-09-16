@@ -12,6 +12,62 @@ struct TeamBranding: Decodable {
     let logo: URL
 }
 
+enum LocalCrestCatalog {
+    private static let bundesliga: [String: String] = [
+        "augsburg": "BundesligaAugsburg",
+        "fcaugsburg": "BundesligaAugsburg",
+        "bayerleverkusen": "BundesligaLeverkusen",
+        "bayer04leverkusen": "BundesligaLeverkusen",
+        "leverkusen": "BundesligaLeverkusen",
+        "bayernmunich": "BundesligaBayernMunich",
+        "bayernmunchen": "BundesligaBayernMunich",
+        "fcbayernmunchen": "BundesligaBayernMunich",
+        "borussiadortmund": "BundesligaDortmund",
+        "dortmund": "BundesligaDortmund",
+        "eintrachtfrankfurt": "BundesligaEintrachtFrankfurt",
+        "einfrankfurt": "BundesligaEintrachtFrankfurt",
+        "frankfurt": "BundesligaEintrachtFrankfurt",
+        "svelversberg": "BundesligaElversberg",
+        "elversberg": "BundesligaElversberg",
+        "freiburg": "BundesligaFreiburg",
+        "scfreiburg": "BundesligaFreiburg",
+        "hamburg": "BundesligaHamburg",
+        "hamburgersv": "BundesligaHamburg",
+        "hoffenheim": "BundesligaHoffenheim",
+        "tsghoffenheim": "BundesligaHoffenheim",
+        "tsg1899hoffenheim": "BundesligaHoffenheim",
+        "koln": "BundesligaKoln",
+        "fckoln": "BundesligaKoln",
+        "1fckoln": "BundesligaKoln",
+        "mainz": "BundesligaMainz",
+        "mainz05": "BundesligaMainz",
+        "fsvmainz05": "BundesligaMainz",
+        "paderborn": "BundesligaPaderborn",
+        "scpaderborn": "BundesligaPaderborn",
+        "rbleipzig": "BundesligaRBLeipzig",
+        "schalke04": "BundesligaSchalke04",
+        "stuttgart": "BundesligaStuttgart",
+        "vfbstuttgart": "BundesligaStuttgart",
+        "unionberlin": "BundesligaUnionBerlin",
+        "1fcunionberlin": "BundesligaUnionBerlin",
+        "werder": "BundesligaWerderBremen",
+        "werderbremen": "BundesligaWerderBremen",
+        "svwerderbremen": "BundesligaWerderBremen",
+    ]
+
+    private static func normalized(_ name: String) -> String {
+        name.folding(
+            options: [.diacriticInsensitive, .caseInsensitive],
+            locale: Locale(identifier: "en_US_POSIX")
+        ).filter { $0.isLetter || $0.isNumber }
+    }
+
+    static func assetName(teamName: String, league: String?) -> String? {
+        guard league == League.bundesliga.rawValue else { return nil }
+        return bundesliga[normalized(teamName)]
+    }
+}
+
 @MainActor
 final class BrandingStore: ObservableObject {
     static let shared = BrandingStore()
@@ -63,8 +119,23 @@ struct CrestBadge: View {
     var logoURL: URL? = nil
     @ObservedObject private var branding = BrandingStore.shared
 
+    @ViewBuilder
     var body: some View {
-        RemoteBadge(url: logoURL ?? branding.teamURL(teamName, league: league), label: teamName, size: size)
+        if let assetName = LocalCrestCatalog.assetName(teamName: teamName, league: league) {
+            Image(assetName)
+                .resizable()
+                .scaledToFit()
+                .padding(size * 0.1)
+                .frame(width: size, height: size)
+                .background(.white.opacity(0.95), in: RoundedRectangle(cornerRadius: size * 0.25))
+                .accessibilityLabel(teamName)
+        } else {
+            RemoteBadge(
+                url: logoURL ?? branding.teamURL(teamName, league: league),
+                label: teamName,
+                size: size
+            )
+        }
     }
 }
 
