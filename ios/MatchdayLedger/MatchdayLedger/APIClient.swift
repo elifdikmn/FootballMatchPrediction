@@ -50,6 +50,10 @@ final class APIClient: @unchecked Sendable {
         try await get("/scheduled-predictions", query: [URLQueryItem(name: "date", value: date)])
     }
 
+    func predictionDates() async throws -> [String: [String]] {
+        try await get("/prediction-dates")
+    }
+
     func branding() async throws -> [LeagueBranding] {
         try await get("/branding")
     }

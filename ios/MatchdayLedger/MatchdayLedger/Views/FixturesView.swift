@@ -7,6 +7,24 @@ struct FixturesView: View {
     @State private var selectedLeagues: Set<League> = []
     @State private var selectedDay = Date()
     @State private var showingCalendar = false
+    @State private var savedDates: [String: [String]] = [:]
+
+    private var availableDates: [String] {
+        Array(Set(savedDates.filter { code, _ in
+            selectedLeagues.isEmpty || selectedLeagues.contains { $0.rawValue == code }
+        }.values.flatMap { $0 })).sorted()
+    }
+
+    private var suggestedDate: String? {
+        availableDates.first { $0 >= selectedDate } ?? availableDates.last
+    }
+
+    private func selectSavedDate(_ key: String) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd"
+        if let date = formatter.date(from: key) { selectedDay = date }
+    }
 
     private var selectedDate: String { Self.dateKey(selectedDay) }
 
@@ -52,7 +70,11 @@ struct FixturesView: View {
                 }
             }
             .task(id: selectedDate) { await load() }
-            .refreshable { await load() }
+            .task { await loadDates() }
+            .refreshable {
+                await loadDates()
+                await load()
+            }
         }
     }
 
@@ -111,7 +133,31 @@ struct FixturesView: View {
         } else if let errorMessage, fixtures.isEmpty {
             ErrorStateView(message: errorMessage) { Task { await load() } }
         } else if visibleFixtures.isEmpty {
-            EmptyStateView(text: "No saved predictions for this date. Try another day.")
+            VStack(spacing: 16) {
+                Image(systemName: "calendar.badge.exclamationmark")
+                    .font(.largeTitle).foregroundStyle(Theme.warm)
+                Text("No predictions for this day")
+                    .font(.headline).foregroundStyle(Theme.ink)
+                Text("Choose a saved date to explore match predictions.")
+                    .font(.subheadline).foregroundStyle(Theme.inkMuted)
+                    .multilineTextAlignment(.center)
+                if let date = suggestedDate {
+                    Button { selectSavedDate(date) } label: {
+                        Label("Show saved matches · \(date)", systemImage: "calendar")
+                    }
+                    .buttonStyle(.borderedProminent).tint(Theme.warm)
+                    .foregroundStyle(Theme.bg)
+                    if let first = availableDates.first, let last = availableDates.last {
+                        Text("Saved dates: \(first) – \(last)")
+                            .font(.caption).foregroundStyle(Theme.inkMuted)
+                    }
+                } else if !selectedLeagues.isEmpty {
+                    Button("Show all leagues") { selectedLeagues = [] }
+                        .tint(Theme.warm)
+                }
+            }
+            .padding(24)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             ScrollView {
                 LazyVStack(spacing: 14) {
@@ -141,6 +187,11 @@ struct FixturesView: View {
                 .padding(16)
             }
         }
+    }
+
+    private func loadDates() async {
+        do { savedDates = try await APIClient.shared.predictionDates() }
+        catch { /* Date navigation remains available if metadata cannot be loaded. */ }
     }
 
     private func load() async {

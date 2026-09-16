@@ -101,6 +101,24 @@ def grouped_standings_route():
     
     return jsonify(standings)
 
+@app.route("/prediction-dates")
+def prediction_dates():
+    with open("prediction_cache.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+    dates = {}
+    for fx in data.values():
+        code = fx.get("League")
+        day = str(fx.get("Date", ""))[:10]
+        if code not in league_ids or not fx.get("FixtureID"):
+            continue
+        try:
+            datetime.strptime(day, "%Y-%m-%d")
+        except ValueError:
+            continue
+        dates.setdefault(code, set()).add(day)
+    return jsonify({code: sorted(days) for code, days in dates.items()})
+
+
 @app.route("/scheduled-predictions")
 def scheduled_predictions():
     with open("prediction_cache.json", "r", encoding="utf-8") as f:
