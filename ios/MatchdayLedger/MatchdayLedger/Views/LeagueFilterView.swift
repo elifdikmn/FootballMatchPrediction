@@ -62,7 +62,8 @@ struct LeagueFilterView: View {
 
     private func row(title: String, isSelected: Bool, action: @escaping () -> Void) -> some View {
         Button(action: action) {
-            HStack {
+            HStack(spacing: 12) {
+                LeagueBadge(name: title, size: 36)
                 Text(title)
                     .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(Theme.ink)

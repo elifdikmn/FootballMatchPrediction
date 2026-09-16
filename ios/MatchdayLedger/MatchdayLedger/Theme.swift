@@ -15,14 +15,14 @@ extension Color {
 /// Palette carried over from the Matchday Ledger design canvas (dark editorial theme,
 /// red = home, yellow = away, green = draw).
 enum Theme {
-    static let bg = Color(hex: "0F1218")
-    static let card = Color(hex: "191D25")
+    static let bg = Color(hex: "0B1220")
+    static let card = Color(hex: "141F30")
     static let ink = Color(hex: "F4F1ED")
     static let inkMuted = Color(hex: "A7ABB3")
-    static let inkFaint = Color(hex: "6B6F77")
-    static let line = Color(hex: "31353E")
-    static let warm = Color(hex: "FC4447")
-    static let warmSoft = Color(hex: "551112")
-    static let cool = Color(hex: "EDC000")
-    static let draw = Color(hex: "26B63D")
+    static let inkFaint = Color(hex: "8F9CAF")
+    static let line = Color(hex: "29374B")
+    static let warm = Color(hex: "72E5B1")
+    static let warmSoft = Color(hex: "153A32")
+    static let cool = Color(hex: "8CAEFF")
+    static let draw = Color(hex: "D6B878")
 }

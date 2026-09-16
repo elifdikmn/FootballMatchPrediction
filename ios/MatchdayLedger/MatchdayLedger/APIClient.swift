@@ -46,8 +46,12 @@ final class APIClient: @unchecked Sendable {
         return try decoder.decode(T.self, from: data)
     }
 
-    func scheduledPredictions() async throws -> [ScheduledPrediction] {
-        try await get("/scheduled-predictions")
+    func scheduledPredictions(date: String) async throws -> [ScheduledPrediction] {
+        try await get("/scheduled-predictions", query: [URLQueryItem(name: "date", value: date)])
+    }
+
+    func branding() async throws -> [LeagueBranding] {
+        try await get("/branding")
     }
 
     func liveMatches() async throws -> [LiveMatch] {

@@ -1,84 +1,100 @@
 import SwiftUI
 
-/// A generic heraldic shield outline — original artwork, not any real club's crest.
-struct ShieldShape: Shape {
-    func path(in rect: CGRect) -> Path {
-        let sx = rect.width / 40
-        let sy = rect.height / 44
-        func pt(_ x: CGFloat, _ y: CGFloat) -> CGPoint {
-            CGPoint(x: rect.minX + x * sx, y: rect.minY + y * sy)
-        }
-        var path = Path()
-        path.move(to: pt(20, 2))
-        path.addLine(to: pt(36, 7))
-        path.addLine(to: pt(36, 20))
-        path.addCurve(to: pt(20, 42), control1: pt(36, 30), control2: pt(29, 38))
-        path.addCurve(to: pt(4, 20), control1: pt(11, 38), control2: pt(4, 30))
-        path.addLine(to: pt(4, 7))
-        path.closeSubpath()
-        return path
+struct LeagueBranding: Decodable {
+    let code: String
+    let logo: URL
+    let teams: [TeamBranding]
+}
+
+struct TeamBranding: Decodable {
+    let id: Int
+    let names: [String]
+    let logo: URL
+}
+
+@MainActor
+final class BrandingStore: ObservableObject {
+    static let shared = BrandingStore()
+    @Published private var leagues: [LeagueBranding] = []
+
+    private func normalized(_ name: String) -> String {
+        name.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: Locale(identifier: "en_US_POSIX"))
+            .filter { $0.isLetter || $0.isNumber }
+    }
+
+    func teamURL(_ name: String, league: String?) -> URL? {
+        let candidates = leagues.filter { league == nil || $0.code == league }
+            .flatMap(\.teams).filter { team in team.names.contains { normalized($0) == normalized(name) } }
+        // Never guess a crest when names identify different clubs.
+        guard Set(candidates.map(\.id)).count == 1 else { return nil }
+        return candidates.first?.logo
+    }
+
+    func load() async {
+        do { leagues = try await APIClient.shared.branding() }
+        catch { /* Preserve existing logos; neutral placeholders remain usable offline. */ }
     }
 }
 
-/// Deterministically derives a color + monogram for any team name, so every
-/// real team gets a stable, original crest without using anyone's actual logo.
-enum CrestGenerator {
-    private static func stableHash(_ s: String) -> UInt64 {
-        var hash: UInt64 = 5381
-        for byte in s.utf8 {
-            hash = ((hash << 5) &+ hash) &+ UInt64(byte)
+struct RemoteBadge: View {
+    let url: URL?
+    let label: String
+    let size: CGFloat
+    var body: some View {
+        AsyncImage(url: url) { phase in
+            if let image = phase.image {
+                image.resizable().scaledToFit().padding(size * 0.1)
+            } else {
+                Image(systemName: "shield.lefthalf.filled")
+                    .font(.system(size: size * 0.45, weight: .medium))
+                    .foregroundStyle(Color.gray)
+            }
         }
-        return hash
-    }
-
-    static func color(for teamName: String) -> Color {
-        let hash = stableHash(teamName.lowercased())
-        let hue = Double(hash % 360) / 360.0
-        return Color(hue: hue, saturation: 0.55, brightness: 0.6)
-    }
-
-    static func textColor(for teamName: String) -> Color {
-        let hash = stableHash(teamName.lowercased())
-        let brightness = Double((hash / 360) % 100) / 100.0
-        return brightness > 0.7 ? .black : .white
-    }
-
-    static func monogram(for teamName: String) -> String {
-        let cleaned = teamName.replacingOccurrences(of: ".", with: "")
-        let words = cleaned.split(separator: " ").filter { !$0.isEmpty }
-        if words.count >= 2 {
-            return (words[0].prefix(1) + words[1].prefix(1)).uppercased()
-        } else if let word = words.first {
-            return String(word.prefix(2)).uppercased()
-        }
-        return "?"
+        .frame(width: size, height: size)
+        .background(.white.opacity(0.95), in: RoundedRectangle(cornerRadius: size * 0.25))
+        .accessibilityLabel(label)
     }
 }
 
 struct CrestBadge: View {
     let teamName: String
     var size: CGFloat = 44
+    var league: String? = nil
+    @ObservedObject private var branding = BrandingStore.shared
 
     var body: some View {
-        ZStack {
-            ShieldShape()
-                .fill(CrestGenerator.color(for: teamName))
-                .overlay(ShieldShape().stroke(Color.black.opacity(0.35), lineWidth: 1))
-            Text(CrestGenerator.monogram(for: teamName))
-                .font(.system(size: size * 0.32, weight: .bold, design: .serif))
-                .foregroundStyle(.white)
-        }
-        .frame(width: size * 0.91, height: size)
+        RemoteBadge(url: branding.teamURL(teamName, league: league), label: teamName, size: size)
     }
 }
 
 struct SmallCrest: View {
     let teamName: String
-    var size: CGFloat = 13
+    var size: CGFloat = 20
+    var league: String? = nil
+    var body: some View { CrestBadge(teamName: teamName, size: size, league: league) }
+}
 
+struct LeagueBadge: View {
+    let name: String
+    var size: CGFloat = 28
+    private var league: League? {
+        League.allCases.first { $0.rawValue == name || $0.displayName == name }
+    }
     var body: some View {
-        ShieldShape()
-            .fill(CrestGenerator.color(for: teamName))
-            .frame(width: size * 0.91, height: size)
+        RemoteBadge(url: league.map { URL(string: "https://media.api-sports.io/football/leagues/\($0.apiID).png")! },
+                    label: league?.displayName ?? name, size: size)
+    }
+}
+
+extension League {
+    var apiID: Int {
+        switch self {
+        case .bundesliga: return 78
+        case .premierLeague: return 39
+        case .laLiga: return 140
+        case .serieA: return 135
+        case .ligue1: return 61
+        case .superLig: return 203
+        }
     }
 }

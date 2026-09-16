@@ -5,7 +5,17 @@ struct FixturesView: View {
     @State private var isLoading = false
     @State private var errorMessage: String?
     @State private var selectedLeagues: Set<League> = []
-    @State private var selectedDate: String?
+    @State private var selectedDay = Date()
+    @State private var showingCalendar = false
+
+    private var selectedDate: String { Self.dateKey(selectedDay) }
+
+    private static func dateKey(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date)
+    }
     @State private var showingFilter = false
 
     private var leagueFiltered: [ScheduledPrediction] {
@@ -13,23 +23,14 @@ struct FixturesView: View {
         return fixtures.filter { fx in selectedLeagues.contains { $0.rawValue == fx.league } }
     }
 
-    private var availableDates: [String] {
-        Array(Set(leagueFiltered.map(\.date))).sorted()
-    }
-
-    private var visibleFixtures: [ScheduledPrediction] {
-        guard let selectedDate else { return leagueFiltered }
-        return leagueFiltered.filter { $0.date == selectedDate }
-    }
+    private var visibleFixtures: [ScheduledPrediction] { leagueFiltered }
 
     var body: some View {
         NavigationStack {
             ZStack {
                 Theme.bg.ignoresSafeArea()
                 VStack(spacing: 0) {
-                    if !availableDates.isEmpty {
-                        dateStrip
-                    }
+                    dateStrip
                     content
                 }
             }
@@ -50,57 +51,57 @@ struct FixturesView: View {
                     selectedLeagues = newSelection
                 }
             }
-            .task { await load() }
+            .task(id: selectedDate) { await load() }
             .refreshable { await load() }
         }
     }
 
     private var dateStrip: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(availableDates, id: \.self) { dateString in
-                    dateChip(dateString)
-                }
+        VStack(spacing: 14) {
+            HStack {
+                Text("MATCHDAY").font(.caption.weight(.bold)).tracking(2).foregroundStyle(Theme.warm)
+                Spacer()
+                Button("Today") { selectedDay = Date() }
+                    .font(.subheadline.weight(.semibold)).tint(Theme.warm)
             }
-            .padding(.horizontal, 22)
-            .padding(.vertical, 12)
+            HStack(spacing: 12) {
+                dayArrow(-1, icon: "chevron.left", label: "Previous day")
+                Button { showingCalendar.toggle() } label: {
+                    VStack(spacing: 4) {
+                        Text(selectedDay, format: .dateTime.weekday(.wide))
+                            .font(.caption).foregroundStyle(Theme.inkMuted)
+                        HStack(spacing: 8) {
+                            Text(selectedDay, format: .dateTime.day().month(.wide).year())
+                            Image(systemName: "chevron.down").font(.caption)
+                        }
+                        .font(.headline).foregroundStyle(Theme.ink)
+                    }.frame(maxWidth: .infinity)
+                }
+                .accessibilityLabel("Choose match date")
+                dayArrow(1, icon: "chevron.right", label: "Next day")
+            }
+            if showingCalendar {
+                DatePicker("Match date", selection: $selectedDay, displayedComponents: .date)
+                    .datePickerStyle(.graphical).tint(Theme.warm)
+            }
         }
+        .padding(20)
+        .background(Theme.card)
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .padding(.horizontal, 16).padding(.top, 8)
     }
 
-    private func dateChip(_ dateString: String) -> some View {
-        let selected = selectedDate == dateString
-        let (weekday, day) = Self.formattedDate(dateString)
-        return VStack(spacing: 6) {
-            Text(weekday)
-                .font(.system(size: 10, weight: .semibold))
-                .foregroundStyle(selected ? Theme.warm : Theme.inkFaint)
-            Text(day)
-                .font(.system(size: 14, weight: selected ? .bold : .semibold))
-                .foregroundStyle(selected ? Theme.bg : Theme.inkMuted)
-                .frame(width: 34, height: 34)
-                .background(Circle().fill(selected ? Theme.ink : Color.clear))
+    private func dayArrow(_ offset: Int, icon: String, label: String) -> some View {
+        Button {
+            if let date = Calendar.current.date(byAdding: .day, value: offset, to: selectedDay) {
+                selectedDay = date
+            }
+        } label: {
+            Image(systemName: icon).font(.system(size: 15, weight: .bold))
+                .frame(width: 44, height: 44)
+                .background(Theme.line, in: RoundedRectangle(cornerRadius: 14))
         }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            selectedDate = selected ? nil : dateString
-        }
-    }
-
-    private static func formattedDate(_ dateString: String) -> (weekday: String, day: String) {
-        let inFormatter = DateFormatter()
-        inFormatter.dateFormat = "yyyy-MM-dd"
-        inFormatter.timeZone = TimeZone(identifier: "UTC")
-        guard let date = inFormatter.date(from: dateString) else { return ("--", "--") }
-
-        let weekdayFormatter = DateFormatter()
-        weekdayFormatter.dateFormat = "EEE"
-        weekdayFormatter.timeZone = inFormatter.timeZone
-
-        let dayFormatter = DateFormatter()
-        dayFormatter.dateFormat = "d"
-        dayFormatter.timeZone = inFormatter.timeZone
-
-        return (weekdayFormatter.string(from: date).uppercased(), dayFormatter.string(from: date))
+        .tint(Theme.ink).accessibilityLabel(label)
     }
 
     @ViewBuilder
@@ -110,7 +111,7 @@ struct FixturesView: View {
         } else if let errorMessage, fixtures.isEmpty {
             ErrorStateView(message: errorMessage) { Task { await load() } }
         } else if visibleFixtures.isEmpty {
-            EmptyStateView(text: "No scheduled fixtures.")
+            EmptyStateView(text: "No saved predictions for this date. Try another day.")
         } else {
             ScrollView {
                 LazyVStack(spacing: 14) {
@@ -144,10 +145,18 @@ struct FixturesView: View {
 
     private func load() async {
         isLoading = true
+        fixtures = []
         errorMessage = nil
         do {
-            fixtures = try await APIClient.shared.scheduledPredictions()
+            let date = selectedDate
+            let result = try await APIClient.shared.scheduledPredictions(date: date)
+            try Task.checkCancellation()
+            guard date == selectedDate else { return }
+            fixtures = result
+        } catch is CancellationError {
+            return
         } catch {
+            guard !Task.isCancelled else { return }
             errorMessage = error.localizedDescription
         }
         isLoading = false
@@ -168,6 +177,7 @@ struct PredictionCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
+                LeagueBadge(name: leagueLabel)
                 Text(leagueLabel.uppercased())
                     .font(.system(size: 10.5, weight: .semibold))
                     .tracking(1)
@@ -197,15 +207,15 @@ struct PredictionCard: View {
                 OutcomeBar(homePct: homePct ?? 0, drawPct: drawPct ?? 0, awayPct: awayPct ?? 0)
             }
         }
-        .padding(18)
+        .padding(20)
         .background(Theme.card)
-        .clipShape(RoundedRectangle(cornerRadius: 18))
-        .overlay(RoundedRectangle(cornerRadius: 18).stroke(Theme.line, lineWidth: 1))
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .overlay(RoundedRectangle(cornerRadius: 22).stroke(Theme.line, lineWidth: 1))
     }
 
     private func teamColumn(_ name: String) -> some View {
         VStack(spacing: 8) {
-            CrestBadge(teamName: name, size: 50)
+            CrestBadge(teamName: name, size: 56, league: League.allCases.first { $0.displayName == leagueLabel }?.rawValue)
             Text(name)
                 .font(.system(size: 12.5, weight: .semibold))
                 .foregroundStyle(Theme.ink)
@@ -222,19 +232,27 @@ struct OutcomeBar: View {
     let awayPct: Double
 
     var body: some View {
-        HStack(alignment: .top, spacing: 4) {
-            outcome("Home", homePct, .leading, Theme.warm)
-            outcome("Draw", drawPct, .center, Theme.draw)
-            outcome("Away", awayPct, .trailing, Theme.cool)
+        VStack(spacing: 12) {
+            GeometryReader { geometry in
+                let total = max(homePct + drawPct + awayPct, 1)
+                HStack(spacing: 0) {
+                    Theme.warm.frame(width: geometry.size.width * max(0, homePct) / total)
+                    Theme.draw.frame(width: geometry.size.width * max(0, drawPct) / total)
+                    Theme.cool.frame(width: geometry.size.width * max(0, awayPct) / total)
+                }
+            }
+            .frame(height: 8).clipShape(Capsule())
+            HStack(alignment: .top, spacing: 4) {
+                outcome("Home", homePct, .leading, Theme.warm)
+                outcome("Draw", drawPct, .center, Theme.draw)
+                outcome("Away", awayPct, .trailing, Theme.cool)
+            }
         }
     }
 
     private func outcome(_ label: String, _ pct: Double, _ alignment: HorizontalAlignment, _ color: Color) -> some View {
         let isWinner = pct >= max(homePct, max(drawPct, awayPct))
         return VStack(alignment: alignment, spacing: 7) {
-            RoundedRectangle(cornerRadius: 5)
-                .fill(color)
-                .frame(height: 7)
             VStack(alignment: alignment, spacing: 1) {
                 Text("\(Int(pct.rounded()))%")
                     .font(.system(size: isWinner ? 16 : 13, weight: isWinner ? .bold : .semibold))

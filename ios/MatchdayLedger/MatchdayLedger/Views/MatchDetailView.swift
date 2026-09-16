@@ -43,6 +43,7 @@ struct MatchDetailView: View {
 
     private var header: some View {
         VStack(spacing: 16) {
+            LeagueBadge(name: league, size: 32)
             Text(League(rawValue: league)?.displayName ?? league)
                 .font(.system(size: 11, weight: .semibold))
                 .tracking(1)
@@ -68,10 +69,11 @@ struct MatchDetailView: View {
                     fixtureId: fixtureId,
                     homeTeam: homeTeam,
                     awayTeam: awayTeam,
-                    scoreText: scoreText
+                    scoreText: scoreText,
+                    league: league
                 )
             } label: {
-                Text("Check Out Why")
+                Label("Explore prediction", systemImage: "chart.bar.xaxis")
                     .font(.system(size: 14, weight: .bold))
                     .foregroundStyle(Theme.bg)
                     .frame(maxWidth: .infinity)
@@ -89,7 +91,7 @@ struct MatchDetailView: View {
 
     private func teamColumn(_ name: String) -> some View {
         VStack(spacing: 8) {
-            CrestBadge(teamName: name, size: 50)
+            CrestBadge(teamName: name, size: 56, league: league)
             Text(name)
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(Theme.ink)
@@ -272,7 +274,7 @@ struct MatchDetailView: View {
         return HStack(spacing: 2) {
             Text("\(row.position)").frame(width: 20, alignment: .leading).fontWeight(.bold)
             HStack(spacing: 6) {
-                SmallCrest(teamName: row.team, size: 13)
+                SmallCrest(teamName: row.team, size: 20, league: league)
                 Text(row.team).lineLimit(1)
             }
             .frame(maxWidth: .infinity, alignment: .leading)

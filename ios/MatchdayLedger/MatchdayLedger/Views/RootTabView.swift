@@ -10,5 +10,6 @@ struct RootTabView: View {
                 .tabItem { Label("Live", systemImage: "dot.radiowaves.left.and.right") }
         }
         .tint(Theme.warm)
+        .task { await BrandingStore.shared.load() }
     }
 }

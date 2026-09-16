@@ -34,6 +34,13 @@ import os
 
 app = Flask(__name__)
 
+@app.route("/branding")
+def branding():
+    from branding import branding_catalogue
+    from fixture import get_current_season
+    return jsonify(branding_catalogue(league_ids, get_current_season(), API_FOOTBALL_KEY))
+
+
 # Model ve encoder yükle
 with open("best_models.pkl", "rb") as f:
     best_models = pickle.load(f)
@@ -99,9 +106,16 @@ def scheduled_predictions():
     with open("prediction_cache.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    selected_date = request.args.get("date")
+    if selected_date:
+        try:
+            datetime.strptime(selected_date, "%Y-%m-%d")
+        except ValueError:
+            return jsonify({"error": "date must be YYYY-MM-DD"}), 400
     output = []
     for fx in data.values():
-        if fx.get("Status") == "SCHEDULED" and fx.get("League") in league_ids:
+        matches_date = str(fx.get("Date", ""))[:10] == selected_date if selected_date else fx.get("Status") == "SCHEDULED"
+        if matches_date and fx.get("League") in league_ids:
             output.append({
                 "fixture_id": fx["FixtureID"],
                 "home_team": fx.get("HomeTeam") or fx.get("home_team"),

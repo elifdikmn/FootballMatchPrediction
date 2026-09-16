@@ -5,6 +5,7 @@ struct CheckOutWhyView: View {
     let homeTeam: String
     let awayTeam: String
     let scoreText: String?
+    var league: String? = nil
 
     @State private var detail: MatchPredictionDetail?
     @State private var isLoading = false
@@ -23,7 +24,7 @@ struct CheckOutWhyView: View {
                 EmptyStateView(text: "No explanation available for this match.")
             }
         }
-        .navigationTitle("Check Out Why")
+        .navigationTitle("Match insights")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Theme.card, for: .navigationBar)
         .toolbarColorScheme(.dark, for: .navigationBar)
@@ -31,15 +32,20 @@ struct CheckOutWhyView: View {
     }
 
     private func body(for detail: MatchPredictionDetail) -> some View {
-        VStack(alignment: .leading, spacing: 24) {
+        VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("THE MATCH, EXPLAINED").font(.caption.weight(.bold)).tracking(2).foregroundStyle(Theme.warm)
+                Text("Behind the prediction").font(.system(.largeTitle, design: .rounded).weight(.bold)).foregroundStyle(Theme.ink)
+                Text("Probabilities, recent form and the factors to watch.").font(.subheadline).foregroundStyle(Theme.inkMuted)
+            }
             matchCard(detail)
             mostLikelyOutcome(detail)
             recentForm(detail)
             if let comment = detail.comment, !comment.isEmpty {
-                whySection(title: "Recent form", text: comment)
+                whySection(title: "Key insight", text: comment)
             }
             if let advice = detail.advice, !advice.isEmpty {
-                whySection(title: "Advice", text: advice)
+                whySection(title: "Prediction summary", text: advice)
             }
         }
         .padding(.horizontal, 22)
@@ -48,13 +54,14 @@ struct CheckOutWhyView: View {
 
     private func matchCard(_ detail: MatchPredictionDetail) -> some View {
         VStack(spacing: 18) {
+            if let league { LeagueBadge(name: league, size: 32) }
             if let scoreText {
                 HStack(spacing: 6) {
                     Circle().fill(Theme.warm).frame(width: 6, height: 6)
                     Text("Live · \(scoreText)")
                         .font(.system(size: 11, weight: .bold))
                         .tracking(0.5)
-                        .foregroundStyle(Color(hex: "FF7A7C"))
+                        .foregroundStyle(Theme.warm)
                 }
                 .padding(.vertical, 5).padding(.leading, 9).padding(.trailing, 12)
                 .background(Capsule().fill(Theme.warmSoft))
@@ -64,6 +71,8 @@ struct CheckOutWhyView: View {
                 teamColumn(homeTeam)
                 if let scoreText {
                     Text(scoreText).font(.system(size: 30, weight: .bold)).foregroundStyle(Theme.ink)
+                } else {
+                    Text("VS").font(.caption.weight(.bold)).foregroundStyle(Theme.inkFaint)
                 }
                 teamColumn(awayTeam)
             }
@@ -73,7 +82,11 @@ struct CheckOutWhyView: View {
             let home = MatchPredictionDetail.parsePercent(detail.homePct)
             let draw = MatchPredictionDetail.parsePercent(detail.drawPct)
             let away = MatchPredictionDetail.parsePercent(detail.awayPct)
-            OutcomeBar(homePct: home, drawPct: draw, awayPct: away)
+            if detail.homePct != nil || detail.drawPct != nil || detail.awayPct != nil {
+                OutcomeBar(homePct: home, drawPct: draw, awayPct: away)
+            } else {
+                Text("Probabilities unavailable").font(.subheadline).foregroundStyle(Theme.inkMuted)
+            }
         }
         .padding(20)
         .background(Theme.card)
@@ -83,8 +96,8 @@ struct CheckOutWhyView: View {
 
     private func teamColumn(_ name: String) -> some View {
         VStack(spacing: 8) {
-            CrestBadge(teamName: name, size: 50)
-            Text(name).font(.system(size: 13, weight: .semibold)).foregroundStyle(Theme.ink)
+            CrestBadge(teamName: name, size: 60, league: league)
+            Text(name).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity)
     }
@@ -94,19 +107,20 @@ struct CheckOutWhyView: View {
         let draw = MatchPredictionDetail.parsePercent(detail.drawPct)
         let away = MatchPredictionDetail.parsePercent(detail.awayPct)
         let top = max(home, max(draw, away))
-        let pctText = "\(Int(top.rounded()))%"
-        let winnerName = detail.winner ?? (top == home ? homeTeam : (top == away ? awayTeam : "Draw"))
+        let tied = [home, draw, away].filter { $0 == top }.count > 1
+        let winnerName = top == 0 ? "Prediction pending" : tied ? "No clear favorite" : top == home ? homeTeam : top == away ? awayTeam : "Draw"
+        let pctText = top > 0 ? " · \(Int(top.rounded()))%" : ""
 
         return VStack(alignment: .leading, spacing: 6) {
             Text("MOST LIKELY OUTCOME")
                 .font(.system(size: 10, weight: .bold))
                 .tracking(1)
-                .foregroundStyle(Color(hex: "FF7A7C"))
-            Text("\(winnerName) · \(pctText)")
-                .font(.system(size: 19, weight: .semibold, design: .serif))
+                .foregroundStyle(Theme.warm)
+            Text("\(winnerName)\(pctText)")
+                .font(.system(size: 24, weight: .bold, design: .rounded))
                 .foregroundStyle(Theme.ink)
-            Text("The model favors this outcome, while other results remain possible.")
-                .font(.system(size: 12.5))
+            Text(top > 0 ? "Estimated probabilities; every outcome remains possible." : "There is not enough data to show an outcome yet.")
+                .font(.subheadline)
                 .foregroundStyle(Theme.inkMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -121,7 +135,7 @@ struct CheckOutWhyView: View {
                 .font(.system(size: 10.5, weight: .bold))
                 .tracking(1)
                 .foregroundStyle(Theme.inkFaint)
-            HStack(alignment: .top, spacing: 24) {
+            VStack(spacing: 18) {
                 formColumn(homeTeam, form: detail.lastFiveHome?.form)
                 formColumn(awayTeam, form: detail.lastFiveAway?.form)
             }
@@ -129,18 +143,22 @@ struct CheckOutWhyView: View {
                 .font(.system(size: 11))
                 .foregroundStyle(Theme.inkFaint)
         }
+        .padding(18)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 20))
     }
 
     private func formColumn(_ name: String, form: String?) -> some View {
         VStack(alignment: .leading, spacing: 9) {
             Text(name).font(.system(size: 12.5, weight: .semibold)).foregroundStyle(Theme.ink)
             HStack(spacing: 5) {
-                if let form, !form.isEmpty {
-                    ForEach(Array(form.uppercased()), id: \.self) { letter in
+                if let form, !form.isEmpty, form.uppercased().allSatisfy({ "WDL".contains($0) }) {
+                    ForEach(Array(form.uppercased().filter { "WDL".contains($0) }.suffix(5).enumerated()), id: \.offset) { _, letter in
                         formBadge(letter)
                     }
+                } else if let form, !form.isEmpty {
+                    Text("Form rating: \(form)").font(.subheadline.weight(.semibold)).foregroundStyle(Theme.warm)
                 } else {
-                    Text("—").foregroundStyle(Theme.inkFaint)
+                    Text("Form unavailable").font(.caption).foregroundStyle(Theme.inkFaint)
                 }
             }
         }
@@ -150,15 +168,15 @@ struct CheckOutWhyView: View {
     private func formBadge(_ letter: Character) -> some View {
         let (border, textColor): (Color, Color) = {
             switch letter {
-            case "W": return (Theme.inkMuted, Theme.ink)
-            case "D": return (Theme.line, Theme.inkMuted)
-            default: return (Theme.line, Theme.inkFaint)
+            case "W": return (Theme.warm, Theme.warm)
+            case "D": return (Theme.cool, Theme.cool)
+            default: return (Color(hex: "F58B8B"), Color(hex: "F58B8B"))
             }
         }()
         return Text(String(letter))
             .font(.system(size: 11, weight: .bold))
             .foregroundStyle(textColor)
-            .frame(width: 26, height: 26)
+            .frame(width: 34, height: 34)
             .background(Theme.card)
             .overlay(RoundedRectangle(cornerRadius: 7).stroke(border, lineWidth: letter == "W" ? 1.5 : 1))
             .clipShape(RoundedRectangle(cornerRadius: 7))
@@ -167,16 +185,16 @@ struct CheckOutWhyView: View {
     private func whySection(title: String, text: String) -> some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(title)
-                .font(.system(size: 15, weight: .semibold, design: .serif))
+                .font(.headline)
                 .foregroundStyle(Theme.ink)
             Text(text)
-                .font(.system(size: 12.5))
+                .font(.subheadline)
                 .foregroundStyle(Theme.inkMuted)
                 .lineSpacing(3)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.top, 12)
-        .overlay(Rectangle().fill(Theme.line).frame(height: 1), alignment: .top)
+        .padding(18)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 20))
     }
 
     private func load() async {

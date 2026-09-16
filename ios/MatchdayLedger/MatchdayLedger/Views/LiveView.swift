@@ -81,7 +81,7 @@ struct LiveMinuteBadge: View {
                 .frame(width: 6, height: 6)
             Text(elapsed != nil ? "\(elapsed!)'" : "LIVE")
                 .font(.system(size: 12, weight: .bold))
-                .foregroundStyle(Color(hex: "FF7A7C"))
+                .foregroundStyle(Theme.warm)
         }
         .padding(.vertical, 4)
         .padding(.leading, 8)
