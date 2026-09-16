@@ -6,6 +6,7 @@ struct MatchDetailView: View {
     let awayTeam: String
     let league: String
     let scoreText: String?
+    var statusText: String = "MATCH"
 
     private enum Tab { case events, standings }
 
@@ -49,6 +50,8 @@ struct MatchDetailView: View {
                 .tracking(1)
                 .foregroundStyle(Theme.inkMuted)
 
+            Text(statusText).font(.caption.weight(.bold)).foregroundStyle(statusText == "FULL TIME" ? Theme.success : Theme.warm)
+
             HStack(spacing: 12) {
                 teamColumn(homeTeam)
                 if let scoreText {
@@ -56,7 +59,7 @@ struct MatchDetailView: View {
                         .font(.system(size: 30, weight: .bold))
                         .foregroundStyle(Theme.ink)
                 } else {
-                    Text("vs")
+                    Text(statusText == "FULL TIME" ? "Score unavailable" : "vs")
                         .italic()
                         .font(.system(size: 15, design: .serif))
                         .foregroundStyle(Theme.inkFaint)
@@ -70,7 +73,8 @@ struct MatchDetailView: View {
                     homeTeam: homeTeam,
                     awayTeam: awayTeam,
                     scoreText: scoreText,
-                    league: league
+                    league: league,
+                    statusText: statusText
                 )
             } label: {
                 Label("Explore prediction", systemImage: "chart.bar.xaxis")

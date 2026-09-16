@@ -12,17 +12,17 @@ extension Color {
     }
 }
 
-/// Palette carried over from the Matchday Ledger design canvas (dark editorial theme,
-/// red = home, yellow = away, green = draw).
+/// Vibrant matchday palette: home red, away yellow, draw blue; form wins green.
 enum Theme {
-    static let bg = Color(hex: "0B1220")
-    static let card = Color(hex: "141F30")
+    static let bg = Color(hex: "0F1218")
+    static let card = Color(hex: "191D25")
     static let ink = Color(hex: "F4F1ED")
     static let inkMuted = Color(hex: "A7ABB3")
     static let inkFaint = Color(hex: "8F9CAF")
-    static let line = Color(hex: "29374B")
-    static let warm = Color(hex: "72E5B1")
-    static let warmSoft = Color(hex: "153A32")
-    static let cool = Color(hex: "8CAEFF")
-    static let draw = Color(hex: "D6B878")
+    static let line = Color(hex: "31353E")
+    static let warm = Color(hex: "FF3B45")
+    static let warmSoft = Color(hex: "4A1720")
+    static let cool = Color(hex: "FFD600")
+    static let success = Color(hex: "28E878")
+    static let draw = Color(hex: "168BFF")
 }

@@ -6,6 +6,7 @@ struct CheckOutWhyView: View {
     let awayTeam: String
     let scoreText: String?
     var league: String? = nil
+    var statusText: String = "MATCH"
 
     @State private var detail: MatchPredictionDetail?
     @State private var isLoading = false
@@ -57,8 +58,8 @@ struct CheckOutWhyView: View {
             if let league { LeagueBadge(name: league, size: 32) }
             if let scoreText {
                 HStack(spacing: 6) {
-                    Circle().fill(Theme.warm).frame(width: 6, height: 6)
-                    Text("Live · \(scoreText)")
+                    Circle().fill(statusText == "FULL TIME" ? Theme.success : Theme.warm).frame(width: 6, height: 6)
+                    Text("\(statusText) · \(scoreText)")
                         .font(.system(size: 11, weight: .bold))
                         .tracking(0.5)
                         .foregroundStyle(Theme.warm)
@@ -168,9 +169,9 @@ struct CheckOutWhyView: View {
     private func formBadge(_ letter: Character) -> some View {
         let (border, textColor): (Color, Color) = {
             switch letter {
-            case "W": return (Theme.warm, Theme.warm)
-            case "D": return (Theme.cool, Theme.cool)
-            default: return (Color(hex: "F58B8B"), Color(hex: "F58B8B"))
+            case "W": return (Theme.success, Theme.success)
+            case "D": return (Theme.draw, Theme.draw)
+            default: return (Theme.warm, Theme.warm)
             }
         }()
         return Text(String(letter))

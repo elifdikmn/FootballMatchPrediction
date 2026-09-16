@@ -130,6 +130,14 @@ def scheduled_predictions():
             datetime.strptime(selected_date, "%Y-%m-%d")
         except ValueError:
             return jsonify({"error": "date must be YYYY-MM-DD"}), 400
+    def score_value(value):
+        # Preserve 0-0, accept old float-valued scores and omit missing/invalid data.
+        try:
+            number = float(value)
+            return int(number) if number >= 0 and number.is_integer() else None
+        except (TypeError, ValueError, OverflowError):
+            return None
+
     output = []
     for fx in data.values():
         matches_date = str(fx.get("Date", ""))[:10] == selected_date if selected_date else fx.get("Status") == "SCHEDULED"
@@ -140,6 +148,9 @@ def scheduled_predictions():
                 "away_team": fx.get("AwayTeam") or fx.get("away_team"),
                 "league": fx["League"],
                 "date": fx["Date"],
+                "status": fx.get("Status"),
+                "home_goals": score_value(fx.get("HomeGoals")),
+                "away_goals": score_value(fx.get("AwayGoals")),
                 "predicted_label": fx.get("Predicted_Label") or fx.get("predicted_label"),
                 "home_win_pct": fx.get("Home Win %") or fx.get("home_win_pct"),
                 "draw_pct": fx.get("Draw %") or fx.get("draw_pct"),

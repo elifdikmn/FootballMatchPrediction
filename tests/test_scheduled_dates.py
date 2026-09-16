@@ -8,7 +8,7 @@ from unittest.mock import mock_open, patch
 from types import SimpleNamespace
 
 class ScheduledDateTests(unittest.TestCase):
-    def route(self, date):
+    def route(self, date, goals=None):
         tree = ast.parse(Path('app.py').read_text())
         function = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'scheduled_predictions')
         function.decorator_list = []
@@ -19,6 +19,8 @@ class ScheduledDateTests(unittest.TestCase):
             '1': {'FixtureID': 1, 'Date': '2026-09-15', 'League': 'E0', 'Status': 'FINISHED'},
             '2': {'FixtureID': 2, 'Date': '2026-09-17', 'League': 'E0', 'Status': 'SCHEDULED'},
         }
+        if goals is not None:
+            data['1'].update(HomeGoals=goals[0], AwayGoals=goals[1])
         with patch('builtins.open', mock_open(read_data=json.dumps(data))):
             return namespace['scheduled_predictions']()
 
@@ -34,3 +36,17 @@ class ScheduledDateTests(unittest.TestCase):
 
     def test_invalid_date(self):
         self.assertEqual(self.route('2026-02-30')[1], 400)
+
+    def test_final_score_preserves_scoreless_draw(self):
+        row = self.route('2026-09-15', (0.0, 0.0))[0]
+        self.assertEqual((row['home_goals'], row['away_goals'], row['status']), (0, 0, 'FINISHED'))
+
+    def test_final_score_accepts_legacy_floats(self):
+        row = self.route('2026-09-15', (1.0, 2.0))[0]
+        self.assertEqual((row['home_goals'], row['away_goals']), (1, 2))
+
+    def test_missing_or_invalid_score_is_not_fabricated(self):
+        for goals in [(None, None), (float('nan'), float('inf')), (-1, 1.5)]:
+            row = self.route('2026-09-15', goals)[0]
+            self.assertIsNone(row['home_goals'])
+            self.assertIsNone(row['away_goals'])

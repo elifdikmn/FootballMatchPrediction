@@ -37,7 +37,8 @@ struct LiveView: View {
                                 homeTeam: match.homeTeam,
                                 awayTeam: match.awayTeam,
                                 league: match.league,
-                                scoreText: match.score
+                                scoreText: match.score,
+                                statusText: "LIVE"
                             )
                         } label: {
                             PredictionCard(
@@ -48,7 +49,9 @@ struct LiveView: View {
                                 homePct: match.homeWinPct,
                                 drawPct: match.drawPct,
                                 awayPct: match.awayWinPct,
-                                trailingBadge: AnyView(LiveMinuteBadge(elapsed: match.elapsed))
+                                trailingBadge: AnyView(LiveMinuteBadge(elapsed: match.elapsed)),
+                                scoreText: match.score,
+                                statusText: "LIVE"
                             )
                         }
                         .buttonStyle(.plain)

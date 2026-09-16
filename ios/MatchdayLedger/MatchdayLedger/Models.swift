@@ -7,6 +7,9 @@ struct ScheduledPrediction: Codable, Identifiable {
     let awayTeam: String
     let league: String
     let date: String
+    let status: String?
+    let homeGoals: Int?
+    let awayGoals: Int?
     let predictedLabel: String?
     let homeWinPct: Double?
     let drawPct: Double?
@@ -14,11 +17,30 @@ struct ScheduledPrediction: Codable, Identifiable {
 
     var id: Int { fixtureId }
 
+    var isFinished: Bool { ["FINISHED", "FT", "AET", "PEN"].contains(status?.uppercased() ?? "") }
+
+    var scoreText: String? {
+        guard let homeGoals, let awayGoals else { return nil }
+        return "\(homeGoals) – \(awayGoals)"
+    }
+
+    var statusText: String {
+        if isFinished { return "FULL TIME" }
+        switch status?.uppercased() {
+        case "SCHEDULED", "NS", nil: return "UPCOMING"
+        case "PST", "POSTPONED": return "POSTPONED"
+        case "CANC", "CANCELLED": return "CANCELLED"
+        default: return status?.uppercased() ?? "MATCH"
+        }
+    }
+
     enum CodingKeys: String, CodingKey {
         case fixtureId = "fixture_id"
         case homeTeam = "home_team"
         case awayTeam = "away_team"
-        case league, date
+        case league, date, status
+        case homeGoals = "home_goals"
+        case awayGoals = "away_goals"
         case predictedLabel = "predicted_label"
         case homeWinPct = "home_win_pct"
         case drawPct = "draw_pct"

@@ -168,7 +168,8 @@ struct FixturesView: View {
                                 homeTeam: fx.homeTeam,
                                 awayTeam: fx.awayTeam,
                                 league: fx.league,
-                                scoreText: nil
+                                scoreText: fx.scoreText,
+                                statusText: fx.statusText
                             )
                         } label: {
                             PredictionCard(
@@ -178,7 +179,9 @@ struct FixturesView: View {
                                 awayTeam: fx.awayTeam,
                                 homePct: fx.homeWinPct,
                                 drawPct: fx.drawPct,
-                                awayPct: fx.awayWinPct
+                                awayPct: fx.awayWinPct,
+                                scoreText: fx.scoreText,
+                                statusText: fx.statusText
                             )
                         }
                         .buttonStyle(.plain)
@@ -224,6 +227,8 @@ struct PredictionCard: View {
     let drawPct: Double?
     let awayPct: Double?
     var trailingBadge: AnyView? = nil
+    var scoreText: String? = nil
+    var statusText: String? = nil
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -245,16 +250,27 @@ struct PredictionCard: View {
 
             HStack(alignment: .top, spacing: 12) {
                 teamColumn(homeTeam)
-                Text("vs")
-                    .italic()
-                    .font(.system(size: 13, design: .serif))
-                    .foregroundStyle(Theme.inkFaint)
-                    .padding(.top, 16)
+                VStack(spacing: 7) {
+                    Text(scoreText ?? (statusText == "FULL TIME" ? "—" : "VS"))
+                        .font(.system(size: scoreText == nil ? 18 : 28, weight: .heavy, design: .rounded))
+                        .monospacedDigit().foregroundStyle(Theme.ink)
+                        .fixedSize()
+                    if let statusText {
+                        Text(statusText).font(.system(size: 9, weight: .bold))
+                            .foregroundStyle(statusText == "FULL TIME" ? Theme.success : Theme.warm)
+                        if statusText == "FULL TIME" && scoreText == nil {
+                            Text("Score unavailable").font(.caption2).foregroundStyle(Theme.inkMuted)
+                        }
+                    }
+                }
+                .padding(.top, 10)
                 teamColumn(awayTeam)
             }
 
             if homePct != nil || drawPct != nil || awayPct != nil {
                 Divider().background(Theme.line)
+                Text("PREDICTION").font(.system(size: 10, weight: .bold))
+                    .tracking(1).foregroundStyle(Theme.warm)
                 OutcomeBar(homePct: homePct ?? 0, drawPct: drawPct ?? 0, awayPct: awayPct ?? 0)
             }
         }
@@ -307,14 +323,17 @@ struct OutcomeBar: View {
             VStack(alignment: alignment, spacing: 1) {
                 Text("\(Int(pct.rounded()))%")
                     .font(.system(size: isWinner ? 16 : 13, weight: isWinner ? .bold : .semibold))
-                    .foregroundStyle(isWinner ? Theme.ink : Theme.inkMuted)
+                    .foregroundStyle(color)
                 Text(label.uppercased())
                     .font(.system(size: 9.5, weight: .semibold))
                     .tracking(0.5)
-                    .foregroundStyle(Theme.inkFaint)
+                    .foregroundStyle(color)
             }
         }
+        .padding(10)
         .frame(maxWidth: .infinity, alignment: Alignment(horizontal: alignment, vertical: .center))
+        .background(color.opacity(0.12), in: RoundedRectangle(cornerRadius: 12))
+        .overlay(RoundedRectangle(cornerRadius: 12).stroke(color.opacity(isWinner ? 0.7 : 0.25), lineWidth: 1))
     }
 }
 
