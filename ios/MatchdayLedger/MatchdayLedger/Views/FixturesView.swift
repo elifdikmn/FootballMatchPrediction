@@ -165,7 +165,7 @@ struct FixturesView: View {
                         Label("Show saved matches · \(date)", systemImage: "calendar")
                     }
                     .buttonStyle(.borderedProminent).tint(Theme.warm)
-                    .foregroundStyle(Theme.bg)
+                    .foregroundStyle(.white)
                     if let first = availableDates.first, let last = availableDates.last {
                         Text("Saved dates: \(first) – \(last)")
                             .font(.caption).foregroundStyle(Theme.inkMuted)
@@ -320,7 +320,7 @@ struct PredictionCard: View {
                     Image(systemName: "chart.bar.xaxis").foregroundStyle(Theme.warm)
                     Text("Show Prediction").foregroundStyle(Theme.ink)
                     Spacer()
-                    Image(systemName: "arrow.up.right").foregroundStyle(Theme.warm)
+                    Image(systemName: "arrow.up.right").foregroundStyle(Theme.inkMuted)
                 }
                 .font(.subheadline.weight(.medium))
                 .frame(minHeight: 44)
@@ -341,7 +341,7 @@ struct PredictionCard: View {
             Text(name).font(.subheadline.weight(.semibold)).foregroundStyle(Theme.ink)
                 .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
             Text(role.uppercased()).font(.caption2.weight(.bold))
-                .tracking(1).foregroundStyle(role == "Home" ? Theme.warm : Theme.success)
+                .tracking(1).foregroundStyle(Theme.inkMuted)
         }.frame(maxWidth: .infinity)
     }
 }
@@ -396,7 +396,7 @@ struct OutcomeBar: View {
             Text(label.uppercased())
                 .font(.caption2.weight(.bold))
                 .tracking(0.7)
-                .foregroundStyle(.white)
+                .foregroundStyle(Theme.inkMuted)
         }
         .frame(maxWidth: .infinity, alignment: Alignment(horizontal: alignment, vertical: .center))
         .accessibilityElement(children: .combine)

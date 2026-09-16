@@ -39,7 +39,7 @@ struct LeagueFilterView: View {
                     } label: {
                         Text("Show Matches")
                             .font(.system(size: 14, weight: .bold))
-                            .foregroundStyle(Theme.bg)
+                            .foregroundStyle(.white)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 15)
                             .background(RoundedRectangle(cornerRadius: 14).fill(Theme.warm))
