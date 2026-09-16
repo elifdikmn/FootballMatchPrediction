@@ -82,50 +82,63 @@ struct FixturesView: View {
         }
     }
 
+    private var weekDays: [Date] {
+        let start = Calendar.current.dateInterval(of: .weekOfYear, for: selectedDay)?.start ?? selectedDay
+        return (0..<7).compactMap { Calendar.current.date(byAdding: .day, value: $0, to: start) }
+    }
+
     private var dateStrip: some View {
-        VStack(spacing: 14) {
-            HStack {
-                Text("MATCHDAY").font(.headline.weight(.bold)).tracking(2).foregroundStyle(Color.white)
-                Spacer()
+        VStack(spacing: 16) {
+            HStack(alignment: .center) {
+                Button { withAnimation { showingCalendar.toggle() } } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "calendar").font(.subheadline)
+                        Text(selectedDay, format: .dateTime.month(.wide).year())
+                            .font(.headline)
+                        Image(systemName: showingCalendar ? "chevron.up" : "chevron.down").font(.caption2)
+                    }.foregroundStyle(.white).frame(minHeight: 44)
+                }.accessibilityLabel("Choose match date")
+                Spacer(minLength: 8)
                 Button("Today") { selectedDay = Date() }
-                    .font(.subheadline.weight(.semibold)).tint(Color.white)
-            }
-            HStack(spacing: 12) {
-                dayArrow(-1, icon: "chevron.left", label: "Previous day")
-                Button { showingCalendar.toggle() } label: {
-                    VStack(spacing: 4) {
-                        Text(selectedDay, format: .dateTime.weekday(.wide))
-                            .font(.caption).foregroundStyle(.white)
-                        HStack(spacing: 8) {
-                            Text(selectedDay, format: .dateTime.day().month(.wide).year())
-                            Image(systemName: "chevron.down").font(.caption)
-                        }
-                        .font(.headline).foregroundStyle(.white)
-                    }.frame(maxWidth: .infinity).padding(.vertical, 10)
-                        .background(Theme.card, in: RoundedRectangle(cornerRadius: 14))
-                }
-                .accessibilityLabel("Choose match date")
-                dayArrow(1, icon: "chevron.right", label: "Next day")
+                    .font(.caption.weight(.semibold)).tint(.white)
+                    .padding(.horizontal, 12).frame(minHeight: 44)
+                    .background(Theme.line.opacity(0.4), in: Capsule())
             }
             HStack(spacing: 4) {
-                ForEach(-3...3, id: \.self) { offset in
-                    let day = Calendar.current.date(byAdding: .day, value: offset, to: selectedDay) ?? selectedDay
+                ForEach(weekDays, id: \.self) { day in
+                    let selected = Calendar.current.isDate(day, inSameDayAs: selectedDay)
                     Button { selectedDay = day } label: {
-                        VStack(spacing: 5) {
-                            Text(day, format: .dateTime.day()).font(.title3.weight(.semibold))
-                            Text(day, format: .dateTime.month(.abbreviated)).font(.caption).lineLimit(1).minimumScaleFactor(0.8)
+                        VStack(spacing: 8) {
+                            Text(day, format: .dateTime.weekday(.narrow))
+                                .font(.caption2.weight(.medium))
+                            Text(day, format: .dateTime.day())
+                                .font(.body.weight(.bold)).monospacedDigit()
+                            Circle().fill(availableDates.contains(Self.dateKey(day)) ? (selected ? Color.black : Color.white) : .clear)
+                                .frame(width: 4, height: 4)
                         }
                         .frame(maxWidth: .infinity).padding(.vertical, 10)
-                        .foregroundStyle(offset == 0 ? Color.white : Theme.inkMuted)
-                        .background(offset == 0 ? Color.white.opacity(0.14) : .clear, in: RoundedRectangle(cornerRadius: 12))
-                    }.accessibilityLabel(day.formatted(date: .complete, time: .omitted))
+                        .foregroundStyle(selected ? .black : Theme.inkMuted)
+                        .background(selected ? Color.white : .clear, in: RoundedRectangle(cornerRadius: 12))
+                    }
+                    .accessibilityLabel(day.formatted(date: .complete, time: .omitted))
+                    .accessibilityAddTraits(selected ? .isSelected : [])
                 }
+            }
+            HStack {
+                dayArrow(-1, icon: "chevron.left", label: "Previous day")
+                Spacer()
+                Text(selectedDay, format: .dateTime.weekday(.wide).day().month(.abbreviated))
+                    .font(.subheadline).foregroundStyle(.white)
+                Spacer()
+                dayArrow(1, icon: "chevron.right", label: "Next day")
             }
             if showingCalendar {
                 DatePicker("Match date", selection: $selectedDay, displayedComponents: .date)
-                    .datePickerStyle(.graphical).tint(Color.white)
+                    .datePickerStyle(.graphical).tint(.white)
             }
         }
+        .padding(14)
+        .background(Color(hex: "11151C"), in: RoundedRectangle(cornerRadius: 18))
         .padding(.horizontal, 16).padding(.top, 8)
     }
 
@@ -137,7 +150,7 @@ struct FixturesView: View {
         } label: {
             Image(systemName: icon).font(.system(size: 15, weight: .bold))
                 .frame(width: 44, height: 44)
-                .background(Theme.card, in: RoundedRectangle(cornerRadius: 14))
+                .background(Theme.line.opacity(0.35), in: Circle())
         }
         .tint(Theme.ink).accessibilityLabel(label)
     }
@@ -250,12 +263,6 @@ struct PredictionCard: View {
     let fixtureId: Int
     let leagueCode: String
 
-    private var scores: [String] {
-        guard let scoreText else { return [] }
-        let parts = scoreText.split(whereSeparator: { !$0.isNumber }).map(String.init)
-        return parts.count == 2 ? parts : []
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
@@ -272,20 +279,30 @@ struct PredictionCard: View {
                     MatchDetailView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
                                     league: leagueCode, scoreText: scoreText, statusText: statusText ?? "MATCH")
                 } label: {
-                    Text("Detail").font(.subheadline.weight(.bold)).foregroundStyle(.white)
-                        .padding(.horizontal, 16).padding(.vertical, 11)
-                        .background(Theme.warm, in: RoundedRectangle(cornerRadius: 12))
+                    HStack(spacing: 6) {
+                        Text("Match details").font(.caption.weight(.semibold))
+                        Image(systemName: "chevron.right").font(.caption2.weight(.bold))
+                    }
+                    .foregroundStyle(Theme.ink)
+                    .padding(.leading, 12).frame(minHeight: 44)
+                    .contentShape(Rectangle())
                 }
             }
-            VStack(spacing: 14) {
-                teamRow(homeTeam, role: "Home", score: scores.first, color: Theme.warm)
-                teamRow(awayTeam, role: "Away", score: scores.count == 2 ? scores[1] : nil, color: Theme.cool)
+            HStack(alignment: .top, spacing: 10) {
+                teamColumn(homeTeam, role: "Home")
+                VStack(spacing: 6) {
+                    Text(scoreText ?? (statusText == "FULL TIME" ? "—" : "VS"))
+                        .font(.system(.title2, design: .rounded).weight(.bold))
+                        .monospacedDigit().foregroundStyle(scoreText == nil ? Theme.inkMuted : Theme.success)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .multilineTextAlignment(.center)
+                    if scoreText == nil, statusText == "FULL TIME" {
+                        Text("Score unavailable").font(.caption2).foregroundStyle(Theme.inkMuted)
+                    }
+                }.frame(maxWidth: 88).padding(.top, 17)
+                teamColumn(awayTeam, role: "Away")
             }
-            if scores.isEmpty, let scoreText {
-                Text(scoreText).font(.headline).foregroundStyle(Theme.success)
-            } else if scores.isEmpty, statusText == "FULL TIME" {
-                Text("Score unavailable").font(.caption).foregroundStyle(Theme.inkMuted)
-            }
+            .padding(.vertical, 4)
             if homePct != nil || drawPct != nil || awayPct != nil {
                 OutcomeBar(homePct: homePct ?? 0, drawPct: drawPct ?? 0, awayPct: awayPct ?? 0)
             }
@@ -312,20 +329,14 @@ struct PredictionCard: View {
         .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.line.opacity(0.7), lineWidth: 1))
     }
 
-    private func teamRow(_ name: String, role: String, score: String?, color: Color) -> some View {
-        HStack(spacing: 12) {
-            CrestBadge(teamName: name, size: 38, league: leagueCode)
-            VStack(alignment: .leading, spacing: 3) {
-                Text(name).font(.body.weight(.semibold)).foregroundStyle(Theme.ink)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text(role.uppercased()).font(.caption2.weight(.bold)).tracking(1).foregroundStyle(color)
-            }
-            Spacer(minLength: 8)
-            Text(score ?? "—")
-                .font(.system(.title, design: .rounded).weight(.bold))
-                .monospacedDigit().foregroundStyle(score == nil ? Theme.inkMuted : Theme.success)
-                .frame(minWidth: 32, alignment: .trailing)
-        }
+    private func teamColumn(_ name: String, role: String) -> some View {
+        VStack(spacing: 8) {
+            CrestBadge(teamName: name, size: 48, league: leagueCode)
+            Text(name).font(.subheadline.weight(.semibold)).foregroundStyle(Theme.ink)
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+            Text(role.uppercased()).font(.caption2.weight(.medium))
+                .tracking(1).foregroundStyle(Theme.inkMuted)
+        }.frame(maxWidth: .infinity)
     }
 }
 
@@ -346,7 +357,7 @@ struct OutcomeBar: View {
         let strongest = pct > 0 && pct == max(homePct, max(drawPct, awayPct))
         return VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 4) {
-                Text(label).font(.caption.weight(.semibold))
+                Text(label).font(.caption.weight(.semibold)).foregroundStyle(.white)
                 Spacer(minLength: 0)
                 if strongest { Image(systemName: "arrow.up.right").font(.caption2.weight(.bold)) }
             }
@@ -357,7 +368,7 @@ struct OutcomeBar: View {
         .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(color.opacity(strongest ? 0.19 : 0.07), in: RoundedRectangle(cornerRadius: 10))
-        .overlay(RoundedRectangle(cornerRadius: 10).stroke(color.opacity(strongest ? 0.85 : 0.25), lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(color.opacity(strongest ? 1 : 0.85), lineWidth: strongest ? 2 : 1.5))
         .accessibilityElement(children: .combine)
     }
 }
