@@ -16,6 +16,8 @@ from fixture import get_match_events
 from fixture import predict_from_live_api
 from fixture import get_standings_by_league
 from fixture import league_ids
+from fixture import get_current_season
+from branding import branding_catalogue, logo_for_team
 from feature_engineering import (
     add_latest_elo_to_fixtures,
     add_latest_elo_features_to_fixtures,
@@ -34,11 +36,17 @@ import os
 
 app = Flask(__name__)
 
+
+def get_branding_data():
+    current = get_current_season()
+    # Include relegated/promoted clubs and the 2024/25 matches in the cache.
+    seasons = [current - 2, current - 1, current]
+    return branding_catalogue(league_ids, seasons, API_FOOTBALL_KEY)
+
+
 @app.route("/branding")
 def branding():
-    from branding import branding_catalogue
-    from fixture import get_current_season
-    return jsonify(branding_catalogue(league_ids, get_current_season(), API_FOOTBALL_KEY))
+    return jsonify(get_branding_data())
 
 
 # Model ve encoder yükle
@@ -71,6 +79,7 @@ def predictions():
 
 @app.route("/standings/<league_code>", methods=["GET"])
 def get_standings(league_code):
+    catalogue = get_branding_data()
     session = SessionLocal()
     try:
         db_league_id = str(league_ids.get(league_code, league_code))
@@ -81,6 +90,7 @@ def get_standings(league_code):
         {
             "position": s.rank,
             "team": s.team_name,
+            "team_logo": logo_for_team(catalogue, league_code, s.team_name),
             "playedGames": s.played,
             "won": s.win,
             "draw": s.draw,
@@ -138,6 +148,7 @@ def scheduled_predictions():
         except (TypeError, ValueError, OverflowError):
             return None
 
+    catalogue = get_branding_data()
     output = []
     for fx in data.values():
         matches_date = str(fx.get("Date", ""))[:10] == selected_date if selected_date else fx.get("Status") == "SCHEDULED"
@@ -146,6 +157,12 @@ def scheduled_predictions():
                 "fixture_id": fx["FixtureID"],
                 "home_team": fx.get("HomeTeam") or fx.get("home_team"),
                 "away_team": fx.get("AwayTeam") or fx.get("away_team"),
+                "home_team_logo": logo_for_team(
+                    catalogue, fx["League"], fx.get("HomeTeam") or fx.get("home_team")
+                ),
+                "away_team_logo": logo_for_team(
+                    catalogue, fx["League"], fx.get("AwayTeam") or fx.get("away_team")
+                ),
                 "league": fx["League"],
                 "date": fx["Date"],
                 "status": fx.get("Status"),
@@ -169,6 +186,13 @@ def match_events(fixture_id):
 @app.route("/live-matches-with-predictions", methods=["GET"])
 def live_matches_with_predictions():
     data = get_live_matches_with_predictions(best_models, features_by_league, team_categories, historical_data_by_league)
+    catalogue = get_branding_data()
+    for match in data:
+        league = match.get("league") or match.get("League")
+        home = match.get("home_team") or match.get("HomeTeam")
+        away = match.get("away_team") or match.get("AwayTeam")
+        match["home_team_logo"] = logo_for_team(catalogue, league, home) if league and home else None
+        match["away_team_logo"] = logo_for_team(catalogue, league, away) if league and away else None
     return jsonify(data)
 
 

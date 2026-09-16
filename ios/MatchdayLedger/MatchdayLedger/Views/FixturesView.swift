@@ -186,6 +186,7 @@ struct FixturesView: View {
                             PredictionCard(
                                 leagueLabel: league.displayName, trailingLabel: fx.date,
                                 homeTeam: fx.homeTeam, awayTeam: fx.awayTeam,
+                                homeLogo: fx.homeTeamLogo, awayLogo: fx.awayTeamLogo,
                                 homePct: fx.homeWinPct, drawPct: fx.drawPct, awayPct: fx.awayWinPct,
                                 scoreText: fx.scoreText, statusText: fx.statusText,
                                 fixtureId: fx.fixtureId, leagueCode: fx.league
@@ -244,6 +245,8 @@ struct PredictionCard: View {
     let trailingLabel: String
     let homeTeam: String
     let awayTeam: String
+    var homeLogo: URL? = nil
+    var awayLogo: URL? = nil
     let homePct: Double?
     let drawPct: Double?
     let awayPct: Double?
@@ -273,7 +276,9 @@ struct PredictionCard: View {
                 Spacer()
                 NavigationLink {
                     MatchDetailView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
-                                    league: leagueCode, scoreText: scoreText, statusText: statusText ?? "MATCH")
+                                    league: leagueCode, scoreText: scoreText,
+                                    homeLogo: homeLogo, awayLogo: awayLogo,
+                                    statusText: statusText ?? "MATCH")
                 } label: {
                     HStack(spacing: 6) {
                         Text("Match details").font(.caption.weight(.semibold))
@@ -285,7 +290,7 @@ struct PredictionCard: View {
                 }
             }
             HStack(alignment: .top, spacing: 10) {
-                teamColumn(homeTeam, role: "Home")
+                teamColumn(homeTeam, role: "Home", logo: homeLogo)
                 VStack(spacing: 6) {
                     if scores.count == 2 {
                         HStack(spacing: 5) {
@@ -306,7 +311,7 @@ struct PredictionCard: View {
                         Text("Score unavailable").font(.caption2).foregroundStyle(Theme.inkMuted)
                     }
                 }.frame(maxWidth: 88).padding(.top, 17)
-                teamColumn(awayTeam, role: "Away")
+                teamColumn(awayTeam, role: "Away", logo: awayLogo)
             }
             .padding(.vertical, 4)
             if homePct != nil || drawPct != nil || awayPct != nil {
@@ -314,7 +319,9 @@ struct PredictionCard: View {
             }
             NavigationLink {
                 CheckOutWhyView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
-                                scoreText: scoreText, league: leagueCode, statusText: statusText ?? "MATCH")
+                                scoreText: scoreText, league: leagueCode,
+                                homeLogo: homeLogo, awayLogo: awayLogo,
+                                statusText: statusText ?? "MATCH")
             } label: {
                 HStack {
                     Image(systemName: "chart.bar.xaxis").foregroundStyle(Theme.warm)
@@ -335,9 +342,9 @@ struct PredictionCard: View {
         .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.line.opacity(0.7), lineWidth: 1))
     }
 
-    private func teamColumn(_ name: String, role: String) -> some View {
+    private func teamColumn(_ name: String, role: String, logo: URL?) -> some View {
         VStack(spacing: 8) {
-            CrestBadge(teamName: name, size: 48, league: leagueCode)
+            CrestBadge(teamName: name, size: 48, league: leagueCode, logoURL: logo)
             Text(name).font(.subheadline.weight(.semibold)).foregroundStyle(Theme.ink)
                 .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
             Text(role.uppercased()).font(.caption2.weight(.bold))

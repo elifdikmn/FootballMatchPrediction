@@ -60,10 +60,11 @@ struct CrestBadge: View {
     let teamName: String
     var size: CGFloat = 44
     var league: String? = nil
+    var logoURL: URL? = nil
     @ObservedObject private var branding = BrandingStore.shared
 
     var body: some View {
-        RemoteBadge(url: branding.teamURL(teamName, league: league), label: teamName, size: size)
+        RemoteBadge(url: logoURL ?? branding.teamURL(teamName, league: league), label: teamName, size: size)
     }
 }
 
@@ -71,7 +72,8 @@ struct SmallCrest: View {
     let teamName: String
     var size: CGFloat = 20
     var league: String? = nil
-    var body: some View { CrestBadge(teamName: teamName, size: size, league: league) }
+    var logoURL: URL? = nil
+    var body: some View { CrestBadge(teamName: teamName, size: size, league: league, logoURL: logoURL) }
 }
 
 struct LeagueBadge: View {

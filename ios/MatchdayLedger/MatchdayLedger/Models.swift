@@ -5,6 +5,8 @@ struct ScheduledPrediction: Codable, Identifiable {
     let fixtureId: Int
     let homeTeam: String
     let awayTeam: String
+    let homeTeamLogo: URL?
+    let awayTeamLogo: URL?
     let league: String
     let date: String
     let status: String?
@@ -38,6 +40,8 @@ struct ScheduledPrediction: Codable, Identifiable {
         case fixtureId = "fixture_id"
         case homeTeam = "home_team"
         case awayTeam = "away_team"
+        case homeTeamLogo = "home_team_logo"
+        case awayTeamLogo = "away_team_logo"
         case league, date, status
         case homeGoals = "home_goals"
         case awayGoals = "away_goals"
@@ -53,6 +57,8 @@ struct LiveMatch: Codable, Identifiable {
     let fixtureId: Int
     let homeTeam: String
     let awayTeam: String
+    let homeTeamLogo: URL?
+    let awayTeamLogo: URL?
     let league: String
     let score: String
     let elapsed: Int?
@@ -68,6 +74,8 @@ struct LiveMatch: Codable, Identifiable {
         case fixtureId = "fixture_id"
         case homeTeam = "home_team"
         case awayTeam = "away_team"
+        case homeTeamLogo = "home_team_logo"
+        case awayTeamLogo = "away_team_logo"
         case league, score, elapsed, status
         case predictedLabel = "predicted_label"
         case homeWinPct = "home_win_pct"
@@ -92,6 +100,7 @@ struct MatchEvent: Codable, Identifiable {
 struct StandingRow: Codable, Identifiable {
     let position: Int
     let team: String
+    let teamLogo: URL?
     let playedGames: Int
     let won: Int
     let draw: Int
@@ -100,6 +109,11 @@ struct StandingRow: Codable, Identifiable {
     let goalDifference: Int
 
     var id: String { team }
+
+    enum CodingKeys: String, CodingKey {
+        case position, team, playedGames, won, draw, lost, points, goalDifference
+        case teamLogo = "team_logo"
+    }
 }
 
 /// Matches GET /prediction/<fixture_id>

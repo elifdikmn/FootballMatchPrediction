@@ -13,7 +13,9 @@ class ScheduledDateTests(unittest.TestCase):
         function = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'scheduled_predictions')
         function.decorator_list = []
         namespace = dict(request=SimpleNamespace(args={'date': date}), datetime=datetime,
-                         json=json, jsonify=lambda value: value, league_ids={'E0': 39})
+                         json=json, jsonify=lambda value: value, league_ids={'E0': 39},
+                         get_branding_data=lambda: [],
+                         logo_for_team=lambda catalogue, league, team: None)
         exec(compile(ast.Module(body=[function], type_ignores=[]), 'app.py', 'exec'), namespace)
         data = {
             '1': {'FixtureID': 1, 'Date': '2026-09-15', 'League': 'E0', 'Status': 'FINISHED'},

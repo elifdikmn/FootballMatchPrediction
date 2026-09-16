@@ -36,6 +36,7 @@ struct LiveView: View {
                             PredictionCard(
                                 leagueLabel: League(rawValue: match.league)?.displayName ?? match.league,
                                 trailingLabel: match.score, homeTeam: match.homeTeam, awayTeam: match.awayTeam,
+                                homeLogo: match.homeTeamLogo, awayLogo: match.awayTeamLogo,
                                 homePct: match.homeWinPct, drawPct: match.drawPct, awayPct: match.awayWinPct,
                                 trailingBadge: AnyView(LiveMinuteBadge(elapsed: match.elapsed)),
                                 scoreText: match.score, statusText: "LIVE",

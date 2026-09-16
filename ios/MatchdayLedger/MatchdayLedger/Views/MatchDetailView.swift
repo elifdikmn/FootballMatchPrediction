@@ -6,6 +6,8 @@ struct MatchDetailView: View {
     let awayTeam: String
     let league: String
     let scoreText: String?
+    var homeLogo: URL? = nil
+    var awayLogo: URL? = nil
     var statusText: String = "MATCH"
 
     private enum Tab { case events, standings }
@@ -53,7 +55,7 @@ struct MatchDetailView: View {
             Text(statusText).font(.caption.weight(.bold)).foregroundStyle(statusText == "FULL TIME" ? Theme.success : Theme.warm)
 
             HStack(spacing: 12) {
-                teamColumn(homeTeam, role: "Home")
+                teamColumn(homeTeam, role: "Home", logo: homeLogo)
                 if let scoreText {
                     Text(scoreText)
                         .font(.system(.largeTitle, design: .rounded).weight(.heavy))
@@ -64,7 +66,7 @@ struct MatchDetailView: View {
                         .font(.system(size: 15, design: .serif))
                         .foregroundStyle(Theme.inkFaint)
                 }
-                teamColumn(awayTeam, role: "Away")
+                teamColumn(awayTeam, role: "Away", logo: awayLogo)
             }
 
             NavigationLink {
@@ -74,6 +76,8 @@ struct MatchDetailView: View {
                     awayTeam: awayTeam,
                     scoreText: scoreText,
                     league: league,
+                    homeLogo: homeLogo,
+                    awayLogo: awayLogo,
                     statusText: statusText
                 )
             } label: {
@@ -93,10 +97,10 @@ struct MatchDetailView: View {
         .padding(.top, 16)
     }
 
-    private func teamColumn(_ name: String, role: String) -> some View {
+    private func teamColumn(_ name: String, role: String, logo: URL?) -> some View {
         VStack(spacing: 9) {
             Text(role).font(.subheadline).foregroundStyle(Theme.success)
-            CrestBadge(teamName: name, size: 56, league: league)
+            CrestBadge(teamName: name, size: 56, league: league, logoURL: logo)
             Text(name)
                 .font(.body.weight(.medium))
                 .foregroundStyle(Theme.ink)
@@ -277,7 +281,7 @@ struct MatchDetailView: View {
         return HStack(spacing: 2) {
             Text("\(row.position)").frame(width: 18, alignment: .leading).fontWeight(.bold)
             HStack(spacing: 4) {
-                SmallCrest(teamName: row.team, size: 18, league: league)
+                SmallCrest(teamName: row.team, size: 18, league: league, logoURL: row.teamLogo)
                 Text(row.team).fixedSize(horizontal: false, vertical: true)
             }
             .frame(maxWidth: .infinity, alignment: .leading)

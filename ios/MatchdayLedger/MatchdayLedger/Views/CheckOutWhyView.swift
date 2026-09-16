@@ -6,6 +6,8 @@ struct CheckOutWhyView: View {
     let awayTeam: String
     let scoreText: String?
     var league: String? = nil
+    var homeLogo: URL? = nil
+    var awayLogo: URL? = nil
     var statusText: String = "MATCH"
 
     @State private var detail: MatchPredictionDetail?
@@ -69,13 +71,13 @@ struct CheckOutWhyView: View {
             }
 
             HStack(spacing: 20) {
-                teamColumn(homeTeam)
+                teamColumn(homeTeam, logo: homeLogo)
                 if let scoreText {
                     Text(scoreText).font(.system(.largeTitle, design: .rounded).weight(.bold)).foregroundStyle(Theme.success)
                 } else {
                     Text("VS").font(.caption.weight(.bold)).foregroundStyle(Theme.inkFaint)
                 }
-                teamColumn(awayTeam)
+                teamColumn(awayTeam, logo: awayLogo)
             }
 
             Divider().background(Theme.line)
@@ -95,9 +97,9 @@ struct CheckOutWhyView: View {
         .overlay(RoundedRectangle(cornerRadius: 26).stroke(Theme.line, lineWidth: 1))
     }
 
-    private func teamColumn(_ name: String) -> some View {
+    private func teamColumn(_ name: String, logo: URL?) -> some View {
         VStack(spacing: 8) {
-            CrestBadge(teamName: name, size: 60, league: league)
+            CrestBadge(teamName: name, size: 60, league: league, logoURL: logo)
             Text(name).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity)
