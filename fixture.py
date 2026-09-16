@@ -627,11 +627,6 @@ def get_match_events(fixture_id):
 def get_live_matches_with_predictions(best_models, features, team_categories, historical_data_by_league):
     # 🎯 1. Canlı maçları çek (tek seferde)
 
-    prediction_cache = {}
-    if os.path.exists("prediction_cache.json"):
-        with open("prediction_cache.json", "r") as f:
-            prediction_cache = json.load(f)
-    
     url_live = "https://v3.football.api-sports.io/fixtures?live=all"
     response = requests.get(url_live, headers=headers_football)
     data_live = response.json().get("response", [])
@@ -692,37 +687,17 @@ def get_live_matches_with_predictions(best_models, features, team_categories, hi
 
    
 
-    predictions_dict = {}
-    for idx, row in df_live.iterrows():
-        fixture_id = str(row["FixtureID"])  # JSON'da anahtarlar genelde string olur
-        if fixture_id in prediction_cache:
-            predictions_dict[fixture_id] = prediction_cache[fixture_id]
-            
-
-        else:
-            prediction_row = predict_from_merged_df(pd.DataFrame([row]), best_models, features)
-            prediction_data = prediction_row.set_index("FixtureID").to_dict(orient="index")[row["FixtureID"]]
-            predictions_dict[fixture_id] = prediction_data
-            prediction_cache[fixture_id] = prediction_data
-            
-
-
-        predicted_df = predict_from_merged_df(df_live, best_models, features)
-        predictions_dict = predicted_df.set_index("FixtureID").to_dict(orient="index")
+    predicted_df = predict_from_merged_df(df_live, best_models, features)
+    predictions_dict = predicted_df.set_index("FixtureID").to_dict(orient="index")
 
     # 🎯 3. Çıkış formatla
     output = []
     for row in live_matches:
         fixture_id = row["FixtureID"]
-        if isinstance(prediction, list) and len(prediction) > 0:
-            prediction = prediction[0]  # İlk öğeyi a
-        elif not isinstance(prediction, dict):
-            prediction = None
+        prediction = predictions_dict.get(fixture_id)
 
-
-        # HATA KONTROLÜ EKLE
         if isinstance(prediction, list) and len(prediction) > 0:
-            prediction = prediction[0]
+            prediction = prediction[0]  # İlk öğeyi al
         elif not isinstance(prediction, dict):
             prediction = None
 

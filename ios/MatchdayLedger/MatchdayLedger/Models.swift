@@ -1,0 +1,136 @@
+import Foundation
+
+/// Matches GET /scheduled-predictions
+struct ScheduledPrediction: Codable, Identifiable {
+    let fixtureId: Int
+    let homeTeam: String
+    let awayTeam: String
+    let league: String
+    let date: String
+    let predictedLabel: String?
+    let homeWinPct: Double?
+    let drawPct: Double?
+    let awayWinPct: Double?
+
+    var id: Int { fixtureId }
+
+    enum CodingKeys: String, CodingKey {
+        case fixtureId = "fixture_id"
+        case homeTeam = "home_team"
+        case awayTeam = "away_team"
+        case league, date
+        case predictedLabel = "predicted_label"
+        case homeWinPct = "home_win_pct"
+        case drawPct = "draw_pct"
+        case awayWinPct = "away_win_pct"
+    }
+}
+
+/// Matches GET /live-matches-with-predictions
+struct LiveMatch: Codable, Identifiable {
+    let fixtureId: Int
+    let homeTeam: String
+    let awayTeam: String
+    let league: String
+    let score: String
+    let elapsed: Int?
+    let status: String
+    let predictedLabel: String?
+    let homeWinPct: Double?
+    let drawPct: Double?
+    let awayWinPct: Double?
+
+    var id: Int { fixtureId }
+
+    enum CodingKeys: String, CodingKey {
+        case fixtureId = "fixture_id"
+        case homeTeam = "home_team"
+        case awayTeam = "away_team"
+        case league, score, elapsed, status
+        case predictedLabel = "predicted_label"
+        case homeWinPct = "home_win_pct"
+        case drawPct = "draw_pct"
+        case awayWinPct = "away_win_pct"
+    }
+}
+
+/// Matches GET /events/<fixture_id>
+struct MatchEvent: Codable, Identifiable {
+    let minute: Int?
+    let team: String?
+    let player: String?
+    let assist: String?
+    let type: String
+    let detail: String
+
+    var id: String { "\(minute ?? -1)-\(player ?? "")-\(type)-\(detail)" }
+}
+
+/// Matches GET /standings/<league_code>
+struct StandingRow: Codable, Identifiable {
+    let position: Int
+    let team: String
+    let playedGames: Int
+    let won: Int
+    let draw: Int
+    let lost: Int
+    let points: Int
+    let goalDifference: Int
+
+    var id: String { team }
+}
+
+/// Matches GET /prediction/<fixture_id>
+struct MatchPredictionDetail: Codable {
+    let winner: String?
+    let comment: String?
+    let advice: String?
+    let homePct: String?
+    let drawPct: String?
+    let awayPct: String?
+    let lastFiveHome: LastFive?
+    let lastFiveAway: LastFive?
+
+    enum CodingKeys: String, CodingKey {
+        case winner, comment, advice
+        case homePct = "home_pct"
+        case drawPct = "draw_pct"
+        case awayPct = "away_pct"
+        case lastFiveHome = "last_5_home"
+        case lastFiveAway = "last_5_away"
+    }
+
+    /// api-sports.io returns these as strings like "45%" — parsed for the bar widths.
+    static func parsePercent(_ raw: String?) -> Double {
+        guard let raw else { return 0 }
+        let digits = raw.filter { $0.isNumber || $0 == "." }
+        return Double(digits) ?? 0
+    }
+}
+
+struct LastFive: Codable {
+    let form: String?
+}
+
+/// The 6 leagues the backend's models are trained on (fixture.py's league_ids).
+enum League: String, CaseIterable, Identifiable {
+    case bundesliga = "D1"
+    case premierLeague = "E0"
+    case laLiga = "SP1"
+    case serieA = "I1"
+    case ligue1 = "F1"
+    case superLig = "T1"
+
+    var id: String { rawValue }
+
+    var displayName: String {
+        switch self {
+        case .bundesliga: return "Bundesliga"
+        case .premierLeague: return "Premier League"
+        case .laLiga: return "La Liga"
+        case .serieA: return "Serie A"
+        case .ligue1: return "Ligue 1"
+        case .superLig: return "Süper Lig"
+        }
+    }
+}

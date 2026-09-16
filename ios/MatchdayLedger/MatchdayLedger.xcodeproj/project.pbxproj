@@ -1,0 +1,312 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9F282E1ED06EF79FF5F9A3D0 /* MatchdayLedgerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1482AA39894EEA26C169878 /* MatchdayLedgerApp.swift */; };
+		4D9ED6C8CE49E74BED5B4560 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FF219C9D45BBC972AC3B9B /* Theme.swift */; };
+		6E6B2139A35123B6AA587244 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CC7E4F2DD3F8A5341AAF41 /* Models.swift */; };
+		355E4BFA96FB0293CF286495 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5330A8D54E56EA4E688BDC49 /* APIClient.swift */; };
+		B7446B998CB21DE82A1BD5B3 /* CrestBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0993C4880767E12349687A /* CrestBadge.swift */; };
+		4EDEE7D37E89D866CF051C51 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD697CA4F60FE64C09E03E7 /* RootTabView.swift */; };
+		09A63D4D88C844695776D18D /* FixturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B699F339B285709D6C6870 /* FixturesView.swift */; };
+		D0EC18CF9407F4FC83FF133D /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452810F6B932F73533820F9F /* LiveView.swift */; };
+		A7EFD263FD9A6DAF900367F8 /* MatchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8CF7E5BAEB3A065B5A582 /* MatchDetailView.swift */; };
+		5661484D06AE08E909FCC531 /* LeagueFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF266317653D4F971894177 /* LeagueFilterView.swift */; };
+		D0C3DEF21DB5589F630F831C /* CheckOutWhyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F6DF3C3C218FEE58A5BE3 /* CheckOutWhyView.swift */; };
+		8C2843DE783919061932155A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4A66D0DF4CB7A25FBA5E14F /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E1482AA39894EEA26C169878 /* MatchdayLedgerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchdayLedgerApp.swift; sourceTree = "<group>"; };
+		28FF219C9D45BBC972AC3B9B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		55CC7E4F2DD3F8A5341AAF41 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		5330A8D54E56EA4E688BDC49 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		2F0993C4880767E12349687A /* CrestBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrestBadge.swift; sourceTree = "<group>"; };
+		BDD697CA4F60FE64C09E03E7 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		83B699F339B285709D6C6870 /* FixturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesView.swift; sourceTree = "<group>"; };
+		452810F6B932F73533820F9F /* LiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
+		DDC8CF7E5BAEB3A065B5A582 /* MatchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailView.swift; sourceTree = "<group>"; };
+		5DF266317653D4F971894177 /* LeagueFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueFilterView.swift; sourceTree = "<group>"; };
+		2C0F6DF3C3C218FEE58A5BE3 /* CheckOutWhyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutWhyView.swift; sourceTree = "<group>"; };
+		709E0E56A6B1CB1EAAF2D84B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4A66D0DF4CB7A25FBA5E14F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D0AE6970C68F1E4370B2B6C5 /* MatchdayLedger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchdayLedger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ED5516E297187078A999B29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A0E51A9C3FA973A982A4D06B = {
+			isa = PBXGroup;
+			children = (
+				612A950C4414E4336D1CEB05 /* MatchdayLedger */,
+				AFD97A409D6EE80DF26DCB38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AFD97A409D6EE80DF26DCB38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0AE6970C68F1E4370B2B6C5 /* MatchdayLedger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		612A950C4414E4336D1CEB05 /* MatchdayLedger */ = {
+			isa = PBXGroup;
+			children = (
+				E1482AA39894EEA26C169878 /* MatchdayLedgerApp.swift */,
+				28FF219C9D45BBC972AC3B9B /* Theme.swift */,
+				55CC7E4F2DD3F8A5341AAF41 /* Models.swift */,
+				5330A8D54E56EA4E688BDC49 /* APIClient.swift */,
+				2F0993C4880767E12349687A /* CrestBadge.swift */,
+				95F313BB81A0416B584D6280 /* Views */,
+				709E0E56A6B1CB1EAAF2D84B /* Info.plist */,
+				E4A66D0DF4CB7A25FBA5E14F /* Assets.xcassets */,
+			);
+			path = MatchdayLedger;
+			sourceTree = "<group>";
+		};
+		95F313BB81A0416B584D6280 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDD697CA4F60FE64C09E03E7 /* RootTabView.swift */,
+				83B699F339B285709D6C6870 /* FixturesView.swift */,
+				452810F6B932F73533820F9F /* LiveView.swift */,
+				DDC8CF7E5BAEB3A065B5A582 /* MatchDetailView.swift */,
+				5DF266317653D4F971894177 /* LeagueFilterView.swift */,
+				2C0F6DF3C3C218FEE58A5BE3 /* CheckOutWhyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		21C212911103AA739367BED2 /* MatchdayLedger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 895C50A9BFC3909365D70CA2 /* Build configuration list for PBXNativeTarget "MatchdayLedger" */;
+			buildPhases = (
+				178B86BD5411605134236A93 /* Sources */,
+				2ED5516E297187078A999B29 /* Frameworks */,
+				530C46CAF05D3BD5C589B7B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatchdayLedger;
+			productName = MatchdayLedger;
+			productReference = D0AE6970C68F1E4370B2B6C5 /* MatchdayLedger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52543ED5622B1545C78E19A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					21C212911103AA739367BED2 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 021515E2F810BB65779A0824 /* Build configuration list for PBXProject "MatchdayLedger" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A0E51A9C3FA973A982A4D06B;
+			productRefGroup = AFD97A409D6EE80DF26DCB38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21C212911103AA739367BED2 /* MatchdayLedger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		530C46CAF05D3BD5C589B7B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C2843DE783919061932155A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		178B86BD5411605134236A93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F282E1ED06EF79FF5F9A3D0 /* MatchdayLedgerApp.swift in Sources */,
+				4D9ED6C8CE49E74BED5B4560 /* Theme.swift in Sources */,
+				6E6B2139A35123B6AA587244 /* Models.swift in Sources */,
+				355E4BFA96FB0293CF286495 /* APIClient.swift in Sources */,
+				B7446B998CB21DE82A1BD5B3 /* CrestBadge.swift in Sources */,
+				4EDEE7D37E89D866CF051C51 /* RootTabView.swift in Sources */,
+				09A63D4D88C844695776D18D /* FixturesView.swift in Sources */,
+				D0EC18CF9407F4FC83FF133D /* LiveView.swift in Sources */,
+				A7EFD263FD9A6DAF900367F8 /* MatchDetailView.swift in Sources */,
+				5661484D06AE08E909FCC531 /* LeagueFilterView.swift in Sources */,
+				D0C3DEF21DB5589F630F831C /* CheckOutWhyView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		154036272BA70158EE66B3D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7F8DF77040D3CE2C1DAE4DC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B7738E4294C6A949CAE68FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = MatchdayLedger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchdayledger.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D62D2A3ADAFF198EC77CD6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = MatchdayLedger/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matchdayledger.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		021515E2F810BB65779A0824 /* Build configuration list for PBXProject "MatchdayLedger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				154036272BA70158EE66B3D9 /* Debug */,
+				7F8DF77040D3CE2C1DAE4DC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		895C50A9BFC3909365D70CA2 /* Build configuration list for PBXNativeTarget "MatchdayLedger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B7738E4294C6A949CAE68FC /* Debug */,
+				7D62D2A3ADAFF198EC77CD6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52543ED5622B1545C78E19A6 /* Project object */;
+}
