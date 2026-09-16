@@ -3,8 +3,10 @@ import Foundation
 enum APIConfig {
     /// Simulator can reach the Flask dev server at localhost. A physical device
     /// cannot resolve "localhost" to your Mac — replace this with your Mac's LAN
-    /// IP (e.g. "http://192.168.1.23:5000") when running on a real iPhone.
-    nonisolated(unsafe) static var baseURL = URL(string: "http://localhost:5000")!
+    /// IP (e.g. "http://192.168.1.23:5001") when running on a real iPhone.
+    /// Port 5001 because 5000 is taken by macOS's AirPlay Receiver — run the
+    /// backend with `PORT=5001 python app.py` to match.
+    nonisolated(unsafe) static var baseURL = URL(string: "http://localhost:5001")!
 }
 
 enum APIError: Error, LocalizedError {
