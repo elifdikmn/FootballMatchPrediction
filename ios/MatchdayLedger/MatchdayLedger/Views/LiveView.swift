@@ -30,31 +30,18 @@ struct LiveView: View {
         } else {
             ScrollView {
                 LazyVStack(spacing: 14) {
-                    ForEach(matches) { match in
-                        NavigationLink {
-                            MatchDetailView(
-                                fixtureId: match.fixtureId,
-                                homeTeam: match.homeTeam,
-                                awayTeam: match.awayTeam,
-                                league: match.league,
-                                scoreText: match.score,
-                                statusText: "LIVE"
-                            )
-                        } label: {
+                    ForEach(Array(Set(matches.map(\.league))).sorted(), id: \.self) { league in
+                        LeagueSectionHeader(league: league)
+                        ForEach(matches.filter { $0.league == league }) { match in
                             PredictionCard(
                                 leagueLabel: League(rawValue: match.league)?.displayName ?? match.league,
-                                trailingLabel: match.score,
-                                homeTeam: match.homeTeam,
-                                awayTeam: match.awayTeam,
-                                homePct: match.homeWinPct,
-                                drawPct: match.drawPct,
-                                awayPct: match.awayWinPct,
+                                trailingLabel: match.score, homeTeam: match.homeTeam, awayTeam: match.awayTeam,
+                                homePct: match.homeWinPct, drawPct: match.drawPct, awayPct: match.awayWinPct,
                                 trailingBadge: AnyView(LiveMinuteBadge(elapsed: match.elapsed)),
-                                scoreText: match.score,
-                                statusText: "LIVE"
+                                scoreText: match.score, statusText: "LIVE",
+                                fixtureId: match.fixtureId, leagueCode: match.league
                             )
                         }
-                        .buttonStyle(.plain)
                     }
                 }
                 .padding(16)

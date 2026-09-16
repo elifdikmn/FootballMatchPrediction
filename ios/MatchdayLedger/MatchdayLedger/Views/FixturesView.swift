@@ -47,26 +47,25 @@ struct FixturesView: View {
         NavigationStack {
             ZStack {
                 Theme.bg.ignoresSafeArea()
-                VStack(spacing: 0) {
-                    dateStrip
-                    content
+                ScrollView {
+                    LazyVStack(spacing: 20) {
+                        dateStrip
+                        leagueSelector
+                        content
+                    }.padding(.bottom, 24)
                 }
             }
-            .navigationTitle("Fixtures")
+            .navigationTitle("Matchday")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbarBackground(Theme.card, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        showingFilter = true
+                        showingFilter.toggle()
                     } label: {
                         Image(systemName: "line.3.horizontal.decrease.circle")
                     }
-                }
-            }
-            .sheet(isPresented: $showingFilter) {
-                LeagueFilterView(selected: selectedLeagues) { newSelection in
-                    selectedLeagues = newSelection
                 }
             }
             .task(id: selectedDate) { await load() }
@@ -81,7 +80,7 @@ struct FixturesView: View {
     private var dateStrip: some View {
         VStack(spacing: 14) {
             HStack {
-                Text("MATCHDAY").font(.caption.weight(.bold)).tracking(2).foregroundStyle(Theme.warm)
+                Text("MATCHDAY").font(.headline.weight(.bold)).tracking(2).foregroundStyle(Theme.warm)
                 Spacer()
                 Button("Today") { selectedDay = Date() }
                     .font(.subheadline.weight(.semibold)).tint(Theme.warm)
@@ -91,25 +90,37 @@ struct FixturesView: View {
                 Button { showingCalendar.toggle() } label: {
                     VStack(spacing: 4) {
                         Text(selectedDay, format: .dateTime.weekday(.wide))
-                            .font(.caption).foregroundStyle(Theme.inkMuted)
+                            .font(.caption).foregroundStyle(.white)
                         HStack(spacing: 8) {
                             Text(selectedDay, format: .dateTime.day().month(.wide).year())
                             Image(systemName: "chevron.down").font(.caption)
                         }
-                        .font(.headline).foregroundStyle(Theme.ink)
-                    }.frame(maxWidth: .infinity)
+                        .font(.headline).foregroundStyle(.white)
+                    }.frame(maxWidth: .infinity).padding(.vertical, 10)
+                        .background(Theme.draw, in: RoundedRectangle(cornerRadius: 14))
                 }
                 .accessibilityLabel("Choose match date")
                 dayArrow(1, icon: "chevron.right", label: "Next day")
+            }
+            HStack(spacing: 4) {
+                ForEach(-3...3, id: \.self) { offset in
+                    let day = Calendar.current.date(byAdding: .day, value: offset, to: selectedDay) ?? selectedDay
+                    Button { selectedDay = day } label: {
+                        VStack(spacing: 5) {
+                            Text(day, format: .dateTime.day()).font(.title3.weight(.semibold))
+                            Text(day, format: .dateTime.month(.abbreviated)).font(.caption).lineLimit(1).minimumScaleFactor(0.8)
+                        }
+                        .frame(maxWidth: .infinity).padding(.vertical, 10)
+                        .foregroundStyle(offset == 0 ? Theme.warm : Theme.inkMuted)
+                        .background(offset == 0 ? Theme.warm.opacity(0.14) : .clear, in: RoundedRectangle(cornerRadius: 12))
+                    }.accessibilityLabel(day.formatted(date: .complete, time: .omitted))
+                }
             }
             if showingCalendar {
                 DatePicker("Match date", selection: $selectedDay, displayedComponents: .date)
                     .datePickerStyle(.graphical).tint(Theme.warm)
             }
         }
-        .padding(20)
-        .background(Theme.card)
-        .clipShape(RoundedRectangle(cornerRadius: 22))
         .padding(.horizontal, 16).padding(.top, 8)
     }
 
@@ -121,9 +132,42 @@ struct FixturesView: View {
         } label: {
             Image(systemName: icon).font(.system(size: 15, weight: .bold))
                 .frame(width: 44, height: 44)
-                .background(Theme.line, in: RoundedRectangle(cornerRadius: 14))
+                .background(Theme.draw, in: RoundedRectangle(cornerRadius: 14))
         }
         .tint(Theme.ink).accessibilityLabel(label)
+    }
+
+    private var leagueSelector: some View {
+        VStack(spacing: 0) {
+            Button { withAnimation { showingFilter.toggle() } } label: {
+                HStack {
+                    Text(selectedLeagues.isEmpty ? "Select Leagues" : "Leagues · \(selectedLeagues.count) selected")
+                        .font(.title3.weight(.semibold))
+                    Spacer()
+                    Image(systemName: showingFilter ? "chevron.up" : "chevron.down")
+                }.foregroundStyle(.white).padding(18)
+                    .background(Theme.draw, in: RoundedRectangle(cornerRadius: 14))
+            }
+            if showingFilter {
+                VStack(spacing: 4) {
+                    Button("All leagues") { selectedLeagues = [] }.tint(Theme.warm).padding(10)
+                    ForEach(League.allCases) { league in
+                        Button {
+                            if selectedLeagues.contains(league) { selectedLeagues.remove(league) }
+                            else { selectedLeagues.insert(league) }
+                        } label: {
+                            HStack(spacing: 12) {
+                                LeagueBadge(name: league.rawValue, size: 30)
+                                Text(league.displayName).font(.body)
+                                Spacer()
+                                Image(systemName: selectedLeagues.contains(league) ? "checkmark.square.fill" : "square")
+                                    .foregroundStyle(selectedLeagues.contains(league) ? Theme.warm : Theme.inkMuted)
+                            }.foregroundStyle(Theme.ink).padding(12)
+                        }
+                    }
+                }.padding(8).background(Theme.card, in: RoundedRectangle(cornerRadius: 16))
+            }
+        }.padding(.horizontal, 16)
     }
 
     @ViewBuilder
@@ -159,36 +203,22 @@ struct FixturesView: View {
             .padding(24)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
-            ScrollView {
-                LazyVStack(spacing: 14) {
-                    ForEach(visibleFixtures) { fx in
-                        NavigationLink {
-                            MatchDetailView(
-                                fixtureId: fx.fixtureId,
-                                homeTeam: fx.homeTeam,
-                                awayTeam: fx.awayTeam,
-                                league: fx.league,
-                                scoreText: fx.scoreText,
-                                statusText: fx.statusText
-                            )
-                        } label: {
+            LazyVStack(spacing: 24) {
+                ForEach(League.allCases.filter { league in visibleFixtures.contains { $0.league == league.rawValue } }) { league in
+                    VStack(spacing: 14) {
+                        LeagueSectionHeader(league: league.rawValue)
+                        ForEach(visibleFixtures.filter { $0.league == league.rawValue }) { fx in
                             PredictionCard(
-                                leagueLabel: League(rawValue: fx.league)?.displayName ?? fx.league,
-                                trailingLabel: fx.date,
-                                homeTeam: fx.homeTeam,
-                                awayTeam: fx.awayTeam,
-                                homePct: fx.homeWinPct,
-                                drawPct: fx.drawPct,
-                                awayPct: fx.awayWinPct,
-                                scoreText: fx.scoreText,
-                                statusText: fx.statusText
+                                leagueLabel: league.displayName, trailingLabel: fx.date,
+                                homeTeam: fx.homeTeam, awayTeam: fx.awayTeam,
+                                homePct: fx.homeWinPct, drawPct: fx.drawPct, awayPct: fx.awayWinPct,
+                                scoreText: fx.scoreText, statusText: fx.statusText,
+                                fixtureId: fx.fixtureId, leagueCode: fx.league
                             )
                         }
-                        .buttonStyle(.plain)
                     }
                 }
-                .padding(16)
-            }
+            }.padding(.horizontal, 16)
         }
     }
 
@@ -217,7 +247,19 @@ struct FixturesView: View {
     }
 }
 
-/// Shared match card used by the Fixtures and Live tabs.
+struct LeagueSectionHeader: View {
+    let league: String
+    var body: some View {
+        HStack(spacing: 12) {
+            LeagueBadge(name: league, size: 38)
+            Text(League(rawValue: league)?.displayName ?? league)
+                .font(.title2.weight(.bold)).foregroundStyle(Theme.ink)
+            Spacer(minLength: 0)
+        }.padding(.vertical, 4)
+    }
+}
+
+/// Separate navigation controls keep the two destinations accessible.
 struct PredictionCard: View {
     let leagueLabel: String
     let trailingLabel: String
@@ -229,67 +271,61 @@ struct PredictionCard: View {
     var trailingBadge: AnyView? = nil
     var scoreText: String? = nil
     var statusText: String? = nil
+    let fixtureId: Int
+    let leagueCode: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(spacing: 20) {
             HStack {
-                LeagueBadge(name: leagueLabel)
-                Text(leagueLabel.uppercased())
-                    .font(.system(size: 10.5, weight: .semibold))
-                    .tracking(1)
-                    .foregroundStyle(Theme.inkMuted)
+                if let trailingBadge { trailingBadge }
+                else { Text(statusText ?? trailingLabel).font(.caption.weight(.bold)).foregroundStyle(Theme.inkMuted) }
                 Spacer()
-                if let trailingBadge {
-                    trailingBadge
-                } else {
-                    Text(trailingLabel)
-                        .font(.system(size: 12))
-                        .foregroundStyle(Theme.inkFaint)
+                NavigationLink {
+                    MatchDetailView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
+                                    league: leagueCode, scoreText: scoreText, statusText: statusText ?? "MATCH")
+                } label: {
+                    Text("Detail").font(.subheadline.weight(.bold)).foregroundStyle(.white)
+                        .padding(.horizontal, 16).padding(.vertical, 11)
+                        .background(Theme.draw, in: RoundedRectangle(cornerRadius: 12))
                 }
             }
-
-            HStack(alignment: .top, spacing: 12) {
-                teamColumn(homeTeam)
-                VStack(spacing: 7) {
-                    Text(scoreText ?? (statusText == "FULL TIME" ? "—" : "VS"))
-                        .font(.system(size: scoreText == nil ? 18 : 28, weight: .heavy, design: .rounded))
-                        .monospacedDigit().foregroundStyle(Theme.ink)
-                        .fixedSize()
-                    if let statusText {
-                        Text(statusText).font(.system(size: 9, weight: .bold))
-                            .foregroundStyle(statusText == "FULL TIME" ? Theme.success : Theme.warm)
-                        if statusText == "FULL TIME" && scoreText == nil {
-                            Text("Score unavailable").font(.caption2).foregroundStyle(Theme.inkMuted)
-                        }
+            HStack(alignment: .top, spacing: 8) {
+                teamColumn(homeTeam, role: "Home")
+                VStack(spacing: 6) {
+                    Text(scoreText ?? "VS")
+                        .font(.system(.title, design: .rounded).weight(.heavy))
+                        .monospacedDigit().foregroundStyle(scoreText == nil ? Theme.inkMuted : Theme.success)
+                        .fixedSize(horizontal: true, vertical: false)
+                    if statusText == "FULL TIME", scoreText == nil {
+                        Text("Score unavailable").font(.caption).foregroundStyle(Theme.inkMuted)
                     }
-                }
-                .padding(.top, 10)
-                teamColumn(awayTeam)
+                }.padding(.top, 26)
+                teamColumn(awayTeam, role: "Away")
             }
-
             if homePct != nil || drawPct != nil || awayPct != nil {
-                Divider().background(Theme.line)
-                Text("PREDICTION").font(.system(size: 10, weight: .bold))
-                    .tracking(1).foregroundStyle(Theme.warm)
                 OutcomeBar(homePct: homePct ?? 0, drawPct: drawPct ?? 0, awayPct: awayPct ?? 0)
             }
+            NavigationLink {
+                CheckOutWhyView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
+                                scoreText: scoreText, league: leagueCode, statusText: statusText ?? "MATCH")
+            } label: {
+                Text("Check Out Why").font(.title3.weight(.semibold)).foregroundStyle(.white)
+                    .frame(maxWidth: .infinity).padding(.vertical, 15)
+                    .background(Theme.warm, in: RoundedRectangle(cornerRadius: 14))
+            }
         }
-        .padding(20)
-        .background(Theme.card)
-        .clipShape(RoundedRectangle(cornerRadius: 22))
-        .overlay(RoundedRectangle(cornerRadius: 22).stroke(Theme.line, lineWidth: 1))
+        .buttonStyle(.plain)
+        .padding(18)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 26))
     }
 
-    private func teamColumn(_ name: String) -> some View {
-        VStack(spacing: 8) {
-            CrestBadge(teamName: name, size: 56, league: League.allCases.first { $0.displayName == leagueLabel }?.rawValue)
-            Text(name)
-                .font(.system(size: 12.5, weight: .semibold))
-                .foregroundStyle(Theme.ink)
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-        }
-        .frame(maxWidth: .infinity)
+    private func teamColumn(_ name: String, role: String) -> some View {
+        VStack(spacing: 9) {
+            Text(role).font(.subheadline).foregroundStyle(Theme.inkMuted)
+            CrestBadge(teamName: name, size: 58, league: leagueCode)
+            Text(name).font(.body.weight(.medium)).foregroundStyle(Theme.ink)
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+        }.frame(maxWidth: .infinity)
     }
 }
 
@@ -297,43 +333,34 @@ struct OutcomeBar: View {
     let homePct: Double
     let drawPct: Double
     let awayPct: Double
+    private var total: Double { max(max(0, homePct) + max(0, drawPct) + max(0, awayPct), 1) }
 
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 14) {
+            HStack(alignment: .top, spacing: 8) {
+                outcome("Home", homePct, Theme.warm)
+                outcome("Draw", drawPct, Theme.draw)
+                outcome("Away", awayPct, Theme.cool)
+            }
             GeometryReader { geometry in
-                let total = max(homePct + drawPct + awayPct, 1)
                 HStack(spacing: 0) {
                     Theme.warm.frame(width: geometry.size.width * max(0, homePct) / total)
                     Theme.draw.frame(width: geometry.size.width * max(0, drawPct) / total)
                     Theme.cool.frame(width: geometry.size.width * max(0, awayPct) / total)
                 }
-            }
-            .frame(height: 8).clipShape(Capsule())
-            HStack(alignment: .top, spacing: 4) {
-                outcome("Home", homePct, .leading, Theme.warm)
-                outcome("Draw", drawPct, .center, Theme.draw)
-                outcome("Away", awayPct, .trailing, Theme.cool)
-            }
+            }.frame(height: 20).clipShape(Capsule())
         }
     }
 
-    private func outcome(_ label: String, _ pct: Double, _ alignment: HorizontalAlignment, _ color: Color) -> some View {
-        let isWinner = pct >= max(homePct, max(drawPct, awayPct))
-        return VStack(alignment: alignment, spacing: 7) {
-            VStack(alignment: alignment, spacing: 1) {
-                Text("\(Int(pct.rounded()))%")
-                    .font(.system(size: isWinner ? 16 : 13, weight: isWinner ? .bold : .semibold))
-                    .foregroundStyle(color)
-                Text(label.uppercased())
-                    .font(.system(size: 9.5, weight: .semibold))
-                    .tracking(0.5)
-                    .foregroundStyle(color)
+    private func outcome(_ label: String, _ pct: Double, _ color: Color) -> some View {
+        VStack(spacing: 6) {
+            HStack(spacing: 5) {
+                Circle().fill(color).frame(width: 9, height: 9)
+                Text(label).font(.subheadline).foregroundStyle(Theme.inkMuted)
             }
-        }
-        .padding(10)
-        .frame(maxWidth: .infinity, alignment: Alignment(horizontal: alignment, vertical: .center))
-        .background(color.opacity(0.12), in: RoundedRectangle(cornerRadius: 12))
-        .overlay(RoundedRectangle(cornerRadius: 12).stroke(color.opacity(isWinner ? 0.7 : 0.25), lineWidth: 1))
+            Text(pct / 100, format: .percent.precision(.fractionLength(1)))
+                .font(.headline).monospacedDigit().foregroundStyle(Theme.ink)
+        }.frame(maxWidth: .infinity)
     }
 }
 

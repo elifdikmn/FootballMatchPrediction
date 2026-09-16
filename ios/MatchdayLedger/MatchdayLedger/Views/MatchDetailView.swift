@@ -21,15 +21,15 @@ struct MatchDetailView: View {
     var body: some View {
         ZStack {
             Theme.bg.ignoresSafeArea()
-            VStack(spacing: 0) {
-                header
-                tabBar
-                ScrollView {
+            ScrollView {
+                VStack(spacing: 20) {
+                    header
+                    tabBar
                     switch tab {
                     case .events: eventsList
                     case .standings: standingsTable
                     }
-                }
+                }.padding(.bottom, 24)
             }
         }
         .navigationTitle("Match Detail")
@@ -53,18 +53,18 @@ struct MatchDetailView: View {
             Text(statusText).font(.caption.weight(.bold)).foregroundStyle(statusText == "FULL TIME" ? Theme.success : Theme.warm)
 
             HStack(spacing: 12) {
-                teamColumn(homeTeam)
+                teamColumn(homeTeam, role: "Home")
                 if let scoreText {
                     Text(scoreText)
-                        .font(.system(size: 30, weight: .bold))
-                        .foregroundStyle(Theme.ink)
+                        .font(.system(.largeTitle, design: .rounded).weight(.heavy))
+                        .monospacedDigit().foregroundStyle(Theme.success)
                 } else {
                     Text(statusText == "FULL TIME" ? "Score unavailable" : "vs")
                         .italic()
                         .font(.system(size: 15, design: .serif))
                         .foregroundStyle(Theme.inkFaint)
                 }
-                teamColumn(awayTeam)
+                teamColumn(awayTeam, role: "Away")
             }
 
             NavigationLink {
@@ -77,9 +77,9 @@ struct MatchDetailView: View {
                     statusText: statusText
                 )
             } label: {
-                Label("Explore prediction", systemImage: "chart.bar.xaxis")
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundStyle(Theme.bg)
+                Text("Check Out Why")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 13)
                     .background(RoundedRectangle(cornerRadius: 12).fill(Theme.warm))
@@ -87,43 +87,43 @@ struct MatchDetailView: View {
         }
         .padding(18)
         .background(Theme.card)
-        .clipShape(RoundedRectangle(cornerRadius: 18))
-        .overlay(RoundedRectangle(cornerRadius: 18).stroke(Theme.line, lineWidth: 1))
+        .clipShape(RoundedRectangle(cornerRadius: 26))
+        .overlay(RoundedRectangle(cornerRadius: 26).stroke(Theme.line, lineWidth: 1))
         .padding(.horizontal, 16)
         .padding(.top, 16)
     }
 
-    private func teamColumn(_ name: String) -> some View {
-        VStack(spacing: 8) {
+    private func teamColumn(_ name: String, role: String) -> some View {
+        VStack(spacing: 9) {
+            Text(role).font(.subheadline).foregroundStyle(Theme.inkMuted)
             CrestBadge(teamName: name, size: 56, league: league)
             Text(name)
-                .font(.system(size: 13, weight: .semibold))
+                .font(.body.weight(.medium))
                 .foregroundStyle(Theme.ink)
                 .multilineTextAlignment(.center)
-                .lineLimit(2)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity)
     }
 
     private var tabBar: some View {
-        HStack {
+        HStack(spacing: 4) {
             tabButton("Events", .events)
-            Spacer()
             tabButton("Standings", .standings)
         }
-        .padding(.horizontal, 22)
-        .padding(.top, 22)
-        .overlay(Rectangle().fill(Theme.line).frame(height: 1), alignment: .bottom)
+        .padding(4)
+        .background(Color(hex: "202024"), in: RoundedRectangle(cornerRadius: 13))
+        .padding(.horizontal, 16)
     }
 
     private func tabButton(_ title: String, _ value: Tab) -> some View {
         Button { tab = value } label: {
-            Text(title)
-                .font(.system(size: 14, weight: tab == value ? .bold : .medium))
-                .foregroundStyle(tab == value ? Theme.ink : Theme.inkFaint)
-                .padding(.bottom, 12)
-                .overlay(Rectangle().fill(tab == value ? Theme.ink : .clear).frame(height: 2), alignment: .bottom)
-        }
+            Text(title).font(.headline).foregroundStyle(Theme.ink)
+                .frame(maxWidth: .infinity).padding(.vertical, 12)
+                .background(tab == value ? Color(hex: "55555E") : .clear,
+                            in: RoundedRectangle(cornerRadius: 10))
+        }.buttonStyle(.plain)
+        .accessibilityAddTraits(tab == value ? .isSelected : [])
     }
 
     // MARK: - Events
@@ -156,7 +156,7 @@ struct MatchDetailView: View {
 
     private func sectionHeader(_ text: String) -> some View {
         Text(text.uppercased())
-            .font(.system(size: 11, weight: .bold))
+            .font(.title3.weight(.bold))
             .tracking(1)
             .foregroundStyle(Theme.ink)
             .padding(.top, 18)
@@ -178,27 +178,27 @@ struct MatchDetailView: View {
         let icon: AnyView = {
             switch event.type.lowercased() {
             case "card":
-                let color = event.detail.lowercased().contains("red") ? Color(hex: "E23D3D") : Color(hex: "E8C15A")
-                return AnyView(RoundedRectangle(cornerRadius: 3).fill(color).frame(width: 12, height: 16))
+                let color = event.detail.lowercased().contains("red") ? Theme.warm : Theme.cool
+                return AnyView(RoundedRectangle(cornerRadius: 3).fill(color).frame(width: 16, height: 21))
             case "subst", "substitution":
-                return AnyView(Image(systemName: "arrow.left.arrow.right").font(.system(size: 12)).foregroundStyle(Theme.inkMuted))
+                return AnyView(Image(systemName: "arrow.left.arrow.right").font(.title3).foregroundStyle(Theme.draw))
             default:
-                return AnyView(Text("⚽").font(.system(size: 14)))
+                return AnyView(Image(systemName: event.type.lowercased() == "goal" ? "soccerball" : "info.circle").font(.title3).foregroundStyle(Theme.success))
             }
         }()
 
-        let text = VStack(alignment: home ? .trailing : .leading, spacing: 1) {
+        let text = VStack(alignment: home ? .leading : .trailing, spacing: 1) {
             Text(event.player ?? event.detail)
-                .font(.system(size: 13.5, weight: .semibold))
+                .font(.body.weight(.semibold))
                 .foregroundStyle(Theme.ink)
             Text(subtitle(for: event))
-                .font(.system(size: 11.5))
+                .font(.subheadline)
                 .foregroundStyle(Theme.inkFaint)
         }
 
         return HStack(spacing: 10) {
             if home {
-                Text(minuteText).font(.system(size: 12.5, weight: .bold)).foregroundStyle(Theme.inkMuted).frame(minWidth: 26, alignment: .leading)
+                Text(minuteText).font(.subheadline.weight(.bold)).foregroundStyle(Theme.inkMuted).frame(minWidth: 26, alignment: .leading)
                 icon
                 text
                 Spacer(minLength: 0)
@@ -206,10 +206,10 @@ struct MatchDetailView: View {
                 Spacer(minLength: 0)
                 text
                 icon
-                Text(minuteText).font(.system(size: 12.5, weight: .bold)).foregroundStyle(Theme.inkMuted).frame(minWidth: 26, alignment: .trailing)
+                Text(minuteText).font(.subheadline.weight(.bold)).foregroundStyle(Theme.inkMuted).frame(minWidth: 26, alignment: .trailing)
             }
         }
-        .padding(.vertical, 10)
+        .padding(.vertical, 14)
         .overlay(Rectangle().fill(Theme.line).frame(height: 1), alignment: .bottom)
     }
 
@@ -242,30 +242,33 @@ struct MatchDetailView: View {
         } else if standings.isEmpty {
             EmptyStateView(text: "No standings available.").frame(height: 200)
         } else {
-            VStack(spacing: 2) {
-                standingsHeaderRow
-                ForEach(standings) { row in
-                    standingsRow(row)
+            ScrollView(.horizontal) {
+                VStack(spacing: 4) {
+                    standingsHeaderRow
+                    ForEach(standings) { row in standingsRow(row) }
                 }
+                .frame(minWidth: 540)
+                .padding(12)
+                .background(Color(hex: "13223E"), in: RoundedRectangle(cornerRadius: 18))
             }
-            .padding(.horizontal, 18)
-            .padding(.vertical, 20)
+            .padding(.horizontal, 16)
         }
     }
 
     private var standingsHeaderRow: some View {
         HStack(spacing: 2) {
             Text("#").frame(width: 20, alignment: .leading)
-            Text("Club").frame(maxWidth: .infinity, alignment: .leading)
-            Text("P").frame(width: 24, alignment: .center)
-            Text("W").frame(width: 24, alignment: .center)
-            Text("D").frame(width: 24, alignment: .center)
-            Text("L").frame(width: 24, alignment: .center)
-            Text("GD").frame(width: 30, alignment: .center)
-            Text("Pts").frame(width: 34, alignment: .trailing)
+            Text("Club").frame(width: 190, alignment: .leading)
+            Text("P").frame(width: 32, alignment: .center)
+            Text("W").frame(width: 32, alignment: .center)
+            Text("D").frame(width: 32, alignment: .center)
+            Text("L").frame(width: 32, alignment: .center)
+            Text("GD").frame(width: 36, alignment: .center)
+            Text("Pts").frame(width: 38, alignment: .trailing)
         }
-        .font(.system(size: 10, weight: .bold))
-        .foregroundStyle(Theme.inkFaint)
+        .font(.subheadline.weight(.bold))
+        .foregroundStyle(Theme.ink)
+        .padding(.horizontal, 6)
         .padding(.bottom, 10)
         .overlay(Rectangle().fill(Theme.line).frame(height: 1), alignment: .bottom)
     }
@@ -279,21 +282,21 @@ struct MatchDetailView: View {
             Text("\(row.position)").frame(width: 20, alignment: .leading).fontWeight(.bold)
             HStack(spacing: 6) {
                 SmallCrest(teamName: row.team, size: 20, league: league)
-                Text(row.team).lineLimit(1)
+                Text(row.team).fixedSize(horizontal: false, vertical: true)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(width: 190, alignment: .leading)
             .fontWeight(.semibold)
-            Text("\(row.playedGames)").frame(width: 24, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.won)").frame(width: 24, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.draw)").frame(width: 24, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.lost)").frame(width: 24, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.playedGames)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.won)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.draw)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.lost)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
             Text(row.goalDifference > 0 ? "+\(row.goalDifference)" : "\(row.goalDifference)")
-                .frame(width: 30, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.points)").frame(width: 34, alignment: .trailing).fontWeight(.bold)
+                .frame(width: 36, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.points)").frame(width: 38, alignment: .trailing).fontWeight(.bold)
         }
-        .font(.system(size: 12.5))
+        .font(.body)
         .foregroundStyle(Theme.ink)
-        .padding(.vertical, 10)
+        .padding(.vertical, 14)
         .padding(.horizontal, 6)
         .background(highlight.map { RoundedRectangle(cornerRadius: 10).fill($0) })
     }

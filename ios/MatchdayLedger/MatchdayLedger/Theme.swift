@@ -14,10 +14,10 @@ extension Color {
 
 /// Vibrant matchday palette: home red, away yellow, draw blue; form wins green.
 enum Theme {
-    static let bg = Color(hex: "0F1218")
-    static let card = Color(hex: "191D25")
+    static let bg = Color(hex: "000000")
+    static let card = Color(hex: "1B1B32")
     static let ink = Color(hex: "F4F1ED")
-    static let inkMuted = Color(hex: "A7ABB3")
+    static let inkMuted = Color(hex: "B8B8C7")
     static let inkFaint = Color(hex: "8F9CAF")
     static let line = Color(hex: "31353E")
     static let warm = Color(hex: "FF3B45")

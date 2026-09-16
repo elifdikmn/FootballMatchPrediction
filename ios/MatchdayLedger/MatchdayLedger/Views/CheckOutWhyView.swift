@@ -25,7 +25,7 @@ struct CheckOutWhyView: View {
                 EmptyStateView(text: "No explanation available for this match.")
             }
         }
-        .navigationTitle("Match insights")
+        .navigationTitle("Check Out Why")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Theme.card, for: .navigationBar)
         .toolbarColorScheme(.dark, for: .navigationBar)
@@ -36,7 +36,7 @@ struct CheckOutWhyView: View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 6) {
                 Text("THE MATCH, EXPLAINED").font(.caption.weight(.bold)).tracking(2).foregroundStyle(Theme.warm)
-                Text("Behind the prediction").font(.system(.largeTitle, design: .rounded).weight(.bold)).foregroundStyle(Theme.ink)
+                Text("Why this prediction?").font(.system(.largeTitle, design: .rounded).weight(.bold)).foregroundStyle(Theme.ink)
                 Text("Probabilities, recent form and the factors to watch.").font(.subheadline).foregroundStyle(Theme.inkMuted)
             }
             matchCard(detail)
@@ -71,7 +71,7 @@ struct CheckOutWhyView: View {
             HStack(spacing: 20) {
                 teamColumn(homeTeam)
                 if let scoreText {
-                    Text(scoreText).font(.system(size: 30, weight: .bold)).foregroundStyle(Theme.ink)
+                    Text(scoreText).font(.system(.largeTitle, design: .rounded).weight(.bold)).foregroundStyle(Theme.success)
                 } else {
                     Text("VS").font(.caption.weight(.bold)).foregroundStyle(Theme.inkFaint)
                 }
@@ -91,8 +91,8 @@ struct CheckOutWhyView: View {
         }
         .padding(20)
         .background(Theme.card)
-        .clipShape(RoundedRectangle(cornerRadius: 18))
-        .overlay(RoundedRectangle(cornerRadius: 18).stroke(Theme.line, lineWidth: 1))
+        .clipShape(RoundedRectangle(cornerRadius: 26))
+        .overlay(RoundedRectangle(cornerRadius: 26).stroke(Theme.line, lineWidth: 1))
     }
 
     private func teamColumn(_ name: String) -> some View {
