@@ -25,7 +25,7 @@ struct CheckOutWhyView: View {
                 EmptyStateView(text: "No explanation available for this match.")
             }
         }
-        .navigationTitle("Check Out Why")
+        .navigationTitle("Prediction")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Theme.card, for: .navigationBar)
         .toolbarColorScheme(.dark, for: .navigationBar)

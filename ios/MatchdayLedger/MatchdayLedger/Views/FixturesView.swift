@@ -50,7 +50,6 @@ struct FixturesView: View {
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         dateStrip
-                        leagueSelector
                         content
                     }.padding(.bottom, 24)
                 }
@@ -65,6 +64,12 @@ struct FixturesView: View {
                         showingFilter.toggle()
                     } label: {
                         Image(systemName: "line.3.horizontal.decrease.circle")
+                            .foregroundStyle(.white)
+                    }
+                    .accessibilityLabel("Filter leagues")
+                    .tint(.white)
+                    .sheet(isPresented: $showingFilter) {
+                        LeagueFilterView(selected: selectedLeagues) { selectedLeagues = $0 }
                     }
                 }
             }
@@ -80,10 +85,10 @@ struct FixturesView: View {
     private var dateStrip: some View {
         VStack(spacing: 14) {
             HStack {
-                Text("MATCHDAY").font(.headline.weight(.bold)).tracking(2).foregroundStyle(Theme.warm)
+                Text("MATCHDAY").font(.headline.weight(.bold)).tracking(2).foregroundStyle(Color.white)
                 Spacer()
                 Button("Today") { selectedDay = Date() }
-                    .font(.subheadline.weight(.semibold)).tint(Theme.warm)
+                    .font(.subheadline.weight(.semibold)).tint(Color.white)
             }
             HStack(spacing: 12) {
                 dayArrow(-1, icon: "chevron.left", label: "Previous day")
@@ -97,7 +102,7 @@ struct FixturesView: View {
                         }
                         .font(.headline).foregroundStyle(.white)
                     }.frame(maxWidth: .infinity).padding(.vertical, 10)
-                        .background(Theme.draw, in: RoundedRectangle(cornerRadius: 14))
+                        .background(Theme.card, in: RoundedRectangle(cornerRadius: 14))
                 }
                 .accessibilityLabel("Choose match date")
                 dayArrow(1, icon: "chevron.right", label: "Next day")
@@ -111,14 +116,14 @@ struct FixturesView: View {
                             Text(day, format: .dateTime.month(.abbreviated)).font(.caption).lineLimit(1).minimumScaleFactor(0.8)
                         }
                         .frame(maxWidth: .infinity).padding(.vertical, 10)
-                        .foregroundStyle(offset == 0 ? Theme.warm : Theme.inkMuted)
-                        .background(offset == 0 ? Theme.warm.opacity(0.14) : .clear, in: RoundedRectangle(cornerRadius: 12))
+                        .foregroundStyle(offset == 0 ? Color.white : Theme.inkMuted)
+                        .background(offset == 0 ? Color.white.opacity(0.14) : .clear, in: RoundedRectangle(cornerRadius: 12))
                     }.accessibilityLabel(day.formatted(date: .complete, time: .omitted))
                 }
             }
             if showingCalendar {
                 DatePicker("Match date", selection: $selectedDay, displayedComponents: .date)
-                    .datePickerStyle(.graphical).tint(Theme.warm)
+                    .datePickerStyle(.graphical).tint(Color.white)
             }
         }
         .padding(.horizontal, 16).padding(.top, 8)
@@ -132,42 +137,9 @@ struct FixturesView: View {
         } label: {
             Image(systemName: icon).font(.system(size: 15, weight: .bold))
                 .frame(width: 44, height: 44)
-                .background(Theme.draw, in: RoundedRectangle(cornerRadius: 14))
+                .background(Theme.card, in: RoundedRectangle(cornerRadius: 14))
         }
         .tint(Theme.ink).accessibilityLabel(label)
-    }
-
-    private var leagueSelector: some View {
-        VStack(spacing: 0) {
-            Button { withAnimation { showingFilter.toggle() } } label: {
-                HStack {
-                    Text(selectedLeagues.isEmpty ? "Select Leagues" : "Leagues · \(selectedLeagues.count) selected")
-                        .font(.title3.weight(.semibold))
-                    Spacer()
-                    Image(systemName: showingFilter ? "chevron.up" : "chevron.down")
-                }.foregroundStyle(.white).padding(18)
-                    .background(Theme.draw, in: RoundedRectangle(cornerRadius: 14))
-            }
-            if showingFilter {
-                VStack(spacing: 4) {
-                    Button("All leagues") { selectedLeagues = [] }.tint(Theme.warm).padding(10)
-                    ForEach(League.allCases) { league in
-                        Button {
-                            if selectedLeagues.contains(league) { selectedLeagues.remove(league) }
-                            else { selectedLeagues.insert(league) }
-                        } label: {
-                            HStack(spacing: 12) {
-                                LeagueBadge(name: league.rawValue, size: 30)
-                                Text(league.displayName).font(.body)
-                                Spacer()
-                                Image(systemName: selectedLeagues.contains(league) ? "checkmark.square.fill" : "square")
-                                    .foregroundStyle(selectedLeagues.contains(league) ? Theme.warm : Theme.inkMuted)
-                            }.foregroundStyle(Theme.ink).padding(12)
-                        }
-                    }
-                }.padding(8).background(Theme.card, in: RoundedRectangle(cornerRadius: 16))
-            }
-        }.padding(.horizontal, 16)
     }
 
     @ViewBuilder
@@ -286,7 +258,7 @@ struct PredictionCard: View {
                 } label: {
                     Text("Detail").font(.subheadline.weight(.bold)).foregroundStyle(.white)
                         .padding(.horizontal, 16).padding(.vertical, 11)
-                        .background(Theme.draw, in: RoundedRectangle(cornerRadius: 12))
+                        .background(Theme.warm, in: RoundedRectangle(cornerRadius: 12))
                 }
             }
             HStack(alignment: .top, spacing: 8) {
@@ -309,9 +281,10 @@ struct PredictionCard: View {
                 CheckOutWhyView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
                                 scoreText: scoreText, league: leagueCode, statusText: statusText ?? "MATCH")
             } label: {
-                Text("Check Out Why").font(.title3.weight(.semibold)).foregroundStyle(.white)
-                    .frame(maxWidth: .infinity).padding(.vertical, 15)
-                    .background(Theme.warm, in: RoundedRectangle(cornerRadius: 14))
+                Text("Show Prediction").font(.subheadline.weight(.medium)).foregroundStyle(.white)
+                    .padding(.horizontal, 22).padding(.vertical, 10)
+                    .background(Theme.warm, in: RoundedRectangle(cornerRadius: 10))
+                    .frame(minHeight: 44)
             }
         }
         .buttonStyle(.plain)

@@ -77,12 +77,12 @@ struct MatchDetailView: View {
                     statusText: statusText
                 )
             } label: {
-                Text("Check Out Why")
-                    .font(.title3.weight(.semibold))
+                Text("Show Prediction")
+                    .font(.subheadline.weight(.medium))
                     .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 13)
-                    .background(RoundedRectangle(cornerRadius: 12).fill(Theme.warm))
+                    .padding(.horizontal, 22).padding(.vertical, 10)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Theme.warm))
+                    .frame(minHeight: 44)
             }
         }
         .padding(18)
@@ -242,33 +242,29 @@ struct MatchDetailView: View {
         } else if standings.isEmpty {
             EmptyStateView(text: "No standings available.").frame(height: 200)
         } else {
-            ScrollView(.horizontal) {
-                VStack(spacing: 4) {
-                    standingsHeaderRow
-                    ForEach(standings) { row in standingsRow(row) }
-                }
-                .frame(minWidth: 540)
-                .padding(12)
-                .background(Color(hex: "13223E"), in: RoundedRectangle(cornerRadius: 18))
+            VStack(spacing: 4) {
+                standingsHeaderRow
+                ForEach(standings) { row in standingsRow(row) }
             }
-            .padding(.horizontal, 16)
+            .padding(8)
+            .background(Color(hex: "13223E"), in: RoundedRectangle(cornerRadius: 18))
+            .padding(.horizontal, 12)
         }
     }
 
     private var standingsHeaderRow: some View {
         HStack(spacing: 2) {
-            Text("#").frame(width: 20, alignment: .leading)
-            Text("Club").frame(width: 190, alignment: .leading)
-            Text("P").frame(width: 32, alignment: .center)
-            Text("W").frame(width: 32, alignment: .center)
-            Text("D").frame(width: 32, alignment: .center)
-            Text("L").frame(width: 32, alignment: .center)
-            Text("GD").frame(width: 36, alignment: .center)
-            Text("Pts").frame(width: 38, alignment: .trailing)
+            Text("#").frame(width: 18, alignment: .leading)
+            Text("Club").frame(maxWidth: .infinity, alignment: .leading)
+            Text("P").frame(width: 22, alignment: .center)
+            Text("W").frame(width: 22, alignment: .center)
+            Text("D").frame(width: 22, alignment: .center)
+            Text("L").frame(width: 22, alignment: .center)
+            Text("GD").frame(width: 28, alignment: .center)
+            Text("Pts").frame(width: 26, alignment: .trailing)
         }
-        .font(.subheadline.weight(.bold))
+        .font(.system(size: 12, weight: .bold))
         .foregroundStyle(Theme.ink)
-        .padding(.horizontal, 6)
         .padding(.bottom, 10)
         .overlay(Rectangle().fill(Theme.line).frame(height: 1), alignment: .bottom)
     }
@@ -279,25 +275,26 @@ struct MatchDetailView: View {
         let highlight: Color? = isHome ? Theme.warm.opacity(0.16) : (isAway ? Theme.cool.opacity(0.14) : nil)
 
         return HStack(spacing: 2) {
-            Text("\(row.position)").frame(width: 20, alignment: .leading).fontWeight(.bold)
-            HStack(spacing: 6) {
-                SmallCrest(teamName: row.team, size: 20, league: league)
+            Text("\(row.position)").frame(width: 18, alignment: .leading).fontWeight(.bold)
+            HStack(spacing: 4) {
+                SmallCrest(teamName: row.team, size: 18, league: league)
                 Text(row.team).fixedSize(horizontal: false, vertical: true)
             }
-            .frame(width: 190, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .fontWeight(.semibold)
-            Text("\(row.playedGames)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.won)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.draw)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.lost)").frame(width: 32, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.playedGames)").frame(width: 22, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.won)").frame(width: 22, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.draw)").frame(width: 22, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.lost)").frame(width: 22, alignment: .center).foregroundStyle(Theme.inkMuted)
             Text(row.goalDifference > 0 ? "+\(row.goalDifference)" : "\(row.goalDifference)")
-                .frame(width: 36, alignment: .center).foregroundStyle(Theme.inkMuted)
-            Text("\(row.points)").frame(width: 38, alignment: .trailing).fontWeight(.bold)
+                .frame(width: 28, alignment: .center).foregroundStyle(Theme.inkMuted)
+            Text("\(row.points)").frame(width: 26, alignment: .trailing).fontWeight(.bold)
         }
-        .font(.body)
+        .font(.system(size: 13))
+        .monospacedDigit()
         .foregroundStyle(Theme.ink)
-        .padding(.vertical, 14)
-        .padding(.horizontal, 6)
+        .padding(.vertical, 12)
+        .accessibilityElement(children: .combine)
         .background(highlight.map { RoundedRectangle(cornerRadius: 10).fill($0) })
     }
 
