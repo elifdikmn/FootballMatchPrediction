@@ -1,5 +1,7 @@
 import unittest
 from unittest.mock import Mock, patch
+from tempfile import TemporaryDirectory
+from pathlib import Path
 import branding
 
 class BrandingTests(unittest.TestCase):
@@ -38,6 +40,19 @@ class BrandingTests(unittest.TestCase):
         ]
         self.assertEqual(branding.logo_for_team(catalogue, 'E0', 'Man United'), 'man-u.png')
         self.assertIsNone(branding.logo_for_team(catalogue, 'D1', 'Man United'))
+
+    @patch('branding.requests.get')
+    def test_successful_catalogue_is_reused_from_disk(self, get):
+        get.return_value = Mock(json=lambda: {'response': [
+            {'team': {'id': 33, 'name': 'Manchester United', 'logo': 'man-u.png'}}
+        ]})
+        with TemporaryDirectory() as directory:
+            cache = Path(directory) / 'branding.json'
+            first = branding.branding_catalogue({'E0': 39}, [2024], 'test-key', cache)
+            branding._cache.clear()
+            second = branding.branding_catalogue({'E0': 39}, [2024], 'test-key', cache)
+        self.assertEqual(first, second)
+        self.assertEqual(get.call_count, 1)
 
     @patch('branding.requests.get')
     def test_provider_errors_are_not_cached(self, get):

@@ -6,3 +6,5 @@ __pycache__/
 venv/
 .DS_Store
 *.log
+branding_cache.json
+branding_cache.json.tmp

@@ -38,10 +38,24 @@ app = Flask(__name__)
 
 
 def get_branding_data():
-    current = get_current_season()
-    # Include relegated/promoted clubs and the 2024/25 matches in the cache.
-    seasons = [current - 2, current - 1, current]
-    return branding_catalogue(league_ids, seasons, API_FOOTBALL_KEY)
+    seasons = set()
+    try:
+        with open("prediction_cache.json", "r", encoding="utf-8") as cache_file:
+            predictions = json.load(cache_file)
+        for fixture in predictions.values():
+            if fixture.get("League") not in league_ids:
+                continue
+            match_date = datetime.strptime(str(fixture.get("Date", ""))[:10], "%Y-%m-%d")
+            seasons.add(match_date.year if match_date.month >= 7 else match_date.year - 1)
+    except (OSError, ValueError, TypeError, AttributeError):
+        seasons = {get_current_season()}
+
+    return branding_catalogue(
+        league_ids,
+        sorted(seasons) or [get_current_season()],
+        API_FOOTBALL_KEY,
+        cache_path="branding_cache.json",
+    )
 
 
 @app.route("/branding")
