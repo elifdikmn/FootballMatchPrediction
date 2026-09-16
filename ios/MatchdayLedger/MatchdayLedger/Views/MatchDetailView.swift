@@ -95,7 +95,7 @@ struct MatchDetailView: View {
 
     private func teamColumn(_ name: String, role: String) -> some View {
         VStack(spacing: 9) {
-            Text(role).font(.subheadline).foregroundStyle(Theme.inkMuted)
+            Text(role).font(.subheadline).foregroundStyle(Theme.success)
             CrestBadge(teamName: name, size: 56, league: league)
             Text(name)
                 .font(.body.weight(.medium))

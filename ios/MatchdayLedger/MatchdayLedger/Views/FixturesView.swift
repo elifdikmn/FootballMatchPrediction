@@ -99,12 +99,9 @@ struct FixturesView: View {
                     }.foregroundStyle(.white).frame(minHeight: 44)
                 }.accessibilityLabel("Choose match date")
                 Spacer(minLength: 8)
-                Button("Today") { selectedDay = Date() }
-                    .font(.caption.weight(.semibold)).tint(.white)
-                    .padding(.horizontal, 12).frame(minHeight: 44)
-                    .background(Theme.line.opacity(0.4), in: Capsule())
             }
-            HStack(spacing: 4) {
+            HStack(spacing: 2) {
+                dayArrow(-7, icon: "chevron.left", label: "Previous week")
                 ForEach(weekDays, id: \.self) { day in
                     let selected = Calendar.current.isDate(day, inSameDayAs: selectedDay)
                     Button { selectedDay = day } label: {
@@ -123,14 +120,7 @@ struct FixturesView: View {
                     .accessibilityLabel(day.formatted(date: .complete, time: .omitted))
                     .accessibilityAddTraits(selected ? .isSelected : [])
                 }
-            }
-            HStack {
-                dayArrow(-1, icon: "chevron.left", label: "Previous day")
-                Spacer()
-                Text(selectedDay, format: .dateTime.weekday(.wide).day().month(.abbreviated))
-                    .font(.subheadline).foregroundStyle(.white)
-                Spacer()
-                dayArrow(1, icon: "chevron.right", label: "Next day")
+                dayArrow(7, icon: "chevron.right", label: "Next week")
             }
             if showingCalendar {
                 DatePicker("Match date", selection: $selectedDay, displayedComponents: .date)
@@ -149,8 +139,8 @@ struct FixturesView: View {
             }
         } label: {
             Image(systemName: icon).font(.system(size: 15, weight: .bold))
-                .frame(width: 44, height: 44)
-                .background(Theme.line.opacity(0.35), in: Circle())
+                .frame(width: 30, height: 44)
+                .contentShape(Rectangle())
         }
         .tint(Theme.ink).accessibilityLabel(label)
     }
@@ -335,7 +325,7 @@ struct PredictionCard: View {
             Text(name).font(.subheadline.weight(.semibold)).foregroundStyle(Theme.ink)
                 .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
             Text(role.uppercased()).font(.caption2.weight(.medium))
-                .tracking(1).foregroundStyle(Theme.inkMuted)
+                .tracking(1).foregroundStyle(Theme.success)
         }.frame(maxWidth: .infinity)
     }
 }
@@ -363,12 +353,16 @@ struct OutcomeBar: View {
             }
             Text(pct / 100, format: .percent.precision(.fractionLength(1)))
                 .font(.headline).monospacedDigit().lineLimit(1).minimumScaleFactor(0.8)
+                .foregroundStyle(.white)
         }
         .foregroundStyle(color)
         .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(color.opacity(strongest ? 0.19 : 0.07), in: RoundedRectangle(cornerRadius: 10))
-        .overlay(RoundedRectangle(cornerRadius: 10).stroke(color.opacity(strongest ? 1 : 0.85), lineWidth: strongest ? 2 : 1.5))
+        .background(color.opacity(strongest ? 0.28 : 0.16), in: RoundedRectangle(cornerRadius: 10))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(color, lineWidth: strongest ? 2.5 : 2))
+        .overlay(alignment: .bottom) {
+            RoundedRectangle(cornerRadius: 2).fill(color).frame(height: 4).padding(.horizontal, 10)
+        }
         .accessibilityElement(children: .combine)
     }
 }
