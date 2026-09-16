@@ -253,6 +253,12 @@ struct PredictionCard: View {
     let fixtureId: Int
     let leagueCode: String
 
+    private var scores: [String] {
+        guard let scoreText else { return [] }
+        let values = scoreText.split(whereSeparator: { !$0.isNumber }).map(String.init)
+        return values.count == 2 ? values : []
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
@@ -281,11 +287,20 @@ struct PredictionCard: View {
             HStack(alignment: .top, spacing: 10) {
                 teamColumn(homeTeam, role: "Home")
                 VStack(spacing: 6) {
-                    Text(scoreText ?? (statusText == "FULL TIME" ? "—" : "VS"))
+                    if scores.count == 2 {
+                        HStack(spacing: 5) {
+                            Text(scores[0]).foregroundStyle(Theme.warm)
+                            Text("–").foregroundStyle(Theme.ink)
+                            Text(scores[1]).foregroundStyle(Theme.success)
+                        }
                         .font(.system(.title2, design: .rounded).weight(.bold))
-                        .monospacedDigit().foregroundStyle(scoreText == nil ? Theme.inkMuted : Theme.success)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .multilineTextAlignment(.center)
+                        .monospacedDigit()
+                    } else {
+                        Text(scoreText ?? (statusText == "FULL TIME" ? "—" : "VS"))
+                            .font(.system(.title2, design: .rounded).weight(.bold))
+                            .foregroundStyle(scoreText == nil ? Theme.inkMuted : Theme.ink)
+                            .multilineTextAlignment(.center)
+                    }
                     if scoreText == nil, statusText == "FULL TIME" {
                         Text("Score unavailable").font(.caption2).foregroundStyle(Theme.inkMuted)
                     }
@@ -324,8 +339,8 @@ struct PredictionCard: View {
             CrestBadge(teamName: name, size: 48, league: leagueCode)
             Text(name).font(.subheadline.weight(.semibold)).foregroundStyle(Theme.ink)
                 .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
-            Text(role.uppercased()).font(.caption2.weight(.medium))
-                .tracking(1).foregroundStyle(Theme.success)
+            Text(role.uppercased()).font(.caption2.weight(.bold))
+                .tracking(1).foregroundStyle(role == "Home" ? Theme.warm : Theme.success)
         }.frame(maxWidth: .infinity)
     }
 }
@@ -335,35 +350,55 @@ struct OutcomeBar: View {
     let drawPct: Double
     let awayPct: Double
 
+    private var total: Double {
+        max(max(0, homePct) + max(0, drawPct) + max(0, awayPct), 1)
+    }
+
     var body: some View {
-        HStack(spacing: 8) {
-            outcome("Home", homePct, Theme.warm)
-            outcome("Draw", drawPct, Theme.draw)
-            outcome("Away", awayPct, Theme.cool)
+        VStack(spacing: 12) {
+            GeometryReader { geometry in
+                let usableWidth = max(0, geometry.size.width - 4)
+                HStack(spacing: 2) {
+                    segment(width: usableWidth * max(0, homePct) / total, color: Theme.warm)
+                    segment(width: usableWidth * max(0, drawPct) / total, color: Theme.draw)
+                    segment(width: usableWidth * max(0, awayPct) / total, color: Theme.success)
+                }
+            }
+            .frame(height: 10)
+            .clipShape(Capsule())
+
+            HStack(spacing: 8) {
+                outcome("Home", homePct, Theme.warm, alignment: .leading)
+                outcome("Draw", drawPct, Theme.draw, alignment: .center)
+                outcome("Away", awayPct, Theme.success, alignment: .trailing)
+            }
         }
     }
 
-    private func outcome(_ label: String, _ pct: Double, _ color: Color) -> some View {
+    private func segment(width: CGFloat, color: Color) -> some View {
+        Rectangle().fill(color).frame(width: max(0, width))
+    }
+
+    private func outcome(
+        _ label: String,
+        _ pct: Double,
+        _ color: Color,
+        alignment: HorizontalAlignment
+    ) -> some View {
         let strongest = pct > 0 && pct == max(homePct, max(drawPct, awayPct))
-        return VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing: 4) {
-                Text(label).font(.caption.weight(.semibold)).foregroundStyle(.white)
-                Spacer(minLength: 0)
-                if strongest { Image(systemName: "arrow.up.right").font(.caption2.weight(.bold)).foregroundStyle(.white) }
-            }
+        return VStack(alignment: alignment, spacing: 3) {
+            Text(label.uppercased())
+                .font(.caption2.weight(.bold))
+                .tracking(0.7)
+                .foregroundStyle(Theme.inkMuted)
             Text(pct / 100, format: .percent.precision(.fractionLength(1)))
-                .font(.headline).monospacedDigit().lineLimit(1).minimumScaleFactor(0.8)
-                .foregroundStyle(.white)
+                .font(.system(size: strongest ? 17 : 15, weight: .bold, design: .rounded))
+                .monospacedDigit()
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
+                .foregroundStyle(color)
         }
-        .foregroundStyle(.white)
-        .shadow(color: .black.opacity(0.65), radius: 1, x: 0, y: 1)
-        .padding(12)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(color, in: RoundedRectangle(cornerRadius: 10))
-        .overlay(RoundedRectangle(cornerRadius: 10).stroke(color, lineWidth: strongest ? 2.5 : 2))
-        .overlay(alignment: .bottom) {
-            RoundedRectangle(cornerRadius: 2).fill(color).frame(height: 4).padding(.horizontal, 10)
-        }
+        .frame(maxWidth: .infinity, alignment: Alignment(horizontal: alignment, vertical: .center))
         .accessibilityElement(children: .combine)
     }
 }
