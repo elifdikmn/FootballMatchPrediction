@@ -101,7 +101,7 @@ def scheduled_predictions():
 
     output = []
     for fx in data.values():
-        if fx.get("Status") == "SCHEDULED":
+        if fx.get("Status") == "SCHEDULED" and fx.get("League") in league_ids:
             output.append({
                 "fixture_id": fx["FixtureID"],
                 "home_team": fx.get("HomeTeam") or fx.get("home_team"),
