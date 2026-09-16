@@ -349,16 +349,17 @@ struct OutcomeBar: View {
             HStack(spacing: 4) {
                 Text(label).font(.caption.weight(.semibold)).foregroundStyle(.white)
                 Spacer(minLength: 0)
-                if strongest { Image(systemName: "arrow.up.right").font(.caption2.weight(.bold)) }
+                if strongest { Image(systemName: "arrow.up.right").font(.caption2.weight(.bold)).foregroundStyle(.white) }
             }
             Text(pct / 100, format: .percent.precision(.fractionLength(1)))
                 .font(.headline).monospacedDigit().lineLimit(1).minimumScaleFactor(0.8)
                 .foregroundStyle(.white)
         }
-        .foregroundStyle(color)
+        .foregroundStyle(.white)
+        .shadow(color: .black.opacity(0.65), radius: 1, x: 0, y: 1)
         .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(color.opacity(strongest ? 0.28 : 0.16), in: RoundedRectangle(cornerRadius: 10))
+        .background(color, in: RoundedRectangle(cornerRadius: 10))
         .overlay(RoundedRectangle(cornerRadius: 10).stroke(color, lineWidth: strongest ? 2.5 : 2))
         .overlay(alignment: .bottom) {
             RoundedRectangle(cornerRadius: 2).fill(color).frame(height: 4).padding(.horizontal, 10)
