@@ -5,18 +5,33 @@ struct FixturesView: View {
     @State private var isLoading = false
     @State private var errorMessage: String?
     @State private var selectedLeagues: Set<League> = []
+    @State private var selectedDate: String?
     @State private var showingFilter = false
 
-    private var visibleFixtures: [ScheduledPrediction] {
+    private var leagueFiltered: [ScheduledPrediction] {
         guard !selectedLeagues.isEmpty else { return fixtures }
         return fixtures.filter { fx in selectedLeagues.contains { $0.rawValue == fx.league } }
+    }
+
+    private var availableDates: [String] {
+        Array(Set(leagueFiltered.map(\.date))).sorted()
+    }
+
+    private var visibleFixtures: [ScheduledPrediction] {
+        guard let selectedDate else { return leagueFiltered }
+        return leagueFiltered.filter { $0.date == selectedDate }
     }
 
     var body: some View {
         NavigationStack {
             ZStack {
                 Theme.bg.ignoresSafeArea()
-                content
+                VStack(spacing: 0) {
+                    if !availableDates.isEmpty {
+                        dateStrip
+                    }
+                    content
+                }
             }
             .navigationTitle("Fixtures")
             .toolbarBackground(Theme.card, for: .navigationBar)
@@ -38,6 +53,54 @@ struct FixturesView: View {
             .task { await load() }
             .refreshable { await load() }
         }
+    }
+
+    private var dateStrip: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(availableDates, id: \.self) { dateString in
+                    dateChip(dateString)
+                }
+            }
+            .padding(.horizontal, 22)
+            .padding(.vertical, 12)
+        }
+    }
+
+    private func dateChip(_ dateString: String) -> some View {
+        let selected = selectedDate == dateString
+        let (weekday, day) = Self.formattedDate(dateString)
+        return VStack(spacing: 6) {
+            Text(weekday)
+                .font(.system(size: 10, weight: .semibold))
+                .foregroundStyle(selected ? Theme.warm : Theme.inkFaint)
+            Text(day)
+                .font(.system(size: 14, weight: selected ? .bold : .semibold))
+                .foregroundStyle(selected ? Theme.bg : Theme.inkMuted)
+                .frame(width: 34, height: 34)
+                .background(Circle().fill(selected ? Theme.ink : Color.clear))
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            selectedDate = selected ? nil : dateString
+        }
+    }
+
+    private static func formattedDate(_ dateString: String) -> (weekday: String, day: String) {
+        let inFormatter = DateFormatter()
+        inFormatter.dateFormat = "yyyy-MM-dd"
+        inFormatter.timeZone = TimeZone(identifier: "UTC")
+        guard let date = inFormatter.date(from: dateString) else { return ("--", "--") }
+
+        let weekdayFormatter = DateFormatter()
+        weekdayFormatter.dateFormat = "EEE"
+        weekdayFormatter.timeZone = inFormatter.timeZone
+
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "d"
+        dayFormatter.timeZone = inFormatter.timeZone
+
+        return (weekdayFormatter.string(from: date).uppercased(), dayFormatter.string(from: date))
     }
 
     @ViewBuilder
