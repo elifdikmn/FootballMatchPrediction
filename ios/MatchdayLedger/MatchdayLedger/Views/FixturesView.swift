@@ -289,12 +289,13 @@ struct PredictionCard: View {
                 VStack(spacing: 6) {
                     if scores.count == 2 {
                         HStack(spacing: 5) {
-                            Text(scores[0]).foregroundStyle(Theme.warm)
-                            Text("–").foregroundStyle(Theme.ink)
-                            Text(scores[1]).foregroundStyle(Theme.success)
+                            Text(scores[0])
+                            Text("–")
+                            Text(scores[1])
                         }
                         .font(.system(.title2, design: .rounded).weight(.bold))
                         .monospacedDigit()
+                        .foregroundStyle(.white)
                     } else {
                         Text(scoreText ?? (statusText == "FULL TIME" ? "—" : "VS"))
                             .font(.system(.title2, design: .rounded).weight(.bold))
@@ -357,26 +358,25 @@ struct OutcomeBar: View {
     var body: some View {
         VStack(spacing: 12) {
             GeometryReader { geometry in
-                let usableWidth = max(0, geometry.size.width - 4)
-                HStack(spacing: 2) {
+                let usableWidth = max(0, geometry.size.width - 12)
+                HStack(spacing: 6) {
                     segment(width: usableWidth * max(0, homePct) / total, color: Theme.warm)
-                    segment(width: usableWidth * max(0, drawPct) / total, color: Theme.draw)
+                    segment(width: usableWidth * max(0, drawPct) / total, color: Theme.cool)
                     segment(width: usableWidth * max(0, awayPct) / total, color: Theme.success)
                 }
             }
-            .frame(height: 10)
-            .clipShape(Capsule())
+            .frame(height: 8)
 
             HStack(spacing: 8) {
                 outcome("Home", homePct, Theme.warm, alignment: .leading)
-                outcome("Draw", drawPct, Theme.draw, alignment: .center)
+                outcome("Draw", drawPct, Theme.cool, alignment: .center)
                 outcome("Away", awayPct, Theme.success, alignment: .trailing)
             }
         }
     }
 
     private func segment(width: CGFloat, color: Color) -> some View {
-        Rectangle().fill(color).frame(width: max(0, width))
+        Capsule().fill(color).frame(width: max(0, width))
     }
 
     private func outcome(
@@ -387,16 +387,16 @@ struct OutcomeBar: View {
     ) -> some View {
         let strongest = pct > 0 && pct == max(homePct, max(drawPct, awayPct))
         return VStack(alignment: alignment, spacing: 3) {
-            Text(label.uppercased())
-                .font(.caption2.weight(.bold))
-                .tracking(0.7)
-                .foregroundStyle(Theme.inkMuted)
             Text(pct / 100, format: .percent.precision(.fractionLength(1)))
                 .font(.system(size: strongest ? 17 : 15, weight: .bold, design: .rounded))
                 .monospacedDigit()
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
-                .foregroundStyle(color)
+                .foregroundStyle(.white)
+            Text(label.uppercased())
+                .font(.caption2.weight(.bold))
+                .tracking(0.7)
+                .foregroundStyle(.white)
         }
         .frame(maxWidth: .infinity, alignment: Alignment(horizontal: alignment, vertical: .center))
         .accessibilityElement(children: .combine)
