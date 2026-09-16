@@ -178,7 +178,7 @@ struct FixturesView: View {
             LazyVStack(spacing: 24) {
                 ForEach(League.allCases.filter { league in visibleFixtures.contains { $0.league == league.rawValue } }) { league in
                     VStack(spacing: 14) {
-                        LeagueSectionHeader(league: league.rawValue)
+                        LeagueSectionHeader(league: league.rawValue, matchCount: visibleFixtures.filter { $0.league == league.rawValue }.count)
                         ForEach(visibleFixtures.filter { $0.league == league.rawValue }) { fx in
                             PredictionCard(
                                 leagueLabel: league.displayName, trailingLabel: fx.date,
@@ -221,12 +221,16 @@ struct FixturesView: View {
 
 struct LeagueSectionHeader: View {
     let league: String
+    var matchCount: Int? = nil
     var body: some View {
         HStack(spacing: 12) {
-            LeagueBadge(name: league, size: 38)
+            LeagueBadge(name: league, size: 28)
             Text(League(rawValue: league)?.displayName ?? league)
-                .font(.title2.weight(.bold)).foregroundStyle(Theme.ink)
+                .font(.subheadline.weight(.semibold)).foregroundStyle(Theme.ink)
             Spacer(minLength: 0)
+            if let matchCount {
+                Text("\(matchCount) matches").font(.caption).foregroundStyle(Theme.inkMuted)
+            }
         }.padding(.vertical, 4)
     }
 }
@@ -246,11 +250,23 @@ struct PredictionCard: View {
     let fixtureId: Int
     let leagueCode: String
 
+    private var scores: [String] {
+        guard let scoreText else { return [] }
+        let parts = scoreText.split(whereSeparator: { !$0.isNumber }).map(String.init)
+        return parts.count == 2 ? parts : []
+    }
+
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 if let trailingBadge { trailingBadge }
-                else { Text(statusText ?? trailingLabel).font(.caption.weight(.bold)).foregroundStyle(Theme.inkMuted) }
+                else {
+                    HStack(spacing: 6) {
+                        Circle().fill(statusText == "FULL TIME" ? Theme.success : Theme.inkMuted)
+                            .frame(width: 6, height: 6)
+                        Text(statusText ?? trailingLabel).font(.caption.weight(.semibold)).foregroundStyle(Theme.inkMuted)
+                    }
+                }
                 Spacer()
                 NavigationLink {
                     MatchDetailView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
@@ -261,18 +277,14 @@ struct PredictionCard: View {
                         .background(Theme.warm, in: RoundedRectangle(cornerRadius: 12))
                 }
             }
-            HStack(alignment: .top, spacing: 8) {
-                teamColumn(homeTeam, role: "Home")
-                VStack(spacing: 6) {
-                    Text(scoreText ?? "VS")
-                        .font(.system(.title, design: .rounded).weight(.heavy))
-                        .monospacedDigit().foregroundStyle(scoreText == nil ? Theme.inkMuted : Theme.success)
-                        .fixedSize(horizontal: true, vertical: false)
-                    if statusText == "FULL TIME", scoreText == nil {
-                        Text("Score unavailable").font(.caption).foregroundStyle(Theme.inkMuted)
-                    }
-                }.padding(.top, 26)
-                teamColumn(awayTeam, role: "Away")
+            VStack(spacing: 14) {
+                teamRow(homeTeam, role: "Home", score: scores.first, color: Theme.warm)
+                teamRow(awayTeam, role: "Away", score: scores.count == 2 ? scores[1] : nil, color: Theme.cool)
+            }
+            if scores.isEmpty, let scoreText {
+                Text(scoreText).font(.headline).foregroundStyle(Theme.success)
+            } else if scores.isEmpty, statusText == "FULL TIME" {
+                Text("Score unavailable").font(.caption).foregroundStyle(Theme.inkMuted)
             }
             if homePct != nil || drawPct != nil || awayPct != nil {
                 OutcomeBar(homePct: homePct ?? 0, drawPct: drawPct ?? 0, awayPct: awayPct ?? 0)
@@ -281,24 +293,39 @@ struct PredictionCard: View {
                 CheckOutWhyView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
                                 scoreText: scoreText, league: leagueCode, statusText: statusText ?? "MATCH")
             } label: {
-                Text("Show Prediction").font(.subheadline.weight(.medium)).foregroundStyle(.white)
-                    .padding(.horizontal, 22).padding(.vertical, 10)
-                    .background(Theme.warm, in: RoundedRectangle(cornerRadius: 10))
-                    .frame(minHeight: 44)
+                HStack {
+                    Image(systemName: "chart.bar.xaxis").foregroundStyle(Theme.warm)
+                    Text("Show Prediction").foregroundStyle(Theme.ink)
+                    Spacer()
+                    Image(systemName: "arrow.up.right").foregroundStyle(Theme.warm)
+                }
+                .font(.subheadline.weight(.medium))
+                .frame(minHeight: 44)
+                .padding(.top, 4)
+                .overlay(alignment: .top) { Rectangle().fill(Theme.line).frame(height: 1) }
+                .contentShape(Rectangle())
             }
         }
         .buttonStyle(.plain)
-        .padding(18)
-        .background(Theme.card, in: RoundedRectangle(cornerRadius: 26))
+        .padding(16)
+        .background(Color(hex: "171B24"), in: RoundedRectangle(cornerRadius: 16))
+        .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.line.opacity(0.7), lineWidth: 1))
     }
 
-    private func teamColumn(_ name: String, role: String) -> some View {
-        VStack(spacing: 9) {
-            Text(role).font(.subheadline).foregroundStyle(Theme.inkMuted)
-            CrestBadge(teamName: name, size: 58, league: leagueCode)
-            Text(name).font(.body.weight(.medium)).foregroundStyle(Theme.ink)
-                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
-        }.frame(maxWidth: .infinity)
+    private func teamRow(_ name: String, role: String, score: String?, color: Color) -> some View {
+        HStack(spacing: 12) {
+            CrestBadge(teamName: name, size: 38, league: leagueCode)
+            VStack(alignment: .leading, spacing: 3) {
+                Text(name).font(.body.weight(.semibold)).foregroundStyle(Theme.ink)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text(role.uppercased()).font(.caption2.weight(.bold)).tracking(1).foregroundStyle(color)
+            }
+            Spacer(minLength: 8)
+            Text(score ?? "—")
+                .font(.system(.title, design: .rounded).weight(.bold))
+                .monospacedDigit().foregroundStyle(score == nil ? Theme.inkMuted : Theme.success)
+                .frame(minWidth: 32, alignment: .trailing)
+        }
     }
 }
 
@@ -306,34 +333,32 @@ struct OutcomeBar: View {
     let homePct: Double
     let drawPct: Double
     let awayPct: Double
-    private var total: Double { max(max(0, homePct) + max(0, drawPct) + max(0, awayPct), 1) }
 
     var body: some View {
-        VStack(spacing: 14) {
-            HStack(alignment: .top, spacing: 8) {
-                outcome("Home", homePct, Theme.warm)
-                outcome("Draw", drawPct, Theme.draw)
-                outcome("Away", awayPct, Theme.cool)
-            }
-            GeometryReader { geometry in
-                HStack(spacing: 0) {
-                    Theme.warm.frame(width: geometry.size.width * max(0, homePct) / total)
-                    Theme.draw.frame(width: geometry.size.width * max(0, drawPct) / total)
-                    Theme.cool.frame(width: geometry.size.width * max(0, awayPct) / total)
-                }
-            }.frame(height: 20).clipShape(Capsule())
+        HStack(spacing: 8) {
+            outcome("Home", homePct, Theme.warm)
+            outcome("Draw", drawPct, Theme.draw)
+            outcome("Away", awayPct, Theme.cool)
         }
     }
 
     private func outcome(_ label: String, _ pct: Double, _ color: Color) -> some View {
-        VStack(spacing: 6) {
-            HStack(spacing: 5) {
-                Circle().fill(color).frame(width: 9, height: 9)
-                Text(label).font(.subheadline).foregroundStyle(Theme.inkMuted)
+        let strongest = pct > 0 && pct == max(homePct, max(drawPct, awayPct))
+        return VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 4) {
+                Text(label).font(.caption.weight(.semibold))
+                Spacer(minLength: 0)
+                if strongest { Image(systemName: "arrow.up.right").font(.caption2.weight(.bold)) }
             }
             Text(pct / 100, format: .percent.precision(.fractionLength(1)))
-                .font(.headline).monospacedDigit().foregroundStyle(Theme.ink)
-        }.frame(maxWidth: .infinity)
+                .font(.headline).monospacedDigit().lineLimit(1).minimumScaleFactor(0.8)
+        }
+        .foregroundStyle(color)
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(color.opacity(strongest ? 0.19 : 0.07), in: RoundedRectangle(cornerRadius: 10))
+        .overlay(RoundedRectangle(cornerRadius: 10).stroke(color.opacity(strongest ? 0.85 : 0.25), lineWidth: 1))
+        .accessibilityElement(children: .combine)
     }
 }
 

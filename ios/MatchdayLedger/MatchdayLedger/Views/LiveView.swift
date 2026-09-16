@@ -31,7 +31,7 @@ struct LiveView: View {
             ScrollView {
                 LazyVStack(spacing: 14) {
                     ForEach(Array(Set(matches.map(\.league))).sorted(), id: \.self) { league in
-                        LeagueSectionHeader(league: league)
+                        LeagueSectionHeader(league: league, matchCount: matches.filter { $0.league == league }.count)
                         ForEach(matches.filter { $0.league == league }) { match in
                             PredictionCard(
                                 leagueLabel: League(rawValue: match.league)?.displayName ?? match.league,
