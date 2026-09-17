@@ -78,6 +78,8 @@ struct LiveMatch: Codable, Identifiable {
     let score: String
     let elapsed: Int?
     let status: String
+    let predictionUpdatedAt: String?
+    let updatedAt: String?
     let predictedLabel: String?
     let homeWinPct: Double?
     let drawPct: Double?
@@ -92,6 +94,8 @@ struct LiveMatch: Codable, Identifiable {
         case homeTeamLogo = "home_team_logo"
         case awayTeamLogo = "away_team_logo"
         case league, score, elapsed, status
+        case predictionUpdatedAt = "prediction_updated_at"
+        case updatedAt = "updated_at"
         case predictedLabel = "predicted_label"
         case homeWinPct = "home_win_pct"
         case drawPct = "draw_pct"

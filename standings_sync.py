@@ -69,14 +69,16 @@ def sync_super_lig_standings(
     if not api_key:
         raise RuntimeError("API_FOOTBALL_KEY is required for Süper Lig standings")
 
-    response = http.get(
-        API_URL,
-        params={"league": SUPER_LIG_API_ID, "season": season_start_year(target_date)},
-        headers={"x-apisports-key": api_key},
-        timeout=30,
+    from provider_cache import FootballClient
+    from sqlalchemy.orm import sessionmaker
+    client = FootballClient(sessions=sessionmaker(bind=db.bind, expire_on_commit=False), http=http, key=api_key)
+    payload, fetched_at = client.fetch(
+        "standings", {"league": SUPER_LIG_API_ID, "season": season_start_year(target_date)},
+        ttl=300, purpose="standings",
     )
-    response.raise_for_status()
-    table = _parse_table(response.json())
+    if payload is None or client.clock() - fetched_at > 300:
+        return {"status": "skipped", "reason": "provider unavailable or request budget exhausted", "rows": 0}
+    table = _parse_table(payload)
     updated_at = datetime.now(timezone.utc).isoformat()
     returned_names = set()
 

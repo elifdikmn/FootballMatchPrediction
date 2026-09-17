@@ -47,6 +47,8 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Validate database and cache behavior
+        run: python -m unittest discover -s tests -q
       - name: Sync fixtures and generate pending predictions
         run: python sync_pipeline.py --mode "$SYNC_MODE"
 

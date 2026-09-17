@@ -1,6 +1,7 @@
 """Reconcile API-Football live IDs with stored fixtures and retain live snapshots."""
 
 from datetime import datetime, timezone
+import hashlib
 
 from db_utils import save_model_prediction
 from models import Event, Fixture, LiveMatchState
@@ -16,6 +17,9 @@ def _score_values(score):
 
 
 def _canonical_fixture(db, match):
+    existing = db.query(LiveMatchState).filter_by(provider_fixture_id=str(match['fixture_id'])).first()
+    if existing:
+        return db.get(Fixture, existing.FixtureID)
     day = str(match.get("date") or "")[:10]
     home = normalize_team_name(match.get("home_team") or "")
     away = normalize_team_name(match.get("away_team") or "")
@@ -39,8 +43,15 @@ def persist_live_matches(db, matches):
         provider_fixture_id = str(match["fixture_id"])
         fixture = _canonical_fixture(db, match)
         if fixture is None:
-            output.append(match)
-            continue
+            # A dedicated deterministic namespace avoids mixing provider IDs.
+            identity = int(hashlib.sha256(('api-football:' + provider_fixture_id).encode()).hexdigest()[:12], 16)
+            fixture_id = 2_000_000_000 + identity % 100_000_000
+            if db.get(Fixture, fixture_id) is not None:
+                continue
+            fixture = Fixture(FixtureID=fixture_id, Date=str(match.get('date') or '')[:10],
+                              League=match['league'], HomeTeam=match['home_team'], AwayTeam=match['away_team'])
+            db.add(fixture)
+            db.flush()
 
         state = db.get(LiveMatchState, fixture.FixtureID)
         if state is None:
@@ -60,7 +71,7 @@ def persist_live_matches(db, matches):
         state.updated_at = now
 
         home_goals, away_goals = _score_values(match.get("score"))
-        fixture.Status = "LIVE"
+        fixture.Status = match.get("status") or "LIVE"
         fixture.HomeGoals = home_goals
         fixture.AwayGoals = away_goals
         fixture.LastUpdated = now

@@ -163,3 +163,17 @@ class SyncRun(Base):
     updated_count = Column(Integer, nullable=False, default=0)
     status = Column(String, nullable=False)
     error_message = Column(Text, nullable=True)
+
+
+class ProviderRequestBudget(Base):
+    __tablename__ = 'provider_request_budget'
+    day = Column(String, primary_key=True)
+    used = Column(Integer, nullable=False, default=0)
+
+
+class ProviderCache(Base):
+    __tablename__ = 'provider_cache'
+    key = Column(String, primary_key=True)
+    payload = Column(JSON, nullable=True)
+    updated_at = Column(Float, nullable=False, default=0)
+    lease_until = Column(Float, nullable=False, default=0)

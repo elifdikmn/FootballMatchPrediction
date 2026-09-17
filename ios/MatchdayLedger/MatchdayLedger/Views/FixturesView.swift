@@ -283,6 +283,7 @@ struct PredictionCard: View {
     var scoreText: String? = nil
     var statusText: String? = nil
     var isLive = false
+    var livePrediction = false
     var predictionVersion: Int? = nil
     var predictionUpdatedAt: String? = nil
     var homeDelta: Double? = nil
@@ -327,7 +328,7 @@ struct PredictionCard: View {
                     MatchDetailView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
                                     league: leagueCode, scoreText: scoreText,
                                     homeLogo: homeLogo, awayLogo: awayLogo,
-                                    statusText: statusText ?? "MATCH")
+                                    statusText: statusText ?? "MATCH", livePrediction: livePrediction)
                 } label: {
                     HStack(spacing: 6) {
                         Text("Match details").font(.caption.weight(.semibold))
@@ -373,7 +374,7 @@ struct PredictionCard: View {
                 CheckOutWhyView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
                                 scoreText: scoreText, league: leagueCode,
                                 homeLogo: homeLogo, awayLogo: awayLogo,
-                                statusText: statusText ?? "MATCH")
+                                statusText: statusText ?? "MATCH", livePrediction: livePrediction)
             } label: {
                 HStack {
                     Image(systemName: "chart.bar.xaxis").foregroundStyle(Theme.warm)

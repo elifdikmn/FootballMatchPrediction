@@ -5,12 +5,12 @@ import pickle
 import joblib
 import numpy as np
 from datetime import datetime
-from threading import Lock
-from time import monotonic
 from fixture import get_match_from_api
 from db_setup import SessionLocal, init_db
 from models import Fixture, Standing, LiveMatchState
 from live_repository import cached_events, persist_live_matches, replace_events
+from live_sync import read_live
+from live_detail import load_events, load_live_prediction
 from match_repository import prediction_dates as load_prediction_dates
 from match_repository import scheduled_rows, score_value, prediction_metadata
 from fixture import get_grouped_standings
@@ -41,12 +41,6 @@ import os
 app = Flask(__name__)
 init_db()
 
-_live_cache = {"updated": 0.0, "matches": []}
-_live_cache_lock = Lock()
-_event_cache_times = {}
-_event_cache_lock = Lock()
-
-
 def get_branding_data():
     seasons = set()
     try:
@@ -63,7 +57,7 @@ def get_branding_data():
     return branding_catalogue(
         league_ids,
         sorted(seasons) or [get_current_season()],
-        API_FOOTBALL_KEY,
+        "",  # Use bundled branding; never spend the live-data budget here.
         cache_path="branding_cache.json",
     )
 
@@ -127,14 +121,12 @@ def get_standings(league_code):
     ])
 @app.route("/standings/grouped")
 def grouped_standings_route():
-    # URL parametrelerini al
     league_id = request.args.get("league_id", default=15, type=int)
-    season = request.args.get("season", default=None, type=int)
-
-    # fixture.py içindeki fonksiyonu çağır
-    standings = get_grouped_standings(league_id=league_id, season=season)
-    
-    return jsonify(standings)
+    with SessionLocal() as db:
+        rows = db.query(Standing).filter_by(league=str(league_id)).order_by(Standing.rank).all()
+        return jsonify({"League": [{"rank": r.rank, "team": r.team_name, "points": r.points,
+            "played": r.played, "won": r.win, "draw": r.draw, "lose": r.lose,
+            "goalDiff": r.goals_diff} for r in rows]} if rows else {})
 
 @app.route("/prediction-dates")
 def prediction_dates():
@@ -194,6 +186,9 @@ def scheduled_predictions():
     with SessionLocal() as session:
         rows = scheduled_rows(session, league_ids.keys(), selected_date)
         metadata = prediction_metadata(session, (fixture.FixtureID for fixture, _ in rows))
+        live_ids = {m['fixture_id'] for m in read_live(session)}
+        for fixture, _ in rows:
+            metadata.setdefault(fixture.FixtureID, {})['is_live'] = fixture.FixtureID in live_ids
         output = [
             _scheduled_payload(fixture, kickoff, catalogue, metadata.get(fixture.FixtureID))
             for fixture, kickoff in rows
@@ -203,51 +198,28 @@ def scheduled_predictions():
 
 @app.route("/events/<int:fixture_id>", methods=["GET"])
 def match_events(fixture_id):
-    with SessionLocal() as session:
-        state = session.get(LiveMatchState, fixture_id)
-        provider_fixture_id = int(state.provider_fixture_id) if state else fixture_id
-        with _event_cache_lock:
-            cache_fresh = monotonic() - _event_cache_times.get(fixture_id, 0) < 90
-            if cache_fresh:
-                events = cached_events(session, fixture_id)
-            else:
-                events = get_match_events(provider_fixture_id)
-                if events:
-                    replace_events(session, fixture_id, events)
-                else:
-                    events = cached_events(session, fixture_id)
-                _event_cache_times[fixture_id] = monotonic()
-    return jsonify(events)
+    return jsonify(load_events(fixture_id))
 
 
 @app.route("/live-matches-with-predictions", methods=["GET"])
+@app.route("/live-simple", methods=["GET"])
 def live_matches_with_predictions():
-    with _live_cache_lock:
-        if monotonic() - _live_cache["updated"] < 300:
-            data = [dict(match) for match in _live_cache["matches"]]
-        else:
-            data = predict_from_live_api(live_best_models, live_features)
-            with SessionLocal() as session:
-                data = persist_live_matches(session, data)
-            _live_cache["matches"] = [dict(match) for match in data]
-            _live_cache["updated"] = monotonic()
+    with SessionLocal() as session:
+        data = read_live(session)
     catalogue = get_branding_data()
     for match in data:
-        league = match.get("league") or match.get("League")
-        home = match.get("home_team") or match.get("HomeTeam")
-        away = match.get("away_team") or match.get("AwayTeam")
-        match["home_team_logo"] = logo_for_team(catalogue, league, home) if league and home else None
-        match["away_team_logo"] = logo_for_team(catalogue, league, away) if league and away else None
+        match["home_team_logo"] = logo_for_team(catalogue, match['league'], match['home_team'])
+        match["away_team_logo"] = logo_for_team(catalogue, match['league'], match['away_team'])
     return jsonify(data)
 
 
-@app.route("/live-simple", methods=["GET"])
-def live_simple():
-    results = predict_from_live_api(live_best_models, live_features)
-    return jsonify(results)
-
 @app.route("/prediction/<int:fixture_id>", methods=["GET"])
 def get_prediction(fixture_id):
+    if request.args.get("type") == "live":
+        detail = load_live_prediction(fixture_id, live_best_models, live_features)
+        if detail is None:
+            return jsonify({"error": "Live prediction unavailable: awaiting data or daily budget exhausted"}), 404
+        return jsonify(detail)
     with SessionLocal() as session:
         fixture = session.get(Fixture, fixture_id)
     if fixture is None or fixture.Predicted_Label is None:
@@ -302,91 +274,10 @@ def get_predictions_for_range():
     except ValueError:
         return jsonify({"error": "Invalid date format, use YYYY-MM-DD"}), 400
 
-    # 🧠 1. Tüm maçları al
-    merged_df = get_combined_fixtures_with_odds()
-    merged_df = merge_xg_to_fixtures(merged_df, xg_data)
-    merged_df["Date"] = pd.to_datetime(merged_df["Date"], errors="coerce").dt.date
-    merged_df = merged_df.dropna(subset=["Date"])
-
-    # 🧠 2. Tarih aralığına göre filtrele
-    merged_df = merged_df[(merged_df["Date"] >= from_date) & (merged_df["Date"] <= to_date)]
-
-    if merged_df.empty:
-        return jsonify([])
-
-    # 🧠 3. Kodlama
-    merged_df["HomeTeam_code"] = pd.Categorical(merged_df["HomeTeam"], categories=team_categories).codes
-    merged_df["AwayTeam_code"] = pd.Categorical(merged_df["AwayTeam"], categories=team_categories).codes
-
-    # 🧠 4. Özellik mühendisliği
-    merged_df = add_latest_elo_to_fixtures(merged_df, historical_data_by_league)
-    merged_df = add_latest_elo_features_to_fixtures(merged_df, historical_data_by_league)
-    merged_df = add_all_features_to_merged_df(merged_df, historical_data_by_league)
-
-    # 🧠 5. Tahmin (sadece mümkün olanlar)
-    all_predictions = []
-    for league in merged_df["League"].unique():
-        league_df = merged_df[merged_df["League"] == league]
-        model = best_models.get(league)
-        feature_set = features_by_league.get(league)
-        if model and feature_set:
-            preds = predict_from_merged_df(league_df, {league: model}, {league: feature_set})
-            all_predictions.append(preds)
-            if all_predictions:
-                predicted_df = pd.concat(all_predictions, ignore_index=True)
-            else:
-                predicted_df = pd.DataFrame(columns=["FixtureID", "Predicted_Label", "Home Win %", "Draw %", "Away Win %"])
-
-
-    # 🧠 6. Tahminleri FixtureID ile merge et
-    full_df = merged_df.merge(
-        predicted_df[["FixtureID", "Predicted_Label", "Home Win %", "Draw %", "Away Win %"]],
-        on="FixtureID",
-        how="left"
-    )
-
-    # 🔧 7. Eksik tahminleri doldur
-    full_df["Predicted_Label"] = full_df["Predicted_Label"].fillna("N/A")
-    full_df["Home Win %"] = full_df["Home Win %"].fillna(0)
-    full_df["Draw %"] = full_df["Draw %"].fillna(0)
-    full_df["Away Win %"] = full_df["Away Win %"].fillna(0)
-
-    # 🔧 8. Skor ve dakika bilgisi varsa Score sütunu oluştur
-    def format_score(row):
-        if pd.notnull(row["HomeGoals"]) and pd.notnull(row["AwayGoals"]):
-            return f"{row['HomeGoals']} - {row['AwayGoals']}"
-        return None
-
-    full_df["Score"] = full_df.apply(format_score, axis=1)
-
-    # 🔧 9. Elapsed eksikse None bırak
-    if "Elapsed" not in full_df.columns:
-        full_df["Elapsed"] = None
-
-    for col in ["HomeGoals", "AwayGoals", "Elapsed"]:
-       full_df[col] = full_df[col].apply(lambda x: int(x) if pd.notnull(x) else None)
-    
-    full_df["Date"] = full_df["Date"].astype(str)
-    
-
-
-
-    # 🧠 10. JSON çıktısı
-    output = full_df[[
-        "FixtureID", "Date", "League", "HomeTeam", "AwayTeam",
-        "Predicted_Label", "Home Win %", "Draw %", "Away Win %",
-        "HomeGoals", "AwayGoals", "Status"
-    ]].to_dict(orient="records")
-
-    for row in output:
-    # Goller float gibi görünüyorsa int'e çevir
-        if isinstance(row.get("HomeGoals"), float) and row["HomeGoals"].is_integer():
-           row["HomeGoals"] = int(row["HomeGoals"])
-        if isinstance(row.get("AwayGoals"), float) and row["AwayGoals"].is_integer():
-           row["AwayGoals"] = int(row["AwayGoals"])
-
-
-    return jsonify(json.loads(json.dumps(output)))
+    with SessionLocal() as db:
+        fixtures = db.query(Fixture).filter(Fixture.Date >= from_date.isoformat(),
+                                           Fixture.Date <= to_date.isoformat()).all()
+        return jsonify([_legacy_fixture_payload(f) for f in fixtures])
 
 
 

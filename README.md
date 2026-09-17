@@ -245,28 +245,41 @@ the iOS application. Pre-match recalculations are appended to
 `prediction_snapshots`; live predictions use a separate `LIVE` type and never
 overwrite the pre-match probabilities stored on the fixture.
 
-### Live data limitations
+### Central live scores and daily budget
 
-The current live endpoint caches provider responses for five minutes inside the
-Flask process; it is refreshed by app requests, not by a background live worker.
-The backend must remain running. The saved live models use in-play odds, card
-counts and half-time scores. Their feature schema does not directly include
-current score, minute, substitutions or injuries; adding those inputs requires
-retraining, not just polling the API more frequently.
+`.github/workflows/sync-live.yml` runs `python live_sync.py` approximately every
+five minutes. GitHub scheduled runs can be delayed; this is not a real-time SLA.
+The worker checks stored kickoff times and only contacts API-Football from five
+minutes before kickoff until at most four hours afterwards. A single
+`fixtures?live=all` call covers all six leagues. Matches leaving that list are
+verified with a batched fixture-ID request before being marked finished.
 
-Live odds are fetched from API-Football `/odds/live`. Missing or suspended odds,
-or unavailable card data, leave the match visible without a new prediction.
-Pre-match `/odds` responses are never substituted for in-play odds. Free
-football-data.org coverage includes delayed scores, not guaranteed real-time
-scores (see https://www.football-data.org/pricing). The agreed split between
-providers still requires choosing how to handle this free-tier delay; the live
-endpoint currently uses API-Football for all supported leagues.
+`provider_cache` in Supabase is shared by every backend process and user. The
+live-list routes only read this cache; branding uses local assets/cached data.
+Empty successful responses are cached too. Failed HTTP attempts count against
+the budget and retain previous cache data. Expired live lists (15 minutes) are
+not shown as current matches.
 
-Prediction snapshots support versioning; automatic injury/lineup ingestion and
-recalculation triggers have not yet been implemented. The six saved live models
-pass a local inference smoke check, but were trained under a different
-scikit-learn version and should be retrained with the production dependency
-version before relying on their accuracy.
+`provider_request_budget` reserves each request atomically before network I/O,
+using a UTC day. Detail calls stop at 80 total requests, live/score calls at 98,
+and standings at 100. These ceilings reserve room for essential updates; they
+cannot guarantee five-minute coverage on a long matchday. Other programs using
+the same API key are outside this counter. Use one dedicated key and database.
+
+Events and in-play odds are requested only from detail endpoints, with a shared
+five-minute cache. Finished-match events are cached for a day. The Live tab's
+Show Prediction uses `/prediction/<id>?type=live`; home-page predictions remain
+pre-match. Live predictions are timestamped snapshots and require available
+odds and event data. The saved models use card counts, half-time score and odds;
+injury/substitution features and automated pre-match lineup triggers still
+require model and ingestion work.
+
+Required GitHub secret: `API_FOOTBALL_KEY` (also set in local `.env`). The Actions
+worker continues with the terminal closed. The iOS API still requires Flask to
+be running or deployed. After updating, restart Flask to create the new cache
+and budget tables, then rebuild the Swift app. Free API plan coverage may limit
+which seasons/endpoints return data; exhausted quota leaves the last saved
+predictions available rather than issuing unbudgeted requests.
 
 ---
 

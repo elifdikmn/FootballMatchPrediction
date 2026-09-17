@@ -724,8 +724,11 @@ def get_live_matches_with_predictions(best_models, features, team_categories, hi
     return output
 
 # fixture.py içine ekle
-def predict_from_live_api(live_best_models, features):
-    live_matches = get_live_fixtures()
+def predict_from_live_api(live_best_models, features, live_matches=None, odds_loader=None, events_loader=None):
+    if live_matches is None:
+        live_matches = get_live_fixtures()
+    odds_loader = odds_loader or get_live_odds_from_api_football
+    events_loader = events_loader or get_live_events_summary
     results = []
 
     for match in live_matches:
@@ -742,8 +745,8 @@ def predict_from_live_api(live_best_models, features):
         htr_code = {"H": 1, "D": 0, "A": -1}.get(htr, 0)
 
         # Oranları ve kartları al
-        odds = get_live_odds_from_api_football(fixture_id)
-        events = get_live_events_summary(
+        odds = odds_loader(fixture_id)
+        events = events_loader(
             fixture_id,
             match.get("provider_home_team", home_team),
             match.get("provider_away_team", away_team),

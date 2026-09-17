@@ -70,7 +70,7 @@ final class APIClient: @unchecked Sendable {
         try await get("/standings/\(leagueCode)")
     }
 
-    func predictionDetail(fixtureId: Int) async throws -> MatchPredictionDetail {
-        try await get("/prediction/\(fixtureId)")
+    func predictionDetail(fixtureId: Int, live: Bool = false) async throws -> MatchPredictionDetail {
+        try await get("/prediction/\(fixtureId)", query: live ? [URLQueryItem(name: "type", value: "live")] : [])
     }
 }

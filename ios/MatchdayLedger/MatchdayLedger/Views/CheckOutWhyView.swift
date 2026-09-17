@@ -9,6 +9,7 @@ struct CheckOutWhyView: View {
     var homeLogo: URL? = nil
     var awayLogo: URL? = nil
     var statusText: String = "MATCH"
+    var livePrediction: Bool = false
 
     @State private var detail: MatchPredictionDetail?
     @State private var isLoading = false
@@ -204,7 +205,7 @@ struct CheckOutWhyView: View {
         isLoading = true
         errorMessage = nil
         do {
-            detail = try await APIClient.shared.predictionDetail(fixtureId: fixtureId)
+            detail = try await APIClient.shared.predictionDetail(fixtureId: fixtureId, live: livePrediction)
         } catch {
             errorMessage = error.localizedDescription
         }

@@ -44,9 +44,13 @@ struct LiveView: View {
                                 homeLogo: match.homeTeamLogo, awayLogo: match.awayTeamLogo,
                                 homePct: match.homeWinPct, drawPct: match.drawPct, awayPct: match.awayWinPct,
                                 trailingBadge: AnyView(LiveMinuteBadge(elapsed: match.elapsed)),
-                                scoreText: match.score, statusText: "LIVE",
+                                scoreText: match.score, statusText: "LIVE", livePrediction: true,
                                 fixtureId: match.fixtureId, leagueCode: match.league
                             )
+                            if let timestamp = match.predictionUpdatedAt {
+                                Text("Prediction updated: \(timestamp.prefix(16).replacingOccurrences(of: "T", with: " ")) UTC")
+                                    .font(.caption2).foregroundStyle(Theme.inkMuted)
+                            }
                         }
                     }
                 }

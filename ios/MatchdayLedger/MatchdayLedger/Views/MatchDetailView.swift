@@ -9,6 +9,7 @@ struct MatchDetailView: View {
     var homeLogo: URL? = nil
     var awayLogo: URL? = nil
     var statusText: String = "MATCH"
+    var livePrediction: Bool = false
 
     private enum Tab { case events, standings }
 
@@ -78,7 +79,8 @@ struct MatchDetailView: View {
                     league: league,
                     homeLogo: homeLogo,
                     awayLogo: awayLogo,
-                    statusText: statusText
+                    statusText: statusText,
+                    livePrediction: livePrediction
                 )
             } label: {
                 Text("Show Prediction")
