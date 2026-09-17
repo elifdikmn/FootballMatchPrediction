@@ -730,6 +730,7 @@ def predict_from_live_api(live_best_models, features):
 
     for match in live_matches:
         fixture_id = match["fixture_id"]
+        league = match["league"]
         home_team = match["home_team"]
         away_team = match["away_team"]
         elapsed = match["elapsed"] or 0
@@ -742,49 +743,53 @@ def predict_from_live_api(live_best_models, features):
 
         # Oranları ve kartları al
         odds = get_live_odds_from_api_football(fixture_id)
-        if not odds:
-            continue
+        events = get_live_events_summary(
+            fixture_id,
+            match.get("provider_home_team", home_team),
+            match.get("provider_away_team", away_team),
+        )
+        label = None
+        percentages = {"home": None, "draw": None, "away": None}
 
-        prob = normalize_odds(odds)
-        events = get_live_events_summary(fixture_id, home_team, away_team)
-
-        # Özellik vektörünü oluştur
-        feature_row = {
-            "HY": events["home_yellow_cards"],
-            "AY": events["away_yellow_cards"],
-            "HR": events["home_red_cards"],
-            "AR": events["away_red_cards"],
-            "HTR_code": htr_code,
-            "HTAG": ht_away,
-            "HTHG": ht_home,
-            "HomeProb": prob["HomeProb"],
-            "DrawProb": prob["DrawProb"],
-            "AwayProb": prob["AwayProb"]
-        }
-
-        row_filled = {col: feature_row.get(col, 0) for col in features}
-        X_input = pd.DataFrame([row_filled])
-
-        model = live_best_models.get("E0")
-        if not model:
-            continue
-
-        predicted = model.predict(X_input)[0]
-        proba = model.predict_proba(X_input)[0]
-
-        label = {1: "Home Win", 0: "Draw", -1: "Away Win"}[predicted]
+        model = live_best_models.get(league)
+        if odds and model is not None:
+            prob = normalize_odds(odds)
+            feature_row = {
+                "HY": events["home_yellow_cards"],
+                "AY": events["away_yellow_cards"],
+                "HR": events["home_red_cards"],
+                "AR": events["away_red_cards"],
+                "HTR_code": htr_code,
+                "HTAG": ht_away,
+                "HTHG": ht_home,
+                "HomeProb": prob["HomeProb"],
+                "DrawProb": prob["DrawProb"],
+                "AwayProb": prob["AwayProb"],
+            }
+            row_filled = {col: feature_row.get(col, 0) for col in features}
+            X_input = pd.DataFrame([row_filled])
+            predicted = model.predict(X_input)[0]
+            probabilities = dict(zip(model.classes_, model.predict_proba(X_input)[0]))
+            label = {1: "Home Win", 0: "Draw", -1: "Away Win"}.get(predicted)
+            percentages = {
+                "home": round(float(probabilities.get(1, 0)) * 100, 2),
+                "draw": round(float(probabilities.get(0, 0)) * 100, 2),
+                "away": round(float(probabilities.get(-1, 0)) * 100, 2),
+            }
 
         result_row = {
             "fixture_id": fixture_id,
+            "date": match.get("date"),
             "home_team": home_team,
             "away_team": away_team,
-            "elapsed": f"{elapsed} min",
-            "home_score": ht_home,
-            "away_score": ht_away,
+            "league": league,
+            "score": f"{match.get('home_goals', 0)} - {match.get('away_goals', 0)}",
+            "elapsed": int(elapsed),
+            "status": match.get("status") or "LIVE",
             "predicted_label": label,
-            "home_win_pct": round(proba[2] * 100, 2),
-            "draw_pct": round(proba[1] * 100, 2),
-            "away_win_pct": round(proba[0] * 100, 2)
+            "home_win_pct": percentages["home"],
+            "draw_pct": percentages["draw"],
+            "away_win_pct": percentages["away"],
         }
 
         results.append(result_row)

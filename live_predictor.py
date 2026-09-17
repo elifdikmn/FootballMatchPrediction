@@ -1,26 +1,22 @@
-import pandas as pd
 import requests
-import pickle
-import joblib
-from datetime import timedelta
-from sklearn.preprocessing import LabelEncoder
 
 from team_normalizer import team_name_map
 from team_normalizer import map_live_team_name
 from config import API_FOOTBALL_KEY
 HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
 
+API_FOOTBALL_LEAGUES = {
+    78: "D1",
+    39: "E0",
+    140: "SP1",
+    135: "I1",
+    61: "F1",
+    203: "T1",
+}
 
-def get_live_events_summary(fixture_id, home_team, away_team):
-    url = f"https://v3.football.api-sports.io/fixtures/events?fixture={fixture_id}"
-    response = requests.get(url, headers=HEADERS)
 
-    if response.status_code != 200:
-        print(f"❌ Event API hatası ({fixture_id}):", response.status_code)
-        return {}
-
-    data = response.json().get("response", [])
-    summary = {
+def _empty_event_summary():
+    return {
         "home_yellow_cards": 0,
         "away_yellow_cards": 0,
         "home_red_cards": 0,
@@ -29,6 +25,24 @@ def get_live_events_summary(fixture_id, home_team, away_team):
         "last_event_team": None,
         "last_event_minute": None,
     }
+
+
+def get_live_events_summary(fixture_id, home_team, away_team):
+    summary = _empty_event_summary()
+    if not API_FOOTBALL_KEY:
+        return summary
+    url = f"https://v3.football.api-sports.io/fixtures/events?fixture={fixture_id}"
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=20)
+    except requests.RequestException as error:
+        print(f"❌ Event API connection error ({fixture_id}): {error}")
+        return summary
+
+    if response.status_code != 200:
+        print(f"❌ Event API hatası ({fixture_id}):", response.status_code)
+        return summary
+
+    data = response.json().get("response", [])
 
     for event in data:
         team = event["team"]["name"]
@@ -57,8 +71,14 @@ def get_live_events_summary(fixture_id, home_team, away_team):
     return summary
 
 def get_live_fixtures():
+    if not API_FOOTBALL_KEY:
+        return []
     url = "https://v3.football.api-sports.io/fixtures?live=all"
-    response = requests.get(url, headers=HEADERS)
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=20)
+    except requests.RequestException as error:
+        print(f"❌ Live fixtures API connection error: {error}")
+        return []
 
     if response.status_code != 200:
         print("❌ Live fixtures API hatası:", response.status_code)
@@ -68,23 +88,32 @@ def get_live_fixtures():
     live_fixtures = []
 
     for match in data:
+        league_code = API_FOOTBALL_LEAGUES.get(match.get("league", {}).get("id"))
+        if league_code is None:
+            continue
         fixture_id = match["fixture"]["id"]
-        home_team = match["teams"]["home"]["name"]
-        away_team = match["teams"]["away"]["name"]
+        raw_home_team = match["teams"]["home"]["name"]
+        raw_away_team = match["teams"]["away"]["name"]
+        home_team = map_live_team_name(raw_home_team, team_name_map)
+        away_team = map_live_team_name(raw_away_team, team_name_map)
         elapsed = match["fixture"]["status"]["elapsed"]
         halftime_score = match.get("score", {}).get("halftime", {"home": 0, "away": 0})
-        league_code = match["league"].get("code", "E0")  # ⚠️ varsa "E0", "SP1", vs.
-
+        goals = match.get("goals") or {}
 
         live_fixtures.append({
             "fixture_id": fixture_id,
+            "date": str(match["fixture"].get("date") or "")[:10],
             "home_team": home_team,
             "away_team": away_team,
+            "provider_home_team": raw_home_team,
+            "provider_away_team": raw_away_team,
             "elapsed": elapsed,
-            "ht_home_goals": halftime_score.get("home", 0),
-            "ht_away_goals": halftime_score.get("away", 0),
-            "league": league_code
-
+            "home_goals": goals.get("home") or 0,
+            "away_goals": goals.get("away") or 0,
+            "ht_home_goals": halftime_score.get("home") or 0,
+            "ht_away_goals": halftime_score.get("away") or 0,
+            "league": league_code,
+            "status": match["fixture"]["status"].get("short") or "LIVE",
         })
 
     return live_fixtures
@@ -103,8 +132,14 @@ def get_htr(score_str, home_team, away_team):
         return "D"  # varsayılan olarak beraberlik dön
 
 def get_live_odds_from_api_football(fixture_id):
+    if not API_FOOTBALL_KEY:
+        return None
     url = f"https://v3.football.api-sports.io/odds?fixture={fixture_id}"
-    response = requests.get(url, headers=HEADERS)
+    try:
+        response = requests.get(url, headers=HEADERS, timeout=20)
+    except requests.RequestException as error:
+        print(f"❌ API-Football odds connection error ({fixture_id}): {error}")
+        return None
 
     if response.status_code != 200:
         print("❌ API-Football Odds Hatası:", response.status_code)

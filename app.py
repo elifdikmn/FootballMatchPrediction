@@ -16,7 +16,6 @@ from match_repository import scheduled_rows, score_value, prediction_metadata
 from fixture import get_grouped_standings
 from evaluation import evaluate_model_accuracy
 from fixture import get_combined_fixtures_with_odds
-from fixture import get_live_matches_with_predictions
 from fixture import get_match_events
 from fixture import predict_from_live_api
 from fixture import get_standings_by_league
@@ -227,9 +226,7 @@ def live_matches_with_predictions():
         if monotonic() - _live_cache["updated"] < 300:
             data = [dict(match) for match in _live_cache["matches"]]
         else:
-            data = get_live_matches_with_predictions(
-                best_models, features_by_league, team_categories, historical_data_by_league
-            )
+            data = predict_from_live_api(live_best_models, live_features)
             with SessionLocal() as session:
                 data = persist_live_matches(session, data)
             _live_cache["matches"] = [dict(match) for match in data]
