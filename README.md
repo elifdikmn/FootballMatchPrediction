@@ -198,6 +198,45 @@ pyyaml
 
 ---
 
+## Automated fixture pipeline
+
+The relational database is the source of truth for the mobile API. Five major
+European leagues are batch-synced from football-data.org and Süper Lig is
+synced from the CC0 OpenFootball dataset. If the requested Süper Lig season
+has not been published there yet, the keyless ESPN scoreboard feed is used as
+a fallback. New fixtures and schedule changes are upserted, then only fixtures
+marked `needs_prediction` are passed to the saved models.
+
+Production scheduling is defined in `.github/workflows/sync-football-data.yml`:
+
+- `full` fetches the next 45 days every day at 02:17 UTC.
+- `refresh` fetches yesterday through the next two days every three hours.
+- Both jobs write fixtures and predictions to the database configured by
+  `DATABASE_URL`.
+
+Add these repository secrets in **Settings → Secrets and variables → Actions**:
+
+- `DATABASE_URL`: the Supabase Postgres pooler connection string.
+- `FOOTBALL_DATA_TOKEN`: a free football-data.org API token.
+
+Optional repository variable `OPENFOOTBALL_SEASON` can pin the Süper Lig feed
+to a value such as `2025-26`. Without it, the job tries the current season and
+falls back to the most recently published dataset.
+
+For local development copy `.env.example` to `.env`. Without `DATABASE_URL`,
+the code continues to use `matches.db`. Run a complete sync manually with:
+
+```bash
+python sync_pipeline.py --mode full
+```
+
+The Flask routes `/prediction-dates`, `/scheduled-predictions`,
+`/prediction/<fixture_id>`, and `/predictionmatch` read directly from the
+database. Provider credentials stay on the server and are never embedded in
+the iOS application.
+
+---
+
 ## 👤 Author
 **Created by Elif Dikmen**
 

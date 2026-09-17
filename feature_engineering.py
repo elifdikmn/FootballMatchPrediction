@@ -21,7 +21,9 @@ def build_features_dataframe(fixtures, historical_data_by_league):
             "B365D": fx.get("B365D") if is_dict else getattr(fx, "B365D", None),
             "B365A": fx.get("B365A") if is_dict else getattr(fx, "B365A", None)
         })
-        merged_df = pd.DataFrame(rows)
+    merged_df = pd.DataFrame(rows)
+
+    if merged_df.empty:
         return merged_df
 
 

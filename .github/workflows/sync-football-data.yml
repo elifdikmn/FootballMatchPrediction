@@ -1,0 +1,44 @@
+name: Sync football fixtures and predictions
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+    - cron: "43 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Sync window
+        required: true
+        default: full
+        type: choice
+        options:
+          - full
+          - refresh
+
+concurrency:
+  group: football-data-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+      MODEL_VERSION: ${{ vars.MODEL_VERSION || 'baseline-v1' }}
+      OPENFOOTBALL_SEASON: ${{ vars.OPENFOOTBALL_SEASON }}
+      SYNC_MODE: ${{ inputs.mode || (github.event.schedule == '17 2 * * *' && 'full' || 'refresh') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Sync fixtures and generate pending predictions
+        run: python sync_pipeline.py --mode "$SYNC_MODE"

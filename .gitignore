@@ -8,3 +8,5 @@ venv/
 *.log
 branding_cache.json
 branding_cache.json.tmp
+matches.db
+matches.db-journal

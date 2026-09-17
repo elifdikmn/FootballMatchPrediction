@@ -1,32 +1,30 @@
+"""Optional local scheduler. Production scheduling is handled by GitHub Actions."""
+
 from apscheduler.schedulers.blocking import BlockingScheduler
-from update_data import (
-    update_scheduled_fixtures,
-    update_all_standings,
-    import_upcoming_week_fixtures
-)
-from update_cache_from_api import update_prediction_cache_from_own_models
 
-# ⚙️ Zamanlayıcı başlatılıyor
-scheduler = BlockingScheduler()
+from db_setup import init_db
+from fixture_sync import sync_all
+from sync_pipeline import predict_pending_fixtures
 
-@scheduler.scheduled_job('interval', minutes=30)
-def scheduled_update():
-    print("🔁 [SCHEDULER] Güncelleme başladı...")
 
-    # 1. Scheduled maçları kontrol et
-    update_scheduled_fixtures()
+scheduler = BlockingScheduler(timezone="UTC")
 
-    # 2. Standings güncelle (6 lig)
-    update_all_standings()
 
-    # 3. Gelecek 7 gün içindeki yeni maçları ekle
-    import_upcoming_week_fixtures()
+@scheduler.scheduled_job("cron", hour=2, minute=17)
+def full_sync():
+    totals = sync_all("full")
+    totals["predictions"] = predict_pending_fixtures()
+    print("Daily fixture sync:", totals)
 
-    # 4. Kendi modelimizle scheduled maçlar için tahmin cache'ini güncelle
-    update_prediction_cache_from_own_models()
 
-    print("✅ [SCHEDULER] Güncelleme tamamlandı.\n")
+@scheduler.scheduled_job("cron", hour="*/3", minute=43)
+def refresh_sync():
+    totals = sync_all("refresh")
+    totals["predictions"] = predict_pending_fixtures()
+    print("Three-hour fixture refresh:", totals)
+
 
 if __name__ == "__main__":
-    print("🕒 run_scheduler.py çalışıyor... Her 30 dakikada bir veri güncellenecek.")
+    init_db()
+    print("Scheduler running: daily full sync and three-hour refresh.")
     scheduler.start()

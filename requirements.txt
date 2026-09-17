@@ -1,7 +1,7 @@
 flask
 pandas
 numpy
-scikit-learn
+scikit-learn==1.6.1
 joblib
 requests
 sqlalchemy
@@ -11,3 +11,4 @@ selenium
 webdriver-manager
 matplotlib
 python-dotenv
+psycopg[binary]

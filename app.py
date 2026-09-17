@@ -7,7 +7,9 @@ import numpy as np
 from datetime import datetime
 from fixture import get_match_from_api
 from db_setup import SessionLocal
-from models import Standing
+from models import Fixture, Standing
+from match_repository import prediction_dates as load_prediction_dates
+from match_repository import scheduled_rows, score_value
 from fixture import get_grouped_standings
 from evaluation import evaluate_model_accuracy
 from fixture import get_combined_fixtures_with_odds
@@ -40,14 +42,14 @@ app = Flask(__name__)
 def get_branding_data():
     seasons = set()
     try:
-        with open("prediction_cache.json", "r", encoding="utf-8") as cache_file:
-            predictions = json.load(cache_file)
-        for fixture in predictions.values():
-            if fixture.get("League") not in league_ids:
+        with SessionLocal() as session:
+            fixtures = session.query(Fixture.Date, Fixture.League).all()
+        for match_date_value, league in fixtures:
+            if league not in league_ids:
                 continue
-            match_date = datetime.strptime(str(fixture.get("Date", ""))[:10], "%Y-%m-%d")
+            match_date = datetime.strptime(str(match_date_value)[:10], "%Y-%m-%d")
             seasons.add(match_date.year if match_date.month >= 7 else match_date.year - 1)
-    except (OSError, ValueError, TypeError, AttributeError):
+    except (ValueError, TypeError, AttributeError):
         seasons = {get_current_season()}
 
     return branding_catalogue(
@@ -85,8 +87,9 @@ historical_data_by_league = {
 
 @app.route("/predictionmatch")
 def predictions():
-    with open("prediction_cache.json") as f:
-        data = json.load(f)
+    with SessionLocal() as session:
+        fixtures = session.query(Fixture).all()
+        data = {str(f.FixtureID): _legacy_fixture_payload(f) for f in fixtures}
     return jsonify(data)
 
 
@@ -127,67 +130,59 @@ def grouped_standings_route():
 
 @app.route("/prediction-dates")
 def prediction_dates():
-    with open("prediction_cache.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    dates = {}
-    for fx in data.values():
-        code = fx.get("League")
-        day = str(fx.get("Date", ""))[:10]
-        if code not in league_ids or not fx.get("FixtureID"):
-            continue
-        try:
-            datetime.strptime(day, "%Y-%m-%d")
-        except ValueError:
-            continue
-        dates.setdefault(code, set()).add(day)
-    return jsonify({code: sorted(days) for code, days in dates.items()})
+    with SessionLocal() as session:
+        dates = load_prediction_dates(session, league_ids.keys())
+    return jsonify(dates)
+
+
+def _legacy_fixture_payload(fixture):
+    return {
+        "FixtureID": fixture.FixtureID,
+        "Date": fixture.Date,
+        "League": fixture.League,
+        "HomeTeam": fixture.HomeTeam,
+        "AwayTeam": fixture.AwayTeam,
+        "Predicted_Label": fixture.Predicted_Label,
+        "Home Win %": fixture.HomeWinPct,
+        "Draw %": fixture.DrawPct,
+        "Away Win %": fixture.AwayWinPct,
+        "HomeGoals": score_value(fixture.HomeGoals),
+        "AwayGoals": score_value(fixture.AwayGoals),
+        "Status": fixture.Status,
+    }
+
+
+def _scheduled_payload(fixture, kickoff_utc, catalogue):
+    return {
+        "fixture_id": fixture.FixtureID,
+        "home_team": fixture.HomeTeam,
+        "away_team": fixture.AwayTeam,
+        "home_team_logo": logo_for_team(catalogue, fixture.League, fixture.HomeTeam),
+        "away_team_logo": logo_for_team(catalogue, fixture.League, fixture.AwayTeam),
+        "league": fixture.League,
+        "date": kickoff_utc or fixture.Date,
+        "status": fixture.Status,
+        "home_goals": score_value(fixture.HomeGoals),
+        "away_goals": score_value(fixture.AwayGoals),
+        "predicted_label": fixture.Predicted_Label,
+        "home_win_pct": fixture.HomeWinPct,
+        "draw_pct": fixture.DrawPct,
+        "away_win_pct": fixture.AwayWinPct,
+    }
 
 
 @app.route("/scheduled-predictions")
 def scheduled_predictions():
-    with open("prediction_cache.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-
     selected_date = request.args.get("date")
     if selected_date:
         try:
             datetime.strptime(selected_date, "%Y-%m-%d")
         except ValueError:
             return jsonify({"error": "date must be YYYY-MM-DD"}), 400
-    def score_value(value):
-        # Preserve 0-0, accept old float-valued scores and omit missing/invalid data.
-        try:
-            number = float(value)
-            return int(number) if number >= 0 and number.is_integer() else None
-        except (TypeError, ValueError, OverflowError):
-            return None
-
     catalogue = get_branding_data()
-    output = []
-    for fx in data.values():
-        matches_date = str(fx.get("Date", ""))[:10] == selected_date if selected_date else fx.get("Status") == "SCHEDULED"
-        if matches_date and fx.get("League") in league_ids:
-            output.append({
-                "fixture_id": fx["FixtureID"],
-                "home_team": fx.get("HomeTeam") or fx.get("home_team"),
-                "away_team": fx.get("AwayTeam") or fx.get("away_team"),
-                "home_team_logo": logo_for_team(
-                    catalogue, fx["League"], fx.get("HomeTeam") or fx.get("home_team")
-                ),
-                "away_team_logo": logo_for_team(
-                    catalogue, fx["League"], fx.get("AwayTeam") or fx.get("away_team")
-                ),
-                "league": fx["League"],
-                "date": fx["Date"],
-                "status": fx.get("Status"),
-                "home_goals": score_value(fx.get("HomeGoals")),
-                "away_goals": score_value(fx.get("AwayGoals")),
-                "predicted_label": fx.get("Predicted_Label") or fx.get("predicted_label"),
-                "home_win_pct": fx.get("Home Win %") or fx.get("home_win_pct"),
-                "draw_pct": fx.get("Draw %") or fx.get("draw_pct"),
-                "away_win_pct": fx.get("Away Win %") or fx.get("away_win_pct"),
-            })
-
+    with SessionLocal() as session:
+        rows = scheduled_rows(session, league_ids.keys(), selected_date)
+        output = [_scheduled_payload(fixture, kickoff, catalogue) for fixture, kickoff in rows]
     return jsonify(output)
 
 
@@ -217,81 +212,34 @@ def live_simple():
 
 @app.route("/prediction/<int:fixture_id>", methods=["GET"])
 def get_prediction(fixture_id):
-    url = f"https://v3.football.api-sports.io/predictions?fixture={fixture_id}"
-    headers = {"x-apisports-key": API_FOOTBALL_KEY}
-    response = requests.get(url, headers=headers)
-    data = response.json().get("response", [])
-
-    if not data:
+    with SessionLocal() as session:
+        fixture = session.get(Fixture, fixture_id)
+    if fixture is None or fixture.Predicted_Label is None:
         return jsonify({"error": "No prediction found"}), 404
-
-    prediction_raw = data[0]
-    predictions = prediction_raw["predictions"]
-    home_last5 = prediction_raw["teams"]["home"]["last_5"]
-    away_last5 = prediction_raw["teams"]["away"]["last_5"]
-
-    result = {
-        "winner": predictions["winner"]["name"],
-        "comment": predictions["winner"]["comment"],
-        "advice": predictions["advice"],
-        "home_pct": predictions["percent"]["home"],
-        "draw_pct": predictions["percent"]["draw"],
-        "away_pct": predictions["percent"]["away"],
-        "goals_home": predictions["goals"]["home"],
-        "goals_away": predictions["goals"]["away"],
-        "under_over": predictions.get("under_over"),
-        "form_home": prediction_raw["comparison"]["form"]["home"],
-        "form_away": prediction_raw["comparison"]["form"]["away"],
-        "poisson_home": prediction_raw["comparison"]["poisson_distribution"]["home"],
-        "poisson_away": prediction_raw["comparison"]["poisson_distribution"]["away"],
-        "h2h_home": prediction_raw["comparison"]["h2h"]["home"],
-        "h2h_away": prediction_raw["comparison"]["h2h"]["away"],
-        "last_5_home": {
-            "form": home_last5["form"],
-            "att": home_last5["att"],
-            "def": home_last5["def"],
-            "goals": {
-                "for": {
-                    "total": home_last5["goals"]["for"]["total"],
-                    "average": float(home_last5["goals"]["for"]["average"])
-                },
-                "against": {
-                    "total": home_last5["goals"]["against"]["total"],
-                    "average": float(home_last5["goals"]["against"]["average"])
-                }
-            }
-        },
-        "last_5_away": {
-            "form": away_last5["form"],
-            "att": away_last5["att"],
-            "def": away_last5["def"],
-            "goals": {
-                "for": {
-                    "total": away_last5["goals"]["for"]["total"],
-                    "average": float(away_last5["goals"]["for"]["average"])
-                },
-                "against": {
-                    "total": away_last5["goals"]["against"]["total"],
-                    "average": float(away_last5["goals"]["against"]["average"])
-                }
-            }
-        }
-    }
-
-    return jsonify(result)
-
-from pathlib import Path
-CACHE_FILE = Path("prediction_cache.json")
+    winner = {
+        "Home Win": fixture.HomeTeam,
+        "Away Win": fixture.AwayTeam,
+        "Draw": "Draw",
+    }.get(fixture.Predicted_Label, fixture.Predicted_Label)
+    return jsonify({
+        "winner": winner,
+        "comment": "Prediction generated by the MatchdayLedger model from recent form and rating features.",
+        "advice": f"Most likely outcome: {fixture.Predicted_Label}.",
+        "home_pct": f"{fixture.HomeWinPct:.2f}%" if fixture.HomeWinPct is not None else None,
+        "draw_pct": f"{fixture.DrawPct:.2f}%" if fixture.DrawPct is not None else None,
+        "away_pct": f"{fixture.AwayWinPct:.2f}%" if fixture.AwayWinPct is not None else None,
+        "last_5_home": None,
+        "last_5_away": None,
+    })
 
 @app.route("/predictioncache")
 def get_predictions():
-    if not CACHE_FILE.exists():
-        return jsonify([])
-
-    with open(CACHE_FILE, "r") as f:
-        data = json.load(f)
-
-    print(f"✅ {len(data)} adet tahmin yüklendi")
+    with SessionLocal() as session:
+        data = {
+            str(f.FixtureID): _legacy_fixture_payload(f)
+            for f in session.query(Fixture).all()
+        }
+    print(f"✅ {len(data)} adet tahmin veritabanından yüklendi")
 
     # JSON objesi bir dict ise, Swift tarafı list beklediği için listeye çevir
     if isinstance(data, dict):
