@@ -1,4 +1,5 @@
 import requests
+import math
 
 from team_normalizer import team_name_map
 from team_normalizer import map_live_team_name
@@ -30,19 +31,22 @@ def _empty_event_summary():
 def get_live_events_summary(fixture_id, home_team, away_team):
     summary = _empty_event_summary()
     if not API_FOOTBALL_KEY:
-        return summary
+        return None
     url = f"https://v3.football.api-sports.io/fixtures/events?fixture={fixture_id}"
     try:
         response = requests.get(url, headers=HEADERS, timeout=20)
     except requests.RequestException as error:
         print(f"❌ Event API connection error ({fixture_id}): {error}")
-        return summary
+        return None
 
     if response.status_code != 200:
         print(f"❌ Event API hatası ({fixture_id}):", response.status_code)
-        return summary
+        return None
 
-    data = response.json().get("response", [])
+    payload = response.json()
+    if payload.get("errors"):
+        return None
+    data = payload.get("response", [])
 
     for event in data:
         team = event["team"]["name"]
@@ -131,42 +135,45 @@ def get_htr(score_str, home_team, away_team):
         print(f"⚠️ HTR hesaplama hatası: {e}")
         return "D"  # varsayılan olarak beraberlik dön
 
+def parse_live_odds(payload, fixture_id):
+    """Only accept active full-time 1X2 markets from the in-play endpoint."""
+    for item in payload.get("response", []):
+        if str(item.get("fixture", {}).get("id")) != str(fixture_id):
+            continue
+        if any(item.get("status", {}).get(key) for key in ("blocked", "stopped", "finished")):
+            continue
+        for bet in item.get("odds", []):
+            if str(bet.get("name", "")).lower() not in {"fulltime result", "full time result", "match winner"}:
+                continue
+            odds = {}
+            for value in bet.get("values", []):
+                if value.get("suspended") or value.get("main") is False:
+                    continue
+                outcome = str(value.get("value", "")).lower()
+                key = {"home": "B365H", "1": "B365H", "draw": "B365D", "x": "B365D", "away": "B365A", "2": "B365A"}.get(outcome)
+                try:
+                    price = float(value["odd"])
+                except (KeyError, TypeError, ValueError):
+                    continue
+                if key and math.isfinite(price) and price > 1:
+                    odds[key] = price
+            if len(odds) == 3:
+                return odds
+    return None
+
+
 def get_live_odds_from_api_football(fixture_id):
     if not API_FOOTBALL_KEY:
         return None
-    url = f"https://v3.football.api-sports.io/odds?fixture={fixture_id}"
     try:
-        response = requests.get(url, headers=HEADERS, timeout=20)
-    except requests.RequestException as error:
-        print(f"❌ API-Football odds connection error ({fixture_id}): {error}")
+        response = requests.get(
+            "https://v3.football.api-sports.io/odds/live",
+            params={"fixture": fixture_id}, headers=HEADERS, timeout=20,
+        )
+        response.raise_for_status()
+        return parse_live_odds(response.json(), fixture_id)
+    except (requests.RequestException, ValueError):
         return None
-
-    if response.status_code != 200:
-        print("❌ API-Football Odds Hatası:", response.status_code)
-        return None
-
-    data = response.json().get("response", [])
-    for item in data:
-        for bookmaker in item.get("bookmakers", []):
-            if bookmaker["name"].lower() == "bet365":
-                for bet in bookmaker.get("bets", []):
-                    if bet["name"].lower() == "match winner":
-                        odds = {}
-                        for value in bet.get("values", []):
-                            outcome = value["value"].lower()
-                            try:
-                                price = float(value["odd"])
-                            except Exception:
-                                continue
-                            if outcome == "home":
-                                odds["B365H"] = price
-                            elif outcome == "draw":
-                                odds["B365D"] = price
-                            elif outcome == "away":
-                                odds["B365A"] = price
-                        if all(k in odds for k in ["B365H", "B365D", "B365A"]):
-                            return odds
-    return None
 
 def extract_card_counts(events, home_team, away_team):
     hy = ay = hr = ar = 0

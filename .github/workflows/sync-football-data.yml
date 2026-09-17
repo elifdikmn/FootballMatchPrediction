@@ -49,3 +49,6 @@ jobs:
         run: pip install -r requirements.txt
       - name: Sync fixtures and generate pending predictions
         run: python sync_pipeline.py --mode "$SYNC_MODE"
+
+      - name: Update five European league tables
+        run: python standings_sync.py --europe

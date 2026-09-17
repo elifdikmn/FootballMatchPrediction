@@ -113,14 +113,59 @@ def sync_super_lig_standings(
     return {"status": "updated", "reason": None, "rows": len(table)}
 
 
+
+def sync_european_standings(db, token: str, http=requests) -> dict:
+    """Fetch the overall table once per league, retaining old data on errors."""
+    from fixture_sync import FOOTBALL_DATA_COMPETITIONS, FOOTBALL_DATA_URL
+
+    if not token:
+        raise RuntimeError("FOOTBALL_DATA_TOKEN is required for European standings")
+    api_ids = {"D1": "78", "E0": "39", "SP1": "140", "I1": "135", "F1": "61"}
+    counts = {}
+    errors = []
+    for code, competition in FOOTBALL_DATA_COMPETITIONS.items():
+        try:
+            response = http.get(
+                f"{FOOTBALL_DATA_URL}/competitions/{competition}/standings",
+                headers={"X-Auth-Token": token}, timeout=30,
+            )
+            response.raise_for_status()
+            tables = response.json().get("standings", [])
+            table = next((entry["table"] for entry in tables if entry.get("type") == "TOTAL"), [])
+            if not table:
+                raise ValueError("No TOTAL standings returned")
+            # Validate the entire response before replacing the stored table.
+            now = datetime.now(timezone.utc).isoformat()
+            rows = [Standing(
+                league=api_ids[code], team_name=normalize_team_name(item["team"]["name"]),
+                rank=item["position"], points=item["points"], goals_diff=item["goalDifference"],
+                played=item["playedGames"], win=item["won"], draw=item["draw"],
+                lose=item["lost"], last_updated=now,
+            ) for item in table]
+            db.query(Standing).filter_by(league=api_ids[code]).delete()
+            db.add_all(rows)
+            db.commit()
+            counts[code] = len(rows)
+        except (requests.RequestException, ValueError, KeyError, TypeError) as error:
+            db.rollback()
+            errors.append(f"{code}: {type(error).__name__}")
+    if errors:
+        raise RuntimeError("Standings sync incomplete: " + "; ".join(errors))
+    return counts
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--target-offset", type=int, default=0)
     parser.add_argument("--retry", action="store_true")
+    parser.add_argument("--europe", action="store_true")
     args = parser.parse_args()
     target_date = datetime.now(ISTANBUL).date() + timedelta(days=args.target_offset)
     init_db()
     with SessionLocal() as db:
+        if args.europe:
+            result = sync_european_standings(db, os.environ.get("FOOTBALL_DATA_TOKEN", "").strip())
+            print("European standings sync:", result)
+            return
         result = sync_super_lig_standings(
             db,
             os.environ.get("API_FOOTBALL_KEY", "").strip(),

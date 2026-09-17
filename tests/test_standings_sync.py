@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from models import Base, Fixture, Standing
-from standings_sync import sync_super_lig_standings
+from standings_sync import sync_super_lig_standings, sync_european_standings
 
 
 class StandingsSyncTests(unittest.TestCase):
@@ -29,6 +29,25 @@ class StandingsSyncTests(unittest.TestCase):
             Status=status,
         ))
         self.db.commit()
+
+    def test_european_sync_uses_total_table_and_preserves_failed_league(self):
+        self.db.add(Standing(league="78", team_name="Previous", points=10))
+        self.db.commit()
+        entry = {"team": {"name": "Arsenal FC"}, "position": 1, "points": 12,
+                 "goalDifference": 8, "playedGames": 4, "won": 4, "draw": 0, "lost": 0}
+        good = Mock()
+        good.json.return_value = {"standings": [
+            {"type": "HOME", "table": []}, {"type": "TOTAL", "table": [entry]}]}
+        bad = Mock()
+        bad.json.return_value = {"standings": []}
+        http = Mock()
+        http.get.side_effect = [bad, good, good, good, good]
+        with self.assertRaises(RuntimeError):
+            sync_european_standings(self.db, "test-key", http=http)
+        self.assertEqual(self.db.query(Standing).filter_by(league="78").one().points, 10)
+        row = self.db.query(Standing).filter_by(league="39").one()
+        self.assertEqual((row.team_name, row.points), ("Arsenal", 12))
+        self.assertEqual(http.get.call_count, 5)
 
     def test_first_run_waits_until_matches_finish(self):
         self.add_fixture("LIVE")

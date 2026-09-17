@@ -8,6 +8,23 @@ import live_predictor
 
 
 class LivePredictorTests(unittest.TestCase):
+    def test_live_odds_reject_suspended_and_invalid_markets(self):
+        values = [{"value": name, "odd": odd} for name, odd in
+                  [("Home", "1.5"), ("Draw", "4"), ("Away", "7")]]
+        item = {"fixture": {"id": 123}, "status": {},
+                "odds": [{"name": "Fulltime Result", "values": values}]}
+        payload = {"response": [item]}
+        self.assertEqual(live_predictor.parse_live_odds(payload, 123)["B365H"], 1.5)
+        self.assertIsNone(live_predictor.parse_live_odds(payload, 456))
+        item["status"]["blocked"] = True
+        self.assertIsNone(live_predictor.parse_live_odds(payload, 123))
+        item["status"] = {}
+        values[0]["suspended"] = True
+        self.assertIsNone(live_predictor.parse_live_odds(payload, 123))
+        values[0]["suspended"] = False
+        values[0]["odd"] = "nan"
+        self.assertIsNone(live_predictor.parse_live_odds(payload, 123))
+
     @patch.object(live_predictor, "API_FOOTBALL_KEY", "test-key")
     @patch("live_predictor.requests.get")
     def test_live_fixture_uses_internal_league_and_current_score(self, get):

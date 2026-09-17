@@ -752,7 +752,7 @@ def predict_from_live_api(live_best_models, features):
         percentages = {"home": None, "draw": None, "away": None}
 
         model = live_best_models.get(league)
-        if odds and model is not None:
+        if odds and events is not None and model is not None:
             prob = normalize_odds(odds)
             feature_row = {
                 "HY": events["home_yellow_cards"],

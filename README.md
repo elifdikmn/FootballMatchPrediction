@@ -211,6 +211,8 @@ Production scheduling is defined in `.github/workflows/sync-football-data.yml`:
 
 - `full` fetches the next 45 days every day at 02:17 UTC.
 - `refresh` fetches yesterday through the next two days every three hours.
+- Both jobs also refresh the five European league tables from football-data.org
+  (one request per league). A failed table fetch preserves the last stored table.
 - Both jobs write fixtures and predictions to the database configured by
   `DATABASE_URL`.
 
@@ -242,6 +244,29 @@ database. Provider credentials stay on the server and are never embedded in
 the iOS application. Pre-match recalculations are appended to
 `prediction_snapshots`; live predictions use a separate `LIVE` type and never
 overwrite the pre-match probabilities stored on the fixture.
+
+### Live data limitations
+
+The current live endpoint caches provider responses for five minutes inside the
+Flask process; it is refreshed by app requests, not by a background live worker.
+The backend must remain running. The saved live models use in-play odds, card
+counts and half-time scores. Their feature schema does not directly include
+current score, minute, substitutions or injuries; adding those inputs requires
+retraining, not just polling the API more frequently.
+
+Live odds are fetched from API-Football `/odds/live`. Missing or suspended odds,
+or unavailable card data, leave the match visible without a new prediction.
+Pre-match `/odds` responses are never substituted for in-play odds. Free
+football-data.org coverage includes delayed scores, not guaranteed real-time
+scores (see https://www.football-data.org/pricing). The agreed split between
+providers still requires choosing how to handle this free-tier delay; the live
+endpoint currently uses API-Football for all supported leagues.
+
+Prediction snapshots support versioning; automatic injury/lineup ingestion and
+recalculation triggers have not yet been implemented. The six saved live models
+pass a local inference smoke check, but were trained under a different
+scikit-learn version and should be retrained with the production dependency
+version before relying on their accuracy.
 
 ---
 
