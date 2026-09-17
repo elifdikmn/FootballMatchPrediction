@@ -37,35 +37,41 @@ def predict_pending_fixtures() -> int:
             .all()
         )
 
-    if not fixtures:
-        return 0
+        if not fixtures:
+            return 0
 
-    frame = pd.DataFrame(
-        [
-            {
-                "FixtureID": fixture.FixtureID,
-                "Date": fixture.Date,
-                "League": fixture.League,
-                "HomeTeam": fixture.HomeTeam,
-                "AwayTeam": fixture.AwayTeam,
-                "B365H": fixture.B365H,
-                "B365D": fixture.B365D,
-                "B365A": fixture.B365A,
-            }
-            for fixture in fixtures
-        ]
-    )
-    historical = _historical_data()
-    frame = add_latest_elo_to_fixtures(frame, historical)
-    frame = add_latest_elo_features_to_fixtures(frame, historical)
-    frame = add_all_features_to_merged_df(frame, historical)
-    # The current non-Turkish models were trained with xG. Until a free-data
-    # model is retrained, explicit neutral values are safer than missing data.
-    for column in ("HxG", "AxG", "xG_diff"):
-        if column not in frame:
-            frame[column] = 0.0
-    predictions = predict_from_merged_df(frame, load_best_models(), features_by_league)
-    return len(predictions)
+        frame = pd.DataFrame(
+            [
+                {
+                    "FixtureID": fixture.FixtureID,
+                    "Date": fixture.Date,
+                    "League": fixture.League,
+                    "HomeTeam": fixture.HomeTeam,
+                    "AwayTeam": fixture.AwayTeam,
+                    "B365H": fixture.B365H,
+                    "B365D": fixture.B365D,
+                    "B365A": fixture.B365A,
+                }
+                for fixture in fixtures
+            ]
+        )
+        historical = _historical_data()
+        frame = add_latest_elo_to_fixtures(frame, historical)
+        frame = add_latest_elo_features_to_fixtures(frame, historical)
+        frame = add_all_features_to_merged_df(frame, historical)
+        # The current non-Turkish models were trained with xG. Until a free-data
+        # model is retrained, explicit neutral values are safer than missing data.
+        for column in ("HxG", "AxG", "xG_diff"):
+            if column not in frame:
+                frame[column] = 0.0
+        predictions = predict_from_merged_df(
+            frame,
+            load_best_models(),
+            features_by_league,
+            db=db,
+        )
+        db.commit()
+        return len(predictions)
 
 
 def main():

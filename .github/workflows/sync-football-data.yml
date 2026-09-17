@@ -22,7 +22,7 @@ on:
 
 concurrency:
   group: football-data-sync
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 permissions:
   contents: read

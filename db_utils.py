@@ -36,7 +36,10 @@ def save_model_prediction(prediction: dict, db: Session = None):
             sync_state = db.get(FixtureSyncState, fixture.FixtureID)
             if sync_state:
                 sync_state.needs_prediction = False
-            db.commit()
+            if owns_session:
+                db.commit()
+            else:
+                db.flush()
             print(f"✅ Tahmin DB'ye yazıldı: Fixture {fixture.FixtureID}")
         else:
             print(f"❌ Fixture bulunamadı: {prediction['FixtureID']}")
