@@ -110,6 +110,46 @@ class ModelPrediction(Base):
     predicted_at = Column(String, nullable=False)
 
 
+class PredictionSnapshot(Base):
+    """Append-only prediction history for pre-match and live models."""
+
+    __tablename__ = "prediction_snapshots"
+    __table_args__ = (
+        UniqueConstraint(
+            "FixtureID", "prediction_type", "version",
+            name="uq_prediction_snapshot_version",
+        ),
+    )
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    FixtureID = Column(Integer, nullable=False, index=True)
+    prediction_type = Column(String, nullable=False, index=True)
+    version = Column(Integer, nullable=False)
+    trigger = Column(String, nullable=False, default="INITIAL")
+    model_version = Column(String, nullable=False)
+    predicted_label = Column(String, nullable=False)
+    home_win_pct = Column(Float, nullable=False)
+    draw_pct = Column(Float, nullable=False)
+    away_win_pct = Column(Float, nullable=False)
+    feature_snapshot = Column(JSON, nullable=True)
+    predicted_at = Column(String, nullable=False)
+
+
+class LiveMatchState(Base):
+    """Latest provider state for a live match, keyed to the canonical fixture."""
+
+    __tablename__ = "live_match_states"
+
+    FixtureID = Column(Integer, primary_key=True)
+    provider = Column(String, nullable=False, default="api-football")
+    provider_fixture_id = Column(String, nullable=False, unique=True)
+    league = Column(String, nullable=False)
+    score = Column(String, nullable=True)
+    elapsed = Column(Integer, nullable=True)
+    status = Column(String, nullable=False)
+    updated_at = Column(String, nullable=False)
+
+
 class SyncRun(Base):
     __tablename__ = "sync_runs"
 

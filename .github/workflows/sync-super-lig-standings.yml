@@ -1,0 +1,49 @@
+name: Sync Super Lig standings
+
+on:
+  schedule:
+    # Türkiye is UTC+3 year-round: 23:00 and midnight local time.
+    - cron: "0 20 * * *"
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+    inputs:
+      retry:
+        description: Treat this run as the midnight fallback
+        required: true
+        default: false
+        type: boolean
+
+concurrency:
+  group: super-lig-standings-sync
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Update standings after the day's matches
+        shell: bash
+        run: |
+          if [[ -z "$API_FOOTBALL_KEY" ]]; then
+            echo "API_FOOTBALL_KEY is not configured; skipping Süper Lig standings."
+            exit 0
+          fi
+          if [[ "${{ github.event.schedule }}" == "0 21 * * *" || "${{ inputs.retry }}" == "true" ]]; then
+            python standings_sync.py --target-offset -1 --retry
+          else
+            python standings_sync.py
+          fi

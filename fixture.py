@@ -687,7 +687,11 @@ def get_live_matches_with_predictions(best_models, features, team_categories, hi
 
    
 
-    predicted_df = predict_from_merged_df(df_live, best_models, features)
+    # Live predictions are returned to the live service and must never replace
+    # the fixture's stored pre-match prediction.
+    predicted_df = predict_from_merged_df(
+        df_live, best_models, features, prediction_type="LIVE", persist=False
+    )
     predictions_dict = predicted_df.set_index("FixtureID").to_dict(orient="index")
 
     # 🎯 3. Çıkış formatla
@@ -703,6 +707,7 @@ def get_live_matches_with_predictions(best_models, features, team_categories, hi
 
         output.append({
             "fixture_id": fixture_id,
+            "date": str(row["Date"]),
             "home_team": row["HomeTeam"],
             "away_team": row["AwayTeam"],
             "league": row["League"],

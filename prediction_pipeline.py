@@ -20,7 +20,15 @@ def load_best_models(path="best_models.pkl"):
         return pickle.load(f)
 
 
-def predict_from_merged_df(merged_df, best_models, features_by_league, db=None):
+def predict_from_merged_df(
+    merged_df,
+    best_models,
+    features_by_league,
+    db=None,
+    prediction_type="PRE_MATCH",
+    trigger="INITIAL",
+    persist=True,
+):
     prediction_rows = []
 
     for _, row in merged_df.iterrows():
@@ -69,7 +77,13 @@ def predict_from_merged_df(merged_df, best_models, features_by_league, db=None):
             "Status": row.get("Status")
         }
 
-        save_model_prediction(result, db=db)
+        if persist:
+            save_model_prediction(
+                result,
+                db=db,
+                prediction_type=prediction_type,
+                trigger=trigger,
+            )
         prediction_rows.append(result)
 
     return pd.DataFrame(prediction_rows)

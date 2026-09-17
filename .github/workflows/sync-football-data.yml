@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - .github/workflows/sync-football-data.yml
+      - "*.py"
+      - requirements.txt
   schedule:
     - cron: "17 2 * * *"
     - cron: "43 */3 * * *"

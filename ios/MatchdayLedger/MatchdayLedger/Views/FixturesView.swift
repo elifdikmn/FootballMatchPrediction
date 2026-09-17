@@ -8,6 +8,7 @@ struct FixturesView: View {
     @State private var selectedDay = Date()
     @State private var showingCalendar = false
     @State private var savedDates: [String: [String]] = [:]
+    @State private var liveMatches: [LiveMatch] = []
 
     private var availableDates: [String] {
         Array(Set(savedDates.filter { code, _ in
@@ -74,9 +75,13 @@ struct FixturesView: View {
                 }
             }
             .task(id: selectedDate) { await load() }
-            .task { await loadDates() }
+            .task {
+                await loadDates()
+                await loadLiveStatus()
+            }
             .refreshable {
                 await loadDates()
+                await loadLiveStatus()
                 await load()
             }
         }
@@ -189,6 +194,10 @@ struct FixturesView: View {
                                 homeLogo: fx.homeTeamLogo, awayLogo: fx.awayTeamLogo,
                                 homePct: fx.homeWinPct, drawPct: fx.drawPct, awayPct: fx.awayWinPct,
                                 scoreText: fx.scoreText, statusText: fx.statusText,
+                                isLive: isLive(fx),
+                                predictionVersion: fx.predictionVersion,
+                                predictionUpdatedAt: fx.predictionUpdatedAt,
+                                homeDelta: fx.homeDelta, drawDelta: fx.drawDelta, awayDelta: fx.awayDelta,
                                 fixtureId: fx.fixtureId, leagueCode: fx.league
                             )
                         }
@@ -201,6 +210,26 @@ struct FixturesView: View {
     private func loadDates() async {
         do { savedDates = try await APIClient.shared.predictionDates() }
         catch { /* Date navigation remains available if metadata cannot be loaded. */ }
+    }
+
+    private func loadLiveStatus() async {
+        do { liveMatches = try await APIClient.shared.liveMatches() }
+        catch { liveMatches = [] }
+    }
+
+    private func isLive(_ fixture: ScheduledPrediction) -> Bool {
+        if fixture.isLive == true { return true }
+        func normalized(_ value: String) -> String {
+            value.folding(
+                options: [.diacriticInsensitive, .caseInsensitive],
+                locale: Locale(identifier: "en_US_POSIX")
+            ).filter { $0.isLetter || $0.isNumber }
+        }
+        return liveMatches.contains {
+            $0.league == fixture.league
+                && normalized($0.homeTeam) == normalized(fixture.homeTeam)
+                && normalized($0.awayTeam) == normalized(fixture.awayTeam)
+        }
     }
 
     private func load() async {
@@ -253,6 +282,12 @@ struct PredictionCard: View {
     var trailingBadge: AnyView? = nil
     var scoreText: String? = nil
     var statusText: String? = nil
+    var isLive = false
+    var predictionVersion: Int? = nil
+    var predictionUpdatedAt: String? = nil
+    var homeDelta: Double? = nil
+    var drawDelta: Double? = nil
+    var awayDelta: Double? = nil
     let fixtureId: Int
     let leagueCode: String
 
@@ -265,7 +300,21 @@ struct PredictionCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                if let trailingBadge { trailingBadge }
+                if isLive {
+                    Button {
+                        NotificationCenter.default.post(name: .openLiveTab, object: fixtureId)
+                    } label: {
+                        HStack(spacing: 7) {
+                            Circle().fill(Theme.success).frame(width: 7, height: 7)
+                            Text("LIVE NOW").font(.caption.weight(.bold))
+                            Image(systemName: "arrow.right").font(.caption2.weight(.bold))
+                        }
+                        .foregroundStyle(Theme.success)
+                        .padding(.horizontal, 10).padding(.vertical, 6)
+                        .background(Theme.success.opacity(0.12), in: Capsule())
+                    }
+                    .accessibilityLabel("Open this live match")
+                } else if let trailingBadge { trailingBadge }
                 else {
                     HStack(spacing: 6) {
                         Circle().fill(statusText == "FULL TIME" ? Theme.success : Theme.inkMuted)
@@ -317,6 +366,9 @@ struct PredictionCard: View {
             if homePct != nil || drawPct != nil || awayPct != nil {
                 OutcomeBar(homePct: homePct ?? 0, drawPct: drawPct ?? 0, awayPct: awayPct ?? 0)
             }
+            if (predictionVersion ?? 1) > 1 || [homeDelta, drawDelta, awayDelta].contains(where: { $0 != nil }) {
+                predictionUpdate
+            }
             NavigationLink {
                 CheckOutWhyView(fixtureId: fixtureId, homeTeam: homeTeam, awayTeam: awayTeam,
                                 scoreText: scoreText, league: leagueCode,
@@ -340,6 +392,31 @@ struct PredictionCard: View {
         .padding(16)
         .background(Color(hex: "171B24"), in: RoundedRectangle(cornerRadius: 16))
         .overlay(RoundedRectangle(cornerRadius: 16).stroke(Theme.line.opacity(0.7), lineWidth: 1))
+    }
+
+    private var predictionUpdate: some View {
+        HStack(spacing: 7) {
+            Image(systemName: "arrow.triangle.2.circlepath")
+                .foregroundStyle(Theme.cool)
+            Text("UPDATED")
+                .font(.caption2.weight(.bold)).tracking(0.8)
+                .foregroundStyle(Theme.ink)
+            if let summary = deltaSummary {
+                Text("· \(summary)")
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(Theme.inkMuted)
+                    .lineLimit(1).minimumScaleFactor(0.75)
+            }
+            Spacer(minLength: 0)
+        }
+        .accessibilityElement(children: .combine)
+    }
+
+    private var deltaSummary: String? {
+        let values = [("Home", homeDelta), ("Draw", drawDelta), ("Away", awayDelta)]
+            .compactMap { label, value -> (String, Double)? in value.map { (label, $0) } }
+        guard let strongest = values.max(by: { abs($0.1) < abs($1.1) }) else { return nil }
+        return "\(strongest.0) \(strongest.1 >= 0 ? "+" : "")\(strongest.1.formatted(.number.precision(.fractionLength(1))))%"
     }
 
     private func teamColumn(_ name: String, role: String, logo: URL?) -> some View {

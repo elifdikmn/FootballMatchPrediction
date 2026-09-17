@@ -14,7 +14,12 @@ struct LiveView: View {
             .navigationTitle("Live")
             .toolbarBackground(Theme.card, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
-            .task { await load() }
+            .task {
+                while !Task.isCancelled {
+                    await load()
+                    try? await Task.sleep(nanoseconds: 300_000_000_000)
+                }
+            }
             .refreshable { await load() }
         }
     }

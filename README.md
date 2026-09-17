@@ -217,7 +217,13 @@ Production scheduling is defined in `.github/workflows/sync-football-data.yml`:
 Add these repository secrets in **Settings → Secrets and variables → Actions**:
 
 - `DATABASE_URL`: the Supabase Postgres pooler connection string.
-- `FOOTBALL_DATA_TOKEN`: a free football-data.org API token.
+- `FOOTBALLDATATOKEN`: a free football-data.org API token.
+- `API_FOOTBALL_KEY`: used for live matches, events and the nightly Süper Lig
+  standings refresh.
+
+Süper Lig standings run at 23:00 Türkiye time. A midnight fallback runs only
+when the first attempt could not update the table. Days without Süper Lig
+fixtures do not consume an API request.
 
 Optional repository variable `OPENFOOTBALL_SEASON` can pin the Süper Lig feed
 to a value such as `2025-26`. Without it, the job tries the current season and
@@ -233,7 +239,9 @@ python sync_pipeline.py --mode full
 The Flask routes `/prediction-dates`, `/scheduled-predictions`,
 `/prediction/<fixture_id>`, and `/predictionmatch` read directly from the
 database. Provider credentials stay on the server and are never embedded in
-the iOS application.
+the iOS application. Pre-match recalculations are appended to
+`prediction_snapshots`; live predictions use a separate `LIVE` type and never
+overwrite the pre-match probabilities stored on the fixture.
 
 ---
 

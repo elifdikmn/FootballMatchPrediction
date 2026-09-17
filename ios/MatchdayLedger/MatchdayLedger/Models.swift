@@ -16,6 +16,13 @@ struct ScheduledPrediction: Codable, Identifiable {
     let homeWinPct: Double?
     let drawPct: Double?
     let awayWinPct: Double?
+    let isLive: Bool?
+    let predictionVersion: Int?
+    let predictionUpdatedAt: String?
+    let predictionTrigger: String?
+    let homeDelta: Double?
+    let drawDelta: Double?
+    let awayDelta: Double?
 
     var id: Int { fixtureId }
 
@@ -27,6 +34,7 @@ struct ScheduledPrediction: Codable, Identifiable {
     }
 
     var statusText: String {
+        if isLive == true { return "LIVE" }
         if isFinished { return "FULL TIME" }
         switch status?.uppercased() {
         case "SCHEDULED", "NS", nil: return "UPCOMING"
@@ -49,6 +57,13 @@ struct ScheduledPrediction: Codable, Identifiable {
         case homeWinPct = "home_win_pct"
         case drawPct = "draw_pct"
         case awayWinPct = "away_win_pct"
+        case isLive = "is_live"
+        case predictionVersion = "prediction_version"
+        case predictionUpdatedAt = "prediction_updated_at"
+        case predictionTrigger = "prediction_trigger"
+        case homeDelta = "home_delta"
+        case drawDelta = "draw_delta"
+        case awayDelta = "away_delta"
     }
 }
 

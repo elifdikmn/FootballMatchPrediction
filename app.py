@@ -5,11 +5,14 @@ import pickle
 import joblib
 import numpy as np
 from datetime import datetime
+from threading import Lock
+from time import monotonic
 from fixture import get_match_from_api
-from db_setup import SessionLocal
-from models import Fixture, Standing
+from db_setup import SessionLocal, init_db
+from models import Fixture, Standing, LiveMatchState
+from live_repository import cached_events, persist_live_matches, replace_events
 from match_repository import prediction_dates as load_prediction_dates
-from match_repository import scheduled_rows, score_value
+from match_repository import scheduled_rows, score_value, prediction_metadata
 from fixture import get_grouped_standings
 from evaluation import evaluate_model_accuracy
 from fixture import get_combined_fixtures_with_odds
@@ -37,6 +40,12 @@ from config import(
 import os
 
 app = Flask(__name__)
+init_db()
+
+_live_cache = {"updated": 0.0, "matches": []}
+_live_cache_lock = Lock()
+_event_cache_times = {}
+_event_cache_lock = Lock()
 
 
 def get_branding_data():
@@ -152,8 +161,8 @@ def _legacy_fixture_payload(fixture):
     }
 
 
-def _scheduled_payload(fixture, kickoff_utc, catalogue):
-    return {
+def _scheduled_payload(fixture, kickoff_utc, catalogue, metadata=None):
+    payload = {
         "fixture_id": fixture.FixtureID,
         "home_team": fixture.HomeTeam,
         "away_team": fixture.AwayTeam,
@@ -168,7 +177,10 @@ def _scheduled_payload(fixture, kickoff_utc, catalogue):
         "home_win_pct": fixture.HomeWinPct,
         "draw_pct": fixture.DrawPct,
         "away_win_pct": fixture.AwayWinPct,
+        "is_live": fixture.Status == "LIVE",
     }
+    payload.update(metadata or {})
+    return payload
 
 
 @app.route("/scheduled-predictions")
@@ -182,19 +194,46 @@ def scheduled_predictions():
     catalogue = get_branding_data()
     with SessionLocal() as session:
         rows = scheduled_rows(session, league_ids.keys(), selected_date)
-        output = [_scheduled_payload(fixture, kickoff, catalogue) for fixture, kickoff in rows]
+        metadata = prediction_metadata(session, (fixture.FixtureID for fixture, _ in rows))
+        output = [
+            _scheduled_payload(fixture, kickoff, catalogue, metadata.get(fixture.FixtureID))
+            for fixture, kickoff in rows
+        ]
     return jsonify(output)
 
 
 @app.route("/events/<int:fixture_id>", methods=["GET"])
 def match_events(fixture_id):
-    events = get_match_events(fixture_id)
+    with SessionLocal() as session:
+        state = session.get(LiveMatchState, fixture_id)
+        provider_fixture_id = int(state.provider_fixture_id) if state else fixture_id
+        with _event_cache_lock:
+            cache_fresh = monotonic() - _event_cache_times.get(fixture_id, 0) < 90
+            if cache_fresh:
+                events = cached_events(session, fixture_id)
+            else:
+                events = get_match_events(provider_fixture_id)
+                if events:
+                    replace_events(session, fixture_id, events)
+                else:
+                    events = cached_events(session, fixture_id)
+                _event_cache_times[fixture_id] = monotonic()
     return jsonify(events)
 
 
 @app.route("/live-matches-with-predictions", methods=["GET"])
 def live_matches_with_predictions():
-    data = get_live_matches_with_predictions(best_models, features_by_league, team_categories, historical_data_by_league)
+    with _live_cache_lock:
+        if monotonic() - _live_cache["updated"] < 300:
+            data = [dict(match) for match in _live_cache["matches"]]
+        else:
+            data = get_live_matches_with_predictions(
+                best_models, features_by_league, team_categories, historical_data_by_league
+            )
+            with SessionLocal() as session:
+                data = persist_live_matches(session, data)
+            _live_cache["matches"] = [dict(match) for match in data]
+            _live_cache["updated"] = monotonic()
     catalogue = get_branding_data()
     for match in data:
         league = match.get("league") or match.get("League")
