@@ -385,7 +385,7 @@ def sync_all(mode: str = "refresh", today: Optional[date] = None) -> dict:
     date_from = today - timedelta(days=1)
     date_to = today + timedelta(days=days_forward)
     token = os.environ.get("FOOTBALL_DATA_TOKEN", "").strip()
-    season = os.environ.get("OPENFOOTBALL_SEASON", season_slug(today))
+    season = os.environ.get("OPENFOOTBALL_SEASON", "").strip() or season_slug(today)
     provider = FixtureProvider()
     totals = {"inserted": 0, "updated": 0, "requests": 0}
 
