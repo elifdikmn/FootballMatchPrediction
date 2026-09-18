@@ -2,38 +2,6 @@ import pandas as pd
 from datetime import timedelta
 from team_normalizer import normalize_team_name, team_name_map
 
-def build_features_dataframe(fixtures, historical_data_by_league):
-    import pandas as pd
-
-    # 1️⃣ Fixture objelerini DataFrame'e dönüştür
-    rows = []
-    for fx in fixtures:
-        # dict veya objeyi destekle
-        is_dict = isinstance(fx, dict)
-
-        rows.append({
-            "FixtureID": fx["FixtureID"] if is_dict else fx.FixtureID,
-            "Date": fx["Date"] if is_dict else fx.Date,
-            "League": fx["League"] if is_dict else fx.League,
-            "HomeTeam": fx["HomeTeam"] if is_dict else fx.HomeTeam,
-            "AwayTeam": fx["AwayTeam"] if is_dict else fx.AwayTeam,
-            "B365H": fx.get("B365H") if is_dict else getattr(fx, "B365H", None),
-            "B365D": fx.get("B365D") if is_dict else getattr(fx, "B365D", None),
-            "B365A": fx.get("B365A") if is_dict else getattr(fx, "B365A", None)
-        })
-    merged_df = pd.DataFrame(rows)
-
-    if merged_df.empty:
-        return merged_df
-
-
-    # 2️⃣ ELO ve form özelliklerini ekle
-    merged_df = add_latest_elo_to_fixtures(merged_df, historical_data_by_league)
-    merged_df = add_latest_elo_features_to_fixtures(merged_df, historical_data_by_league)
-    merged_df = add_all_features_to_merged_df(merged_df, historical_data_by_league)
-
-    return merged_df
-
 def add_latest_elo_to_fixtures(merged_df, historical_data_by_league):
     merged_df = merged_df.copy()
     home_elos = []
