@@ -59,6 +59,7 @@ class FootballClient:
         if not claimed:
             return old
         if not self.key or not self.reserve(purpose):
+            self._release_lease(key)
             return old
         try:
             response = self.http.get('https://v3.football.api-sports.io/' + path,
@@ -66,6 +67,7 @@ class FootballClient:
             response.raise_for_status()
             payload = response.json()
             if payload.get('errors') or not isinstance(payload.get('response'), list):
+                self._release_lease(key)
                 return old
             with self.sessions() as db:
                 db.execute(update(ProviderCache).where(ProviderCache.key == key).values(
@@ -73,4 +75,10 @@ class FootballClient:
                 db.commit()
             return payload, now
         except (requests.RequestException, ValueError):
+            self._release_lease(key)
             return old
+
+    def _release_lease(self, key):
+        with self.sessions() as db:
+            db.execute(update(ProviderCache).where(ProviderCache.key == key).values(lease_until=0))
+            db.commit()

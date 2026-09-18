@@ -136,6 +136,19 @@ class CentralLiveTests(unittest.TestCase):
         self.assertEqual(self.client.fetch('fixtures', {'live': 'all'}, purpose='live'), (None, 0))
         with self.sessions() as db:
             self.assertEqual(db.query(ProviderRequestBudget).one().used, 1)
+            cache = db.query(ProviderCache).filter_by(key='fixtures:{"live": "all"}').one()
+            self.assertEqual(cache.lease_until, 0)
+
+    def test_exhausted_budget_releases_cache_lease(self):
+        with self.sessions() as db:
+            db.add(ProviderRequestBudget(day=self.now.date().isoformat(), used=80))
+            db.commit()
+        self.client.fetch('fixtures/events', {'fixture': '123'})
+        with self.sessions() as db:
+            cache = db.query(ProviderCache).filter_by(
+                key='fixtures/events:{"fixture": "123"}'
+            ).one()
+            self.assertEqual(cache.lease_until, 0)
 
 
 if __name__ == '__main__':
