@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from match_repository import scheduled_rows, score_value
-from models import Base, Fixture
+from models import Base, Fixture, FixtureSyncState
 
 
 class ScheduledDateTests(unittest.TestCase):
@@ -41,6 +41,26 @@ class ScheduledDateTests(unittest.TestCase):
         self.assertEqual(score_value(2.0), 2)
         for value in (None, math.nan, math.inf, -1, 1.5):
             self.assertIsNone(score_value(value))
+
+    def test_duplicate_provider_match_prefers_synced_finished_fixture(self):
+        self.session.add_all([
+            Fixture(
+                FixtureID=3, Date="2026-09-18", League="E0",
+                HomeTeam="Málaga CF", AwayTeam="Villarreal", Status="FINISHED",
+            ),
+            Fixture(
+                FixtureID=2_000_000_003, Date="2026-09-18", League="E0",
+                HomeTeam="Malaga", AwayTeam="Villarreal CF", Status="LIVE",
+            ),
+            FixtureSyncState(
+                FixtureID=3, provider="football-data.org", provider_fixture_id="3",
+                kickoff_utc="2026-09-18T18:00:00Z", source_hash="x",
+                needs_prediction=False, synced_at="2026-09-18T20:00:00Z",
+            ),
+        ])
+        self.session.commit()
+
+        self.assertEqual(self.ids("2026-09-18"), [3])
 
 
 if __name__ == "__main__":

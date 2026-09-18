@@ -1,6 +1,7 @@
 """Small database queries shared by Flask routes and tests."""
 
 from models import Fixture, FixtureSyncState, ModelPrediction, PredictionSnapshot
+from team_normalizer import team_identity
 
 
 def prediction_dates(db, supported_leagues):
@@ -22,7 +23,37 @@ def scheduled_rows(db, supported_leagues, selected_date=None):
         query = query.filter(Fixture.Date == selected_date)
     else:
         query = query.filter(Fixture.Status == "SCHEDULED")
-    return query.order_by(Fixture.Date.asc(), Fixture.FixtureID.asc()).all()
+    rows = query.order_by(Fixture.Date.asc(), Fixture.FixtureID.asc()).all()
+    unique = {}
+    for fixture, kickoff in rows:
+        home = team_identity(fixture.HomeTeam)
+        away = team_identity(fixture.AwayTeam)
+        # Do not merge incomplete legacy rows whose teams cannot be identified.
+        identity = (
+            fixture.League,
+            str(fixture.Date or "")[:10],
+            home,
+            away,
+        ) if home and away else ("fixture", fixture.FixtureID)
+        candidate = (fixture, kickoff)
+        current = unique.get(identity)
+        if current is None or _fixture_preference(candidate) > _fixture_preference(current):
+            unique[identity] = candidate
+    return sorted(
+        unique.values(),
+        key=lambda row: (str(row[0].Date or ""), row[0].FixtureID),
+    )
+
+
+def _fixture_preference(row):
+    fixture, kickoff = row
+    status = (fixture.Status or "").upper()
+    return (
+        kickoff is not None,
+        status in {"FINISHED", "FT", "AET", "PEN"},
+        fixture.Predicted_Label is not None,
+        fixture.FixtureID < 2_000_000_000,
+    )
 
 
 def score_value(value):

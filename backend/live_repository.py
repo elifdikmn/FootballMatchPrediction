@@ -4,8 +4,11 @@ from datetime import datetime, timezone
 import hashlib
 
 from db_utils import save_model_prediction
-from models import Event, Fixture, LiveMatchState
-from team_normalizer import normalize_team_name
+from models import Event, Fixture, FixtureSyncState, LiveMatchState, PredictionSnapshot
+from team_normalizer import team_identity
+
+
+FINISHED_STATUSES = {"FINISHED", "FT", "AET", "PEN"}
 
 
 def _score_values(score):
@@ -18,20 +21,65 @@ def _score_values(score):
 
 def _canonical_fixture(db, match):
     existing = db.query(LiveMatchState).filter_by(provider_fixture_id=str(match['fixture_id'])).first()
-    if existing:
-        return db.get(Fixture, existing.FixtureID)
+    linked = db.get(Fixture, existing.FixtureID) if existing else None
     day = str(match.get("date") or "")[:10]
-    home = normalize_team_name(match.get("home_team") or "")
-    away = normalize_team_name(match.get("away_team") or "")
+    home = team_identity(match.get("home_team"))
+    away = team_identity(match.get("away_team"))
     candidates = db.query(Fixture).filter_by(League=match.get("league"), Date=day).all()
-    return next(
-        (
-            fixture for fixture in candidates
-            if normalize_team_name(fixture.HomeTeam) == home
-            and normalize_team_name(fixture.AwayTeam) == away
-        ),
-        None,
+    matches = [
+        fixture for fixture in candidates
+        if team_identity(fixture.HomeTeam) == home
+        and team_identity(fixture.AwayTeam) == away
+    ]
+    if not matches:
+        return linked, existing
+
+    def preference(fixture):
+        return (
+            db.get(FixtureSyncState, fixture.FixtureID) is not None,
+            (fixture.Status or "").upper() in FINISHED_STATUSES,
+            fixture.Predicted_Label is not None,
+            fixture.FixtureID < 2_000_000_000,
+        )
+
+    return max(matches, key=preference), existing
+
+
+def _rebind_live_state(db, existing, fixture, provider_fixture_id, now):
+    """Move a provider mapping off an old synthetic duplicate."""
+    if existing is None or existing.FixtureID == fixture.FixtureID:
+        return db.get(LiveMatchState, fixture.FixtureID)
+
+    old_fixture_id = existing.FixtureID
+    db.delete(existing)
+    db.flush()
+    state = db.get(LiveMatchState, fixture.FixtureID)
+    if state is None:
+        state = LiveMatchState(
+            FixtureID=fixture.FixtureID,
+            provider_fixture_id=provider_fixture_id,
+            league=fixture.League,
+            status="LIVE",
+            updated_at=now,
+        )
+        db.add(state)
+    db.query(Event).filter_by(FixtureID=old_fixture_id).update(
+        {Event.FixtureID: fixture.FixtureID}, synchronize_session=False
     )
+    if not db.query(PredictionSnapshot).filter_by(
+        FixtureID=fixture.FixtureID, prediction_type="LIVE"
+    ).first():
+        db.query(PredictionSnapshot).filter_by(
+            FixtureID=old_fixture_id, prediction_type="LIVE"
+        ).update({PredictionSnapshot.FixtureID: fixture.FixtureID}, synchronize_session=False)
+    else:
+        db.query(PredictionSnapshot).filter_by(
+            FixtureID=old_fixture_id, prediction_type="LIVE"
+        ).delete(synchronize_session=False)
+    orphan = db.get(Fixture, old_fixture_id)
+    if orphan is not None and db.get(FixtureSyncState, old_fixture_id) is None:
+        orphan.Status = "DUPLICATE"
+    return state
 
 
 def persist_live_matches(db, matches):
@@ -41,7 +89,7 @@ def persist_live_matches(db, matches):
     for raw in matches:
         match = dict(raw)
         provider_fixture_id = str(match["fixture_id"])
-        fixture = _canonical_fixture(db, match)
+        fixture, existing_state = _canonical_fixture(db, match)
         if fixture is None:
             # A dedicated deterministic namespace avoids mixing provider IDs.
             identity = int(hashlib.sha256(('api-football:' + provider_fixture_id).encode()).hexdigest()[:12], 16)
@@ -53,7 +101,21 @@ def persist_live_matches(db, matches):
             db.add(fixture)
             db.flush()
 
-        state = db.get(LiveMatchState, fixture.FixtureID)
+        # Never let a delayed live-provider response roll a final result back
+        # to LIVE or make it appear as a second match.
+        if (
+            (fixture.Status or "").upper() in FINISHED_STATUSES
+            and (match.get("status") or "").upper() == "LIVE"
+        ):
+            if existing_state is not None:
+                existing_state.status = "FINISHED"
+                existing_state.updated_at = now
+                orphan = db.get(Fixture, existing_state.FixtureID)
+                if orphan is not None and orphan.FixtureID != fixture.FixtureID:
+                    orphan.Status = "DUPLICATE"
+            continue
+
+        state = _rebind_live_state(db, existing_state, fixture, provider_fixture_id, now)
         if state is None:
             state = LiveMatchState(
                 FixtureID=fixture.FixtureID,

@@ -1,9 +1,14 @@
+import re
+import unicodedata
+
+
 def map_live_team_name(raw_name, team_name_map):
     normalized = normalize_team_name(raw_name)
     for original_name, mapped_name in team_name_map.items():
         if normalize_team_name(original_name) == normalized:
             return mapped_name
     return raw_name
+
 
 team_name_map = {
      # Premier League (E0)
@@ -218,3 +223,17 @@ def normalize_team_name(name):
             .strip()
     )
     return team_name_map.get(cleaned_name, cleaned_name)
+
+
+def team_identity(name):
+    """Return a provider-independent key used only to match the same club."""
+    normalized = normalize_team_name(name or "")
+    ascii_name = "".join(
+        character
+        for character in unicodedata.normalize("NFKD", normalized)
+        if not unicodedata.combining(character)
+    )
+    tokens = re.findall(r"[a-z0-9]+", ascii_name.casefold())
+    while len(tokens) > 1 and tokens[-1] in {"afc", "cf", "fc", "sc"}:
+        tokens.pop()
+    return "".join(tokens)
