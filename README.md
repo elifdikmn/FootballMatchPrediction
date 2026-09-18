@@ -65,36 +65,26 @@ cannot be counted by the application.
 
 ```text
 .
-├── app.py                         Flask API entry point
-├── models.py                      SQLAlchemy database schema
-├── fixture_sync.py                Scheduled fixture/result ingestion
-├── sync_pipeline.py               Fixture sync + pending predictions
-├── prediction_pipeline.py         Model inference and persistence
-├── live_sync.py                   Central six-league live-score worker
-├── live_detail.py                 On-demand events and live prediction
-├── provider_cache.py              Shared cache and daily API budget
-├── standings_sync.py              European and Süper Lig table sync
-├── branding.py                    League/team branding catalogue
-├── feature_engineering.py         Model feature construction
-├── train_models.py                Training entry point
-├── *_matches.csv                  Historical league datasets
-├── best_models.pkl                Saved pre-match models
-├── live_best_models.pkl           Saved live models
-├── tests/                         Backend unit/integration tests
-├── ios/MatchdayLedger/            SwiftUI app and local logo assets
+├── backend/                       Flask API, synchronization, ML code and tests
+├── datasets/historical/           Six league historical CSV datasets
+├── datasets/external/             Supplementary xG data
+├── datasets/snapshots/            Committed research snapshots
+├── models/artifacts/              Versioned pre-match and live model artifacts
+├── frontend/ios/MatchdayLedger/   SwiftUI app and local logo assets
+├── docs/                          Thesis and entity-relationship diagrams
 ├── assets/                        Thesis figures and screenshots
 ├── .github/workflows/             Scheduled production jobs
 └── scripts/create_release_zip.py  Reproducible clean ZIP exporter
 ```
 
-Older cache migration and evaluation utilities remain at repository root for
-research reproducibility. Production paths are the modules listed above.
-Runtime cache files and local databases are excluded from clean releases.
+The former cache migration, scraper and duplicate evaluation scripts were
+removed. Runtime cache files and local databases are excluded from the
+repository and clean releases.
 
 ## Backend setup
 
 Python 3.12 is recommended. The saved pre-match models use the pinned
-scikit-learn version in `requirements.txt`.
+scikit-learn version in `backend/requirements.txt`.
 
 ```bash
 git clone https://github.com/elifdikmn/FootballMatchPrediction.git
@@ -102,7 +92,7 @@ cd FootballMatchPrediction
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
 cp .env.example .env
 ```
 
@@ -122,6 +112,7 @@ Never commit `.env` or paste credentials into source files.
 Initialize/synchronize data and run the API:
 
 ```bash
+cd backend
 python sync_pipeline.py --mode full
 PORT=5001 python app.py
 ```
@@ -136,9 +127,9 @@ python standings_sync.py --europe
 
 ## iOS setup
 
-Open `ios/MatchdayLedger/MatchdayLedger.xcodeproj` in Xcode.
+Open `frontend/ios/MatchdayLedger/MatchdayLedger.xcodeproj` in Xcode.
 
-`APIConfig.baseURL` in `ios/MatchdayLedger/MatchdayLedger/APIClient.swift`
+`APIConfig.baseURL` in `frontend/ios/MatchdayLedger/MatchdayLedger/APIClient.swift`
 defaults to `http://localhost:5001`, which works in the iOS Simulator. For a
 physical iPhone, use the Mac's LAN address or a deployed HTTPS API.
 

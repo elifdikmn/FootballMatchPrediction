@@ -5,10 +5,8 @@ on:
       - main
     paths:
       - .github/workflows/sync-live.yml
-      - live_sync.py
-      - live_repository.py
-      - provider_cache.py
-      - models.py
+      - "backend/**"
+      - "models/artifacts/live_best_models.pkl"
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
@@ -42,8 +40,9 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-      - run: pip install sqlalchemy psycopg[binary] python-dotenv requests
+      - run: pip install -r backend/requirements.txt
         if: steps.config.outputs.configured == 'true'
       - name: Refresh shared scores only during fixture windows
         if: steps.config.outputs.configured == 'true'
+        working-directory: backend
         run: python live_sync.py

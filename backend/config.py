@@ -1,7 +1,8 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
 THE_ODDS_API_KEY = os.environ.get("THE_ODDS_API_KEY", "")

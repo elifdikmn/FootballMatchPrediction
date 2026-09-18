@@ -31,6 +31,7 @@ from xgboost import XGBClassifier
 from config import features, features_tr, features_by_league
 from load_league_data import load_historical_league_data
 from team_normalizer import normalize_team_name
+from paths import HISTORICAL_DATA_DIR, MODEL_ARTIFACTS_DIR
 
 warnings.filterwarnings("ignore")
 
@@ -217,7 +218,7 @@ def build_team_categories(historical_data_by_league):
 
 
 def main():
-    historical = load_historical_league_data(data_dir=".")
+    historical = load_historical_league_data(data_dir=HISTORICAL_DATA_DIR)
 
     best_models = {}
     summary = []
@@ -227,15 +228,17 @@ def main():
         best_models[league] = model
         summary.append((league, name, acc, f1))
 
-    with open("best_models.pkl", "rb") as f:
+    best_models_path = MODEL_ARTIFACTS_DIR / "best_models.pkl"
+    team_categories_path = MODEL_ARTIFACTS_DIR / "team_categories.pkl"
+    with open(best_models_path, "rb") as f:
         pass  # sanity: confirm the old file is still readable before we overwrite it
 
     import shutil
-    shutil.copy("best_models.pkl", "best_models.pkl.bak")
-    with open("best_models.pkl", "wb") as f:
+    shutil.copy(best_models_path, best_models_path.with_suffix(".pkl.bak"))
+    with open(best_models_path, "wb") as f:
         pickle.dump(best_models, f)
 
-    joblib.dump(build_team_categories(historical), "team_categories.pkl")
+    joblib.dump(build_team_categories(historical), team_categories_path)
 
     print("\n=== Summary (held-out 2023+ test set) ===")
     for league, name, acc, f1 in summary:

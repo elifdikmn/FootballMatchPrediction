@@ -1,10 +1,11 @@
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models import Base
 
-load_dotenv()
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///matches.db")
 # Some hosted Postgres providers still expose the legacy scheme.

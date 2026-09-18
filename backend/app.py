@@ -1,41 +1,18 @@
-from flask import Flask, jsonify, request,json
-import requests
-import pandas as pd
-import pickle
-import joblib
-import numpy as np
+from flask import Flask, jsonify, request
 from datetime import datetime
-from fixture import get_match_from_api
+import pickle
 from db_setup import SessionLocal, init_db
 from models import Fixture, Standing, LiveMatchState
-from live_repository import cached_events, persist_live_matches, replace_events
 from live_sync import read_live
 from live_detail import load_events, load_live_prediction
 from match_repository import prediction_dates as load_prediction_dates
 from match_repository import scheduled_rows, score_value, prediction_metadata
-from fixture import get_grouped_standings
 from evaluation import evaluate_model_accuracy
-from fixture import get_combined_fixtures_with_odds
-from fixture import get_match_events
-from fixture import predict_from_live_api
-from fixture import get_standings_by_league
 from fixture import league_ids
 from fixture import get_current_season
 from branding import branding_catalogue, logo_for_team
-from feature_engineering import (
-    add_latest_elo_to_fixtures,
-    add_latest_elo_features_to_fixtures,
-    add_all_features_to_merged_df
-)
-from prediction_pipeline import predict_from_merged_df
-from fixture import merge_xg_to_fixtures, xg_data
-from config import(
-    features,
-    live_features,
-    features_tr,
-    features_by_league,
-    API_FOOTBALL_KEY
-)
+from config import live_features
+from paths import MODEL_ARTIFACTS_DIR, RUNTIME_DIR
 import os
 
 app = Flask(__name__)
@@ -58,7 +35,7 @@ def get_branding_data():
         league_ids,
         sorted(seasons) or [get_current_season()],
         "",  # Use bundled branding; never spend the live-data budget here.
-        cache_path="branding_cache.json",
+        cache_path=RUNTIME_DIR / "branding_cache.json",
     )
 
 
@@ -67,23 +44,8 @@ def branding():
     return jsonify(get_branding_data())
 
 
-# Model ve encoder yükle
-with open("best_models.pkl", "rb") as f:
-    best_models = pickle.load(f)
-with open("live_best_models.pkl", "rb") as f:
+with open(MODEL_ARTIFACTS_DIR / "live_best_models.pkl", "rb") as f:
     live_best_models = pickle.load(f)
-team_categories = joblib.load("team_categories.pkl")
-
-
-# Historical data
-historical_data_by_league = {
-    "D1": pd.read_csv("D1_matches.csv", parse_dates=["Date"]),
-    "E0": pd.read_csv("E0_matches.csv", parse_dates=["Date"]),
-    "SP1": pd.read_csv("SP1_matches.csv", parse_dates=["Date"]),
-    "I1": pd.read_csv("I1_matches.csv", parse_dates=["Date"]),
-    "F1": pd.read_csv("F1_matches.csv", parse_dates=["Date"]),
-    "T1": pd.read_csv("T1_matches.csv", parse_dates=["Date"])
-}
 
 
 

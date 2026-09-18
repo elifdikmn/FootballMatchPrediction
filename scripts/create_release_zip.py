@@ -17,13 +17,11 @@ ARCHIVE_ROOT = "FootballMatchPrediction"
 
 EXCLUDED_FILES = {
     ".env",
-    "events_cache.json",
-    "live_prediction_cache",
-    "live_prediction_cache.json",
-    "matches.db",
-    "model.pkl",  # Empty legacy placeholder; real models are best_models.pkl files.
-    "prediction_cache.json",
-    "upcoming_fixtures_cache.json",
+    "runtime/events_cache.json",
+    "runtime/live_prediction_cache.json",
+    "runtime/matches.db",
+    "runtime/prediction_cache.json",
+    "runtime/upcoming_fixtures_cache.json",
 }
 EXCLUDED_PARTS = {".claude", ".git", ".venv", "__pycache__", "xcuserdata"}
 SENSITIVE_NAME_RE = re.compile(r"(^|/)(\.env($|\.)|.*credentials?.*|.*secrets?.*)", re.I)

@@ -15,11 +15,12 @@ from feature_engineering import (
 from fixture_sync import sync_all
 from models import Fixture, FixtureSyncState
 from prediction_pipeline import load_best_models, predict_from_merged_df
+from paths import historical_dataset
 
 
 def _historical_data():
     return {
-        code: pd.read_csv(f"{code}_matches.csv", parse_dates=["Date"])
+        code: pd.read_csv(historical_dataset(code), parse_dates=["Date"])
         for code in features_by_league
     }
 

@@ -34,9 +34,10 @@ jobs:
           python-version: "3.12"
           cache: pip
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r backend/requirements.txt
       - name: Update standings after the day's matches
         shell: bash
+        working-directory: backend
         run: |
           if [[ -z "$API_FOOTBALL_KEY" ]]; then
             echo "API_FOOTBALL_KEY is not configured; skipping Süper Lig standings."

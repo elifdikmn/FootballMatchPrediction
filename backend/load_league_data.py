@@ -1,7 +1,8 @@
 import pandas as pd
 import os
+from paths import HISTORICAL_DATA_DIR
 
-def load_historical_league_data(data_dir="Data"):
+def load_historical_league_data(data_dir=HISTORICAL_DATA_DIR):
     league_files = {
         "D1": "D1_matches.csv",    # Bundesliga
         "E0": "E0_matches.csv",    # Premier League

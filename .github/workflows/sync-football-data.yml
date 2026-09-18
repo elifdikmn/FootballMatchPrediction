@@ -6,8 +6,9 @@ on:
       - main
     paths:
       - .github/workflows/sync-football-data.yml
-      - "*.py"
-      - requirements.txt
+      - "backend/**"
+      - "datasets/**"
+      - "models/artifacts/**"
   schedule:
     - cron: "17 2 * * *"
     - cron: "43 */3 * * *"
@@ -46,11 +47,14 @@ jobs:
           python-version: "3.12"
           cache: pip
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r backend/requirements.txt
       - name: Validate database and cache behavior
+        working-directory: backend
         run: python -m unittest discover -s tests -q
       - name: Sync fixtures and generate pending predictions
+        working-directory: backend
         run: python sync_pipeline.py --mode "$SYNC_MODE"
 
       - name: Update five European league tables
+        working-directory: backend
         run: python standings_sync.py --europe

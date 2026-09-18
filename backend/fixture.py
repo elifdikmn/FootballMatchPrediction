@@ -9,12 +9,13 @@ import hashlib
 from live_predictor import get_live_fixtures, get_live_events_summary, get_live_odds_from_api_football, get_htr, normalize_odds
 
 from prediction_pipeline import predict_from_merged_df
+from paths import EXTERNAL_DATA_DIR
 from feature_engineering import (
     add_latest_elo_to_fixtures,
     add_latest_elo_features_to_fixtures,
     add_all_features_to_merged_df
 )
-xg_data = pd.read_csv("future_xg_matches.csv")
+xg_data = pd.read_csv(EXTERNAL_DATA_DIR / "future_xg_matches.csv")
 xg_data = xg_data.rename(columns={
     "xg_home": "HxG",
     "xg_away": "AxG",

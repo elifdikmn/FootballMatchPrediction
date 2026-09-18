@@ -14,8 +14,9 @@ import datetime
 import numpy as np
 
 import pickle
+from paths import MODEL_ARTIFACTS_DIR
 
-def load_best_models(path="best_models.pkl"):
+def load_best_models(path=MODEL_ARTIFACTS_DIR / "best_models.pkl"):
     with open(path, "rb") as f:
         return pickle.load(f)
 
