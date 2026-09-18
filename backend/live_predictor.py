@@ -1,19 +1,13 @@
-import requests
+"""Pure helpers for cached API-Football live data and live-model inference."""
+
 import math
 
-from team_normalizer import team_name_map
-from team_normalizer import map_live_team_name
-from config import API_FOOTBALL_KEY
-HEADERS = {"x-apisports-key": API_FOOTBALL_KEY}
+import pandas as pd
 
-API_FOOTBALL_LEAGUES = {
-    78: "D1",
-    39: "E0",
-    140: "SP1",
-    135: "I1",
-    61: "F1",
-    203: "T1",
-}
+from config import LEAGUE_IDS
+
+
+API_FOOTBALL_LEAGUES = {provider_id: code for code, provider_id in LEAGUE_IDS.items()}
 
 
 def _empty_event_summary():
@@ -28,129 +22,28 @@ def _empty_event_summary():
     }
 
 
-def get_live_events_summary(fixture_id, home_team, away_team):
-    summary = _empty_event_summary()
-    if not API_FOOTBALL_KEY:
-        return None
-    url = f"https://v3.football.api-sports.io/fixtures/events?fixture={fixture_id}"
-    try:
-        response = requests.get(url, headers=HEADERS, timeout=20)
-    except requests.RequestException as error:
-        print(f"❌ Event API connection error ({fixture_id}): {error}")
-        return None
-
-    if response.status_code != 200:
-        print(f"❌ Event API hatası ({fixture_id}):", response.status_code)
-        return None
-
-    payload = response.json()
-    if payload.get("errors"):
-        return None
-    data = payload.get("response", [])
-
-    for event in data:
-        team = event["team"]["name"]
-        event_type = event["type"]
-        detail = event["detail"]
-        elapsed = event["time"]["elapsed"]
-
-        # Kartlar
-        if event_type == "Card":
-            if detail == "Yellow Card":
-                if team == home_team:
-                    summary["home_yellow_cards"] += 1
-                elif team == away_team:
-                    summary["away_yellow_cards"] += 1
-            elif detail == "Red Card":
-                if team == home_team:
-                    summary["home_red_cards"] += 1
-                elif team == away_team:
-                    summary["away_red_cards"] += 1
-
-        # Son event
-        summary["last_event_type"] = event_type
-        summary["last_event_team"] = team
-        summary["last_event_minute"] = elapsed
-
-    return summary
-
-def get_live_fixtures():
-    if not API_FOOTBALL_KEY:
-        return []
-    url = "https://v3.football.api-sports.io/fixtures?live=all"
-    try:
-        response = requests.get(url, headers=HEADERS, timeout=20)
-    except requests.RequestException as error:
-        print(f"❌ Live fixtures API connection error: {error}")
-        return []
-
-    if response.status_code != 200:
-        print("❌ Live fixtures API hatası:", response.status_code)
-        return []
-
-    data = response.json().get("response", [])
-    live_fixtures = []
-
-    for match in data:
-        league_code = API_FOOTBALL_LEAGUES.get(match.get("league", {}).get("id"))
-        if league_code is None:
-            continue
-        fixture_id = match["fixture"]["id"]
-        raw_home_team = match["teams"]["home"]["name"]
-        raw_away_team = match["teams"]["away"]["name"]
-        home_team = map_live_team_name(raw_home_team, team_name_map)
-        away_team = map_live_team_name(raw_away_team, team_name_map)
-        elapsed = match["fixture"]["status"]["elapsed"]
-        halftime_score = match.get("score", {}).get("halftime", {"home": 0, "away": 0})
-        goals = match.get("goals") or {}
-
-        live_fixtures.append({
-            "fixture_id": fixture_id,
-            "date": str(match["fixture"].get("date") or "")[:10],
-            "home_team": home_team,
-            "away_team": away_team,
-            "provider_home_team": raw_home_team,
-            "provider_away_team": raw_away_team,
-            "elapsed": elapsed,
-            "home_goals": goals.get("home") or 0,
-            "away_goals": goals.get("away") or 0,
-            "ht_home_goals": halftime_score.get("home") or 0,
-            "ht_away_goals": halftime_score.get("away") or 0,
-            "league": league_code,
-            "status": match["fixture"]["status"].get("short") or "LIVE",
-        })
-
-    return live_fixtures
-
-def get_htr(score_str, home_team, away_team):
-    try:
-        home_goals, away_goals = map(int, score_str.strip().split("-"))
-        if home_goals > away_goals:
-            return "H"
-        elif home_goals < away_goals:
-            return "A"
-        else:
-            return "D"
-    except Exception as e:
-        print(f"⚠️ HTR hesaplama hatası: {e}")
-        return "D"  # varsayılan olarak beraberlik dön
-
 def parse_live_odds(payload, fixture_id):
-    """Only accept active full-time 1X2 markets from the in-play endpoint."""
+    """Accept active full-time 1X2 markets from a cached in-play response."""
     for item in payload.get("response", []):
         if str(item.get("fixture", {}).get("id")) != str(fixture_id):
             continue
         if any(item.get("status", {}).get(key) for key in ("blocked", "stopped", "finished")):
             continue
         for bet in item.get("odds", []):
-            if str(bet.get("name", "")).lower() not in {"fulltime result", "full time result", "match winner"}:
+            if str(bet.get("name", "")).lower() not in {
+                "fulltime result", "full time result", "match winner"
+            }:
                 continue
             odds = {}
             for value in bet.get("values", []):
                 if value.get("suspended") or value.get("main") is False:
                     continue
                 outcome = str(value.get("value", "")).lower()
-                key = {"home": "B365H", "1": "B365H", "draw": "B365D", "x": "B365D", "away": "B365A", "2": "B365A"}.get(outcome)
+                key = {
+                    "home": "B365H", "1": "B365H",
+                    "draw": "B365D", "x": "B365D",
+                    "away": "B365A", "2": "B365A",
+                }.get(outcome)
                 try:
                     price = float(value["odd"])
                 except (KeyError, TypeError, ValueError):
@@ -162,47 +55,72 @@ def parse_live_odds(payload, fixture_id):
     return None
 
 
-def get_live_odds_from_api_football(fixture_id):
-    if not API_FOOTBALL_KEY:
-        return None
-    try:
-        response = requests.get(
-            "https://v3.football.api-sports.io/odds/live",
-            params={"fixture": fixture_id}, headers=HEADERS, timeout=20,
+def normalize_odds(odds):
+    inverse_sum = sum(1 / odds[key] for key in ("B365H", "B365D", "B365A"))
+    return {
+        "HomeProb": (1 / odds["B365H"]) / inverse_sum,
+        "DrawProb": (1 / odds["B365D"]) / inverse_sum,
+        "AwayProb": (1 / odds["B365A"]) / inverse_sum,
+    }
+
+
+def predict_from_live_api(models, features, live_matches, odds_loader, events_loader):
+    """Run live inference from centrally cached match, odds and event data."""
+    results = []
+    for match in live_matches:
+        fixture_id = match["fixture_id"]
+        league = match["league"]
+        home_team = match["home_team"]
+        away_team = match["away_team"]
+        ht_home = match.get("ht_home_goals", 0)
+        ht_away = match.get("ht_away_goals", 0)
+        htr_code = 1 if ht_home > ht_away else -1 if ht_home < ht_away else 0
+
+        odds = odds_loader(fixture_id)
+        events = events_loader(
+            fixture_id,
+            match.get("provider_home_team", home_team),
+            match.get("provider_away_team", away_team),
         )
-        response.raise_for_status()
-        return parse_live_odds(response.json(), fixture_id)
-    except (requests.RequestException, ValueError):
-        return None
+        label = None
+        percentages = {"home": None, "draw": None, "away": None}
+        model = models.get(league)
 
-def extract_card_counts(events, home_team, away_team):
-    hy = ay = hr = ar = 0
-    for event in events:
-        if event["type"] != "Card":
-            continue
-        team = event["team"]
-        detail = event.get("detail", "")
-        is_home = team == home_team
+        if odds and events is not None and model is not None:
+            feature_row = {
+                "HY": events["home_yellow_cards"],
+                "AY": events["away_yellow_cards"],
+                "HR": events["home_red_cards"],
+                "AR": events["away_red_cards"],
+                "HTR_code": htr_code,
+                "HTAG": ht_away,
+                "HTHG": ht_home,
+                **normalize_odds(odds),
+            }
+            model_input = pd.DataFrame([
+                {column: feature_row.get(column, 0) for column in features}
+            ])
+            predicted = model.predict(model_input)[0]
+            model_probabilities = dict(zip(model.classes_, model.predict_proba(model_input)[0]))
+            label = {1: "Home Win", 0: "Draw", -1: "Away Win"}.get(predicted)
+            percentages = {
+                "home": round(float(model_probabilities.get(1, 0)) * 100, 2),
+                "draw": round(float(model_probabilities.get(0, 0)) * 100, 2),
+                "away": round(float(model_probabilities.get(-1, 0)) * 100, 2),
+            }
 
-        if "Yellow" in detail:
-            if is_home:
-                hy += 1
-            else:
-                ay += 1
-        elif "Red" in detail:
-            if is_home:
-                hr += 1
-            else:
-                ar += 1
-    return hy, ay, hr, ar
-
-def normalize_odds(odds_dict):
-    try:
-        inverse_sum = sum(1 / odds_dict[k] for k in ["B365H", "B365D", "B365A"])
-        return {
-            "HomeProb": (1 / odds_dict["B365H"]) / inverse_sum,
-            "DrawProb": (1 / odds_dict["B365D"]) / inverse_sum,
-            "AwayProb": (1 / odds_dict["B365A"]) / inverse_sum
-        }
-    except ZeroDivisionError:
-        return {"HomeProb": 0.33, "DrawProb": 0.33, "AwayProb": 0.33}
+        results.append({
+            "fixture_id": fixture_id,
+            "date": match.get("date"),
+            "home_team": home_team,
+            "away_team": away_team,
+            "league": league,
+            "score": f"{match.get('home_goals', 0)} - {match.get('away_goals', 0)}",
+            "elapsed": int(match.get("elapsed") or 0),
+            "status": match.get("status") or "LIVE",
+            "predicted_label": label,
+            "home_win_pct": percentages["home"],
+            "draw_pct": percentages["draw"],
+            "away_win_pct": percentages["away"],
+        })
+    return results

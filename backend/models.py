@@ -1,7 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean, JSON, Text, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
@@ -36,28 +34,6 @@ class Event(Base):
     type = Column(String)
     detail = Column(String)
     assist = Column(String, nullable=True)
-
-class PredictionInfo(Base):
-    __tablename__ = 'prediction_info'
-
-    FixtureID = Column(Integer, primary_key=True)
-    winner = Column(String)
-    advice = Column(String)
-    home_pct = Column(String)
-    draw_pct = Column(String)
-    away_pct = Column(String)
-    form_home = Column(String)
-    form_away = Column(String)
-    goals_home = Column(String)
-    goals_away = Column(String)
-    h2h_home = Column(String)
-    h2h_away = Column(String)
-    poisson_home = Column(String)
-    poisson_away = Column(String)
-    last_5_home = Column(JSON)
-    last_5_away = Column(JSON)
-    comment = Column(String)
-    under_over = Column(String)
 
 class Standing(Base):
     __tablename__ = 'standings'

@@ -7,7 +7,7 @@ La Liga (`SP1`), Serie A (`I1`), Ligue 1 (`F1`) and Turkish Süper Lig (`T1`).
 
 The app shows fixtures, saved pre-match predictions, results, league tables,
 team/league branding and a separate live-match experience. The original thesis
-and evaluation are in [FOOTBALLMATCHPREDICTION.pdf](FOOTBALLMATCHPREDICTION.pdf).
+and evaluation are in [FOOTBALLMATCHPREDICTION.pdf](docs/FOOTBALLMATCHPREDICTION.pdf).
 
 ## Current architecture
 

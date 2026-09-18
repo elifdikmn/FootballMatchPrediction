@@ -1,11 +1,25 @@
 import os
+from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
 API_FOOTBALL_KEY = os.environ.get("API_FOOTBALL_KEY", "")
-THE_ODDS_API_KEY = os.environ.get("THE_ODDS_API_KEY", "")
+
+LEAGUE_IDS = {
+    "D1": 78,
+    "E0": 39,
+    "SP1": 140,
+    "I1": 135,
+    "F1": 61,
+    "T1": 203,
+}
+
+
+def current_season() -> int:
+    today = datetime.now().date()
+    return today.year if today.month >= 7 else today.year - 1
 
 features = [
     "WinRateDiff", "DrawRateDiff",

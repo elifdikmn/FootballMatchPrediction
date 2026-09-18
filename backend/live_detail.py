@@ -6,7 +6,7 @@ from db_utils import save_model_prediction
 from live_repository import cached_events, replace_events
 from models import LiveMatchState, Fixture, PredictionSnapshot
 from provider_cache import FootballClient
-from live_predictor import parse_live_odds, _empty_event_summary
+from live_predictor import parse_live_odds, predict_from_live_api, _empty_event_summary
 
 
 def load_events(fixture_id, client=None, sessions=SessionLocal):
@@ -29,7 +29,6 @@ def load_events(fixture_id, client=None, sessions=SessionLocal):
 
 
 def load_live_prediction(fixture_id, models, features, client=None, sessions=SessionLocal):
-    from fixture import predict_from_live_api
     client = client or FootballClient(sessions=sessions)
     now = client.clock()
     with sessions() as db:

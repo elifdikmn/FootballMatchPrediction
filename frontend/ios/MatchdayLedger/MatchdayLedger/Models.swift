@@ -167,7 +167,7 @@ struct LastFive: Codable {
     let form: String?
 }
 
-/// The 6 leagues the backend's models are trained on (fixture.py's league_ids).
+/// The six leagues supported by the backend models.
 enum League: String, CaseIterable, Identifiable {
     case bundesliga = "D1"
     case premierLeague = "E0"
