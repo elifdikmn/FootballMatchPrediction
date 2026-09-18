@@ -10,3 +10,15 @@ branding_cache.json
 branding_cache.json.tmp
 matches.db
 matches.db-journal
+*.sqlite
+*.sqlite3
+events_cache.json
+prediction_cache.json
+upcoming_fixtures_cache.json
+live_prediction_cache
+live_prediction_cache.json
+ios/**/xcuserdata/
+ios/**/project.xcworkspace/xcuserdata/
+*.xcuserstate
+release/
+*.zip
