@@ -77,9 +77,10 @@ cannot be counted by the application.
 └── scripts/create_release_zip.py  Reproducible clean ZIP exporter
 ```
 
-The former cache migration, scraper and duplicate evaluation scripts were
-removed. Runtime cache files and local databases are excluded from the
-repository and clean releases.
+The former cache migration, local scheduler, scraper and duplicate evaluation
+scripts were removed. Production scheduling lives in GitHub Actions. Runtime
+cache files and local databases are excluded from the repository and clean
+releases.
 
 ## Backend setup
 

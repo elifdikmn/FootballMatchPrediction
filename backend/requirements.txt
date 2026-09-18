@@ -5,10 +5,6 @@ scikit-learn==1.9.1
 joblib
 requests
 sqlalchemy
-apscheduler
-beautifulsoup4
-selenium
-webdriver-manager
-matplotlib
 python-dotenv
 psycopg[binary]
+xgboost

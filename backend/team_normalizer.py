@@ -1,12 +1,3 @@
-def normalize_team_name(name):
-    return (
-        name.replace(".", "")
-            .replace("’", "'")
-            .replace("`", "'")
-            .replace("´", "'")
-            .strip()
-    )
-
 def map_live_team_name(raw_name, team_name_map):
     normalized = normalize_team_name(raw_name)
     for original_name, mapped_name in team_name_map.items():
